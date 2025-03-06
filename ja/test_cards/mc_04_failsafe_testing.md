@@ -1,49 +1,37 @@
 # Test MC_04 - Failsafe Testing
 
-❏ Verify RC Loss action is Return to Land
+## Objective
 
-❏ Verify Data Link Loss action is Return to Land and the timeout is 10 seconds
+Test RC loss, data link loss, and low battery failsafes.
 
-❏ Verify Battery failsafe
+## Preflight
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Action is Return to Land
+- Verify RC Loss action is Return to Land
+- Verify Data Link Loss action is Return to Land and the timeout is 10 seconds
+- Verify Battery failsafe
+    - Action is Return to Land
+    - Battery Warn Level is 25%
+    - Battery Failsafe Level is 20%
+    - Battery Emergency Level is 15%
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Battery Warn Level is 25%
-
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Battery Failsafe Level is 20%
-
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Battery Emergency Level is 15%
-
-❏ Take off in Altitude mode
-
-❏ Move at least 20 meters away home position
+## Flight Tests
 
 ❏ RC loss
 
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Take off in Altitude mode
+
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Move at least 20 meters away home position
+
 &nbsp;&nbsp;&nbsp;&nbsp;❏Turn off RC and check the vehicle returns to home position, wait for the descent and turn on the RC and take over.
 
-## Datalink Loss
+❏ Datalink Loss
 
-❏ Disconnect telemetry, vehicle should return to home position after 10 seconds, wait for the descent and reconnect the telemetry radio
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Disconnect telemetry, vehicle should return to home position after 10 seconds, wait for the descent and reconnect the telemetry radio
 
-## Switch to Altitude Mode
+❏ Battery Failsafe
 
-❏ Make sure roll, pitch and yaw sticks respond like in Stabilize mode
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Confirm the warning message is received in QGC
 
-❏ Throttle should control altitude, and when the stick is centered it must maintain altitude
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Confirm the vehicle returns to land on failsafe level
 
-## Switch to Position Mode
-
-❏ When the sticks are centered, it must maintain position
-
-❏ Move roll, pitch and yaw and check the vehicle is moving according to the inputs
-
-❏ Center the sticks again and check the vehicle maintains position
-
-## Wait for Battery Failsafe to Trigger
-
-❏ Confirm the warning message is received in QGC
-
-❏ Confirm the vehicle returns to land
-
-❏ Confirm the vehicle lands.
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Confirm the vehicle lands on emergency land level

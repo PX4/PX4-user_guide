@@ -1,41 +1,59 @@
 # 시험 MC_03 - 자동 / 수동 혼합
 
-## 임무 수립 및 업로드
+## Objective
 
-❏ 임무 규정
+To test switching between various modes
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Changes in Altitude throughout the mission
+## Preflight
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Mission should end in the air and NOT Land/RTL
+- Takeoff as first waypoint
+- Changes in Altitude throughout the mission
+- Last waypoint is a NOT RTL, but a normal waypoint
+- Duration of 5 to 6 minutes
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Duration of 3 to 4 minutes
+## Flight Tests
 
-❏ Upload mission to vehicle using _QGroundControl_
+❏ Position + Mission
 
-## 비행
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Arm and take-off in Position mode
 
-❏ 위치 제어 모드에서 시동 및 이륙
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Engage Auto
 
-❏ 자동 모드 인가
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Observe tracking and cornering
 
-❏ 경로 추적, 선회 관찰
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Once mission has completed, switch back to Position mode
 
-❏ 임무 완료 후 위치 제어 모드로 복귀
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;❏ Horizontal position should hold current value with stick centered
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Horizontal position should hold current value with stick centered
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;❏ Vertical position should hold current value with stick centered
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Vertical position should hold current value with stick centered
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;❏ Throttle response set to Climbs/Descend rate
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Throttle response set to Climbs/Descend rate
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;❏ Pitch/Roll/Yaw response set to Pitch/Roll/Yaw rates
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Pitch/Roll/Yaw response set to Pitch/Roll/Yaw rates
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Engage RTL
 
-❏ 회귀 지점 착륙 인가
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Upon touching ground, copter should disarm automatically within 2 seconds (disarm time set by parameter: COM_DISARM_LAND)
 
-❏ Upon touching ground, copter should disarm automatically within 2 seconds (disarm time set by parameter: [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND))
+❏ Mission + Controller interruption
+
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Arm and take-off in Position mode
+
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Engage Auto
+
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Observe tracking and cornering
+
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Before the last waypoint mission is reached, move the control sticks and ensure the vehicle goes into Position flight mode
+
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Manually move the drone over the landing zone
+
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Engage Land mode
+
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Upon touching ground, copter should disarm automatically within 2 seconds (disarm time set by parameter: COM_DISARM_LAND)
 
 ## 예상 결과
 
 - 추력을 올릴 때 서서히 이륙한다
 - 위에 언급한 어떤 비행 모드에서도 떨림이 나타나서는 안됨
+- When moving the control sticks the drone goes into Position flight mode
 - 지면에 착륙시, 콥터가 지면에서 튀면 안됨

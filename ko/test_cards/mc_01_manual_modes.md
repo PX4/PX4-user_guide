@@ -1,12 +1,14 @@
 # 시험 MC_01 - 수동 모드
 
-## 시동 및 이륙
+## Objective
 
-❏  Stabilize로 비행 모드를 설정하고 시동
+To test that manual flight modes work as expected
 
-❏ 추진력을 올려 이륙
+## Preflight
 
-## 비행
+Ensure that the drone can go into Stabilized, Altitude, Position mode while still on the ground
+
+## Flight Tests
 
 ❏ 안정화 상태
 
@@ -32,11 +34,11 @@
 
 &nbsp;&nbsp;&nbsp;&nbsp;❏ Pitch/Roll/Yaw response set to Pitch/Roll/Yaw rates
 
-## 착륙
+❏ Landing
 
-❏ 40% 미만의 추력으로 위치 제어 모드 상태에서 착륙
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Land in Position mode with the throttle below 40%
 
-❏ Upon touching ground, copter should disarm automatically within 2 seconds (disarm time set by parameter: [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND))
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Upon touching ground, copter should disarm automatically within 2 seconds (disarm time set by parameter: [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND))
 
 ## 예상 결과
 

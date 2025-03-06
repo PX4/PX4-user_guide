@@ -1,49 +1,37 @@
 # Тест MC_04 - Тестування безаварійності
 
-❏ Переконайтеся, що дія RC Loss – це повернення на землю
+## Objective
 
-❏ Переконайтеся, що дія «Втрата зв’язку даних» — «Повернення на землю», а час очікування становить 10 секунд
+Test RC loss, data link loss, and low battery failsafes.
 
-❏ Перевірте безвідмовність батареї
+## Preflight
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Action is Return to Land
+- Verify RC Loss action is Return to Land
+- Verify Data Link Loss action is Return to Land and the timeout is 10 seconds
+- Verify Battery failsafe
+    - Action is Return to Land
+    - Battery Warn Level is 25%
+    - Battery Failsafe Level is 20%
+    - Battery Emergency Level is 15%
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Battery Warn Level is 25%
-
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Battery Failsafe Level is 20%
-
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Battery Emergency Level is 15%
-
-❏ Зупинка в режимі висоти
-
-❏ Перемістіть принаймні на 20 метрів від домашньої позиції
+## Flight Tests
 
 ❏ Втрата RC
 
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Take off in Altitude mode
+
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Move at least 20 meters away home position
+
 &nbsp;&nbsp;&nbsp;&nbsp;❏Turn off RC and check the vehicle returns to home position, wait for the descent and turn on the RC and take over.
 
-## Втрата каналу передачі даних
+❏ Datalink Loss
 
-❏ Відключіть телеметрію, транспортний засіб має повернутися у вихідне положення через 10 секунд, дочекайтеся спуску та знову підключіть телеметричну радіостанцію
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Disconnect telemetry, vehicle should return to home position after 10 seconds, wait for the descent and reconnect the telemetry radio
 
-## Перемкнутись у режим висоти
+❏ Battery Failsafe
 
-❏ Переконайтеся, що джойстики повороту, нахилу та повороту реагують, як у режимі стабілізації
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Confirm the warning message is received in QGC
 
-❏ Дросель повинен контролювати висоту, а коли ручка знаходиться в центрі, вона повинна підтримувати висоту
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Confirm the vehicle returns to land on failsafe level
 
-## Перейти в режим розташування
-
-❏ коли ручки в центрі, вони повинні утримувати позицію
-
-❏ Перемістіть крен, кут та поворот і перевірте, чи транспортний засіб рухається відповідно до введених даних
-
-❏ Знову відцентруйте ручки та перевірте, чи транспортний засіб зберігає положення
-
-## Зачекайте, доки спрацює Battery Failsafe
-
-Підтвердіть, що отримано попереджувальне повідомлення в QGC
-
-Підтвердьте повернення машини на землю
-
-Підтвердьте приземлення машини
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Confirm the vehicle lands on emergency land level
