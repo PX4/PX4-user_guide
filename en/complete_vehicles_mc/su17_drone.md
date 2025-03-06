@@ -8,28 +8,12 @@ The [Amov SU17](https://docs.amovlab.com/su17u-v2-wiki/#/en-src/) is a brand-new
 
 ## Where to Buy
 
-Please send email to service@amovauto.com
+- [Amovlab SU17 Drone ](https://www.amovlab.top/products/su17?variant=49474676719906)
 
 
 ## Hardware Overview
 
 ![Hardware Overview](https://qiniu.md.amovlab.com/img/m/202412/20241216/1751148569433076076216320.png)
-
-| Callout | Description                           | 
-| ------- | ------------------------------------- | 
-| 1       | MID360 LiDAR                                | 
-| 2       | Onboard System                      | 
-| 3       | Omnidirectional Vision System             | 
-| 4       | Single Axis Gimbal               | 
-| 5       | Protective Cover    | 
-| 6       | Micro SD Card Slot        | 
-| 7       | Propeller                 | 
-| 8       | Navigation Light         | 
-| 9       | GPS Antenna                | 
-| 10       | Motor |  
-| 11       | Omnidirectional Vision System                   | 
-| 12      | Battery                    | 
-| 13       | Parameter Adjustment Interface                          |     
 
 
 ### Software structure
