@@ -17,11 +17,10 @@ The other sections provide general information about how the simulator works, an
 
 The following simulators are supported by the PX4 core development team.
 
-
-| Simulator                                         | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| ------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Gazebo](../sim_gazebo_gz/index.md)              | <p><strong>This simulator is highly recommended.</strong></p><p>Gazebo supersedes [Gazebo Classic](../sim_gazebo_classic/index.md), featuring more advanced rendering, physics and sensor models. It is the only version of Gazebo available from Ubuntu Linux 22.04</p><p>A powerful 3D simulation environment that is particularly suitable for testing object-avoidance and computer vision. It can also be used for [multi-vehicle simulation](../simulation/multi-vehicle-simulation.md) and is commonly used with [ROS](../simulation/ros_interface.md), a collection of tools for automating vehicle control. </p><p><strong>Supported Vehicles:</strong> Quad, Standard VTOL, Plane</p>                            |
-| [Gazebo Classic](../sim_gazebo_classic/index.md) | <p><strong>This simulator is highly recommended.</strong></p><p>A powerful 3D simulation environment that is particularly suitable for testing object-avoidance and computer vision. It can also be used for [multi-vehicle simulation](../simulation/multi-vehicle-simulation.md) and is commonly used with [ROS](../simulation/ros_interface.md), a collection of tools for automating vehicle control.</p><p><strong>Supported Vehicles:</strong> Quad ([Iris](../airframes/airframe_reference.md#copter_quadrotor_x_generic_quadcopter), Hex (Typhoon H480), [Generic Standard VTOL (QuadPlane)](../airframes/airframe_reference.md#vtol_standard_vtol_generic_standard_vtol), Tailsitter, Plane, Rover, Submarine </p> |
+| Simulator                                        | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| ------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Gazebo](../sim_gazebo_gz/index.md)              | Gazebo supersedes [Gazebo Classic](../sim_gazebo_classic/index.md), featuring more advanced rendering, physics and sensor models. It is the only version of Gazebo available from Ubuntu Linux 22.04<br><br>A powerful 3D simulation environment that is particularly suitable for testing object-avoidance and computer vision. It can also be used for [multi-vehicle simulation](../simulation/multi-vehicle-simulation.md) and is commonly used with [ROS](../simulation/ros_interface.md), a collection of tools for automating vehicle control. <br><br><strong>Supported Vehicles:</strong> Quad, VTOL (Standard, Tailsitter, Tiltroter), Plane, Rovers |
+| [Gazebo Classic](../sim_gazebo_classic/index.md) | A powerful 3D simulation environment that is particularly suitable for testing object-avoidance and computer vision. It can also be used for [multi-vehicle simulation](../simulation/multi-vehicle-simulation.md) and is commonly used with [ROS](../simulation/ros_interface.md), a collection of tools for automating vehicle control.<br><br>**Supported Vehicles:** Quad ([Iris](../airframes/airframe_reference.md#copter_quadrotor_x_generic_quadcopter)), Hex (Typhoon H480), [Generic Standard VTOL (QuadPlane)](../airframes/airframe_reference.md#vtol_standard_vtol_generic_standard_vtol), Tailsitter, Plane, Rover, Submarine                    |
 
 There are also a number of [Community Supported Simulators](../simulation/community_supported_simulators.md).
 
@@ -161,30 +160,28 @@ The simulation can be further configured via environment variables:
 The syntax described here is simplified, and there are many other options that you can configure via _make_ - for example, to set that you wish to connect to an IDE or debugger.
 For more information see: [Building the Code > PX4 Make Build Targets](../dev_setup/building_px4.md#px4-make-build-targets).
 
-<a id="simulation_speed"></a>
+### Run Simulation Faster than Realtime {#simulation_speed}
 
-### Run Simulation Faster than Realtime
-
-SITL can be run faster or slower than realtime when using jMAVSim or Gazebo Classic.
+SITL can be run faster or slower than realtime when using Gazebo, Gazebo Classic, or jMAVSim.
 
 The speed factor is set using the environment variable `PX4_SIM_SPEED_FACTOR`.
-For example, to run the jMAVSim simulation at 2 times the real time speed:
+For example, to run the Gazebo simulation of the X500 frame at 2 times the real time speed:
 
 ```sh
-PX4_SIM_SPEED_FACTOR=2 make px4_sitl jmavsim
+PX4_SIM_SPEED_FACTOR=2 make px4_sitl gz_x500
 ```
 
 To run at half real-time:
 
 ```sh
-PX4_SIM_SPEED_FACTOR=0.5 make px4_sitl jmavsim
+PX4_SIM_SPEED_FACTOR=0.5 make px4_sitl gz_x500
 ```
 
 You can apply the factor to all SITL runs in the current session using `EXPORT`:
 
 ```sh
 export PX4_SIM_SPEED_FACTOR=2
-make px4_sitl jmavsim
+make px4_sitl gz_x500
 ```
 
 ::: info
@@ -199,7 +196,7 @@ For example, if `COM_DL_LOSS_T` is 10 in realtime, at 10x simulation rate increa
 
 ### Lockstep Simulation
 
-PX4 SITL and the simulators (jMAVSim or Gazebo Classic) have been set up to run in _lockstep_.
+PX4 SITL and the simulators (Gazebo, Gazebo Classic, jMAVSim) have been set up to run in _lockstep_.
 What this means is that PX4 and the simulator wait on each other for sensor and actuator messages, rather than running at their own speeds.
 
 ::: info
@@ -221,13 +218,13 @@ In this case the simulator and PX4 use the host system time and do not wait on e
 
 To disable lockstep in PX4, run `make px4_sitl_default boardconfig` and set the `BOARD_NOLOCKSTEP` "Force disable lockstep" symbol which is located under toolchain.
 
-To disable lockstep in Gazebo, edit [the model SDF file](https://github.com/PX4/PX4-SITL_gazebo-classic/blob/3062d287c322fabf1b41b8e33518eb449d4ac6ed/models/plane/plane.sdf#L449) and set `<enable_lockstep>false</enable_lockstep>`.
+To disable lockstep in Gazebo Classic, edit [the model SDF file](https://github.com/PX4/PX4-SITL_gazebo-classic/blob/3062d287c322fabf1b41b8e33518eb449d4ac6ed/models/plane/plane.sdf#L449) and set `<enable_lockstep>false</enable_lockstep>`.
 
 To disable lockstep in jMAVSim, remove `-l` in [sitl_run.sh](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/simulation/jsbsim/sitl_run.sh#L40), or make sure otherwise that the java binary is started without the `-lockstep` flag.
 
 <!-- Relevant lines in sitl_run.sh are: -->
 <!-- # Start Java simulator -->
-<!-- "$src_path"/Tools/simulation/jmavsim/jmavsim_run.sh -r 250 -l & SIM_PID=$! -->
+<!-- "$src_path"/Tools/simulation/jmavsim/jmavsim_run.sh -r 250 -l & SIM_PID=$!  -->
 
 ### Startup Scripts
 
