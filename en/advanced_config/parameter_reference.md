@@ -25245,7 +25245,7 @@ Lower value -> More aggressive controller (beware overshoot/oscillations)
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; | 0.1 | 100 | 0.01 | 1 |  
+&nbsp; | 0.1 | 100 | 0.01 | 1.0 |  
 
 ### PP_LOOKAHD_MAX (`FLOAT`) {#PP_LOOKAHD_MAX}
 
@@ -25253,7 +25253,7 @@ Maximum lookahead distance for the pure pursuit controller.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; | 0.1 | 100 | 0.01 | 10 | m 
+&nbsp; | 0.1 | 100 | 0.01 | 10.0 | m 
 
 ### PP_LOOKAHD_MIN (`FLOAT`) {#PP_LOOKAHD_MIN}
 
@@ -25261,7 +25261,7 @@ Minimum lookahead distance for the pure pursuit controller.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; | 0.1 | 100 | 0.01 | 1 | m 
+&nbsp; | 0.1 | 100 | 0.01 | 1.0 | m 
 
 ## RC
 

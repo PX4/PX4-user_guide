@@ -196,6 +196,7 @@ This are the three next waypoints (or just the next two or one).
 - [PowerButtonState](PowerButtonState.md) — power button state notification message
 - [PowerMonitor](PowerMonitor.md) — power monitor message
 - [PpsCapture](PpsCapture.md)
+- [PurePursuitStatus](PurePursuitStatus.md)
 - [PwmInput](PwmInput.md)
 - [Px4ioStatus](Px4ioStatus.md)
 - [QshellReq](QshellReq.md)
