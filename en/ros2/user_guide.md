@@ -800,8 +800,8 @@ Like for any other ROS 2 service client, the ROS 2 application needs to declare 
 rclcpp::Client<px4_msgs::srv::VehicleCommand>::SharedPtr vehicle_command_client_;
 ```
 
-and then initialize it to the right ROS 2 service.
-As the application assumes the standard PX4 namespace is used, this results in
+Then the client is initialized to the right ROS 2 service (`/fmu/vehicle_command`).
+As the application assumes the standard PX4 namespace is used, the code to do this looks like this:
 
 ```cpp
 vehicle_command_client_{this->create_client<px4_msgs::srv::VehicleCommand>("/fmu/vehicle_command")}
