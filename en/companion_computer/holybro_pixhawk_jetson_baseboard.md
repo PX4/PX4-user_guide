@@ -81,7 +81,7 @@ This information comes from the [Holybro Pixhawk-Jetson Baseboard Documentation]
 
   - USB-C
 
-- 2 Key M 2242 for NVMe SSD
+- 2 Key M 2242/2280 for NVMe SSD
 
   - PCIEx4
 
