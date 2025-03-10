@@ -720,16 +720,16 @@ Therefore,
   For more information see [uXRCE-DDS > DDS Topics YAML](../middleware/uxrce_dds.md#dds-topics-yaml).
   :::
 
-## Customizing the Topic Namespace
+## Customizing the Namespace
 
-Custom topic namespaces can be applied at build time (changing [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml)) or at runtime (useful for multi vehicle operations):
+Custom topic and service namespaces can be applied at build time (changing [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml)) or at runtime (useful for multi vehicle operations):
 
 - One possibility is to use the `-n` option when starting the [uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client) from command line.
   This technique can be used both in simulation and real vehicles.
 - A custom namespace can be provided for simulations (only) by setting the environment variable `PX4_UXRCE_DDS_NS` before starting the simulation.
 
 ::: info
-Changing the namespace at runtime will append the desired namespace as a prefix to all `topic` fields in [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml).
+Changing the namespace at runtime will append the desired namespace as a prefix to all `topic` fields in [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml) and all [service servers](#px4-ros-2-service-servers).
 Therefore, commands like:
 
 ```sh
@@ -768,6 +768,8 @@ The service servers that are built into the PX4 [uxrce_dds_client](../modules/mo
 
   This service can be called by ROS 2 applications to send PX4 [VehicleCommand](../msg_docs/VehicleCommand.md) uORB messages and receive PX4 [VehicleCommandAck](../msg_docs/VehicleCommandAck.md) uORB messages in response.
 
+All PX4 service names follow the convention `{extra_namespace}/fmu/{server_specific_name}` where `{extra_namespace}` is the same [custom namespace](#customizing-the-namespace) that can be given to the PX4 topics.
+
 Details and specific examples are provided in the following sections.
 
 
@@ -775,7 +777,6 @@ Details and specific examples are provided in the following sections.
 
 This can be used to send commands to the vehicle, such as "take off", "land", change mode, and "orbit", and receive a response.
 
-The service is available under `/fmu/vehicle_command`, which can be changed through custom namespaces just like the other PX4 topics.
 The service type is defined in [`px4_msgs::srv::VehicleCommand`](https://github.com/PX4/px4_msgs/blob/main/srv/VehicleCommand.srv) as:
 
 ```txt

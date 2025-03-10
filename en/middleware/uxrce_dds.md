@@ -308,7 +308,7 @@ By default the client is started on localhost UDP port `8888` with no additional
 Environment variables are provided that override some [UXRCE-DDS parameters](../advanced_config/parameter_reference.md#uxrce-dds-client).
 These allow users to create custom startup files for their simulations:
 
-- `PX4_UXRCE_DDS_NS`: Use this to specify the topic [namespace](#customizing-the-topic-namespace).
+- `PX4_UXRCE_DDS_NS`: Use this to specify the topic [namespace](#customizing-the-namespace)).
 - `ROS_DOMAIN_ID`: Use this to replace [UXRCE_DDS_DOM_ID](../advanced_config/parameter_reference.md#UXRCE_DDS_DOM_ID).
 - `PX4_UXRCE_DDS_PORT`: Use this to replace [UXRCE_DDS_PRT](../advanced_config/parameter_reference.md#UXRCE_DDS_PRT).
 
@@ -347,16 +347,16 @@ Therefore,
   For more information see [DDS Topics YAML](#dds-topics-yaml) below.
   :::
 
-## Customizing the Topic Namespace
+## Customizing the Namespace
 
-Custom topic namespaces can be applied at build time (changing [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml)) or at runtime (which is useful for multi vehicle operations):
+Custom topic and service namespaces can be applied at build time (changing [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml)) or at runtime (which is useful for multi vehicle operations):
 
 - One possibility is to use the `-n` option when starting the [uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client) from command line.
   This technique can be used both in simulation and real vehicles.
 - A custom namespace can be provided for simulations (only) by setting the environment variable `PX4_UXRCE_DDS_NS` before starting the simulation.
 
 ::: info
-Changing the namespace at runtime will append the desired namespace as a prefix to all `topic` fields in [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml).
+Changing the namespace at runtime will append the desired namespace as a prefix to all `topic` fields in [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml) and all [service servers](#dds-ros-2-services).
 Therefore, commands like:
 
 ```sh
