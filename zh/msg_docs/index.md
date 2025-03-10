@@ -321,6 +321,8 @@ Graphs showing how these are used [can be found here](../middleware/uorb_graph.m
 
 - [PpsCapture](PpsCapture.md)
 
+- [PurePursuitStatus](PurePursuitStatus.md)
+
 - [PwmInput](PwmInput.md)
 
 - [Px4ioStatus](Px4ioStatus.md)
