@@ -636,6 +636,7 @@
         - [PowerButtonState](msg_docs/PowerButtonState.md)
         - [PowerMonitor](msg_docs/PowerMonitor.md)
         - [PpsCapture](msg_docs/PpsCapture.md)
+        - [PurePursuitStatus](msg_docs/PurePursuitStatus.md)
         - [PwmInput](msg_docs/PwmInput.md)
         - [Px4ioStatus](msg_docs/Px4ioStatus.md)
         - [QshellReq](msg_docs/QshellReq.md)
