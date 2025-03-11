@@ -197,12 +197,21 @@ For example, if `COM_DL_LOSS_T` is 10 in realtime, at 10x simulation rate increa
 ### Lockstep Simulation
 
 PX4 SITL and the simulators (Gazebo, Gazebo Classic, jMAVSim) have been set up to run in _lockstep_.
-What this means is that PX4 and the simulator wait on each other for sensor and actuator messages, rather than running at their own speeds.
+What this means is that PX4 and the simulator run at the same speed, and therefore can react appropriately to sensor and actuator messages.
 
 ::: info
 Lockstep makes it possible to [run the simulation faster or slower than realtime](#simulation_speed), and also to pause it in order to step through code.
 :::
 
+#### Gazebo
+
+Gazebo runs the simulator at the same speed as PX4 (the GZBridge now sets the PX4 time on every sim step, in the `clockCallback`).
+
+Lockstep cannot be disabled on Gazebo.
+
+#### Gazebo Classic & jMAVSim
+
+PX4 and the simulator wait on each other for sensor and actuator messages, rather than running at their own speeds.
 The sequence of steps for lockstep are:
 
 1. The simulation sends a sensor message [HIL_SENSOR](https://mavlink.io/en/messages/common.html#HIL_SENSOR) including a timestamp `time_usec` to update the sensor state and time of PX4.
@@ -211,9 +220,9 @@ The sequence of steps for lockstep are:
 
 The system starts with a "freewheeling" period where the simulation sends sensor messages including time and therefore runs PX4 until it has initialized and responds with an actuator message.
 
-#### Disable Lockstep Simulation
+##### Disable Lockstep Simulation
 
-The lockstep simulation can be disabled if, for example, SITL is to be used with a simulator that does not support this feature.
+On Gazebo Classic and jMAVSim, the lockstep simulation can be disabled if, for example, SITL is to be used with a simulator that does not support this feature.
 In this case the simulator and PX4 use the host system time and do not wait on each other.
 
 To disable lockstep in PX4, run `make px4_sitl_default boardconfig` and set the `BOARD_NOLOCKSTEP` "Force disable lockstep" symbol which is located under toolchain.
