@@ -30,6 +30,19 @@ Order this module from:
 - NDAA Compliant
 - 6 Pin Pixhawk Standard UART/I2C Cable
 
+## Hardware setup
+
+The module comes with a Pixhawk-standard 6pin connector that will plug into the `GPS2` port on recent Pixhawk flight controllers.
+It should be mounted front facing, as far away from the flight controller and other electronics as possible. 
+
+For more information see [Mounting the GNSS/Compass](../gps_compass/index.md#mounting-the-gnss-compass) and [Hardware Setup](../gps_compass/index.md#hardware-setup).
+
+## PX4 Configuration
+
+The module should be plug-n-play when used with the `GPS2` port on most flight controllers.
+
+[Secondary GPS Configuration (UART)](../gps_compass/index.md#secondary-gps-configuration-uart) explains how you can configure the port if the GPS is not detected (note, that the configuration is the same, even if you are using GPS 2 as the primary compass).
+
 ## Pinout
 
 ### Pixhawk Standard UART/I2C Connector - 6 Pin JST-SH
