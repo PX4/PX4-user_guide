@@ -46,7 +46,7 @@ It also highlights devices that connect via the CAN bus, and those which support
 | [LOCOSYS Hawk R1](../gps_compass/rtk_gps_locosys_r1.md)                                                              |      MC-1612-V2b     |                             |                                  |                                                   |                             |
 | [LOCOSYS Hawk R2](../gps_compass/rtk_gps_locosys_r2.md)                                                              |      MC-1612-V2b     |           IST8310           |                                  |                                                   |                             |
 | [mRo u-blox ZED-F9 RTK L1/L2 GPS](https://store.mrobotics.io/product-p/m10020d.htm)                                  |          F9P         | &check; |                                  |                [Dual F9P][DualF9P]                |                             |
-| [Navisys L1/L2 ZED-F9P RTK - Base only](https://www.navisys.com.tw/productdetail?name=GR901\&class=RTK)              |          F9P         |                             |                                  |                                                   |                             |
+| [Navisys L1/L2 ZED-F9P RTK - Base only](https://www.navisys.com.tw/productdetail?name=GR901&class=RTK)         |          F9P         |                             |                                  |                                                   |                             |
 | [RaccoonLab L1/L2 ZED-F9P][RaccoonLab L1/L2 ZED-F9P]                                                                 |          F9P         |            RM3100           |    &check;   |                                                   |                             |
 | [RaccoonLab L1/L2 ZED-F9P with external antenna][RaccnLabL1L2ZED-F9P ext_ant]                                        |          F9P         |            RM3100           |    &check;   |                                                   |                             |
 | [Septentrio AsteRx-m3 Pro](../gps_compass/septentrio_asterx-rib.md)                                                  |        AsteRx        | &check; |                                  |       [Septentrio Dual Antenna][SeptDualAnt]      | &check; |
@@ -121,36 +121,36 @@ This should be set by default, but if not, follow the [MAVLink2 configuration in
 The RTK GPS connection is essentially plug and play:
 
 1. Start _QGroundControl_ and attach the base RTK GPS via USB to the ground station.
-   电脑会自动识别设备。
+  电脑会自动识别设备。
 
 2. Start the vehicle and make sure it is connected to _QGroundControl_.
 
-   :::tip
-   _QGroundControl_ displays an RTK GPS status icon in the top icon bar while an RTK GPS device is connected (in addition to the normal GPS status icon).
-   The icon is red while RTK is being set up, and then changes to white once RTK GPS is active.
-   You can click the icon to see the current state and RTK accuracy.
+  :::tip
+  _QGroundControl_ displays an RTK GPS status icon in the top icon bar while an RTK GPS device is connected (in addition to the normal GPS status icon).
+  The icon is red while RTK is being set up, and then changes to white once RTK GPS is active.
+  You can click the icon to see the current state and RTK accuracy.
 
 :::
 
 3. _QGroundControl_ then starts the RTK setup process (known as "Survey-In").
 
-   测量是一个获得基站准确位置的设置过程。
-   The process typically takes several minutes (it ends after reaching the minimum time and accuracy specified in the [RTK settings](#rtk-gps-settings)).
+  测量是一个获得基站准确位置的设置过程。
+  The process typically takes several minutes (it ends after reaching the minimum time and accuracy specified in the [RTK settings](#rtk-gps-settings)).
 
-   你也可以点击 RTK状态按钮查看。
+  你也可以点击 RTK状态按钮查看。
 
-   ![survey-in](../../assets/qgc/setup/rtk/qgc_rtk_survey-in.png)
+  ![survey-in](../../assets/qgc/setup/rtk/qgc_rtk_survey-in.png)
 
 4. 测量完成：
 
-   - The RTK GPS icon changes to white and _QGroundControl_ starts to stream position data to the vehicle:
+  - The RTK GPS icon changes to white and _QGroundControl_ starts to stream position data to the vehicle:
 
-     ![RTK streaming](../../assets/qgc/setup/rtk/qgc_rtk_streaming.png)
+    ![RTK streaming](../../assets/qgc/setup/rtk/qgc_rtk_streaming.png)
 
-   - Vehicle GPS switches to RTK mode.
-     The new mode is displayed in the _normal_ GPS status icon (`3D RTK GPS Lock`):
+  - Vehicle GPS switches to RTK mode.
+    The new mode is displayed in the _normal_ GPS status icon (`3D RTK GPS Lock`):
 
-     ![RTK GPS Status](../../assets/qgc/setup/rtk/qgc_rtk_gps_status.png)
+    ![RTK GPS Status](../../assets/qgc/setup/rtk/qgc_rtk_gps_status.png)
 
 ### Configuring GPS as Yaw/Heading Source
 
