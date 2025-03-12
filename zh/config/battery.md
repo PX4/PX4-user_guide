@@ -4,8 +4,10 @@
 
 :::info
 These instructions require that the vehicle has a [Power Module (PM)](../power_module/index.md), or other hardware that can measure the battery voltage and (optionally) the current.
+:::
 
-This tuning is not needed for [Smart/MAVLink Batteries](../smart_batteries/index.md).
+:::tip
+This tuning is not needed for [Smart/MAVLink Batteries](../smart_batteries/index.md): batteries that can supply a reliable indication of remaining charge.
 :::
 
 ## 综述
@@ -69,7 +71,7 @@ This sets the number of cells connected in series in the battery.
 Typically this will be written on the battery as a number followed by "S" (e.g "3S", "5S").
 
 :::info
-The voltage across a single galvanic battery cell is dependent on the chemical properties of the battery type.
+The voltage across a single galvanic battery cell is dependent on the [chemical properties of the battery type](../power_systems/battery_chemistry.md).
 Lithium-Polymer (LiPo) batteries and Lithium-Ion batteries both have the same _nominal_ cell voltage of 3.7V.
 In order to achieve higher voltages (which will more efficiently power a vehicle), multiple cells are connected in _series_.
 The battery voltage at the terminals is then a multiple of the cell voltage.
@@ -139,9 +141,11 @@ This setting corresponds to [parameter](../advanced_config/parameters.md): [BAT1
 
 ### Voltage Divider
 
-If you have a vehicle that measures voltage through a power module and the ADC of the flight controller then you should check and calibrate the measurements once per board. To calibrate you'll need a multimeter.
+If you have a vehicle that measures voltage through a power module and the ADC of the flight controller then you should calibrate the measurements once per power module.
+To calibrate, the actual voltage from the battery is measured (using a multimeter) and compared to the value provided by the power module.
+This is used to calculate a "voltage divider" value, which can subsequently be used to scale the power module measurement to the correct value.
 
-The easiest way to calibrate the divider is by using _QGroundControl_ and following the step-by-step guide on [Setup > Power Setup](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/power.html) (QGroundControl User Guide).
+The easiest way to perform this calibration is by using _QGroundControl_ and following the step-by-step guide on [Setup > Power Setup](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/power.html) (QGroundControl User Guide).
 
 :::info
 This setting corresponds to parameters: [BAT1_V_DIV](../advanced_config/parameter_reference.md#BAT1_V_DIV) and [BAT2_V_DIV](../advanced_config/parameter_reference.md#BAT2_V_DIV).
@@ -150,10 +154,11 @@ This setting corresponds to parameters: [BAT1_V_DIV](../advanced_config/paramete
 ### Amps per volt {#current_divider}
 
 :::tip
-This setting is not needed if you are using the basic configuration (without load compensation etc.)
+This calibration is not needed if your power module does not provide current measurements.
 :::
 
-If you are using [Load Compensation](#load_compensation) or [Current Integration](#current_integration) the amps per volt divider must be calibrated.
+Current measurements are used (by default) for [Load Compensation](#load_compensation) and [Current Integration](#current_integration) if provided by the power module.
+The amps per volt divider must be calibrated to ensure an accurate current measurement.
 
 The easiest way to calibrate the dividers is by using _QGroundControl_ and following the step-by-step guide on [Setup > Power Setup](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/power.html) (QGroundControl User Guide).
 
@@ -163,25 +168,26 @@ This setting corresponds to parameter(s): [BAT1_A_PER_V](../advanced_config/para
 
 ## Voltage-based Estimation with Load Compensation {#load_compensation}
 
-With well configured load compensation, the voltage used for battery capacity estimation is much more stable, varying far less when flying up and down.
+When a current flows through a battery, the internal resistance causes a voltage drop, reducing the measured output voltage of the battery compared to its open-circuit (no-load) voltage.
+When using the [basic configuration](#basic_settings), the measured output voltage is what is used to estimate the available capacity, which means that the battery level will appear to fluctuate when you fly up and down, or otherwise change the load on the battery.
 
-PX4 implements a current-based load compensation that uses a real-time estimate of the internal resistance of the battery.
-When a current flows through a battery, the internal resistance causes a voltage drop, reducing the output voltage (measured voltage) of the battery compared to its open-circuit voltage (no-load voltage).
-By estimating the internal resistance, the fluctuation in measured voltage under load that occurs when using the [basic configuration](#basic_settings) can be compensated.
-This leads to a much more accurate estimation of the remaining capacity.
+_Load compensation_ uses a measured or estimated value for the internal resistance to correct for changes under load, resulting in far less variation in the estimated capacity when flying.
+This is enabled by default when using a power module that provides current measurements.
 
-To use the load compensation you will still need to set the [basic configuration](#basic_settings).
+To use the load compensation first set the [basic configuration](#basic_settings).
 The _Empty Voltage_ ([BATn_V_EMPTY](../advanced_config/parameter_reference.md#BAT1_V_EMPTY), where `n` is the battery number) should be set higher (than without compensation) because the compensated voltage gets used for the estimation (typically set a bit below the expected rest cell voltage when empty after use).
-You should also calibrate the [Amps per volt divider](#current_divider) in the basic settings screen.
+
+You will then need to calibrate the [Amps per volt divider](#current_divider) in the basic settings screen (in order to get reliable current measurements).
+
+PX4 uses current-based load compensation based on a _real-time estimate_ of the internal resistance of the battery by default (real time estimates are enabled if [BAT1_R_INTERNAL=-1](../advanced_config/parameter_reference.md#BAT1_R_INTERNAL)).
+Using a real time estimate allows the compensation to adapt to changes in the internal resistance of the battery due to temperature changes during flight, as well as over time as the battery degrades.
+
+The internal resistance can also be measured and [set manually](../advanced_config/parameters.md) in [BAT1_R_INTERNAL](../advanced_config/parameter_reference.md#BAT1_R_INTERNAL).
+A positive value in this parameter will be used for the internal resistance instead of the estimated value (`0` disables load compensation altogether).
 
 :::info
-Alternatively, the value for the internal resistance can be [set manually](../advanced_config/parameters.md) using [BAT1_R_INTERNAL](../advanced_config/parameter_reference.md#BAT1_R_INTERNAL) (advanced).
-A positive value in this parameter will be used for the internal resistance instead of the estimated value.
 There are LiPo chargers that can measure the internal resistance of your battery.
 A typical value for LiPo batteries is 5mΩ per cell but this can vary with discharge current rating, age and health of the cells.
-
-By default `BAT1_R_INTERNAL` is set to `-1` which enables the estimation algorithm.
-Setting it to `0` disables load compensation.
 :::
 
 ## Voltage-based Estimation Fused with Current Integration {#current_integration}
