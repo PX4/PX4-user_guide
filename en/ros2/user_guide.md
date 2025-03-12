@@ -239,7 +239,7 @@ This section shows how to create a ROS 2 workspace hosted in your home directory
 The [px4_ros_com](https://github.com/PX4/px4_ros_com) and [px4_msgs](https://github.com/PX4/px4_msgs) packages are cloned to a workspace folder, and then the `colcon` tool is used to build the workspace.
 The example is run using `ros2 launch`.
 
-You should use a version of the px4_msgs package with the _same_ message definitions as the PX4 firmware you have installed in the step above.
+You should use a version of the px4*msgs package with the \_same* message definitions as the PX4 firmware you have installed in the step above.
 Branches in the px4_msgs repo are named to correspond to the message definitions for different PX4 releases.
 If for any reason you cannot ensure the same message definitions between your PX4 firmware and ROS 2 px4_msgs package, you will additionally need to [start the message translation node](#optional-starting-the-translation-node) as part of your setup process.
 
@@ -367,7 +367,7 @@ accelerometer_integral_dt: 4739
 
 #### (Optional) Starting the Translation Node
 
-<Badge type="tip" text="main (PX4 v1.16+)" /> <Badge type="tip" />  <Badge type="warning" text="Experimental" />
+<Badge type="tip" text="main (PX4 v1.16+)" /> <Badge type="tip" /> <Badge type="warning" text="Experimental" />
 
 This example is built with PX4 and ROS2 versions that use the same message definitions.
 If you were to use incompatible [message versions](../middleware/uorb.md#message-versioning) you would need to install and run the [Message Translation Node](./px4_ros2_msg_translation_node.md) as well, before running the example:
@@ -771,7 +771,6 @@ The service servers that are built into the PX4 [uxrce_dds_client](../modules/mo
 All PX4 service names follow the convention `{extra_namespace}/fmu/{server_specific_name}` where `{extra_namespace}` is the same [custom namespace](#customizing-the-namespace) that can be given to the PX4 topics.
 
 Details and specific examples are provided in the following sections.
-
 
 ### VehicleCommand service
 
