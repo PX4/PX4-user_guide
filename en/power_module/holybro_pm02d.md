@@ -1,6 +1,7 @@
 # Holybro PM02D Power Module
 
 The Holybro PM02D digital power module provides regulated power to flight controller and power distribution board, and sends information to the autopilot about battery voltage and current supplied to the flight controller and the motors.
+There are two versions: high voltage (12S/14S) and low voltage (6S).
 
 The power module is connected using the I2C protocol.
 It is designed for flight controllers based on the Pixhawk FMUv5X and FMUv6X open standard, including the [Pixhawk 5X](../flight_controller/pixhawk5x.md).
@@ -21,7 +22,7 @@ The PM is **NOT** compatible with flight controllers that require an analog powe
 - **Communication protocol**: I2C
 - **Switching regulator outputs**: 5.2V and 3A max
 - **Weight**: 20g
-- **IC Used**: TI INA226
+- **IC Used**: TI INA226 (LV), TI INA228 (HV)
 
 ## Package Contents
 
@@ -46,5 +47,9 @@ Low voltage (6S) Digital Power Module
 High Voltage (12S/14S) Digital Power Module:
 - Enable parameter [SENS_EN_INA228](../advanced_config/parameter_reference.md#SENS_EN_INA228)
 
-[Guide from manufacturer](https://docs.holybro.com/power-module-and-pdb/power-module/digital-power-module-pm-setup#px4-setup)
+Note that the current divider and voltage divider should not be set in the [Battery Configuration](../config/battery.md) (the default values are accurate within 5%).
+
+## See Also
+
+- [Digital Power Module (PM) Setup](https://docs.holybro.com/power-module-and-pdb/power-module/digital-power-module-pm-setup#px4-setup) (Manufacturer guide)
 
