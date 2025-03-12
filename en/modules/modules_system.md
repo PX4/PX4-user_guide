@@ -163,7 +163,7 @@ Source: [modules/dataman](https://github.com/PX4/PX4-Autopilot/tree/main/src/mod
 
 ### Description
 Module to provide persistent storage for the rest of the system in form of a simple database through a C API.
-Multiple backends are supported:
+Multiple backends are supported depending on the board:
 - a file (eg. on the SD card)
 - RAM (this is obviously not persistent)
 

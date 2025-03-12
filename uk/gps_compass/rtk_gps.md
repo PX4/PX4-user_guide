@@ -46,7 +46,7 @@ PX4 supports the [u-blox M8P](https://www.u-blox.com/en/product/neo-m8p), [u-blo
 | [LOCOSYS Hawk R1](../gps_compass/rtk_gps_locosys_r1.md)                                                              |      MC-1612-V2b     |          |                                  |                                                   |     |
 | [LOCOSYS Hawk R2](../gps_compass/rtk_gps_locosys_r2.md)                                                              |      MC-1612-V2b     |  IST8310 |                                  |                                                   |     |
 | [mRo u-blox ZED-F9 RTK L1/L2 GPS](https://store.mrobotics.io/product-p/m10020d.htm)                                  |          F9P         |     ✓    |                                  |                [Dual F9P][DualF9P]                |     |
-| [Navisys L1/L2 ZED-F9P RTK - Base only](https://www.navisys.com.tw/productdetail?name=GR901\&class=RTK)              |          F9P         |          |                                  |                                                   |     |
+| [Navisys L1/L2 ZED-F9P RTK - Base only](https://www.navisys.com.tw/productdetail?name=GR901&class=RTK)         |          F9P         |          |                                  |                                                   |     |
 | [RaccoonLab L1/L2 ZED-F9P][RaccoonLab L1/L2 ZED-F9P]                                                                 |          F9P         |  RM3100  |                 ✓                |                                                   |     |
 | [RaccoonLab L1/L2 ZED-F9P with external antenna][RaccnLabL1L2ZED-F9P ext_ant]                                        |          F9P         |  RM3100  |                 ✓                |                                                   |     |
 | [Septentrio AsteRx-m3 Pro](../gps_compass/septentrio_asterx-rib.md)                                                  |        AsteRx        |     ✓    |                                  |       [Septentrio Dual Antenna][SeptDualAnt]      |  ✓  |
@@ -121,36 +121,36 @@ This should be set by default, but if not, follow the [MAVLink2 configuration in
 Підключення RTK GPS насправді просте:
 
 1. Start _QGroundControl_ and attach the base RTK GPS via USB to the ground station.
-   Пристрій визнається автоматично.
+  Пристрій визнається автоматично.
 
 2. Start the vehicle and make sure it is connected to _QGroundControl_.
 
-   :::tip
-   _QGroundControl_ displays an RTK GPS status icon in the top icon bar while an RTK GPS device is connected (in addition to the normal GPS status icon).
-   Іконка червона, поки налаштовується RTK, а потім змінюється на білу, коли RTK GPS активний.
-   Ви можете натиснути на піктограму, щоб побачити поточний стан та точність RTK.
+  :::tip
+  _QGroundControl_ displays an RTK GPS status icon in the top icon bar while an RTK GPS device is connected (in addition to the normal GPS status icon).
+  Іконка червона, поки налаштовується RTK, а потім змінюється на білу, коли RTK GPS активний.
+  Ви можете натиснути на піктограму, щоб побачити поточний стан та точність RTK.
 
 :::
 
 3. _QGroundControl_ then starts the RTK setup process (known as "Survey-In").
 
-   Survey-In - це процедура запуску для отримання точної оцінки положення базової станції.
-   The process typically takes several minutes (it ends after reaching the minimum time and accuracy specified in the [RTK settings](#rtk-gps-settings)).
+  Survey-In - це процедура запуску для отримання точної оцінки положення базової станції.
+  The process typically takes several minutes (it ends after reaching the minimum time and accuracy specified in the [RTK settings](#rtk-gps-settings)).
 
-   Ви можете відстежити прогрес, натиснувши на піктограму стану RTK GPS.
+  Ви можете відстежити прогрес, натиснувши на піктограму стану RTK GPS.
 
-   ![survey-in](../../assets/qgc/setup/rtk/qgc_rtk_survey-in.png)
+  ![survey-in](../../assets/qgc/setup/rtk/qgc_rtk_survey-in.png)
 
 4. Після завершення опитування:
 
-   - The RTK GPS icon changes to white and _QGroundControl_ starts to stream position data to the vehicle:
+  - The RTK GPS icon changes to white and _QGroundControl_ starts to stream position data to the vehicle:
 
-     ![RTK streaming](../../assets/qgc/setup/rtk/qgc_rtk_streaming.png)
+    ![RTK streaming](../../assets/qgc/setup/rtk/qgc_rtk_streaming.png)
 
-   - Транспортний GPS переходить у режим RTK.
-     The new mode is displayed in the _normal_ GPS status icon (`3D RTK GPS Lock`):
+  - Транспортний GPS переходить у режим RTK.
+    The new mode is displayed in the _normal_ GPS status icon (`3D RTK GPS Lock`):
 
-     ![RTK GPS Status](../../assets/qgc/setup/rtk/qgc_rtk_gps_status.png)
+    ![RTK GPS Status](../../assets/qgc/setup/rtk/qgc_rtk_gps_status.png)
 
 ### Налаштування GPS як Джерело розділення/Курсування
 

@@ -1,8 +1,21 @@
 # 시험 MC_02 - 완전 자동화
 
-## 임무 수립 및 업로드
+## Objective
 
-❏ 임무 규정
+To test the auto modes such as Mission, RTL, etc...
+
+## Preflight
+
+Plan a mission on the ground. Ensure the mission has
+
+- Takeoff as first waypoint
+- Changes in Altitude throughout the mission
+- Last waypoint is an RTL
+- Duration of 5 to 6 minutes
+
+## Flight Tests
+
+❏ Mission
 
 &nbsp;&nbsp;&nbsp;&nbsp;❏ Auto take-off
 
@@ -14,23 +27,34 @@
 
 &nbsp;&nbsp;&nbsp;&nbsp;❏ Duration of 5 to 6 minutes
 
-❏ Upload mission to vehicle using _QGroundControl_
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Auto Disarm on land
 
-## 시동 및 이륙
+❏ Mission + Manual arm
 
-❏ 임의의 수동 조종 상태에서 시동
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Arm in any manual mode
 
-❏ 이륙 개시 전 자동 모드 인가
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Engage Auto (Mission Mode) to trigger take-off
 
-❏ 경로 추적, 선회, 적절한 회귀 지점 착륙 동작
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Observe tracking, cornering and proper RTL performance
 
-❏ Upon touching ground, copter should disarm automatically within 2 seconds (disarm time set by parameter: [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND))
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Upon touching ground, copter should disarm automatically within 2 seconds (disarm time set by parameter: [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND))
+
+❏ RTL
+
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Arm and takeoff in position mode
+
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Fly out ~10m from start point
+
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Engage RTL Mode
+
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Observe tracking, cornering and proper RTL performance
 
 ## 예상 결과
 
 - 추력을 올릴 때 서서히 이륙한다
 - 첫 시도시 임무 내용이 올라가야 함
 - 자동 모드 인가시 기체는 자동으로 이륙해야 함
+- Vehicle shoud adjust height to RTL altitude before returning home
 - 지면에 착륙시, 콥터가 지면에서 튀면 안됨
 
 <!--

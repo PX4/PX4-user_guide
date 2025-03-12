@@ -4,8 +4,10 @@ This topic explains how to configure power settings so that PX4 can estimate the
 
 ::: info
 These instructions require that the vehicle has a [Power Module (PM)](../power_module/index.md), or other hardware that can measure the battery voltage and (optionally) the current.
+:::
 
-This tuning is not needed for [Smart/MAVLink Batteries](../smart_batteries/index.md).
+::: tip
+This tuning is not needed for [Smart/MAVLink Batteries](../smart_batteries/index.md): batteries that can supply a reliable indication of remaining charge.
 :::
 
 ## Overview
@@ -36,12 +38,10 @@ This ensures that the battery failsafe behaviour is managed by PX4, and that ESC
 :::
 
 :::tip
-[Battery-Type Comparison](#battery-chemistry-comparison) below explains the difference between the main battery types, and how that impacts the battery settings.
+[Battery Chemistry Overview](../power_systems/battery_chemistry.md) explains the difference between the main battery types, and how that impacts the battery settings.
 :::
 
-<a id="basic_settings"></a>
-
-## Basic Battery Settings (default)
+## Basic Battery Settings (default) {#basic_settings}
 
 The basic battery settings configure PX4 to use the default method for capacity estimate.
 This method compares the measured raw battery voltage to the range between cell voltages for "empty" and "full" cells (scaled by the number of cells).
@@ -71,7 +71,7 @@ This sets the number of cells connected in series in the battery.
 Typically this will be written on the battery as a number followed by "S" (e.g "3S", "5S").
 
 ::: info
-The voltage across a single galvanic battery cell is dependent on the chemical properties of the battery type.
+The voltage across a single galvanic battery cell is dependent on the [chemical properties of the battery type](../power_systems/battery_chemistry.md).
 Lithium-Polymer (LiPo) batteries and Lithium-Ion batteries both have the same _nominal_ cell voltage of 3.7V.
 In order to achieve higher voltages (which will more efficiently power a vehicle), multiple cells are connected in _series_.
 The battery voltage at the terminals is then a multiple of the cell voltage.
@@ -141,23 +141,24 @@ This setting corresponds to [parameter](../advanced_config/parameters.md): [BAT1
 
 ### Voltage Divider
 
-If you have a vehicle that measures voltage through a power module and the ADC of the flight controller then you should check and calibrate the measurements once per board. To calibrate you'll need a multimeter.
+If you have a vehicle that measures voltage through a power module and the ADC of the flight controller then you should calibrate the measurements once per power module.
+To calibrate, the actual voltage from the battery is measured (using a multimeter) and compared to the value provided by the power module.
+This is used to calculate a "voltage divider" value, which can subsequently be used to scale the power module measurement to the correct value.
 
-The easiest way to calibrate the divider is by using _QGroundControl_ and following the step-by-step guide on [Setup > Power Setup](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/power.html) (QGroundControl User Guide).
+The easiest way to perform this calibration is by using _QGroundControl_ and following the step-by-step guide on [Setup > Power Setup](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/power.html) (QGroundControl User Guide).
 
 ::: info
 This setting corresponds to parameters: [BAT1_V_DIV](../advanced_config/parameter_reference.md#BAT1_V_DIV) and [BAT2_V_DIV](../advanced_config/parameter_reference.md#BAT2_V_DIV).
 :::
 
-<a id="current_divider"></a>
-
-### Amps per volt
+### Amps per volt {#current_divider}
 
 :::tip
-This setting is not needed if you are using the basic configuration (without load compensation etc.)
+This calibration is not needed if your power module does not provide current measurements.
 :::
 
-If you are using [Load Compensation](#load_compensation) or [Current Integration](#current_integration) the amps per volt divider must be calibrated.
+Current measurements are used (by default) for [Load Compensation](#load_compensation) and [Current Integration](#current_integration) if provided by the power module.
+The amps per volt divider must be calibrated to ensure an accurate current measurement.
 
 The easiest way to calibrate the dividers is by using _QGroundControl_ and following the step-by-step guide on [Setup > Power Setup](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/setup_view/power.html) (QGroundControl User Guide).
 
@@ -165,34 +166,31 @@ The easiest way to calibrate the dividers is by using _QGroundControl_ and follo
 This setting corresponds to parameter(s): [BAT1_A_PER_V](../advanced_config/parameter_reference.md#BAT1_A_PER_V) and [BAT2_A_PER_V](../advanced_config/parameter_reference.md#BAT2_A_PER_V).
 :::
 
-<a id="load_compensation"></a>
+## Voltage-based Estimation with Load Compensation {#load_compensation}
 
-## Voltage-based Estimation with Load Compensation
+When a current flows through a battery, the internal resistance causes a voltage drop, reducing the measured output voltage of the battery compared to its open-circuit (no-load) voltage.
+When using the [basic configuration](#basic_settings), the measured output voltage is what is used to estimate the available capacity, which means that the battery level will appear to fluctuate when you fly up and down, or otherwise change the load on the battery.
 
-With well configured load compensation, the voltage used for battery capacity estimation is much more stable, varying far less when flying up and down.
+_Load compensation_ uses a measured or estimated value for the internal resistance to correct for changes under load, resulting in far less variation in the estimated capacity when flying.
+This is enabled by default when using a power module that provides current measurements.
 
-PX4 implements a current-based load compensation that uses a real-time estimate of the internal resistance of the battery.
-When a current flows through a battery, the internal resistance causes a voltage drop, reducing the output voltage (measured voltage) of the battery compared to its open-circuit voltage (no-load voltage).
-By estimating the internal resistance, the fluctuation in measured voltage under load that occurs when using the [basic configuration](#basic_settings) can be compensated.
-This leads to a much more accurate estimation of the remaining capacity.
-
-To use the load compensation you will still need to set the [basic configuration](#basic_settings).
+To use the load compensation first set the [basic configuration](#basic_settings).
 The _Empty Voltage_ ([BATn_V_EMPTY](../advanced_config/parameter_reference.md#BAT1_V_EMPTY), where `n` is the battery number) should be set higher (than without compensation) because the compensated voltage gets used for the estimation (typically set a bit below the expected rest cell voltage when empty after use).
-You should also calibrate the [Amps per volt divider](#current_divider) in the basic settings screen.
 
-::: info
-Alternatively, the value for the internal resistance can be [set manually](../advanced_config/parameters.md) using [BAT1_R_INTERNAL](../advanced_config/parameter_reference.md#BAT1_R_INTERNAL) (advanced).
-A positive value in this parameter will be used for the internal resistance instead of the estimated value.
+You will then need to calibrate the [Amps per volt divider](#current_divider) in the basic settings screen (in order to get reliable current measurements).
+
+PX4 uses current-based load compensation based on a _real-time estimate_ of the internal resistance of the battery by default (real time estimates are enabled if [BAT1_R_INTERNAL=-1](../advanced_config/parameter_reference.md#BAT1_R_INTERNAL)).
+Using a real time estimate allows the compensation to adapt to changes in the internal resistance of the battery due to temperature changes during flight, as well as over time as the battery degrades.
+
+The internal resistance can also be measured and [set manually](../advanced_config/parameters.md) in [BAT1_R_INTERNAL](../advanced_config/parameter_reference.md#BAT1_R_INTERNAL).
+A positive value in this parameter will be used for the internal resistance instead of the estimated value (`0` disables load compensation altogether).
+
+:::info
 There are LiPo chargers that can measure the internal resistance of your battery.
 A typical value for LiPo batteries is 5mΩ per cell but this can vary with discharge current rating, age and health of the cells.
-
-By default `BAT1_R_INTERNAL` is set to `-1` which enables the estimation algorithm.
-Setting it to `0` disables load compensation.
 :::
 
-<a id="current_integration"></a>
-
-## Voltage-based Estimation Fused with Current Integration
+## Voltage-based Estimation Fused with Current Integration {#current_integration}
 
 This method is the most accurate way to measure relative battery consumption.
 If set up correctly with a healthy and fresh charged battery on every boot, then the estimation quality will be comparable to that from a smart battery (and theoretically allow for accurate remaining flight time estimation).
@@ -230,74 +228,3 @@ If you always start with a healthy full battery, this approach is similar to tha
 Current integration cannot be used on its own (without voltage-based estimation) because it has no way to determine the _initial_ capacity.
 Voltage-estimation allows you to estimate the initial capacity and provides ongoing feedback of possible errors (e.g. if the battery is faulty, or if there is a mismatch between capacity calculated using different methods).
 :::
-
-## Battery-Chemistry Comparison
-
-This section provides a comparative overview of several different battery types (in particular LiPo and Li-Ion).
-
-### Overview
-
-- Li-Ion batteries have a higher energy density than Lipo battery packs but that comes at the expense of lower discharge rates and increased battery cost.
-- LiPo batteries are readily available and can withstand higher discharge rates that are common in multi-rotor aircraft.
-- The choice needs to be made based on the vehicle and the mission being flown.
-  If absolute endurance is the aim then there is more of a benefit to flying to a Li-Ion battery but similarly, more caution needs to be taken.
-  As such, the decision should be made based on the factors surrounding the flight.
-
-### Advantages
-
-LiPo
-
-- Very common
-- Wide range of sizes, capacities and voltages
-- Inexpensive
-- High discharge rates relative to capacity (high C ratings)
-- Higher charge rates
-
-Li-Ion
-
-- Much higher energy density (up to 60% higher)
-
-### Disadvantages:
-
-LiPo
-
-- Low (relative) energy density
-- Quality can vary given abundance of suppliers
-
-Li-Ion
-
-- Not as common
-- Much more expensive
-- Not as widely available in large sizes and configurations
-- All cells are relatively small so larger packs are made up of many cells tied in series and parallel to create the required voltage and capacity
-- Lower discharge rates relative to battery size (C rating)
-- More difficult to adapt to vehicles that require high currents
-- Lower charging rates (relative to capacity)
-- Requires more stringent temperature monitoring during charge and discharge
-- Requires settings changes on the ESC to utilize max capacity ("standard" ESC low voltage settings are too high).
-- At close-to-empty the voltage of the battery is such that a ~3V difference is possible between a Lipo to Li-ion (while using a 6S battery).
-  This could have implications on thrust expectations.
-
-### C Ratings
-
-- A C rating is simply a multiple of the stated capacity of any battery type.
-- A C rating is relevant (and differs) for both charge and discharge rates.
-  - For example, a 2000 mAh battery (irrespective of voltage) with a 10C discharge rate can safely and continuously discharge 20 amps of current (2000/1000=2Ah x 10C = 20 amps).
-- C Ratings are always given by the manufacturer (often on the outside of the battery pack).
-  While they can actually be calculated, you need several pieces of information, and to measure the internal resistance of the cells.
-- LiPo batteries will always have a higher C rating than a Li-Ion battery.
-  This is due to chemistry type but also to the internal resistance per cell (which is due to the chemistry type) leading to higher discharge rates for LiPo batteries.
-- Following manufacturer guidelines for both charge and discharge C ratings is very important for the health of your battery and to operate your vehicle safely (i.e. reduce fires, “puffing” packs and other suboptimal states during charging and discharging).
-
-### Energy Density
-
-- Energy density is how much energy is able to be stored relative to battery weight.
-  It is generally measured and compared in Watt Hour per Kilogram (Wh/Kg).
-  - Watt-hours are simply calculated by taking the nominal (i.e. not the fully charged voltage) multiplied by the capacity, e.g. 3.7v X 5 Ah = 18.5Wh.
-    If you had a 3 cell battery pack your pack would be 18.5Wh X 3 = 55 Wh of stored energy.
-- When you take battery weight into account you calculate energy density by taking the watt-hours and dividing them by weight.
-  - E.g. 55 Wh divided by (battery weight in grams divided by 1000).
-    Assuming this battery weighed 300 grams then 55/(300/1000)=185 Wh/Kg.
-- This number 185 Wh/Kg would be on the very high-end for a LiPo battery.
-  A Li-Ion battery on the other hand can reach 260 Wh/Kg, meaning per kilogram of battery onboard you can carry 75 more watt-hours.
-  - If you know how many watts your vehicle takes to fly (which a battery current module can show you), you can equate this increased storage at no additional weight into increased flight time.

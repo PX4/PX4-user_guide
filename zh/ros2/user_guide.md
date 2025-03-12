@@ -97,48 +97,48 @@ To install ROS 2 and its dependencies:
 
 1. Install ROS 2.
 
-   :::: tabs
+ :::: tabs
 
-   ::: tab humble
-   To install ROS 2 "Humble" on Ubuntu 22.04:
+ ::: tab humble
+ To install ROS 2 "Humble" on Ubuntu 22.04:
 
-   ```sh
-   sudo apt update && sudo apt install locales
-   sudo locale-gen en_US en_US.UTF-8
-   sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
-   export LANG=en_US.UTF-8
-   sudo apt install software-properties-common
-   sudo add-apt-repository universe
-   sudo apt update && sudo apt install curl -y
-   sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
-   echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $UBUNTU_CODENAME) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
-   sudo apt update && sudo apt upgrade -y
-   sudo apt install ros-humble-desktop
-   sudo apt install ros-dev-tools
-   source /opt/ros/humble/setup.bash && echo "source /opt/ros/humble/setup.bash" >> .bashrc
-   ```
+ ```sh
+ sudo apt update && sudo apt install locales
+ sudo locale-gen en_US en_US.UTF-8
+ sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
+ export LANG=en_US.UTF-8
+ sudo apt install software-properties-common
+ sudo add-apt-repository universe
+ sudo apt update && sudo apt install curl -y
+ sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
+ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $UBUNTU_CODENAME) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
+ sudo apt update && sudo apt upgrade -y
+ sudo apt install ros-humble-desktop
+ sudo apt install ros-dev-tools
+ source /opt/ros/humble/setup.bash && echo "source /opt/ros/humble/setup.bash" >> .bashrc
+ ```
 
-   The instructions above are reproduced from the official installation guide: [Install ROS 2 Humble](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html).
-   You can install _either_ the desktop (`ros-humble-desktop`) _or_ bare-bones versions (`ros-humble-ros-base`), _and_ the development tools (`ros-dev-tools`).
-
-:::
-
-   ::: tab foxy
-   To install ROS 2 "Foxy" on Ubuntu 20.04:
-
-   - Follow the official installation guide: [Install ROS 2 Foxy](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html).
-
-   You can install _either_ the desktop (`ros-foxy-desktop`) _or_ bare-bones versions (`ros-foxy-ros-base`), _and_ the development tools (`ros-dev-tools`).
+ The instructions above are reproduced from the official installation guide: [Install ROS 2 Humble](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html).
+ You can install _either_ the desktop (`ros-humble-desktop`) _or_ bare-bones versions (`ros-humble-ros-base`), _and_ the development tools (`ros-dev-tools`).
 
 :::
 
-   ::::
+ ::: tab foxy
+ To install ROS 2 "Foxy" on Ubuntu 20.04:
+
+ - Follow the official installation guide: [Install ROS 2 Foxy](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html).
+
+ You can install _either_ the desktop (`ros-foxy-desktop`) _or_ bare-bones versions (`ros-foxy-ros-base`), _and_ the development tools (`ros-dev-tools`).
+
+:::
+
+ ::::
 
 2. Some Python dependencies must also be installed (using **`pip`** or **`apt`**):
 
-   ```sh
-   pip install --user -U empy==3.3.4 pyros-genmsg setuptools
-   ```
+ ```sh
+ pip install --user -U empy==3.3.4 pyros-genmsg setuptools
+ ```
 
 ### Setup Micro XRCE-DDS Agent & Client
 
@@ -155,22 +155,22 @@ To setup and start the agent:
 
 2. 输入以下命令从仓库获取源代码并构建代理(Agent)：
 
-   ```sh
-   git clone -b 2.4.2 https://github.com/eProsima/Micro-XRCE-DDS-Agent.git
-   cd Micro-XRCE-DDS-Agent
-   mkdir build
-   cd build
-   cmake ..
-   make
-   sudo make install
-   sudo ldconfig /usr/local/lib/
-   ```
+ ```sh
+ git clone -b v2.4.2 https://github.com/eProsima/Micro-XRCE-DDS-Agent.git
+ cd Micro-XRCE-DDS-Agent
+ mkdir build
+ cd build
+ cmake ..
+ make
+ sudo make install
+ sudo ldconfig /usr/local/lib/
+ ```
 
 3. 启动代理并设置以连接运行在模拟器上的 uXRCE-DDS客户端(Client)：
 
-   ```sh
-   MicroXRCEAgent udp4 -p 8888
-   ```
+ ```sh
+ MicroXRCEAgent udp4 -p 8888
+ ```
 
 The agent is now running, but you won't see much until we start PX4 (in the next step).
 
@@ -187,31 +187,31 @@ To start the simulator (and client):
 
 1. Open a new terminal in the root of the **PX4 Autopilot** repo that was installed above.
 
-   :::: tabs
+ :::: tabs
 
-   ::: tab humble
+ ::: tab humble
 
-   - Start a PX4 [Gazebo](../sim_gazebo_gz/index.md) simulation using:
+ - Start a PX4 [Gazebo](../sim_gazebo_gz/index.md) simulation using:
 
-     ```sh
-     make px4_sitl gz_x500
-     ```
-
-
-:::
-
-   ::: tab foxy
-
-   - Start a PX4 [Gazebo Classic](../sim_gazebo_classic/index.md) simulation using:
-
-     ```sh
-     make px4_sitl gazebo-classic
-     ```
+  ```sh
+  make px4_sitl gz_x500
+  ```
 
 
 :::
 
-   ::::
+ ::: tab foxy
+
+ - Start a PX4 [Gazebo Classic](../sim_gazebo_classic/index.md) simulation using:
+
+  ```sh
+  make px4_sitl gazebo-classic
+  ```
+
+
+:::
+
+ ::::
 
 The agent and client are now running they should connect.
 
@@ -261,52 +261,52 @@ To create and build the workspace:
 
 2. Create and navigate into a new workspace directory using:
 
-   ```sh
-   mkdir -p ~/ws_sensor_combined/src/
-   cd ~/ws_sensor_combined/src/
-   ```
+ ```sh
+ mkdir -p ~/ws_sensor_combined/src/
+ cd ~/ws_sensor_combined/src/
+ ```
 
-   ::: info
-   A naming convention for workspace folders can make it easier to manage workspaces.
+ ::: info
+ A naming convention for workspace folders can make it easier to manage workspaces.
 
 :::
 
 3. Clone the example repository and [px4_msgs](https://github.com/PX4/px4_msgs) to the `/src` directory (the `main` branch is cloned by default, which corresponds to the version of PX4 we are running):
 
-   ```sh
-   git clone https://github.com/PX4/px4_msgs.git
-   git clone https://github.com/PX4/px4_ros_com.git
-   ```
+ ```sh
+ git clone https://github.com/PX4/px4_msgs.git
+ git clone https://github.com/PX4/px4_ros_com.git
+ ```
 
 4. Source the ROS 2 development environment into the current terminal and compile the workspace using `colcon`:
 
-   :::: tabs
+ :::: tabs
 
-   ::: tab humble
+ ::: tab humble
 
-   ```sh
-   cd ..
-   source /opt/ros/humble/setup.bash
-   colcon build
-   ```
-
-
-:::
-
-   ::: tab foxy
-
-   ```sh
-   cd ..
-   source /opt/ros/foxy/setup.bash
-   colcon build
-   ```
+ ```sh
+ cd ..
+ source /opt/ros/humble/setup.bash
+ colcon build
+ ```
 
 
 :::
 
-   ::::
+ ::: tab foxy
 
-   This builds all the folders under `/src` using the sourced toolchain.
+ ```sh
+ cd ..
+ source /opt/ros/foxy/setup.bash
+ colcon build
+ ```
+
+
+:::
+
+ ::::
+
+ This builds all the folders under `/src` using the sourced toolchain.
 
 #### Running the Example
 
@@ -322,42 +322,42 @@ In a new terminal:
 
 1. Navigate into the top level of your workspace directory and source the ROS 2 environment (in this case "Humble"):
 
-   :::: tabs
+ :::: tabs
 
-   ::: tab humble
+ ::: tab humble
 
-   ```sh
-   cd ~/ws_sensor_combined/
-   source /opt/ros/humble/setup.bash
-   ```
-
-
-:::
-
-   ::: tab foxy
-
-   ```sh
-   cd ~/ws_sensor_combined/
-   source /opt/ros/foxy/setup.bash
-   ```
+ ```sh
+ cd ~/ws_sensor_combined/
+ source /opt/ros/humble/setup.bash
+ ```
 
 
 :::
 
-   ::::
+ ::: tab foxy
+
+ ```sh
+ cd ~/ws_sensor_combined/
+ source /opt/ros/foxy/setup.bash
+ ```
+
+
+:::
+
+ ::::
 
 2. Source the `local_setup.bash`.
 
-   ```sh
-   source install/local_setup.bash
-   ```
+ ```sh
+ source install/local_setup.bash
+ ```
 
 3. Now launch the example.
-   Note here that we use `ros2 launch`, which is described below.
+ Note here that we use `ros2 launch`, which is described below.
 
-   ```sh
-   ros2 launch px4_ros_com sensor_combined_listener.launch.py
-   ```
+ ```sh
+ ros2 launch px4_ros_com sensor_combined_listener.launch.py
+ ```
 
 If this is working you should see data being printed on the terminal/console where you launched the ROS listener:
 
@@ -378,25 +378,25 @@ accelerometer_integral_dt: 4739
 
 #### (Optional) Starting the Translation Node
 
-<Badge type="tip" text="main (PX4 v1.16+)" /> <Badge type="tip" />  <Badge type="warning" text="Experimental" />
+<Badge type="tip" text="main (planned for: PX4 v1.16+)" /> <Badge type="tip" />  <Badge type="warning" text="Experimental" />
 
 This example is built with PX4 and ROS2 versions that use the same message definitions.
 If you were to use incompatible [message versions](../middleware/uorb.md#message-versioning) you would need to install and run the [Message Translation Node](./px4_ros2_msg_translation_node.md) as well, before running the example:
 
 1. Include the [Message Translation Node](../ros2/px4_ros2_msg_translation_node.md) into the example workspace or a separate workspace by running the following script:
 
-   ```sh
-   cd /path/to/ros_ws
-   /path/to/PX4-Autopilot/Tools/copy_to_ros_ws.sh .
-   ```
+ ```sh
+ cd /path/to/ros_ws
+ /path/to/PX4-Autopilot/Tools/copy_to_ros_ws.sh .
+ ```
 
 2. Build and run the translation node:
 
-   ```sh
-   colcon build
-   source install/local_setup.bash
-   ros2 run translation_node translation_node_bin
-   ```
+ ```sh
+ colcon build
+ source install/local_setup.bash
+ ros2 run translation_node translation_node_bin
+ ```
 
 ## Controlling a Vehicle
 
@@ -456,13 +456,13 @@ Therefore, ROS 2 nodes that want to interface with PX4 must take care of the fra
 
 - To rotate a vector from ENU to NED two basic rotations must be performed:
 
-  - first a pi/2 rotation around the `Z`-axis (up),
-  - then a pi rotation around the `X`-axis (old East/new North).
+ - first a pi/2 rotation around the `Z`-axis (up),
+ - then a pi rotation around the `X`-axis (old East/new North).
 
 - To rotate a vector from NED to ENU two basic rotations must be performed:
 
 - - first a pi/2 rotation around the `Z`-axis (down),
-  - then a pi rotation around the `X`-axis (old North/new East). Note that the two resulting operations are mathematically equivalent.
+ - then a pi rotation around the `X`-axis (old North/new East). Note that the two resulting operations are mathematically equivalent.
 
 - To rotate a vector from FLU to FRD a pi rotation around the `X`-axis (front) is sufficient.
 
@@ -483,8 +483,8 @@ By default, time synchronization between ROS 2 and PX4 is automatically managed 
 When the uXRCE-DDS client runs on a flight controller and the agent runs on a companion computer this is the desired behavior as time offsets, time drift, and communication latency, are computed and automatically compensated.
 
 For Gazebo simulations PX4 uses the Gazebo `/clock` topic as [time source](../sim_gazebo_gz/index.md#px4-gazebo-time-synchronization) instead.
-This clock is always slightly off-sync w.r.t. the OS clock (the real time factor is never exactly one) and it can can even run much faster or much slower depending on the [user preferences](http://sdformat.org/spec?elem=physics\&ver=1.9).
-Note that this is different from the [simulation lockstep](../simulation/index.md#lockstep-simulation) procedure adopted with Gazebo Classic.
+This clock is always slightly off-sync w.r.t. the OS clock (the real time factor is never exactly one) and it can can even run much faster or much slower depending on the user preferences.
+Note that this is different from the simulation lockstep procedure adopted with Gazebo Classic.
 
 ROS2 users have then two possibilities regarding the [time source](https://design.ros2.org/articles/clock_and_time.html) of their nodes.
 
@@ -721,17 +721,17 @@ Therefore,
 
 - If you're using a main or release version of PX4 you can get the message definitions by cloning the interface package [PX4/px4_msgs](https://github.com/PX4/px4_msgs) into your workspace.
 - If you're creating or modifying uORB messages you must manually update the messages in your workspace from your PX4 source tree.
-  Generally this means that you would update [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml), clone the interface package, and then manually synchronize it by copying the new/modified message definitions from [PX4-Autopilot/msg](https://github.com/PX4/PX4-Autopilot/tree/main/msg) to its `msg` folders.
-  Assuming that PX4-Autopilot is in your home directory `~`, while `px4_msgs` is in `~/px4_ros_com/src/`, then the command might be:
+ Generally this means that you would update [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml), clone the interface package, and then manually synchronize it by copying the new/modified message definitions from [PX4-Autopilot/msg](https://github.com/PX4/PX4-Autopilot/tree/main/msg) to its `msg` folders.
+ Assuming that PX4-Autopilot is in your home directory `~`, while `px4_msgs` is in `~/px4_ros_com/src/`, then the command might be:
 
-  ```sh
-  rm ~/px4_ros_com/src/px4_msgs/msg/*.msg
-  cp ~/PX4-Autopilot/mgs/*.msg ~/px4_ros_com/src/px4_msgs/msg/
-  ```
+ ```sh
+ rm ~/px4_ros_com/src/px4_msgs/msg/*.msg
+ cp ~/PX4-Autopilot/mgs/*.msg ~/px4_ros_com/src/px4_msgs/msg/
+ ```
 
-  ::: info
-  Technically, [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml) completely defines the relationship between PX4 uORB topics and ROS 2 messages.
-  For more information see [uXRCE-DDS > DDS Topics YAML](../middleware/uxrce_dds.md#dds-topics-yaml).
+ ::: info
+ Technically, [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml) completely defines the relationship between PX4 uORB topics and ROS 2 messages.
+ For more information see [uXRCE-DDS > DDS Topics YAML](../middleware/uxrce_dds.md#dds-topics-yaml).
 
 :::
 
@@ -740,7 +740,7 @@ Therefore,
 Custom topic namespaces can be applied at build time (changing [dds_topics.yaml](https://github.com/PX4/PX4-Autopilot/blob/main/src/modules/uxrce_dds_client/dds_topics.yaml)) or at runtime (useful for multi vehicle operations):
 
 - One possibility is to use the `-n` option when starting the [uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client) from command line.
-  This technique can be used both in simulation and real vehicles.
+ This technique can be used both in simulation and real vehicles.
 - A custom namespace can be provided for simulations (only) by setting the environment variable `PX4_UXRCE_DDS_NS` before starting the simulation.
 
 :::info
@@ -865,36 +865,36 @@ The standard installation should include all the tools needed by ROS 2.
 If any are missing, they can be added separately:
 
 - **`colcon`** build tools should be in the development tools.
-  It can be installed using:
+ It can be installed using:
 
-  ```sh
-  sudo apt install python3-colcon-common-extensions
-  ```
+ ```sh
+ sudo apt install python3-colcon-common-extensions
+ ```
 
 - The Eigen3 library used by the transforms library should be in the both the desktop and base packages.
-  It should be installed as shown:
+ It should be installed as shown:
 
-  :::: tabs
+ :::: tabs
 
-  ::: tab humble
+ ::: tab humble
 
-  ```sh
-  sudo apt install ros-humble-eigen3-cmake-module
-  ```
-
-
-:::
-
-  ::: tab foxy
-
-  ```sh
-  sudo apt install ros-foxy-eigen3-cmake-module
-  ```
+ ```sh
+ sudo apt install ros-humble-eigen3-cmake-module
+ ```
 
 
 :::
 
-  ::::
+ ::: tab foxy
+
+ ```sh
+ sudo apt install ros-foxy-eigen3-cmake-module
+ ```
+
+
+:::
+
+ ::::
 
 ### ros_gz_bridge not publishing on the \clock topic
 

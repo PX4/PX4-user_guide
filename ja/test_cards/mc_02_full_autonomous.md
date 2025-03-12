@@ -1,8 +1,21 @@
 # Test MC_02 - Full Autonomous
 
-## Create and upload mission
+## Objective
 
-❏ Mission Criteria
+To test the auto modes such as Mission, RTL, etc...
+
+## Preflight
+
+Plan a mission on the ground. Ensure the mission has
+
+- Takeoff as first waypoint
+- Changes in Altitude throughout the mission
+- Last waypoint is an RTL
+- Duration of 5 to 6 minutes
+
+## Flight Tests
+
+❏ Mission
 
 &nbsp;&nbsp;&nbsp;&nbsp;❏ Auto take-off
 
@@ -14,23 +27,34 @@
 
 &nbsp;&nbsp;&nbsp;&nbsp;❏ Duration of 5 to 6 minutes
 
-❏ Upload mission to vehicle using _QGroundControl_
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Auto Disarm on land
 
-## Arm and Take-off
+❏ Mission + Manual arm
 
-❏ Arm in any manual mode
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Arm in any manual mode
 
-❏ Engage Auto to trigger take-off
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Engage Auto (Mission Mode) to trigger take-off
 
-❏ Observe tracking, cornering and proper RTL performance
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Observe tracking, cornering and proper RTL performance
 
-❏ Upon touching ground, copter should disarm automatically within 2 seconds (disarm time set by parameter: [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND))
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Upon touching ground, copter should disarm automatically within 2 seconds (disarm time set by parameter: [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND))
+
+❏ RTL
+
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Arm and takeoff in position mode
+
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Fly out ~10m from start point
+
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Engage RTL Mode
+
+&nbsp;&nbsp;&nbsp;&nbsp;❏ Observe tracking, cornering and proper RTL performance
 
 ## Expected Results
 
 - Take-off should be smooth as throttle is raised
 - Mission should upload on first attempt
 - Vehicle should automatically take-off upon engaging Auto
+- Vehicle shoud adjust height to RTL altitude before returning home
 - Upon landing, copter should not bounce on the ground
 
 <!--

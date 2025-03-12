@@ -178,7 +178,7 @@ Source: [modules/dataman](https://github.com/PX4/PX4-Autopilot/tree/main/src/mod
 ### Опис
 
 Модуль для забезпечення постійного сховища для решти системи у вигляді простої бази даних через C API.
-Підтримується декілька бекендів:
+Multiple backends are supported depending on the board:
 
 - файл (наприклад, на SD-карті)
 - Оперативна пам'ять (очевидно, що вона не є постійною)
