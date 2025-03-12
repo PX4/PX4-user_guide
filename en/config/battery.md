@@ -7,7 +7,7 @@ These instructions require that the vehicle has a [Power Module (PM)](../power_m
 :::
 
 ::: tip
-This tuning is not needed for [Smart/MAVLink Batteries](../smart_batteries/index.md).
+This tuning is not needed for [Smart/MAVLink Batteries](../smart_batteries/index.md): batteries that can supply a reliable indication of remaining charge.
 :::
 
 ## Overview
