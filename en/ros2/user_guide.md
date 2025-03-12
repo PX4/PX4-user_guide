@@ -794,7 +794,7 @@ A complete _offboard control_ example using the VehicleCommand service is provid
 
 The example closely follows the _offboard control_ example described in [ROS 2 Offboard Control Example](../ros2/offboard_control.md) but uses the `VehicleCommand` service to request mode changes, vehicle arming and vehicle disarming.
 
-Like for any other ROS 2 service client, the ROS 2 application needs to declare a service client of type `px4_msgs::srv::VehicleCommand`:
+First the ROS 2 application declares a service client of type `px4_msgs::srv::VehicleCommand` using `rclcpp::Client()` as shown (this is the same approach used for all ROS2 service clients):
 
 ```cpp
 rclcpp::Client<px4_msgs::srv::VehicleCommand>::SharedPtr vehicle_command_client_;
