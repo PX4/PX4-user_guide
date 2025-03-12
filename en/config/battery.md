@@ -185,11 +185,6 @@ Using a real time estimate allows the compensation to adapt to changes in the in
 The internal resistance can also be measured and [set manually](../advanced_config/parameters.md) in [BAT1_R_INTERNAL](../advanced_config/parameter_reference.md#BAT1_R_INTERNAL).
 A positive value in this parameter will be used for the internal resistance instead of the estimated value (`0` disables load compensation altogether).
 
-::: tip
-The default approach of using the real-time estimate is preferred.
-While in theory this might not converge to a value for the internal resistance, testing has not show this to be a problem.
-:::
-
 :::info
 There are LiPo chargers that can measure the internal resistance of your battery.
 A typical value for LiPo batteries is 5mΩ per cell but this can vary with discharge current rating, age and health of the cells.
