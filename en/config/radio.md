@@ -13,7 +13,7 @@ Before you can calibrate the radio system the receiver and transmitter must be c
 The process for binding a transmitter and receiver pair is hardware specific (see your RC manual for instructions).
 
 ::: info
-If you are using a _Spektrum_ receiver, you can put it into bind mode using _QGroundControl_, as [shown below](#spectrum-bind).
+If you are using a _Spektrum, Crossfire, or ELRS_ receiver, you can put it into bind mode using _QGroundControl_, as [shown below](#rc-bind).
 :::
 
 ::: info
@@ -70,9 +70,9 @@ As well as calibrating your control sticks and other transmitter controls, there
 
 <img src="../../assets/qgc/setup/radio/radio_additional_radio_setup.jpg" title="Radio setup - additional settings" width="300px" />
 
-### Spectrum Bind
+### RC Bind
 
-Before you can calibrate the radio system the receiver and transmitter must be connected/bound. If you have a _Spektrum_ receiver you can put it in _bind mode_ using _QGroundControl_ as shown below (this can be particularly useful if you don't have easy physical access to the receiver on your vehicle).
+Before you can calibrate the radio system the receiver and transmitter must be connected/bound. If you have a _Spektrum, Crossfire, or ELRS_ receiver, you can put it in _bind mode_ using _QGroundControl_ as shown below (this can be particularly useful if you don't have easy physical access to the receiver on your vehicle).
 
 To bind a Spektrum transmitter/receiver:
 
@@ -83,6 +83,16 @@ To bind a Spektrum transmitter/receiver:
    ![Spektrum Bind](../../assets/qgc/setup/radio/radio_additional_setup_spectrum_bind_select_channels.jpg)
 
 1. Power on your Spektrum transmitter while holding down the bind button.
+
+To bind a _CRSF_ Crossfire or ELRS transmitter/receiver:
+
+1. Select the **CRSF Bind** button
+1. Press **OK**
+
+   ![CRSF Bind](../../assets/qgc/setup/radio/radio_additional_setup_crsf_bind_select_channels.jpg)
+
+1. Validate the receiver LEDs indicate it's in bind mode
+1. Bind the transmitter using its menu interface
 
 ### Copy Trims
 
