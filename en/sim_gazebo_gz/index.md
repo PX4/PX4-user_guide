@@ -174,6 +174,46 @@ This can be ignored:
 
 :::
 
+### Change Simulation Speed
+
+PX4 SITL can be run faster or slower than real-time when using Gazebo.
+
+The speed factor is set using the environment variable `PX4_SIM_SPEED_FACTOR`.
+For example, to run the Gazebo simulation of the X500 frame at 2 times the real time speed:
+
+```sh
+PX4_SIM_SPEED_FACTOR=2 make px4_sitl gz_x500
+```
+
+To run at half real-time:
+
+```sh
+PX4_SIM_SPEED_FACTOR=0.5 make px4_sitl gz_x500
+```
+
+You can apply the factor to all SITL runs in the current session using `EXPORT`:
+
+```sh
+export PX4_SIM_SPEED_FACTOR=2
+make px4_sitl gz_x500
+```
+
+::: tip
+To avoid PX4 detecting data link timeouts, increase the value of param [COM_DL_LOSS_T](../advanced_config/parameter_reference.md#COM_DL_LOSS_T) proportional to the simulation rate.
+For example, if `COM_DL_LOSS_T` is 10 in realtime, at 10x simulation rate increase to 100.
+:::
+
+::: info
+At some point IO or CPU will limit the speed that is possible on your machine and it will be slowed down "automatically".
+Powerful desktop machines can usually run the simulation at around 6-10x, for notebooks the achieved rates can be around 3-4x.
+:::
+
+::: info
+The simulators are run in _lockstep_, which means that Gazebo runs the simulator at the same speed as PX4 (the GZBridge sets the PX4 time on every sim step, in the `clockCallback`).
+In addition to being a precondition for running the simulation faster/slower than real-time, this also allows you to pause the simulation in order to step through code.
+Lockstep cannot be disabled on Gazebo.
+:::
+
 ## Usage/Configuration Options
 
 The startup pipeline allows for highly flexible configuration.
@@ -242,6 +282,12 @@ where `ARGS` is a list of environment variables including:
 
   The default rendering engine (OGRE 2) is not well supported on some platforms/environments.
   Specify `PX4_GZ_SIM_RENDER_ENGINE=ogre` to set the rendering engine to OGRE 1 if you have rendering issues when running PX4 on a virtual machine.
+
+- `PX4_SIM_SPEED_FACTOR`:
+  Sets the speed factor to run the simulation at [faster/slower than realtime](#run-simulation-faster-slower-than-realtime).
+
+- `PX4_GZ_FOLLOW_OFFSET_X`, `PX4_SIM_SPEED_FACTOR_Y`, `PX4_SIM_SPEED_FACTOR_Z`:
+  Set the relative offset of the follow camera to the vehicle.
 
 The PX4 Gazebo worlds and and models databases [can be found on Github here](https://github.com/PX4/PX4-gazebo-models).
 
@@ -332,16 +378,6 @@ To add a new world:
 As long as the world file and the model file are in the Gazebo search path (`GZ_SIM_RESOURCE_PATH`) it is not necessary to add them to the PX4 world and model directories.
 However, `make px4_sitl gz_<model>_<world>` won't work with them.
 :::
-
-## PX4-Gazebo Time Synchronization
-
-Unlike the Gazebo Classic and jMAVSim simulators, PX4 and Gazebo do not implement a lockstep mechanism.
-
-During Gazebo simulations PX4 subscribes to the Gazebo `\clock` topic and uses it as clock source.
-This guarantees that PX4 will always wait for Gazebo before moving forward in time, even if Gazebo is running with real time factors different from 1.
-
-Note, however, that as the lockstep is missing, Gazebo will never wait for PX4 to finish its computations.
-In the worst case scenario, PX4 can completely go offline and Gazebo will keep running, with obvious crashes of the simulated drone.
 
 ## Multi-Vehicle Simulation
 

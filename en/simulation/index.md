@@ -162,78 +162,20 @@ For more information see: [Building the Code > PX4 Make Build Targets](../dev_se
 
 ### Run Simulation Faster than Realtime {#simulation_speed}
 
-SITL can be run faster or slower than realtime when using Gazebo, Gazebo Classic, or jMAVSim.
+SITL can be run faster or slower than real-time when using Gazebo, Gazebo Classic, or jMAVSim.
 
 The speed factor is set using the environment variable `PX4_SIM_SPEED_FACTOR`.
-For example, to run the Gazebo simulation of the X500 frame at 2 times the real time speed:
-
-```sh
-PX4_SIM_SPEED_FACTOR=2 make px4_sitl gz_x500
-```
-
-To run at half real-time:
-
-```sh
-PX4_SIM_SPEED_FACTOR=0.5 make px4_sitl gz_x500
-```
-
-You can apply the factor to all SITL runs in the current session using `EXPORT`:
-
-```sh
-export PX4_SIM_SPEED_FACTOR=2
-make px4_sitl gz_x500
-```
 
 ::: info
-At some point IO or CPU will limit the speed that is possible on your machine and it will be slowed down "automatically".
-Powerful desktop machines can usually run the simulation at around 6-10x, for notebooks the achieved rates can be around 3-4x.
+PX4 SITL and the simulators are run in _lockstep_, which means that they are locked to run at the same speed, and therefore can react appropriately to sensor and actuator messages.
+This is what makes it possible to run the simulation at different speeds, and also pause the simulation in order to step through code.
 :::
 
-::: info
-To avoid PX4 detecting data link timeouts, increase the value of param [COM_DL_LOSS_T](../advanced_config/parameter_reference.md#COM_DL_LOSS_T) proportional to the simulation rate.
-For example, if `COM_DL_LOSS_T` is 10 in realtime, at 10x simulation rate increase to 100.
-:::
+For more information see:
 
-### Lockstep Simulation
-
-PX4 SITL and the simulators (Gazebo, Gazebo Classic, jMAVSim) have been set up to run in _lockstep_.
-What this means is that PX4 and the simulator run at the same speed, and therefore can react appropriately to sensor and actuator messages.
-
-::: info
-Lockstep makes it possible to [run the simulation faster or slower than realtime](#simulation_speed), and also to pause it in order to step through code.
-:::
-
-#### Gazebo
-
-Gazebo runs the simulator at the same speed as PX4 (the GZBridge now sets the PX4 time on every sim step, in the `clockCallback`).
-
-Lockstep cannot be disabled on Gazebo.
-
-#### Gazebo Classic & jMAVSim
-
-PX4 and the simulator wait on each other for sensor and actuator messages, rather than running at their own speeds.
-The sequence of steps for lockstep are:
-
-1. The simulation sends a sensor message [HIL_SENSOR](https://mavlink.io/en/messages/common.html#HIL_SENSOR) including a timestamp `time_usec` to update the sensor state and time of PX4.
-1. PX4 receives this and does one iteration of state estimation, controls, etc. and eventually sends an actuator message [HIL_ACTUATOR_CONTROLS](https://mavlink.io/en/messages/common.html#HIL_ACTUATOR_CONTROLS).
-1. The simulation waits until it receives the actuator/motor message, then simulates the physics and calculates the next sensor message to send to PX4 again.
-
-The system starts with a "freewheeling" period where the simulation sends sensor messages including time and therefore runs PX4 until it has initialized and responds with an actuator message.
-
-##### Disable Lockstep Simulation
-
-On Gazebo Classic and jMAVSim, the lockstep simulation can be disabled if, for example, SITL is to be used with a simulator that does not support this feature.
-In this case the simulator and PX4 use the host system time and do not wait on each other.
-
-To disable lockstep in PX4, run `make px4_sitl_default boardconfig` and set the `BOARD_NOLOCKSTEP` "Force disable lockstep" symbol which is located under toolchain.
-
-To disable lockstep in Gazebo Classic, edit [the model SDF file](https://github.com/PX4/PX4-SITL_gazebo-classic/blob/3062d287c322fabf1b41b8e33518eb449d4ac6ed/models/plane/plane.sdf#L449) and set `<enable_lockstep>false</enable_lockstep>`.
-
-To disable lockstep in jMAVSim, remove `-l` in [sitl_run.sh](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/simulation/jsbsim/sitl_run.sh#L40), or make sure otherwise that the java binary is started without the `-lockstep` flag.
-
-<!-- Relevant lines in sitl_run.sh are: -->
-<!-- # Start Java simulator -->
-<!-- "$src_path"/Tools/simulation/jmavsim/jmavsim_run.sh -r 250 -l & SIM_PID=$!  -->
+- Gazebo: [Change Simulation Speed](../sim_gazebo_gz/index.md#change-simulation-speed)
+- Gazebo Classic: [Change Simulation Speed](../sim_gazebo_classic/index.md#change-simulation-speed) and [Lockstep](../sim_gazebo_classic/index.md#lockstep)
+- jMAVSim: [Change Simulation Speed](../sim_jmavsim/index.md#change-simulation-speed) and [Lockstep](../sim_jmavsim/index.md#lockstep)
 
 ### Startup Scripts
 
