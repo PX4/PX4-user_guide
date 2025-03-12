@@ -39,7 +39,7 @@ The PM is **NOT** compatible with flight controllers that require an analog powe
 
 Additional wiring and connection information can be found in: [Holybro Pixhawk 5x Wiring Quick Start](../assembly/quick_start_pixhawk5x.md).
 
-## Configuration
+## PX4 Configuration
 
 Low voltage (6S) Digital Power Module
 - Enable parameter [SENS_EN_INA226](../advanced_config/parameter_reference.md#SENS_EN_INA226)
