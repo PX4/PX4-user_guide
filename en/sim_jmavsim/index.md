@@ -129,12 +129,24 @@ make px4_sitl_default jmavsim
 
 The simulation speed can be increased or decreased with respect to realtime using the environment variable `PX4_SIM_SPEED_FACTOR`.
 
+To run at double real-time:
+
+```sh
+PX4_SIM_SPEED_FACTOR=2 make px4_sitl_default jmavsim
+```
+
+To run at half real-time:
+
+```sh
+PX4_SIM_SPEED_FACTOR=0.5  make px4_sitl_default jmavsim
+```
+
+To apply a factor to all SITL runs in the current session, use `EXPORT`:
+
 ```sh
 export PX4_SIM_SPEED_FACTOR=2
 make px4_sitl_default jmavsim
 ```
-
-For more information see: [Simulation > Run Simulation Faster than Realtime](../simulation/index.md#simulation_speed).
 
 ### Using a Joystick
 
@@ -172,6 +184,36 @@ HEADLESS=1 make px4_sitl jmavsim
 ## Multi-Vehicle Simulation
 
 JMAVSim can be used for multi-vehicle simulation: [Multi-Vehicle Sim with JMAVSim](../sim_jmavsim/multi_vehicle.md).
+
+## Lockstep
+
+PX4 SITL and jMAVSim have been set up to run in _lockstep_.
+What this means is that PX4 and the simulator run at the same speed, and therefore can react appropriately to sensor and actuator messages.
+Lockstep makes it possible to [change the simulation speed](#change-simulation-speed), and also to pause it in order to step through code.
+
+#### Lockstep Sequence
+
+The sequence of steps for lockstep are:
+
+1. The simulation sends a sensor message [HIL_SENSOR](https://mavlink.io/en/messages/common.html#HIL_SENSOR) including a timestamp `time_usec` to update the sensor state and time of PX4.
+1. PX4 receives this and does one iteration of state estimation, controls, etc. and eventually sends an actuator message [HIL_ACTUATOR_CONTROLS](https://mavlink.io/en/messages/common.html#HIL_ACTUATOR_CONTROLS).
+1. The simulation waits until it receives the actuator/motor message, then simulates the physics and calculates the next sensor message to send to PX4 again.
+
+The system starts with a "freewheeling" period where the simulation sends sensor messages including time and therefore runs PX4 until it has initialized and responds with an actuator message.
+
+#### Disabling Lockstep
+
+The lockstep simulation can be disabled if, for example, SITL is to be used with a simulator that does not support this feature.
+In this case the simulator and PX4 use the host system time and do not wait on each other.
+
+To disable lockstep in:
+
+- PX4, run `make px4_sitl_default boardconfig` and set the `BOARD_NOLOCKSTEP` "Force disable lockstep" symbol which is located under toolchain.
+- jMAVSim, remove `-l` in [sitl_run.sh](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/simulation/jsbsim/sitl_run.sh#L40), or make sure otherwise that the java binary is started without the `-lockstep` flag.
+
+<!-- Relevant lines in sitl_run.sh are: -->
+<!-- # Start Java simulator -->
+<!-- "$src_path"/Tools/simulation/jmavsim/jmavsim_run.sh -r 250 -l & SIM_PID=$!  -->
 
 ## Extending and Customizing
 
