@@ -279,12 +279,12 @@ where `ARGS` is a list of environment variables including:
   Specify `PX4_GZ_SIM_RENDER_ENGINE=ogre` to set the rendering engine to OGRE 1 if you have rendering issues when running PX4 on a virtual machine.
 
 - `PX4_SIM_SPEED_FACTOR`:
-  Sets the speed factor to run the simulation at [faster/slower than realtime](#run-simulation-faster-slower-than-realtime).
+  Sets the speed factor to run the simulation at [faster/slower than realtime](#change-simulation-speed).
 
 - `PX4_GZ_FOLLOW_OFFSET_X`, `PX4_GZ_FOLLOW_OFFSET_Y`, `PX4_GZ_FOLLOW_OFFSET_Z`:
   Set the relative offset of the follow camera to the vehicle.
 
-The PX4 Gazebo worlds and and models databases [can be found on Github here](https://github.com/PX4/PX4-gazebo-models).
+The PX4 Gazebo worlds and and models databases [can be found on GitHub here](https://github.com/PX4/PX4-gazebo-models).
 
 ::: info
 `gz_env.sh.in` is compiled and made available in `$PX4_DIR/build/px4_sitl_default/rootfs/gz_env.sh`
