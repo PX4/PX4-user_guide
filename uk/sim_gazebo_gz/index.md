@@ -174,6 +174,41 @@ This can be ignored:
 
 :::
 
+### Зміна швидкості симуляції
+
+PX4 SITL can be run faster or slower than real-time when using Gazebo.
+
+The speed factor is set using the environment variable `PX4_SIM_SPEED_FACTOR`.
+For example, to run the Gazebo simulation of the X500 frame at 2 times the real time speed:
+
+```sh
+PX4_SIM_SPEED_FACTOR=2 make px4_sitl gz_x500
+```
+
+Запустити в половину реального часу:
+
+```sh
+PX4_SIM_SPEED_FACTOR=0.5 make px4_sitl gz_x500
+```
+
+You can apply the factor to all SITL runs in the current session using `EXPORT`:
+
+```sh
+export PX4_SIM_SPEED_FACTOR=2
+make px4_sitl gz_x500
+```
+
+:::info
+At some point IO or CPU will limit the speed that is possible on your machine and it will be slowed down "automatically".
+Потужні комп'ютери зазвичай можуть запускати симуляцію зі швидкістю близько 6-10 разів, для ноутбуків досягається швидкість близько 3-4 разів.
+:::
+
+:::info
+The simulators are run in _lockstep_, which means that Gazebo runs the simulator at the same speed as PX4 (the GZBridge sets the PX4 time on every sim step, in the `clockCallback`).
+In addition to being a precondition for running the simulation faster/slower than real-time, this also allows you to pause the simulation in order to step through code.
+Lockstep cannot be disabled on Gazebo.
+:::
+
 ## Використання/Налаштування
 
 Конвеєр запуску дозволяє дуже гнучке налаштування.
@@ -244,7 +279,13 @@ where `ARGS` is a list of environment variables including:
   Рушій рендерингу за замовчуванням (OGRE 2) погано підтримується на деяких платформах/середовищах.
   Specify `PX4_GZ_SIM_RENDER_ENGINE=ogre` to set the rendering engine to OGRE 1 if you have rendering issues when running PX4 on a virtual machine.
 
-The PX4 Gazebo worlds and and models databases [can be found on Github here](https://github.com/PX4/PX4-gazebo-models).
+- `PX4_SIM_SPEED_FACTOR`:
+  Sets the speed factor to run the simulation at [faster/slower than realtime](#change-simulation-speed).
+
+- `PX4_GZ_FOLLOW_OFFSET_X`, `PX4_GZ_FOLLOW_OFFSET_Y`, `PX4_GZ_FOLLOW_OFFSET_Z`:
+  Set the relative offset of the follow camera to the vehicle.
+
+The PX4 Gazebo worlds and and models databases [can be found on GitHub here](https://github.com/PX4/PX4-gazebo-models).
 
 :::info
 `gz_env.sh.in` is compiled and made available in `$PX4_DIR/build/px4_sitl_default/rootfs/gz_env.sh`
@@ -335,16 +376,6 @@ SDF files, mesh files, textures and anything else to do with the functionality a
 As long as the world file and the model file are in the Gazebo search path (`GZ_SIM_RESOURCE_PATH`) it is not necessary to add them to the PX4 world and model directories.
 However, `make px4_sitl gz_<model>_<world>` won't work with them.
 :::
-
-## Синхронізація часу PX4-Gazebo
-
-На відміну від симуляторів Gazebo Classic та jMAVSim, PX4 та Gazebo не реалізують механізм синхронізації.
-
-During Gazebo simulations PX4 subscribes to the Gazebo `\clock` topic and uses it as clock source.
-Це гарантує, що PX4 завжди чекатиме Gazebo перед тим як рухатися вперед у часі, навіть якщо Gazebo працює з фактором реального часу відмінним від 1.
-
-Зауважте, однак, оскільки синхронізація відсутня, Gazebo ніколи не чекатиме завершення обчислень PX4.
-У найгіршому випадку, PX4 може повністю відключитися, а Gazebo продовжить виконання з очевидними аваріями дронів, що симулюються.
 
 ## Симуляція кількох рухомих засобів
 
