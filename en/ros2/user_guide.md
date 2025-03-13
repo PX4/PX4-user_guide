@@ -759,7 +759,7 @@ PX4 uXRCE-DDS middleware supports [ROS 2 services](https://docs.ros.org/en/jazzy
 Services are remote procedure calls, from one node to another, that return a result.
 
 A service server is the entity that will accept a remote procedure request, perform some computation on it, and return the result.
-They simplify communication between ROS 2 nodes and PX4 by encapsulating and associating the request and response topics, and ensuring that replies are only returned to the specific requesting user.
+They simplify communication between ROS 2 nodes and PX4 by grouping the request and response behaviour, and ensuring that replies are only returned to the specific requesting user.
 This is much easier that publishing the request, subscribing to the reply, and filtering out any unwanted responses.
 
 The service servers that are built into the PX4 [uxrce_dds_client](../modules/modules_system.md#uxrce-dds-client) module include:

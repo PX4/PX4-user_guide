@@ -494,7 +494,7 @@ For example, you could use different default namespaces or use a custom package 
 
 PX4 uXRCE-DDS middleware supports [ROS 2 services](https://docs.ros.org/en/jazzy/Concepts/Basic/About-Services.html).
 These are remote procedure calls, from one node to another, which return a result.
-They simplify communication between ROS 2 nodes and PX4 by encapsulating and associating the request and response topics, ensuring that replies are only returned to the specific requesting user.
+They simplify communication between ROS 2 nodes and PX4 by grouping the request and response behaviour, and ensuring that replies are only returned to the specific requesting user.
 
 A service server is the entity that will accept a remote procedure request, perform some computation on it, and return the result.
 For example, the `/fmu/vehicle_command` service server defined in [`px4_msgs::srv::VehicleCommand`](https://github.com/PX4/px4_msgs/blob/main/srv/VehicleCommand.srv) can be called by ROS 2 applications to send PX4 [VehicleCommand](../msg_docs/VehicleCommand.md) uORB messages and receive PX4 [VehicleCommandAck](../msg_docs/VehicleCommandAck.md) uORB messages in response.
