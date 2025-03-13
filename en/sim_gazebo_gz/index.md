@@ -281,7 +281,7 @@ where `ARGS` is a list of environment variables including:
 - `PX4_SIM_SPEED_FACTOR`:
   Sets the speed factor to run the simulation at [faster/slower than realtime](#run-simulation-faster-slower-than-realtime).
 
-- `PX4_GZ_FOLLOW_OFFSET_X`, `PX4_SIM_SPEED_FACTOR_Y`, `PX4_SIM_SPEED_FACTOR_Z`:
+- `PX4_GZ_FOLLOW_OFFSET_X`, `PX4_GZ_FOLLOW_OFFSET_Y`, `PX4_GZ_FOLLOW_OFFSET_Z`:
   Set the relative offset of the follow camera to the vehicle.
 
 The PX4 Gazebo worlds and and models databases [can be found on Github here](https://github.com/PX4/PX4-gazebo-models).
