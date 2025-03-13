@@ -17,10 +17,10 @@ The other sections provide general information about how the simulator works, an
 
 Наступні симулятори підтримуються основною командою розробників PX4.
 
-| Симулятор                                        | Опис                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| ------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Gazebo](../sim_gazebo_gz/index.md)              | <p><strong>This simulator is highly recommended.</strong></p><p>Gazebo supersedes [Gazebo Classic](../sim_gazebo_classic/index.md), featuring more advanced rendering, physics and sensor models. It is the only version of Gazebo available from Ubuntu Linux 22.04</p><p>A powerful 3D simulation environment that is particularly suitable for testing object-avoidance and computer vision. Він також може бути використаний для [multi-vehicle simulation](../simulation/multi-vehicle-simulation.md) і зазвичай використовується з [ROS](../simulation/ros_interface.md), набором інструментів для автоматизації керування апаратами. </p><p><strong>Supported Vehicles:</strong> Quad, Standard VTOL, Plane</p>      |
-| [Gazebo Classic](../sim_gazebo_classic/index.md) | <p><strong>This simulator is highly recommended.</strong></p><p>A powerful 3D simulation environment that is particularly suitable for testing object-avoidance and computer vision. It can also be used for [multi-vehicle simulation](../simulation/multi-vehicle-simulation.md) and is commonly used with [ROS](../simulation/ros_interface.md), a collection of tools for automating vehicle control.</p><p><strong>Supported Vehicles:</strong> Quad ([Iris](../airframes/airframe_reference.md#copter_quadrotor_x_generic_quadcopter), Hex (Typhoon H480), [Generic Standard VTOL (QuadPlane)](../airframes/airframe_reference.md#vtol_standard_vtol_generic_standard_vtol), Tailsitter, Plane, Rover, Submarine </p> |
+| Симулятор                                        | Опис                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| ------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Gazebo](../sim_gazebo_gz/index.md)              | Gazebo supersedes [Gazebo Classic](../sim_gazebo_classic/index.md), featuring more advanced rendering, physics and sensor models. It is the only version of Gazebo available from Ubuntu Linux 22.04<br><br>A powerful 3D simulation environment that is particularly suitable for testing object-avoidance and computer vision. Він також може бути використаний для [multi-vehicle simulation](../simulation/multi-vehicle-simulation.md) і зазвичай використовується з [ROS](../simulation/ros_interface.md), набором інструментів для автоматизації керування апаратами. <br><br><strong>Supported Vehicles:</strong> Quad, VTOL (Standard, Tailsitter, Tiltroter), Plane, Rovers |
+| [Gazebo Classic](../sim_gazebo_classic/index.md) | A powerful 3D simulation environment that is particularly suitable for testing object-avoidance and computer vision. It can also be used for [multi-vehicle simulation](../simulation/multi-vehicle-simulation.md) and is commonly used with [ROS](../simulation/ros_interface.md), a collection of tools for automating vehicle control.<br><br>**Supported Vehicles:** Quad ([Iris](../airframes/airframe_reference.md#copter_quadrotor_x_generic_quadcopter)), Hex (Typhoon H480), [Generic Standard VTOL (QuadPlane)](../airframes/airframe_reference.md#vtol_standard_vtol_generic_standard_vtol), Tailsitter, Plane, Rover, Submarine                                     |
 
 There are also a number of [Community Supported Simulators](../simulation/community_supported_simulators.md).
 
@@ -164,75 +164,22 @@ make px4_sitl none_iris
 The syntax described here is simplified, and there are many other options that you can configure via _make_ - for example, to set that you wish to connect to an IDE or debugger.
 For more information see: [Building the Code > PX4 Make Build Targets](../dev_setup/building_px4.md#px4-make-build-targets).
 
-<a id="simulation_speed"></a>
+### Run Simulation Faster than Realtime {#simulation_speed}
 
-### Запуск симуляції швидше, ніж у реальному часі
-
-SITL можна запустити швидше або повільніше, ніж у реальному часі, використовуючи jMAVSim або Gazebo Classic.
+SITL can be run faster or slower than real-time when using Gazebo, Gazebo Classic, or jMAVSim.
 
 The speed factor is set using the environment variable `PX4_SIM_SPEED_FACTOR`.
-Наприклад, запустити симуляцію jMAVSim зі швидкістю у 2 рази більшою за швидкість реального часу:
-
-```sh
-PX4_SIM_SPEED_FACTOR=2 make px4_sitl jmavsim
-```
-
-Запустити в половину реального часу:
-
-```sh
-PX4_SIM_SPEED_FACTOR=0.5 make px4_sitl jmavsim
-```
-
-You can apply the factor to all SITL runs in the current session using `EXPORT`:
-
-```sh
-export PX4_SIM_SPEED_FACTOR=2
-make px4_sitl jmavsim
-```
 
 :::info
-At some point IO or CPU will limit the speed that is possible on your machine and it will be slowed down "automatically".
-Потужні комп'ютери зазвичай можуть запускати симуляцію зі швидкістю близько 6-10 разів, для ноутбуків досягається швидкість близько 3-4 разів.
+PX4 SITL and the simulators are run in _lockstep_, which means that they are locked to run at the same speed, and therefore can react appropriately to sensor and actuator messages.
+This is what makes it possible to run the simulation at different speeds, and also pause the simulation in order to step through code.
 :::
 
-:::info
-To avoid PX4 detecting data link timeouts, increase the value of param [COM_DL_LOSS_T](../advanced_config/parameter_reference.md#COM_DL_LOSS_T) proportional to the simulation rate.
-For example, if `COM_DL_LOSS_T` is 10 in realtime, at 10x simulation rate increase to 100.
-:::
+Для додаткової інформації дивіться:
 
-### Симуляція Lockstep
-
-PX4 SITL and the simulators (jMAVSim or Gazebo Classic) have been set up to run in _lockstep_.
-Це означає, що PX4 і симулятор чекають один на одного для отримання повідомлень від датчиків і приводів, а не працюють зі своїми власними швидкостями.
-
-:::info
-Lockstep makes it possible to [run the simulation faster or slower than realtime](#simulation_speed), and also to pause it in order to step through code.
-:::
-
-Послідовність кроків для lockstep наступна:
-
-1. The simulation sends a sensor message [HIL_SENSOR](https://mavlink.io/en/messages/common.html#HIL_SENSOR) including a timestamp `time_usec` to update the sensor state and time of PX4.
-2. PX4 receives this and does one iteration of state estimation, controls, etc. and eventually sends an actuator message [HIL_ACTUATOR_CONTROLS](https://mavlink.io/en/messages/common.html#HIL_ACTUATOR_CONTROLS).
-3. Симуляція чекає, поки не отримає повідомлення від приводу/двигуна, потім моделює фізику і обчислює наступне повідомлення від датчика, яке знову надсилається до PX4.
-
-Система починається з "вільного ходу", під час якого симуляція надсилає повідомлення від датчиків, зокрема про час, і, таким чином, запускає PX4, доки він не ініціалізується і не надішле відповідне повідомлення від приводу.
-
-#### Вимкнення Lockstep симуляції
-
-Lockstep симуляцію можна вимкнути, якщо, наприклад, SITL потрібно використовувати з тренажером, який не підтримує цю функцію.
-У цьому випадку симулятор і PX4 використовують системний час хоста і не чекають один на одного.
-
-To disable lockstep in PX4, run `make px4_sitl_default boardconfig` and set the `BOARD_NOLOCKSTEP` "Force disable lockstep" symbol which is located under toolchain.
-
-To disable lockstep in Gazebo, edit [the model SDF file](https://github.com/PX4/PX4-SITL_gazebo-classic/blob/3062d287c322fabf1b41b8e33518eb449d4ac6ed/models/plane/plane.sdf#L449) and set `<enable_lockstep>false</enable_lockstep>`.
-
-To disable lockstep in jMAVSim, remove `-l` in [sitl_run.sh](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/simulation/jsbsim/sitl_run.sh#L40), or make sure otherwise that the java binary is started without the `-lockstep` flag.
-
-<!-- Relevant lines in sitl_run.sh are: -->
-
-<!-- # Start Java simulator -->
-
-<!-- "$src_path"/Tools/simulation/jmavsim/jmavsim_run.sh -r 250 -l & SIM_PID=$! -->
+- Gazebo: [Change Simulation Speed](../sim_gazebo_gz/index.md#change-simulation-speed)
+- Gazebo Classic: [Change Simulation Speed](../sim_gazebo_classic/index.md#change-simulation-speed) and [Lockstep](../sim_gazebo_classic/index.md#lockstep)
+- jMAVSim: [Change Simulation Speed](../sim_jmavsim/index.md#change-simulation-speed) and [Lockstep](../sim_jmavsim/index.md#lockstep)
 
 ### Сценарії запуску
 
@@ -271,20 +218,20 @@ The simulated camera is a gazebo classic plugin that implements the [MAVLink Cam
 PX4 connects/integrates with this camera in _exactly the same way_ as it would with any other MAVLink camera:
 
 1. [TRIG_INTERFACE](../advanced_config/parameter_reference.md#TRIG_INTERFACE) must be set to `3` to configure the camera trigger driver for use with a MAVLink camera
-   :::tip
-   In this mode the driver just sends a [CAMERA_TRIGGER](https://mavlink.io/en/messages/common.html#CAMERA_TRIGGER) message whenever an image capture is requested.
-   For more information see [Cameras Connected to Flight Controller Outputs](../camera/fc_connected_camera.md).
+  :::tip
+  In this mode the driver just sends a [CAMERA_TRIGGER](https://mavlink.io/en/messages/common.html#CAMERA_TRIGGER) message whenever an image capture is requested.
+  For more information see [Cameras Connected to Flight Controller Outputs](../camera/fc_connected_camera.md).
 
 :::
 2. PX4 повинен перенаправляти всі команди камери між GCS і (симулятором) MAVLink Camera.
-   You can do this by starting [MAVLink](../modules/modules_communication.md#mavlink) with the `-f` flag as shown, specifying the UDP ports for the new connection.
+  You can do this by starting [MAVLink](../modules/modules_communication.md#mavlink) with the `-f` flag as shown, specifying the UDP ports for the new connection.
 
-   ```sh
-   mavlink start -u 14558 -o 14530 -r 4000 -f -m camera
-   ```
+  ```sh
+  mavlink start -u 14558 -o 14530 -r 4000 -f -m camera
+  ```
 
-   ::: info
-   More than just the camera MAVLink messages will be forwarded, but the camera will ignore those that it doesn't consider relevant.
+  ::: info
+  More than just the camera MAVLink messages will be forwarded, but the camera will ignore those that it doesn't consider relevant.
 
 :::
 
