@@ -198,11 +198,6 @@ export PX4_SIM_SPEED_FACTOR=2
 make px4_sitl gz_x500
 ```
 
-::: tip
-To avoid PX4 detecting data link timeouts, increase the value of param [COM_DL_LOSS_T](../advanced_config/parameter_reference.md#COM_DL_LOSS_T) proportional to the simulation rate.
-For example, if `COM_DL_LOSS_T` is 10 in realtime, at 10x simulation rate increase to 100.
-:::
-
 ::: info
 At some point IO or CPU will limit the speed that is possible on your machine and it will be slowed down "automatically".
 Powerful desktop machines can usually run the simulation at around 6-10x, for notebooks the achieved rates can be around 3-4x.
