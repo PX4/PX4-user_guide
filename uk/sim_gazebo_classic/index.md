@@ -50,7 +50,7 @@ Note that `aptitude` is needed because it can resolve dependency conflicts (by r
 You could also modify the installation script to install Gazebo Classic on later versions before it is run for the first time.
 :::
 
-Additional installation instructions can be found on [gazebosim.org](http://gazebosim.org/tutorials?cat=guided_b\&tut=guided_b1).
+Additional installation instructions can be found on gazebosim.org.
 
 ## Запуск симуляції
 
@@ -183,12 +183,24 @@ make px4_sitl gazebo-classic
 
 The simulation speed can be increased or decreased with respect to realtime using the environment variable `PX4_SIM_SPEED_FACTOR`.
 
+To run at double real-time:
+
+```sh
+PX4_SIM_SPEED_FACTOR=2 make px4_sitl_default gazebo-classic
+```
+
+Запустити в половину реального часу:
+
+```sh
+PX4_SIM_SPEED_FACTOR=0.5  make px4_sitl_default gazebo-classic
+```
+
+To apply a factor to all SITL runs in the current session, use `EXPORT`:
+
 ```sh
 export PX4_SIM_SPEED_FACTOR=2
 make px4_sitl_default gazebo-classic
 ```
-
-For more information see: [Simulation > Run Simulation Faster than Realtime](../simulation/index.md#simulation_speed).
 
 ### Зміна швидкості вітру
 
@@ -243,14 +255,14 @@ It is enabled by default in many vehicle SDF files: **solo.sdf**, **iris.sdf**, 
 Щоб увімкнути/вимкнути шум GPS:
 
 1. Зберіть будь-яку ціль збірки gazebo, щоб згенерувати SDF файл (для всіх засобів).
-   Наприклад:
+  Наприклад:
 
-   ```sh
-   make px4_sitl gazebo-classic_iris
-   ```
+  ```sh
+  make px4_sitl gazebo-classic_iris
+  ```
 
-   :::tip
-   The SDF files are not overwritten on subsequent builds.
+  :::tip
+  The SDF files are not overwritten on subsequent builds.
 
 :::
 
@@ -258,17 +270,17 @@ It is enabled by default in many vehicle SDF files: **solo.sdf**, **iris.sdf**, 
 
 3. Search for the `gpsNoise` element:
 
-   ```xml
-   <plugin name='gps_plugin' filename='libgazebo_gps_plugin.so'>
-     <robotNamespace/>
-     <gpsNoise>true</gpsNoise>
-   </plugin>
-   ```
+  ```xml
+  <plugin name='gps_plugin' filename='libgazebo_gps_plugin.so'>
+    <robotNamespace/>
+    <gpsNoise>true</gpsNoise>
+  </plugin>
+  ```
 
-   - Якщо він присутній, GPS включений.
-     You can disable it by deleting the line: `<gpsNoise>true</gpsNoise>`
-   - Якщо він відсутній, GPS вимкнено.
-     You can enable it by adding the `gpsNoise` element to the `gps_plugin` section (as shown above).
+  - Якщо він присутній, GPS включений.
+    You can disable it by deleting the line: `<gpsNoise>true</gpsNoise>`
+  - Якщо він відсутній, GPS вимкнено.
+    You can enable it by adding the `gpsNoise` element to the `gps_plugin` section (as shown above).
 
 Наступного разу, коли ви зберете/перезапустите Gazebo Classic він буде використовувати нове налаштування шуму GPS.
 
@@ -497,6 +509,32 @@ make px4_sitl gazebo-classic
 ```sh
 VERBOSE_SIM=1 make px4_sitl gazebo-classic
 ```
+
+## Lockstep
+
+PX4 SITL and Gazebo-Classic have been set up to run in _lockstep_.
+What this means is that PX4 and the simulator run at the same speed, and therefore can react appropriately to sensor and actuator messages.
+Lockstep makes it possible to [change the simulation speed](#change-simulation-speed), and also to pause it in order to step through code.
+
+#### Lockstep Sequence
+
+Послідовність кроків для lockstep наступна:
+
+1. The simulation sends a sensor message [HIL_SENSOR](https://mavlink.io/en/messages/common.html#HIL_SENSOR) including a timestamp `time_usec` to update the sensor state and time of PX4.
+2. PX4 receives this and does one iteration of state estimation, controls, etc. and eventually sends an actuator message [HIL_ACTUATOR_CONTROLS](https://mavlink.io/en/messages/common.html#HIL_ACTUATOR_CONTROLS).
+3. Симуляція чекає, поки не отримає повідомлення від приводу/двигуна, потім моделює фізику і обчислює наступне повідомлення від датчика, яке знову надсилається до PX4.
+
+Система починається з "вільного ходу", під час якого симуляція надсилає повідомлення від датчиків, зокрема про час, і, таким чином, запускає PX4, доки він не ініціалізується і не надішле відповідне повідомлення від приводу.
+
+#### Disabling Lockstep
+
+Lockstep симуляцію можна вимкнути, якщо, наприклад, SITL потрібно використовувати з тренажером, який не підтримує цю функцію.
+У цьому випадку симулятор і PX4 використовують системний час хоста і не чекають один на одного.
+
+To disable lockstep in:
+
+- PX4, run `make px4_sitl_default boardconfig` and set the `BOARD_NOLOCKSTEP` "Force disable lockstep" symbol which is located under toolchain.
+- Gazebo Classic, edit [the model SDF file](https://github.com/PX4/PX4-SITL_gazebo-classic/blob/3062d287c322fabf1b41b8e33518eb449d4ac6ed/models/plane/plane.sdf#L449) and set `<enable_lockstep>false</enable_lockstep>`.
 
 ## Розширення та персоналізація
 
