@@ -30,23 +30,23 @@ Follow the instructions below to install jMAVSim on macOS.
 To setup the environment for [jMAVSim](../sim_jmavsim/index.md) simulation:
 
 1. Install a recent version of Java (e.g. Java 15).
-   You can download [Java 15 (or later) from Oracle](https://www.oracle.com/java/technologies/javase-downloads.html) or use [Eclipse Temurin](https://adoptium.net):
+  You can download [Java 15 (or later) from Oracle](https://www.oracle.com/java/technologies/javase-downloads.html) or use [Eclipse Temurin](https://adoptium.net):
 
-   ```sh
-   brew install --cask temurin
-   ```
+  ```sh
+  brew install --cask temurin
+  ```
 
 2. Install jMAVSim:
 
-   ```sh
-   brew install px4-sim-jmavsim
-   ```
+  ```sh
+  brew install px4-sim-jmavsim
+  ```
 
-   :::warning
-   PX4 v1.11 and beyond require at least JDK 15 for jMAVSim simulation.
+  :::warning
+  PX4 v1.11 and beyond require at least JDK 15 for jMAVSim simulation.
 
-   For earlier versions, macOS users might see the error `Exception in thread "main" java.lang.UnsupportedClassVersionError:`.
-   You can find the fix in the [jMAVSim with SITL > Troubleshooting](../sim_jmavsim/index.md#troubleshooting)).
+  For earlier versions, macOS users might see the error `Exception in thread "main" java.lang.UnsupportedClassVersionError:`.
+  You can find the fix in the [jMAVSim with SITL > Troubleshooting](../sim_jmavsim/index.md#troubleshooting)).
 
 :::
 
@@ -130,12 +130,24 @@ make px4_sitl_default jmavsim
 
 The simulation speed can be increased or decreased with respect to realtime using the environment variable `PX4_SIM_SPEED_FACTOR`.
 
+To run at double real-time:
+
+```sh
+PX4_SIM_SPEED_FACTOR=2 make px4_sitl_default jmavsim
+```
+
+Запустити в половину реального часу:
+
+```sh
+PX4_SIM_SPEED_FACTOR=0.5  make px4_sitl_default jmavsim
+```
+
+To apply a factor to all SITL runs in the current session, use `EXPORT`:
+
 ```sh
 export PX4_SIM_SPEED_FACTOR=2
 make px4_sitl_default jmavsim
 ```
-
-For more information see: [Simulation > Run Simulation Faster than Realtime](../simulation/index.md#simulation_speed).
 
 ### Використання джойстика
 
@@ -173,6 +185,38 @@ HEADLESS=1 make px4_sitl jmavsim
 ## Симуляція кількох рухомих засобів
 
 JMAVSim can be used for multi-vehicle simulation: [Multi-Vehicle Sim with JMAVSim](../sim_jmavsim/multi_vehicle.md).
+
+## Lockstep
+
+PX4 SITL and jMAVSim have been set up to run in _lockstep_.
+What this means is that PX4 and the simulator run at the same speed, and therefore can react appropriately to sensor and actuator messages.
+Lockstep makes it possible to [change the simulation speed](#change-simulation-speed), and also to pause it in order to step through code.
+
+#### Lockstep Sequence
+
+Послідовність кроків для lockstep наступна:
+
+1. The simulation sends a sensor message [HIL_SENSOR](https://mavlink.io/en/messages/common.html#HIL_SENSOR) including a timestamp `time_usec` to update the sensor state and time of PX4.
+2. PX4 receives this and does one iteration of state estimation, controls, etc. and eventually sends an actuator message [HIL_ACTUATOR_CONTROLS](https://mavlink.io/en/messages/common.html#HIL_ACTUATOR_CONTROLS).
+3. Симуляція чекає, поки не отримає повідомлення від приводу/двигуна, потім моделює фізику і обчислює наступне повідомлення від датчика, яке знову надсилається до PX4.
+
+Система починається з "вільного ходу", під час якого симуляція надсилає повідомлення від датчиків, зокрема про час, і, таким чином, запускає PX4, доки він не ініціалізується і не надішле відповідне повідомлення від приводу.
+
+#### Disabling Lockstep
+
+Lockstep симуляцію можна вимкнути, якщо, наприклад, SITL потрібно використовувати з тренажером, який не підтримує цю функцію.
+У цьому випадку симулятор і PX4 використовують системний час хоста і не чекають один на одного.
+
+To disable lockstep in:
+
+- PX4, run `make px4_sitl_default boardconfig` and set the `BOARD_NOLOCKSTEP` "Force disable lockstep" symbol which is located under toolchain.
+- jMAVSim, remove `-l` in [sitl_run.sh](https://github.com/PX4/PX4-Autopilot/blob/main/Tools/simulation/jsbsim/sitl_run.sh#L40), or make sure otherwise that the java binary is started without the `-lockstep` flag.
+
+<!-- Relevant lines in sitl_run.sh are: -->
+
+<!-- # Start Java simulator -->
+
+<!-- "$src_path"/Tools/simulation/jmavsim/jmavsim_run.sh -r 250 -l & SIM_PID=$!  -->
 
 ## Розширення та персоналізація
 
