@@ -23,7 +23,7 @@ param set UXRCE_DDS_KEY $((px4_instance+1))
 By doing so, `UXRCE_DDS_KEY` will always coincide with [MAV_SYS_ID](../advanced_config/parameter_reference.md#MAV_SYS_ID).
 :::
 
-Moreover, when `px4_instance` is greater than zero, a unique ROS 2 [namespace prefix](../middleware/uxrce_dds.md#customizing-the-topic-namespace) in the form `px4_$px4_instance` is added:
+Moreover, when `px4_instance` is greater than zero, a unique ROS 2 [namespace prefix](../middleware/uxrce_dds.md#customizing-the-namespace) in the form `px4_$px4_instance` is added:
 
 ```sh
 uxrce_dds_ns="-n px4_$px4_instance"
