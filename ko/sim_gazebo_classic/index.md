@@ -50,7 +50,7 @@ Note that `aptitude` is needed because it can resolve dependency conflicts (by r
 You could also modify the installation script to install Gazebo Classic on later versions before it is run for the first time.
 :::
 
-Additional installation instructions can be found on [gazebosim.org](http://gazebosim.org/tutorials?cat=guided_b\&tut=guided_b1).
+Additional installation instructions can be found on gazebosim.org.
 
 ## Running the Simulation
 
@@ -183,12 +183,24 @@ make px4_sitl gazebo-classic
 
 The simulation speed can be increased or decreased with respect to realtime using the environment variable `PX4_SIM_SPEED_FACTOR`.
 
+To run at double real-time:
+
+```sh
+PX4_SIM_SPEED_FACTOR=2 make px4_sitl_default gazebo-classic
+```
+
+실시간 절반으로 실행하려면:
+
+```sh
+PX4_SIM_SPEED_FACTOR=0.5  make px4_sitl_default gazebo-classic
+```
+
+To apply a factor to all SITL runs in the current session, use `EXPORT`:
+
 ```sh
 export PX4_SIM_SPEED_FACTOR=2
 make px4_sitl_default gazebo-classic
 ```
-
-For more information see: [Simulation > Run Simulation Faster than Realtime](../simulation/index.md#simulation_speed).
 
 ### Change Wind Speed
 
@@ -243,14 +255,14 @@ It is enabled by default in many vehicle SDF files: **solo.sdf**, **iris.sdf**, 
 To enable/disable GPS noise:
 
 1. Build any gazebo target in order to generate SDF files (for all vehicles).
-   예:
+  예:
 
-   ```sh
-   make px4_sitl gazebo-classic_iris
-   ```
+  ```sh
+  make px4_sitl gazebo-classic_iris
+  ```
 
-   :::tip
-   The SDF files are not overwritten on subsequent builds.
+  :::tip
+  The SDF files are not overwritten on subsequent builds.
 
 :::
 
@@ -258,17 +270,17 @@ To enable/disable GPS noise:
 
 3. Search for the `gpsNoise` element:
 
-   ```xml
-   <plugin name='gps_plugin' filename='libgazebo_gps_plugin.so'>
-     <robotNamespace/>
-     <gpsNoise>true</gpsNoise>
-   </plugin>
-   ```
+  ```xml
+  <plugin name='gps_plugin' filename='libgazebo_gps_plugin.so'>
+    <robotNamespace/>
+    <gpsNoise>true</gpsNoise>
+  </plugin>
+  ```
 
-   - If it is present, GPS is enabled.
-     You can disable it by deleting the line: `<gpsNoise>true</gpsNoise>`
-   - If it is not present, GPS is disabled.
-     You can enable it by adding the `gpsNoise` element to the `gps_plugin` section (as shown above).
+  - If it is present, GPS is enabled.
+    You can disable it by deleting the line: `<gpsNoise>true</gpsNoise>`
+  - If it is not present, GPS is disabled.
+    You can enable it by adding the `gpsNoise` element to the `gps_plugin` section (as shown above).
 
 The next time you build/restart Gazebo Classic it will use the new GPS noise setting.
 
@@ -497,6 +509,32 @@ make px4_sitl gazebo-classic
 ```sh
 VERBOSE_SIM=1 make px4_sitl gazebo-classic
 ```
+
+## Lockstep
+
+PX4 SITL and Gazebo-Classic have been set up to run in _lockstep_.
+What this means is that PX4 and the simulator run at the same speed, and therefore can react appropriately to sensor and actuator messages.
+Lockstep makes it possible to [change the simulation speed](#change-simulation-speed), and also to pause it in order to step through code.
+
+#### Lockstep Sequence
+
+잠금단계의 순서는 다음과 같습니다.
+
+1. The simulation sends a sensor message [HIL_SENSOR](https://mavlink.io/en/messages/common.html#HIL_SENSOR) including a timestamp `time_usec` to update the sensor state and time of PX4.
+2. PX4 receives this and does one iteration of state estimation, controls, etc. and eventually sends an actuator message [HIL_ACTUATOR_CONTROLS](https://mavlink.io/en/messages/common.html#HIL_ACTUATOR_CONTROLS).
+3. 시뮬레이션은 액추에이터/모터 메시지를 수신후에, 물리적 시뮬레이션후에 PX4로 전송할 다음 센서 메시지를 계산합니다.
+
+시스템은 시뮬레이션 시간을 포함하는 센서 메시지를 전송하는 "프리휠링" 기간으로 시작하므로, 초기화되고 액추에이터 메시지로 응답시까지 PX4를 실행합니다.
+
+#### Disabling Lockstep
+
+SITL이 이 기능을 지원하지 않는 시뮬레이터와 함께 사용되는 경우에는 잠금단계 시뮬레이션을 비활성화할 수 있습니다.
+이 경우 시뮬레이터와 PX4는 호스트 시스템 시간을 사용하며 서로를 기다리지 않습니다.
+
+To disable lockstep in:
+
+- PX4, run `make px4_sitl_default boardconfig` and set the `BOARD_NOLOCKSTEP` "Force disable lockstep" symbol which is located under toolchain.
+- Gazebo Classic, edit [the model SDF file](https://github.com/PX4/PX4-SITL_gazebo-classic/blob/3062d287c322fabf1b41b8e33518eb449d4ac6ed/models/plane/plane.sdf#L449) and set `<enable_lockstep>false</enable_lockstep>`.
 
 ## Extending and Customizing
 
