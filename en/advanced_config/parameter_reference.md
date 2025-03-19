@@ -15215,7 +15215,7 @@ Reboot | minValue | maxValue | increment | default | unit
 
 ### COM_QC_ACT (`INT32`) {#COM_QC_ACT}
 
-Set command after a quadchute.
+Set action after a quadchute.
 
 **Values:**
 
