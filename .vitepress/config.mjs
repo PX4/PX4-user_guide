@@ -48,9 +48,9 @@ export default defineConfig({
           pattern: ({ filePath, frontmatter }) => {
             if (frontmatter.newEditLink) {
               //newEditLink defines a frontmatter key you can use to append a path to main
-              return `https://github.com/PX4/PX4-user_guide/edit/main/${frontmatter.newEditLink}`;
+              return `https://github.com/PX4/PX4-Autopilot/edit/main/${frontmatter.newEditLink}`;
             } else {
-              return `https://github.com/PX4/PX4-user_guide/edit/main/${filePath}`;
+              return `https://github.com/PX4/PX4-Autopilot/edit/main/${filePath}`;
             }
           },
           text: "Edit on GitHub",
@@ -120,26 +120,13 @@ export default defineConfig({
 
     nav: [
       {
-        text: "PX4",
+        text: "Dronecode",
         items: [
           {
-            text: "Website",
+            text: "PX4",
             link: "https://px4.io/",
             ariaLabel: "PX4 website link",
           },
-          {
-            text: "Autopilot Source Code",
-            link: "https://github.com/PX4/PX4-Autopilot",
-          },
-          {
-            text: "Docs Source Code",
-            link: "https://github.com/PX4/PX4-user_guide",
-          },
-        ],
-      },
-      {
-        text: "Dronecode",
-        items: [
           {
             text: "QGroundControl",
             link: "http://qgroundcontrol.com/",
@@ -180,7 +167,7 @@ export default defineConfig({
     ],
 
     socialLinks: [
-      { icon: "github", link: "https://github.com/PX4/PX4-user_guide" },
+      { icon: "github", link: "https://github.com/PX4/PX4-Autopilot" },
     ],
   },
 
