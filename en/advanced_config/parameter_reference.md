@@ -30334,6 +30334,16 @@ Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &nbsp; |  |  |  | 0.0 |  
 
+### SENS_DPRES_REV (`INT32`) {#SENS_DPRES_REV}
+
+Reverse differential pressure sensor readings.
+
+Reverse the raw measurements of all differential pressure sensors. This can be enabled if the sensors have static and dynamic ports swapped.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; |  |  |  | Disabled (0) |  
+
 ### SENS_FLOW_MAXHGT (`FLOAT`) {#SENS_FLOW_MAXHGT}
 
 Maximum height above ground when reliant on optical flow.
