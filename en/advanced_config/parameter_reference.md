@@ -36128,6 +36128,14 @@ Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &nbsp; | 20000 | 1000000 |  | 1000000 |  
 
+### CANNODE_PUB_IMU (`INT32`) {#CANNODE_PUB_IMU}
+
+Enable RawIMU pub.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; |  | 1 |  | Disabled (0) |  
+
 ### CANNODE_PUB_MBD (`INT32`) {#CANNODE_PUB_MBD}
 
 Enable MovingBaselineData publication.
