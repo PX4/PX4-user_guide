@@ -22710,6 +22710,7 @@ The MAVLink Mode defines the set of streamed messages (for example the vehicle's
 - `10`: Gimbal
 - `11`: Onboard Low Bandwidth
 - `12`: uAvionix
+- `13`: Low Bandwidth
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -22856,6 +22857,7 @@ The MAVLink Mode defines the set of streamed messages (for example the vehicle's
 - `10`: Gimbal
 - `11`: Onboard Low Bandwidth
 - `12`: uAvionix
+- `13`: Low Bandwidth
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -23002,6 +23004,7 @@ The MAVLink Mode defines the set of streamed messages (for example the vehicle's
 - `10`: Gimbal
 - `11`: Onboard Low Bandwidth
 - `12`: uAvionix
+- `13`: Low Bandwidth
 
 
 Reboot | minValue | maxValue | increment | default | unit
