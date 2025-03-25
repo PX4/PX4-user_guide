@@ -31414,7 +31414,7 @@ Configure on which serial port to run Lightware SF45 Rangefinder (serial).
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&check; |  |  |  | 102 |  
+&check; |  |  |  | 0 |  
 
 ### SENS_EN_SHT3X (`INT32`) {#SENS_EN_SHT3X}
 
