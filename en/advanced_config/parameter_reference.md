@@ -19238,7 +19238,7 @@ Reboot | minValue | maxValue | increment | default | unit
 
 Control allocation method.
 
-Selects the algorithm and desaturation method. If set to Automtic, the selection is based on the airframe (CA_AIRFRAME).
+Selects the algorithm and desaturation method. If set to Automatic, the selection is based on the airframe (CA_AIRFRAME).
 
 **Values:**
 
