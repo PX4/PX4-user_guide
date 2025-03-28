@@ -33805,11 +33805,13 @@ Reboot | minValue | maxValue | increment | default | unit
 
 Dataman storage backend.
 
+If the board supports persistent storage (i.e., the KConfig variable DATAMAN_PERSISTENT_STORAGE is set), the 'Default storage' backend uses a file on persistent storage. If not supported, this backend uses non-persistent storage in RAM.
+
 **Values:**
 
-- `-1`: Disabled
-- `0`: default (SD card)
-- `1`: RAM (not persistent)
+- `-1`: Dataman disabled
+- `0`: Default storage
+- `1`: RAM storage
 
 
 Reboot | minValue | maxValue | increment | default | unit
