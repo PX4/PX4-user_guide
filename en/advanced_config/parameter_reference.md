@@ -14582,6 +14582,23 @@ Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &nbsp; |  |  | 0.1 | 10.0 | s 
 
+### COM_DLL_EXCEPT (`INT32`) {#COM_DLL_EXCEPT}
+
+Datalink loss exceptions.
+
+Specify modes in which datalink loss is ignored and the failsafe action not triggered.
+
+**Bitmask:**
+
+- `0`: Mission
+- `1`: Hold
+- `2`: Offboard
+
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 7 |  | 0 |  
+
 ### COM_DL_LOSS_T (`INT32`) {#COM_DL_LOSS_T}
 
 GCS connection loss time threshold.
@@ -15254,7 +15271,7 @@ Specify modes in which RC loss is ignored and the failsafe action not triggered.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; | 0 | 31 |  | 0 |  
+&nbsp; | 0 | 7 |  | 0 |  
 
 ### COM_RC_ARM_HYST (`INT32`) {#COM_RC_ARM_HYST}
 
