@@ -2,9 +2,11 @@
 
 
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/AirspeedValidated.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/versioned/AirspeedValidated.msg)
 
 ```c
+uint32 MESSAGE_VERSION = 0
+
 uint64 timestamp				# time since system start (microseconds)
 
 float32 indicated_airspeed_m_s			# indicated airspeed in m/s (IAS), set to NAN if invalid

@@ -15,6 +15,7 @@ Graphs showing how these are used [can be found here](../middleware/uorb_graph.m
 
 - [ActuatorMotors](ActuatorMotors.md) — Motor control message
 - [ActuatorServos](ActuatorServos.md) — Servo control message
+- [AirspeedValidated](AirspeedValidated.md)
 - [ArmingCheckReply](ArmingCheckReply.md)
 - [ArmingCheckRequest](ArmingCheckRequest.md)
 - [BatteryStatus](BatteryStatus.md)
@@ -72,7 +73,6 @@ The coordinate system origin is the vehicle position at the time when the EKF2-m
 - [ActuatorTest](ActuatorTest.md)
 - [AdcReport](AdcReport.md)
 - [Airspeed](Airspeed.md)
-- [AirspeedValidated](AirspeedValidated.md)
 - [AirspeedWind](AirspeedWind.md)
 - [AutotuneAttitudeControlStatus](AutotuneAttitudeControlStatus.md)
 - [ButtonEvent](ButtonEvent.md)
