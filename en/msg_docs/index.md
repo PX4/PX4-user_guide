@@ -65,6 +65,7 @@ The coordinate system origin is the vehicle position at the time when the EKF2-m
 
 ## Unversioned Messages
 
+- [AckermannVelocitySetpoint](AckermannVelocitySetpoint.md)
 - [ActionRequest](ActionRequest.md)
 - [ActuatorArmed](ActuatorArmed.md)
 - [ActuatorControlsStatus](ActuatorControlsStatus.md)
@@ -207,6 +208,7 @@ This are the three next waypoints (or just the next two or one).
 - [RcParameterMap](RcParameterMap.md)
 - [RoverAttitudeSetpoint](RoverAttitudeSetpoint.md)
 - [RoverAttitudeStatus](RoverAttitudeStatus.md)
+- [RoverPositionSetpoint](RoverPositionSetpoint.md)
 - [RoverRateSetpoint](RoverRateSetpoint.md)
 - [RoverRateStatus](RoverRateStatus.md)
 - [RoverSteeringSetpoint](RoverSteeringSetpoint.md)
