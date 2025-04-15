@@ -250,6 +250,8 @@ such as Pozyx or NXP Rddrone.
 - [TelemetryStatus](TelemetryStatus.md)
 - [TiltrotorExtraControls](TiltrotorExtraControls.md)
 - [TimesyncStatus](TimesyncStatus.md)
+- [TrajectorySetpoint6dof](TrajectorySetpoint6dof.md) — Trajectory setpoint in NED frame
+Input to position controller.
 - [TransponderReport](TransponderReport.md)
 - [TuneControl](TuneControl.md) — This message is used to control the tunes, when the tune_id is set to CUSTOM
 then the frequency, duration are used otherwise those values are ignored.
