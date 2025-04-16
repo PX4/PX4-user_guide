@@ -22033,7 +22033,7 @@ Reboot | minValue | maxValue | increment | default | unit
 
 Fixed-wing land detector: max rotational speed.
 
-Maximum allowed norm of the angular velocity in the landed state.
+Maximum allowed norm of the angular velocity in the landed state. Only used if neither airspeed nor groundspeed can be used for landing detection.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
