@@ -440,8 +440,6 @@ tfmini <command> [arguments...]
 
    stop          Stop driver
 
-   test          Test driver (basic functional tests)
-
    status        Print driver status
 ```
 ## ulanding_radar

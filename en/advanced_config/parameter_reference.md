@@ -32428,6 +32428,23 @@ Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &check; |  |  |  | 0 |  
 
+### SENS_TFMINI_HW (`INT32`) {#SENS_TFMINI_HW}
+
+Hardware Model.
+
+Models differ in range and FoV.
+
+**Values:**
+
+- `1`: TFMINI
+- `2`: ISTRA24
+- `3`: ISTRA24_100m
+
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&check; | 1 | 3 |  | 1 |  
+
 ### SENS_ULAND_CFG (`INT32`) {#SENS_ULAND_CFG}
 
 Serial Configuration for uLanding Radar.
