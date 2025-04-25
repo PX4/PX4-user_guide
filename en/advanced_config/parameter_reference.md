@@ -22027,7 +22027,7 @@ Maximum airspeed allowed in the landed state
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; | 2 | 20 |  | 6.00 | m/s 
+&nbsp; | 2 | 30 |  | 6.00 | m/s 
 
 ### LNDFW_ROT_MAX (`FLOAT`) {#LNDFW_ROT_MAX}
 
@@ -22057,7 +22057,7 @@ Maximum horizontal velocity allowed in the landed state. A factor of 0.7 is appl
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; | 0.5 | 10 |  | 5.0 | m/s 
+&nbsp; | 0.5 | 20 |  | 5.0 | m/s 
 
 ### LNDFW_VEL_Z_MAX (`FLOAT`) {#LNDFW_VEL_Z_MAX}
 
@@ -22077,7 +22077,7 @@ Maximum horizontal (x,y body axes) acceleration allowed in the landed state
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; | 2 | 15 |  | 8.0 | m/s^2 
+&nbsp; | 2 | 30 |  | 8.0 | m/s^2 
 
 ### LNDMC_ALT_GND (`FLOAT`) {#LNDMC_ALT_GND}
 
@@ -30517,7 +30517,7 @@ The cutoff frequency for the 2nd order butterworth filter used on the time deriv
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&check; | 0 | 1000 |  | 30.0 | Hz 
+&check; | 0 | 1000 | 0.1 | 30.0 | Hz 
 
 ### IMU_GYRO_CAL_EN (`INT32`) {#IMU_GYRO_CAL_EN}
 
@@ -30535,7 +30535,7 @@ The cutoff frequency for the 2nd order butterworth filter on the primary gyro. T
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&check; | 0 | 1000 |  | 40.0 | Hz 
+&check; | 0 | 1000 | 0.1 | 40.0 | Hz 
 
 ### IMU_GYRO_DNF_BW (`FLOAT`) {#IMU_GYRO_DNF_BW}
 
@@ -30545,7 +30545,7 @@ Bandwidth per notch filter when using dynamic notch filtering with ESC RPM.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; | 5 | 30 |  | 15. | Hz 
+&nbsp; | 5 | 30 | 0.1 | 15. | Hz 
 
 ### IMU_GYRO_DNF_EN (`INT32`) {#IMU_GYRO_DNF_EN}
 
@@ -30581,7 +30581,7 @@ Minimum notch filter frequency in Hz.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; |  |  |  | 25. | Hz 
+&nbsp; |  |  | 0.1 | 25. | Hz 
 
 ### IMU_GYRO_FFT_EN (`INT32`) {#IMU_GYRO_FFT_EN}
 
@@ -30639,7 +30639,7 @@ The frequency width of the stop band for the 2nd order notch filter on the prima
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&check; | 0 | 100 |  | 20.0 | Hz 
+&check; | 0 | 100 | 0.1 | 20.0 | Hz 
 
 ### IMU_GYRO_NF0_FRQ (`FLOAT`) {#IMU_GYRO_NF0_FRQ}
 
@@ -30649,7 +30649,7 @@ The center frequency for the 2nd order notch filter on the primary gyro. This fi
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&check; | 0 | 1000 |  | 0.0 | Hz 
+&check; | 0 | 1000 | 0.1 | 0.0 | Hz 
 
 ### IMU_GYRO_NF1_BW (`FLOAT`) {#IMU_GYRO_NF1_BW}
 
@@ -30659,7 +30659,7 @@ The frequency width of the stop band for the 2nd order notch filter on the prima
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&check; | 0 | 100 |  | 20.0 | Hz 
+&check; | 0 | 100 | 0.1 | 20.0 | Hz 
 
 ### IMU_GYRO_NF1_FRQ (`FLOAT`) {#IMU_GYRO_NF1_FRQ}
 
@@ -30669,7 +30669,7 @@ The center frequency for the 2nd order notch filter on the primary gyro. This fi
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&check; | 0 | 1000 |  | 0.0 | Hz 
+&check; | 0 | 1000 | 0.1 | 0.0 | Hz 
 
 ### IMU_GYRO_RATEMAX (`INT32`) {#IMU_GYRO_RATEMAX}
 
@@ -37329,17 +37329,17 @@ Reboot | minValue | maxValue | increment | default | unit
 
 Use fixed-wing actuation in hover to accelerate forward.
 
-This feature can be used to avoid the plane having to pitch nose down in order to move forward. Prevents large, negative lift from pitching nose down into wind. Fixed-wing forward actuators refers to puller/pusher (standard VTOL), or forward-tilt (tiltrotor VTOL). Only active if demanded down pitch is below VT_PITCH_MIN. Use VT_FWD_THRUST_SC to tune it. Descend mode is treated as Landing too. Only active (if enabled) in Altitude, Position and Auto modes, not in Stabilized.
+Prevents downforce from pitching the body down when facing wind. Uses puller/pusher (standard VTOL), or forward-tilt (tiltrotor VTOL) to accelerate forward instead. Only active if demanded pitch  is below VT_PITCH_MIN. Use VT_FWD_THRUST_SC to tune it. Descend mode is treated as Landing too. Only active (if enabled) in height-rate controlled modes.
 
 **Values:**
 
 - `0`: Disabled
 - `1`: Enabled (except LANDING)
-- `2`: Enabled if distance to ground above MPC_LAND_ALT1
-- `3`: Enabled if distance to ground above MPC_LAND_ALT2
+- `2`: Enabled if above MPC_LAND_ALT1
+- `3`: Enabled if above MPC_LAND_ALT2
 - `4`: Enabled constantly
-- `5`: Enabled if distance to ground above MPC_LAND_ALT1 (except LANDING)
-- `6`: Enabled if distance to ground above MPC_LAND_ALT2 (except LANDING)
+- `5`: Enabled if above MPC_LAND_ALT1 (except LANDING)
+- `6`: Enabled if above MPC_LAND_ALT2 (except LANDING)
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -37348,13 +37348,13 @@ Reboot | minValue | maxValue | increment | default | unit
 
 ### VT_FWD_THRUST_SC (`FLOAT`) {#VT_FWD_THRUST_SC}
 
-Fixed-wing actuation thrust scale for hover forward flight.
+Fixed-wing actuation thrust scale in hover.
 
-Scale applied to the demanded down-pitch to get the fixed-wing forward actuation in hover mode. Enabled via VT_FWD_THRUST_EN.
+Scale applied to the demanded pitch (below VT_PITCH_MIN) to get the fixed-wing forward actuation in hover mode. Enabled via VT_FWD_THRUST_EN.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; | 0.0 | 2.0 | 0.01 | 0.7 |  
+&nbsp; | 0.0 | 5.0 | 0.01 | 0.7 |  
 
 ### VT_FW_DIFTHR_EN (`INT32`) {#VT_FW_DIFTHR_EN}
 
