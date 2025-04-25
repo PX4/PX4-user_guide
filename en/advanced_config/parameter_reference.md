@@ -24158,7 +24158,7 @@ Reboot | minValue | maxValue | increment | default | unit
 
 Altitude for 3. step of slow landing.
 
-Below this altitude descending velocity gets limited to "MPC_LAND_CRWL", if LIDAR available. No effect if LIDAR not available
+If a valid distance sensor measurement to the ground is available, limit descending velocity to "MPC_LAND_CRWL" below this altitude.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
