@@ -93,6 +93,7 @@ setting something to NaN means that no limit is provided
 - [DebugValue](DebugValue.md)
 - [DebugVect](DebugVect.md)
 - [DifferentialPressure](DifferentialPressure.md)
+- [DifferentialVelocitySetpoint](DifferentialVelocitySetpoint.md)
 - [DistanceSensor](DistanceSensor.md) — DISTANCE_SENSOR message data
 - [DistanceSensorModeChangeRequest](DistanceSensorModeChangeRequest.md)
 - [Ekf2Timestamps](Ekf2Timestamps.md) — this message contains the (relative) timestamps of the sensor inputs used by EKF2.
