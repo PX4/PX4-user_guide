@@ -117,9 +117,9 @@ module.exports = {
     // Optional options for generating "Edit this page" link
 
     // if your docs are in a different repo from your main project:
-    docsRepo: "PX4/px4_user_guide",
+    docsRepo: "PX4/PX4-Autopilot",
     // if your docs are not at the root of the repo:
-    //docsDir: 'docs',
+    docsDir: 'docs',
     // if your docs are in a specific branch (defaults to 'main'):
     docsBranch: "main",
     // defaults to false, set to true to enable
