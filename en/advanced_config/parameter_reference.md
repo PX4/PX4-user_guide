@@ -13171,21 +13171,20 @@ Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &nbsp; | 0 | 31 |  | 7 |  
 
-### ASPD_FALLBACK_GW (`INT32`) {#ASPD_FALLBACK_GW}
+### ASPD_FALLBACK (`INT32`) {#ASPD_FALLBACK}
 
-Enable fallback to sensor-less airspeed estimation.
-
-If set to true and airspeed checks are enabled, it will use a sensor-less airspeed estimation based on groundspeed minus windspeed if no other airspeed sensor available to fall back to.
+Fallback options.
 
 **Values:**
 
-- `0`: Disable fallback to sensor-less estimation
-- `1`: Enable fallback to sensor-less estimation
+- `0`: Fallback only to other airspeed sensors
+- `1`: Fallback to groundspeed-minus-windspeed airspeed estimation
+- `2`: Fallback to thrust based airspeed estimation
 
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; |  |  |  | Disabled (0) |  
+&nbsp; |  |  |  | 0 |  
 
 ### ASPD_FP_T_WINDOW (`FLOAT`) {#ASPD_FP_T_WINDOW}
 
@@ -13247,6 +13246,7 @@ Index or primary airspeed measurement source.
 - `1`: First airspeed sensor
 - `2`: Second airspeed sensor
 - `3`: Third airspeed sensor
+- `4`: Thrust based airspeed
 
 
 Reboot | minValue | maxValue | increment | default | unit
