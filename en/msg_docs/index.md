@@ -163,6 +163,7 @@ These are the externally visible LED's, not the board LED's
 - [ManualControlSwitches](ManualControlSwitches.md)
 - [MavlinkLog](MavlinkLog.md)
 - [MavlinkTunnel](MavlinkTunnel.md) — MAV_TUNNEL_PAYLOAD_TYPE enum
+- [MecanumVelocitySetpoint](MecanumVelocitySetpoint.md)
 - [MessageFormatRequest](MessageFormatRequest.md)
 - [MessageFormatResponse](MessageFormatResponse.md)
 - [Mission](Mission.md)
