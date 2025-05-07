@@ -18947,9 +18947,9 @@ Reboot | minValue | maxValue | increment | default | unit
 
 ### PPS_CAP_ENABLE (`INT32`) {#PPS_CAP_ENABLE}
 
-PPS Capture Enable.
+PPS capture enable.
 
-Enables the PPS capture module. This switches mode of FMU channel 7 to be the PPS input channel.
+Enables the PPS capture module to refine the GPS time from pulses detected on a PWM pin configured as "PPS Input".
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
