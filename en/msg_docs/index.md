@@ -81,7 +81,7 @@ The coordinate system origin is the vehicle position at the time when the EKF2-m
 - [CameraStatus](CameraStatus.md)
 - [CameraTrigger](CameraTrigger.md)
 - [CanInterfaceStatus](CanInterfaceStatus.md)
-- [CellularStatus](CellularStatus.md)
+- [CellularStatus](CellularStatus.md) — Cellular status
 - [CollisionConstraints](CollisionConstraints.md) — Local setpoint constraints in NED frame
 setting something to NaN means that no limit is provided
 - [ControlAllocatorStatus](ControlAllocatorStatus.md)
