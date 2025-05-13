@@ -65,7 +65,6 @@ The coordinate system origin is the vehicle position at the time when the EKF2-m
 
 ## Unversioned Messages
 
-- [AckermannVelocitySetpoint](AckermannVelocitySetpoint.md)
 - [ActionRequest](ActionRequest.md)
 - [ActuatorArmed](ActuatorArmed.md)
 - [ActuatorControlsStatus](ActuatorControlsStatus.md)
@@ -93,7 +92,6 @@ setting something to NaN means that no limit is provided
 - [DebugValue](DebugValue.md)
 - [DebugVect](DebugVect.md)
 - [DifferentialPressure](DifferentialPressure.md)
-- [DifferentialVelocitySetpoint](DifferentialVelocitySetpoint.md)
 - [DistanceSensor](DistanceSensor.md) — DISTANCE_SENSOR message data
 - [DistanceSensorModeChangeRequest](DistanceSensorModeChangeRequest.md)
 - [Ekf2Timestamps](Ekf2Timestamps.md) — this message contains the (relative) timestamps of the sensor inputs used by EKF2.
@@ -163,7 +161,6 @@ These are the externally visible LED's, not the board LED's
 - [ManualControlSwitches](ManualControlSwitches.md)
 - [MavlinkLog](MavlinkLog.md)
 - [MavlinkTunnel](MavlinkTunnel.md) — MAV_TUNNEL_PAYLOAD_TYPE enum
-- [MecanumVelocitySetpoint](MecanumVelocitySetpoint.md)
 - [MessageFormatRequest](MessageFormatRequest.md)
 - [MessageFormatResponse](MessageFormatResponse.md)
 - [Mission](Mission.md)
@@ -215,6 +212,7 @@ This are the three next waypoints (or just the next two or one).
 - [RoverRateStatus](RoverRateStatus.md)
 - [RoverSteeringSetpoint](RoverSteeringSetpoint.md)
 - [RoverThrottleSetpoint](RoverThrottleSetpoint.md)
+- [RoverVelocitySetpoint](RoverVelocitySetpoint.md)
 - [RoverVelocityStatus](RoverVelocityStatus.md)
 - [Rpm](Rpm.md)
 - [RtlStatus](RtlStatus.md)
