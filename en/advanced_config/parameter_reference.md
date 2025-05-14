@@ -30811,7 +30811,7 @@ INA238 Power Monitor Shunt.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&check; | 0.000000001 | 0.1 | .000000001 | 0.0003 |  
+&check; | 0.000000001 | 0.1 | .000000001 | 0.0005 |  
 
 ### PCF8583_MAGNET (`INT32`) {#PCF8583_MAGNET}
 
