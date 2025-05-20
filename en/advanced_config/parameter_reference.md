@@ -33642,10 +33642,11 @@ Vehicle type.
 
 **Values:**
 
-- `0`: Multicopter
+- `0`: Quadcopter
 - `1`: Fixed-Wing
 - `2`: Tailsitter
 - `3`: Standard VTOL
+- `4`: Hexacopter
 
 
 Reboot | minValue | maxValue | increment | default | unit
