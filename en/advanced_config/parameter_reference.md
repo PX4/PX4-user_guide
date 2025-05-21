@@ -23957,7 +23957,7 @@ Limits the acceleration of the yaw setpoint to avoid large control output and mi
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; | 5 | 360 | 5 | 60. | deg/s^2 
+&nbsp; | 5 | 360 | 5 | 20. | deg/s^2 
 
 ### MPC_YAWRAUTO_MAX (`FLOAT`) {#MPC_YAWRAUTO_MAX}
 
@@ -23967,7 +23967,7 @@ Limits the rate of change of the yaw setpoint to avoid large control output and 
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; | 5 | 360 | 5 | 45. | deg/s 
+&nbsp; | 5 | 360 | 5 | 60. | deg/s 
 
 ## Multicopter Position Control
 
