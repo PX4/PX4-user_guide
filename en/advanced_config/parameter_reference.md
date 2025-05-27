@@ -28224,11 +28224,12 @@ This integer bitmask controls the set and rates of logged topics. The default al
 - `8`: Raw FIFO high-rate IMU (Gyro)
 - `9`: Raw FIFO high-rate IMU (Accel)
 - `10`: Mavlink tunnel message logging
+- `11`: High rate sensors
 
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&check; | 0 | 2047 |  | 1 |  
+&check; | 0 | 4095 |  | 1 |  
 
 ### SDLOG_UTC_OFFSET (`INT32`) {#SDLOG_UTC_OFFSET}
 
