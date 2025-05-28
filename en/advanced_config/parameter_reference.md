@@ -36222,6 +36222,28 @@ Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &check; | 0 | 3 |  | 0 |  
 
+### UAVCAN_ESC_IFACE (`INT32`) {#UAVCAN_ESC_IFACE}
+
+Which CAN interfaces to output ESC messages on.
+
+Since ESC messages are high priority and sent at a high rate, it is recommended to only enable the interfaces that are actually used. Otherwise, the ESC messages will arbitrate lower priority messages and starve other nodes on the bus.
+
+**Bitmask:**
+
+- `0`: CAN1
+- `1`: CAN2
+- `2`: CAN3
+- `3`: CAN4
+- `4`: CAN5
+- `5`: CAN6
+- `6`: CAN7
+- `7`: CAN8
+
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&check; | 1 | 255 |  | 255 |  
+
 ### UAVCAN_LGT_ANTCL (`INT32`) {#UAVCAN_LGT_ANTCL}
 
 UAVCAN ANTI_COLLISION light operating mode.
