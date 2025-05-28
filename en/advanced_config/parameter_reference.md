@@ -15165,9 +15165,9 @@ Reboot | minValue | maxValue | increment | default | unit
 
 ### COM_POS_FS_EPH (`FLOAT`) {#COM_POS_FS_EPH}
 
-Horizontal position error threshold.
+Horizontal position error threshold for hovering systems.
 
-This is the horizontal position error (EPH) threshold that will trigger a failsafe. The default is appropriate for a multicopter. Can be increased for a fixed-wing. If the previous position error was below this threshold, there is an additional factor of 2.5 applied (threshold for invalidation 2.5 times the one for validation). Set to -1 to disable.
+This is the horizontal position error (EPH) threshold that will trigger a failsafe. If the previous position error was below this threshold, there is an additional factor of 2.5 applied (threshold for invalidation 2.5 times the one for validation). Only used for multicopters and VTOLs in hover mode. Independent from estimator positioning data timeout threshold (see EKF2_NOAID_TOUT). Set to -1 to disable.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
