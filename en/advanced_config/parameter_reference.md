@@ -14930,7 +14930,7 @@ Reboot | minValue | maxValue | increment | default | unit
 
 Home position enabled.
 
-Set home position automatically if possible.
+Set home position automatically if possible. During missions, the home position is locked and will not reset during intermediate landings. It will only update once the mission is complete or landed outside of a mission.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
