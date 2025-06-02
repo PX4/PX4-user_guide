@@ -30870,6 +30870,16 @@ Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &nbsp; | 1 | 200 |  | 20.0 | Hz 
 
+### SENS_BAR_AUTOCAL (`INT32`) {#SENS_BAR_AUTOCAL}
+
+Barometer auto calibration.
+
+Automatically calibrate barometer based on the GNSS height
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; |  |  |  | Disabled (0) |  
+
 ### SENS_BOARD_ROT (`INT32`) {#SENS_BOARD_ROT}
 
 Board rotation.
