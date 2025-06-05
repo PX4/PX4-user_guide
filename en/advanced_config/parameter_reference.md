@@ -23873,7 +23873,7 @@ Pitch proportional gain, i.e. desired angular speed in rad/s for error 1 rad.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; | 0.0 | 12 | 0.1 | 6.5 |  
+&nbsp; | 0.0 | 12 | 0.1 | 4.0 |  
 
 ### MC_ROLLRATE_MAX (`FLOAT`) {#MC_ROLLRATE_MAX}
 
@@ -23893,7 +23893,7 @@ Roll proportional gain, i.e. desired angular speed in rad/s for error 1 rad.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; | 0.0 | 12 | 0.1 | 6.5 |  
+&nbsp; | 0.0 | 12 | 0.1 | 4.0 |  
 
 ### MC_YAWRATE_MAX (`FLOAT`) {#MC_YAWRATE_MAX}
 
