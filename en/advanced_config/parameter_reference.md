@@ -25066,6 +25066,16 @@ Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &nbsp; |  |  |  | 3 |  
 
+### OSD_RC_STICK (`INT32`) {#OSD_RC_STICK}
+
+OSD RC Stick commands.
+
+Forward RC stick input to VTX when disarmed
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 1 |  | 1 |  
+
 ### OSD_SCROLL_RATE (`INT32`) {#OSD_SCROLL_RATE}
 
 OSD Scroll Rate (ms).

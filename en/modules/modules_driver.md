@@ -837,6 +837,8 @@ msp_osd <command> [arguments...]
    stop
 
    status        print status info
+
+   channel       Change VTX channel
 ```
 
 ## newpixel
