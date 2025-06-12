@@ -30478,7 +30478,7 @@ The cutoff frequency for the 2nd order butterworth filter used on the time deriv
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&check; | 0 | 1000 | 0.1 | 30.0 | Hz 
+&check; | 0 | 1000 | 0.1 | 20.0 | Hz 
 
 ### IMU_GYRO_CAL_EN (`INT32`) {#IMU_GYRO_CAL_EN}
 
