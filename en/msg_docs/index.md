@@ -18,7 +18,7 @@ Graphs showing how these are used [can be found here](../middleware/uorb_graph.m
 - [AirspeedValidated](AirspeedValidated.md)
 - [ArmingCheckReply](ArmingCheckReply.md) — Arming check reply.
 - [ArmingCheckRequest](ArmingCheckRequest.md) — Arming check request.
-- [BatteryStatus](BatteryStatus.md)
+- [BatteryStatus](BatteryStatus.md) — Battery status
 - [ConfigOverrides](ConfigOverrides.md) — Configurable overrides by (external) modes or mode executors
 - [Event](Event.md) — Events interface
 - [FixedWingLateralSetpoint](FixedWingLateralSetpoint.md) — Fixed Wing Lateral Setpoint message
