@@ -33912,6 +33912,16 @@ Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &nbsp; | 0 | 1 |  | 0 |  
 
+### SYS_HF_MAV (`INT32`) {#SYS_HF_MAV}
+
+Enable FMU SD card hardfault streaming.
+
+When this is enabled all the hardfaults on the SD card are streamed over MAVLink. This is useful for cases where the FMU does reset in-flight due to a hardfault and the SD card may not survive a crash.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; |  |  |  | Enabled (1) |  
+
 ### SYS_HITL (`INT32`) {#SYS_HITL}
 
 Enable HITL/SIH mode on next boot.

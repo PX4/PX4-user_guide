@@ -292,6 +292,33 @@ gyro_fft <command> [arguments...]
    status        print status info
 ```
 
+## hardfault_stream
+
+Source: [modules/hardfault_stream](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/hardfault_stream)
+
+
+### Description
+Background process that streams the latest hardfault via MAVLink.
+
+The module is especially useful when it is necessary to quickly push a hard fault to the ground station.
+This is useful in cases where the drone experiences a hard fault during flight.
+It ensures that some data is retained in case the permanent storage is destroyed during a crash.
+
+To reliably stream, it is necessary to send the STATUSTEXT message via MAVLink at a
+high enough frequency. The recommended frequency is 10 Hz or higher.
+
+### Usage {#hardfault_stream_usage}
+
+```
+hardfault_stream <command> [arguments...]
+ Commands:
+   start         Start the background task
+
+   stop
+
+   status        print status info
+```
+
 ## heater
 
 Source: [drivers/heater](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/heater)
