@@ -17414,7 +17414,7 @@ Typically the desired landing slope angle when landing configuration (flaps, air
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; | 1.0 | 15.0 | 0.5 | 5.0 | deg 
+&nbsp; | 1.0 | 45.0 | 0.5 | 5.0 | deg 
 
 ### FW_LND_EARLYCFG (`INT32`) {#FW_LND_EARLYCFG}
 
@@ -17614,7 +17614,7 @@ Minimum pitch during takeoff.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; | -5.0 | 30.0 | 0.5 | 10.0 | deg 
+&nbsp; | -5.0 | 80.0 | 0.5 | 10.0 | deg 
 
 ## FW General
 
@@ -17626,7 +17626,7 @@ The time the system should do open loop loiter and wait for GPS recovery before 
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; | 0 | 3600 |  | 30 | s 
+&nbsp; | 0 |  |  | 30 | s 
 
 ### FW_GPSF_R (`FLOAT`) {#FW_GPSF_R}
 
@@ -17636,7 +17636,7 @@ Roll angle in GPS failure loiter mode.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; | 0.0 | 30.0 | 0.5 | 15.0 | deg 
+&nbsp; | 0.0 | 60.0 | 0.5 | 15.0 | deg 
 
 ### FW_POS_STK_CONF (`INT32`) {#FW_POS_STK_CONF}
 
@@ -17662,7 +17662,7 @@ Applies in any altitude controlled flight mode.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; | 0.0 | 60.0 | 0.5 | 30.0 | deg 
+&nbsp; | 0.0 | 80.0 | 0.5 | 30.0 | deg 
 
 ### FW_P_LIM_MIN (`FLOAT`) {#FW_P_LIM_MIN}
 
@@ -17682,7 +17682,7 @@ Applies in any altitude controlled flight mode.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; | 35.0 | 65.0 | 0.5 | 50.0 | deg 
+&nbsp; | 35.0 | 75.0 | 0.5 | 50.0 | deg 
 
 ### FW_THR_IDLE (`FLOAT`) {#FW_THR_IDLE}
 
@@ -17692,7 +17692,7 @@ This is the minimum throttle while on the ground ("landed") in auto modes.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; | 0.0 | 0.4 | 0.01 | 0.0 | norm 
+&nbsp; | 0.0 | 1.0 | 0.01 | 0.0 | norm 
 
 ### FW_THR_MAX (`FLOAT`) {#FW_THR_MAX}
 
@@ -17722,7 +17722,7 @@ In auto modes: default climb rate output by controller to achieve altitude setpo
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; | 0.5 | 15 | 0.01 | 3.0 | m/s 
+&nbsp; | 0.1 |  | 0.01 | 3.0 | m/s 
 
 ### FW_T_SINK_R_SP (`FLOAT`) {#FW_T_SINK_R_SP}
 
@@ -17732,7 +17732,7 @@ In auto modes: default sink rate output by controller to achieve altitude setpoi
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; | 0.5 | 15 | 0.01 | 2.0 | m/s 
+&nbsp; | 0.1 |  | 0.01 | 2.0 | m/s 
 
 ### FW_T_SPDWEIGHT (`FLOAT`) {#FW_T_SPDWEIGHT}
 
@@ -18138,7 +18138,7 @@ This is the maximum calibrated climb rate that the aircraft can achieve with the
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; | 1.0 | 15.0 | 0.5 | 5.0 | m/s 
+&nbsp; | 1.0 |  | 0.5 | 5.0 | m/s 
 
 ### FW_T_SINK_MIN (`FLOAT`) {#FW_T_SINK_MIN}
 
@@ -18148,7 +18148,7 @@ This is the minimum calibrated sink rate of the aircraft with the throttle set t
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; | 1.0 | 5.0 | 0.5 | 2.0 | m/s 
+&nbsp; | 1.0 |  | 0.5 | 2.0 | m/s 
 
 ### WEIGHT_BASE (`FLOAT`) {#WEIGHT_BASE}
 
