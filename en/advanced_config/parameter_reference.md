@@ -30947,33 +30947,33 @@ Reboot | minValue | maxValue | increment | default | unit
 
 ### SENS_BOARD_X_OFF (`FLOAT`) {#SENS_BOARD_X_OFF}
 
-Board rotation X (Roll) offset.
+Board rotation X (roll) offset.
 
-This parameter defines a rotational offset in degrees around the X (Roll) axis It allows the user to fine tune the board offset in the event of misalignment.
+Rotation from flight controller board to vehicle body frame. This parameter gets set during the "level horizon" calibration or can be set manually.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; |  |  |  | 0.0 | deg 
+&nbsp; | -45.0 | 45.0 |  | 0.0 | deg 
 
 ### SENS_BOARD_Y_OFF (`FLOAT`) {#SENS_BOARD_Y_OFF}
 
-Board rotation Y (Pitch) offset.
+Board rotation Y (pitch) offset.
 
-This parameter defines a rotational offset in degrees around the Y (Pitch) axis. It allows the user to fine tune the board offset in the event of misalignment.
+Rotation from flight controller board to vehicle body frame. This parameter gets set during the "level horizon" calibration or can be set manually.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; |  |  |  | 0.0 | deg 
+&nbsp; | -45.0 | 45.0 |  | 0.0 | deg 
 
 ### SENS_BOARD_Z_OFF (`FLOAT`) {#SENS_BOARD_Z_OFF}
 
-Board rotation Z (YAW) offset.
+Board rotation Z (yaw) offset.
 
-This parameter defines a rotational offset in degrees around the Z (Yaw) axis. It allows the user to fine tune the board offset in the event of misalignment.
+Rotation from flight controller board to vehicle body frame. Has to be set manually (not set by any calibration).
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; |  |  |  | 0.0 | deg 
+&nbsp; | -45.0 | 45.0 |  | 0.0 | deg 
 
 ### SENS_CM8JL65_CFG (`INT32`) {#SENS_CM8JL65_CFG}
 
