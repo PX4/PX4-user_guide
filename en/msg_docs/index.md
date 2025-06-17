@@ -88,6 +88,7 @@ The coordinate system origin is the vehicle position at the time when the EKF2-m
 - [Airspeed](Airspeed.md)
 - [AirspeedWind](AirspeedWind.md)
 - [AutotuneAttitudeControlStatus](AutotuneAttitudeControlStatus.md)
+- [BatteryInfo](BatteryInfo.md) — Battery information
 - [ButtonEvent](ButtonEvent.md)
 - [CameraCapture](CameraCapture.md)
 - [CameraStatus](CameraStatus.md)
@@ -299,6 +300,7 @@ NaN means the state was not controlled
 - [YawEstimatorStatus](YawEstimatorStatus.md)
 - [AirspeedValidatedV0](AirspeedValidatedV0.md)
 - [ArmingCheckReplyV0](ArmingCheckReplyV0.md)
+- [BatteryStatusV0](BatteryStatusV0.md) — Battery status
 - [EventV0](EventV0.md) — this message is required here in the msg_old folder because other msg are depending on it
 Events interface
 - [VehicleAttitudeSetpointV0](VehicleAttitudeSetpointV0.md)
