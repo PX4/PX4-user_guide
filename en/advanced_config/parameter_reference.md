@@ -15306,7 +15306,7 @@ Reboot | minValue | maxValue | increment | default | unit
 
 Manual control loss timeout.
 
-The time in seconds without a new setpoint from RC or Joystick, after which the connection is considered lost. This must be kept short as the vehicle will use the last supplied setpoint until the timeout triggers.
+The time in seconds without a new setpoint from RC or Joystick, after which the connection is considered lost. This must be kept short as the vehicle will use the last supplied setpoint until the timeout triggers. Ensure the value is not set lower than the update interval of the RC or Joystick.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
