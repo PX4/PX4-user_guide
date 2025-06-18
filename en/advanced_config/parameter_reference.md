@@ -17501,7 +17501,7 @@ Reboot | minValue | maxValue | increment | default | unit
 
 X position of GPS antenna in body frame.
 
-Forward axis with origin relative to vehicle centre of gravity
+Forward (roll) axis with origin relative to vehicle centre of gravity
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
@@ -17511,7 +17511,7 @@ Reboot | minValue | maxValue | increment | default | unit
 
 Y position of GPS antenna in body frame.
 
-Forward axis with origin relative to vehicle centre of gravity
+Right (pitch) axis with origin relative to vehicle centre of gravity
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
@@ -17521,7 +17521,7 @@ Reboot | minValue | maxValue | increment | default | unit
 
 Z position of GPS antenna in body frame.
 
-Forward axis with origin relative to vehicle centre of gravity
+Down (yaw) axis with origin relative to vehicle centre of gravity
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
