@@ -29587,35 +29587,6 @@ Reboot | minValue | maxValue | increment | default | unit
 
 ## Rover Differential
 
-### RD_MAX_THR_YAW_R (`FLOAT`) {#RD_MAX_THR_YAW_R}
-
-Yaw rate turning left/right wheels at max speed in opposite directions.
-
-This parameter is used to calculate the feedforward term of the closed loop yaw rate control.
-The controller first calculates the required speed difference between the left and right motor to achieve the desired yaw rate.
-This desired speed difference is then linearly mapped to normalized motor commands.
-A good starting point is half the speed the rover drives at maximum throttle (RD_MAX_THR_SPD)).
-Increase this parameter if the rover turns faster than the setpoint, and decrease if the rover turns slower.
-
-Reboot | minValue | maxValue | increment | default | unit
---- | --- | --- | --- | --- | ---
-&nbsp; | 0 | 100 | 0.01 | 0 | m/s 
-
-### RD_MISS_SPD_GAIN (`FLOAT`) {#RD_MISS_SPD_GAIN}
-
-Tuning parameter for the speed reduction during waypoint transition.
-
-The waypoint transition speed is calculated as:
-Transition_speed = Maximum_speed * (1 - normalized_transition_angle * RM_MISS_VEL_GAIN)
-The normalized transition angle is the angle between the line segment from prev-curr WP and curr-next WP
-interpolated from [0, 180] -> [0, 1].
-Higher value -> More speed reduction during waypoint transitions.
-Set to -1 to disable any speed reduction during waypoint transition.
-
-Reboot | minValue | maxValue | increment | default | unit
---- | --- | --- | --- | --- | ---
-&nbsp; | -1 | 100 | 0.01 | -1 |  
-
 ### RD_TRANS_DRV_TRN (`FLOAT`) {#RD_TRANS_DRV_TRN}
 
 Yaw error threshhold to switch from driving to spot turning.
@@ -29664,35 +29635,6 @@ and lateral speed which defines a course direction.
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &nbsp; | 0 | 3.14 | 0.01 | 0.17 | rad 
-
-### RM_MAX_THR_YAW_R (`FLOAT`) {#RM_MAX_THR_YAW_R}
-
-Yaw rate turning left/right wheels at max speed in opposite directions.
-
-This parameter is used to calculate the feedforward term of the closed loop yaw rate control.
-The controller first calculates the required speed difference between the left and right motor to achieve the desired yaw rate.
-This desired speed difference is then linearly mapped to normalized motor commands.
-A good starting point is half the speed the rover drives at maximum throttle (RD_MAX_THR_SPD)).
-Increase this parameter if the rover turns faster than the setpoint, and decrease if the rover turns slower.
-
-Reboot | minValue | maxValue | increment | default | unit
---- | --- | --- | --- | --- | ---
-&nbsp; | 0 | 100 | 0.01 | 0 | m/s 
-
-### RM_MISS_SPD_GAIN (`FLOAT`) {#RM_MISS_SPD_GAIN}
-
-Tuning parameter for the speed reduction during waypoint transition.
-
-The waypoint transition speed is calculated as:
-Transition_speed = Maximum_speed * (1 - normalized_transition_angle * RM_MISS_VEL_GAIN)
-The normalized transition angle is the angle between the line segment from prev-curr waypoint and
-curr-next waypoint interpolated from [0, 180] -> [0, 1].
-Higher value -> More speed reduction during waypoint transitions.
-Set to -1 to disable any speed reduction during waypoint transition.
-
-Reboot | minValue | maxValue | increment | default | unit
---- | --- | --- | --- | --- | ---
-&nbsp; | -1 | 100 | 0.01 | -1 |  
 
 ### RM_WHEEL_TRACK (`FLOAT`) {#RM_WHEEL_TRACK}
 
@@ -29908,6 +29850,19 @@ Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &nbsp; | -1 | 10000 | 0.01 | -1. | deg/s^2 
 
+### RO_YAW_RATE_CORR (`FLOAT`) {#RO_YAW_RATE_CORR}
+
+Yaw rate correction factor.
+
+Multiplicative correction factor for the feedforward mapping of the yaw rate controller.
+Increase this value (x > 1) if the measured yaw rate is lower than the setpoint, decrease (0 < x < 1) otherwise.
+Note: Tuning this is particularly useful for skid-steered rovers, or rovers with misaligned wheels/steering axes
+that cause a lot of friction when turning.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0.01 | 10000 | 0.01 | 1. |  
+
 ### RO_YAW_RATE_I (`FLOAT`) {#RO_YAW_RATE_I}
 
 Integral gain for closed loop yaw rate controller.
@@ -30027,6 +29982,21 @@ Proportional gain for ground speed controller.
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &nbsp; | 0 | 100 | 0.01 | 0. |  
+
+### RO_SPEED_RED (`FLOAT`) {#RO_SPEED_RED}
+
+Tuning parameter for the speed reduction based on the course error.
+
+Reduced_speed = RO_MAX_THR_SPEED * (1 - normalized_course_error * RO_SPEED_RED)
+The normalized course error is the angle between the current course and the bearing setpoint
+interpolated from [0, 180] -> [0, 1].
+Higher value -> More speed reduction.
+Note: This is also used to calculate the speed at which the vehicle arrives at a waypoint in auto modes.
+Set to -1 to disable bearing error based speed reduction.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | -1 | 100 | 0.01 | -1. |  
 
 ### RO_SPEED_TH (`FLOAT`) {#RO_SPEED_TH}
 
