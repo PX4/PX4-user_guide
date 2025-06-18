@@ -16067,8 +16067,9 @@ Reboot | minValue | maxValue | increment | default | unit
 Home position enabled.
 
 Set home position automatically if possible.
-During missions, the home position is locked and will not reset during intermediate landings.
+During missions, the latitude/longitude of the home position is locked and will not reset during intermediate landings.
 It will only update once the mission is complete or landed outside of a mission.
+However, the altitude is still being adjusted to correct for GNSS vertical drift in the first 2 minutes after takeoff.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
