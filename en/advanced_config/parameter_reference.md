@@ -38716,9 +38716,10 @@ subscription battery.
 Enable UAVCAN battery subscription.
 uavcan::equipment::power::BatteryInfo
 ardupilot::equipment::power::BatteryInfoAux
+cuav::equipment::power::CBAT
 0 - Disable
 1 - Use raw data. Recommended for Smart battery
-2 - Filter the data with internal battery library
+2 - Filter the data with internal battery library (unsupported with CBAT)
 
 **Values:**
 
