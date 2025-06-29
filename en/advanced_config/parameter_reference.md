@@ -26760,7 +26760,7 @@ Yaw rate differential gain. Small values help reduce fast oscillations. If value
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; | 0.0 |  | 0.01 | 0.0 |  
+&nbsp; | 0.0 |  | 0.0005 | 0.0 |  
 
 ### MC_YAWRATE_FF (`FLOAT`) {#MC_YAWRATE_FF}
 
@@ -26770,7 +26770,7 @@ Improves tracking performance.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; | 0.0 |  | 0.01 | 0.0 |  
+&nbsp; | 0.0 |  |  | 0.0 |  
 
 ### MC_YAWRATE_I (`FLOAT`) {#MC_YAWRATE_I}
 
@@ -26796,7 +26796,7 @@ Set MC_YAWRATE_K=1 to implement a PID in the parallel form.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; | 0.0 | 5.0 | 0.0005 | 1.0 |  
+&nbsp; | 0.01 | 5.0 | 0.0005 | 1.0 |  
 
 ### MC_YAWRATE_P (`FLOAT`) {#MC_YAWRATE_P}
 
