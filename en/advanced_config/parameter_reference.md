@@ -29264,9 +29264,24 @@ Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &nbsp; | -1 | 1 |  | 0.75 |  
 
+### RC_PAYLOAD_MIDTH (`FLOAT`) {#RC_PAYLOAD_MIDTH}
+
+Threshold for mid position of payload power switch.
+
+0-1 indicate where in the full channel range the threshold sits
+0 : min
+1 : max
+sign indicates polarity of comparison
+positive : true when channel>th
+negative : true when channel<th
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | -1 | 1 |  | 0.25 |  
+
 ### RC_PAYLOAD_TH (`FLOAT`) {#RC_PAYLOAD_TH}
 
-Threshold for selecting payload power switch.
+Threshold for on position of payload power switch.
 
 0-1 indicate where in the full channel range the threshold sits
 0 : min
