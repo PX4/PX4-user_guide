@@ -16707,7 +16707,7 @@ Reboot | minValue | maxValue | increment | default | unit
 
 Cyphal Node ID.
 
-Read the specs at http://uavcan.org to learn more about Node ID.
+Read the specs at https://opencyphal.org/ to learn more about Node ID.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
@@ -38640,7 +38640,7 @@ Reboot | minValue | maxValue | increment | default | unit
 
 UAVCAN Node ID.
 
-Read the specs at http://uavcan.org to learn more about Node ID.
+Read the specs at https://dronecan.github.io/ to learn more about Node ID.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
