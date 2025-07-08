@@ -18130,16 +18130,6 @@ Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &nbsp; | 1.0 | 10.0 |  | 5.0 | m 
 
-### EKF2_RNG_A_IGATE (`FLOAT`) {#EKF2_RNG_A_IGATE}
-
-Gate size used for innovation consistency checks for range aid fusion.
-
-A lower value means HAGL needs to be more stable in order to use range finder for height estimation in range aid mode
-
-Reboot | minValue | maxValue | increment | default | unit
---- | --- | --- | --- | --- | ---
-&nbsp; | 0.1 | 5.0 |  | 1.0 | SD 
-
 ### EKF2_RNG_A_VMAX (`FLOAT`) {#EKF2_RNG_A_VMAX}
 
 Maximum horizontal velocity allowed for conditional range aid mode.
