@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/releases/README
+---
+
 # 출시
 
 PX4 릴리스 노트는 각 릴리스의 변경 사항들을 설명합니다.

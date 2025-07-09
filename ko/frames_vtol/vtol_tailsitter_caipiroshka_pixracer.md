@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/frames_vtol/vtol_tailsitter_caipiroshka_pixracer
+---
+
 # TBS Caipiroshka
 
 Caipiroshka VTOL은 조금 수정된 *TBS Caipirinha*입니다.

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/de/frames_multicopter/holybro_qav250_pixhawk4_mini
+---
+
 # Holybro QAV250 + Pixhawk 4 Mini Build (Discontinued)
 
 :::note

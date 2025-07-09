@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/frames_multicopter/README
+---
+
 # Multicopters
 
 PX4 supports numerous types of single- and multi-copters, including helicopters, tricopters, quadcopters, hexarotors, dodecarotors etc, in many different geometries (+, wide, x etc.). The complete set of supported configurations can be seen in [Airframes Reference > Copter](../airframes/airframe_reference.md#copter).

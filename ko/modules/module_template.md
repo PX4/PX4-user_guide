@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/modules/module_template
+---
+
 # 전체 애플리케이션을 위한 모듈 템플릿
 
 An application can be written to run as either a *task* (a module with its own stack and process priority) or as a *work queue task* (a module that runs on a work queue thread, sharing the stack and thread priority with other tasks on the work queue). 대부분은, 리소스 최소화를 위하여 작업 대기열을 사용합니다.

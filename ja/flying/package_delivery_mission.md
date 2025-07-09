@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/flying/package_delivery_mission
+---
+
 # Package Delivery Missions
 
 A package delivery mission allows users to plan and execute cargo delivery using a [gripper](../peripherals/gripper.md).

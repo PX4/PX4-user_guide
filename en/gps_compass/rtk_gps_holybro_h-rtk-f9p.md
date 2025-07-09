@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/gps_compass/rtk_gps_holybro_h-rtk-f9p
+---
+
 # Holybro H-RTK F9P GNSS
 
 The [Holybro H-RTK F9P GNSS](https://holybro.com/products/h-rtk-f9p-gnss-series) is an multi-band high-precision [RTK GNSS System](../gps_compass/rtk_gps.md) series launched by Holybro.

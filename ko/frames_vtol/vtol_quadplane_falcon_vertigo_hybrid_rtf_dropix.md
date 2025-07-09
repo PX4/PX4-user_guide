@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/frames_vtol/vtol_quadplane_falcon_vertigo_hybrid_rtf_dropix
+---
+
 # 단종 : Falcon Vertigo Hybrid VTOL RTF (Dropix)
 
 :::warning

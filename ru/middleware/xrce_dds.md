@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/middleware/xrce_dds
+---
+
 # XRCE-DDS (PX4-FastDDS Bridge)
 
 :::note

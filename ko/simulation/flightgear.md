@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/simulation/flightgear
+---
+
 # FlightGear 시뮬레이션
 
 [FlightGear](https://www.flightgear.org/)는 강력한 [FDM 엔진](http://wiki.flightgear.org/Flight_Dynamics_Model)이 탑재된 비행 시뮬레이터입니다. FlightGear는 다양한 기상 조건에서 회전익기를 시뮬레이션합니다. 이것이 원래 [ThunderFly s.r.o.](https://www.thunderfly.cz/)에서 FlightGear를 개발한 이유입니다.

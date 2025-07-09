@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/simulation/multi_vehicle_flightgear
+---
+
 # FlightGear 다중 차량 시뮬레이션
 
 SITL에서 FlightGear를 사용하여 다중 차량 시뮬레이션 방법을 설명합니다. 모든 차량 인스턴스에는 시작 스크립트에 의해 정의된 매개변수가 있습니다.

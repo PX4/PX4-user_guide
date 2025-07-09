@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/frames_plane/README
+---
+
 # Planes (Fixed-wing)
 
 PX4 supports numerous plane geometries, including normal planes, flying wings, inverted V-tail planes, and so on. The set of supported frame configurations can be seen in [Airframes Reference > Plane](../airframes/airframe_reference.md#plane).

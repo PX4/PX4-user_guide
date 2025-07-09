@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/assembly/mount_gps_compass
+---
+
 # Mounting a GPS/Compass
 
 GPS/Compasses should be mounted on the frame as far away from other electronics as possible, with the direction marker pointing towards the front of the vehicle. If mounted in this way you can immediately proceed to [compass calibration](../config/compass.md#performing-the-calibration).

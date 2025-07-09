@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/config/joystick
+---
+
 # 조이스틱 설정
 
 *QGroundControl*에 연결된 [조이스틱](https://en.wikipedia.org/wiki/Joystick) 또는 게임 패드를 사용하여 [RC 송신기](../config/radio.md)를 *대체*하여 기체를 수동으로 제어할 수 있습니다.

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/flying/plan_safety_points
+---
+
 # 安全点(集结点)
 
 安全点是[返航模式](../flight_modes/return.md)目的/降落点。 启用后，机体将从HOME点、任务降落点或安全点选择*最近的返航目的地*。

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/tr/gps_compass/rtk_gps_locosys_r1
+---
+
 # LOCOSYS Hawk R1 RTK GPS
 
 The [LOCOSYS Hawk R1](https://www.locosystech.com/en/product/hawk-r1.html) is a dual-frequency [RTK GPS module](../gps_compass/rtk_gps.md) receiver designed for compatibility with Pixhawk.

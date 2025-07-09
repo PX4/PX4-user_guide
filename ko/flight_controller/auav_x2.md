@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/flight_controller/auav_x2
+---
+
 # AUAV-X2 자동조종장치 (단종됨)
 
 :::warning

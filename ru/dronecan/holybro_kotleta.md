@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/dronecan/holybro_kotleta
+---
+
 # Holybro Kotleta 20
 
 The Holybro Kotleta 20 is an CAN ESC designed to run the open source [PX4 Sapog ESC Firmware](../dronecan/sapog.md).

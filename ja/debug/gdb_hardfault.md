@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/debug/gdb_hardfault
+---
+
 # Hard Fault Debugging
 
 A hard fault is a state when a CPU executes an invalid instruction or accesses an invalid memory address. This might occur when key areas in RAM have been corrupted.

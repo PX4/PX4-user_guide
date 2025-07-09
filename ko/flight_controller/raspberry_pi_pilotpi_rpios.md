@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/flight_controller/raspberry_pi_pilotpi_rpios
+---
+
 # 라즈베리 파이 OS 기반 파일럿파이
 
 ## 개발자 가이드

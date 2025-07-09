@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/sim_gazebo_classic/gazebo_octomap
+---
+
 # OctoMap 3D Models with ROS/Gazebo Classic
 
 The [OctoMap library](http://octomap.github.io/) is an open source library for generating volumetric 3D environment models from sensor data.

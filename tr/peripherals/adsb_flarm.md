@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/tr/peripherals/adsb_flarm
+---
+
 # ADS-B/FLARM/UTM Receivers: Air Traffic Avoidance
 
 PX4 supports simple air traffic avoidance in [missions](../flight_modes/mission.md) using [ADS-B](https://en.wikipedia.org/wiki/Automatic_dependent_surveillance_%E2%80%93_broadcast), [FLARM](https://en.wikipedia.org/wiki/FLARM), or [UTM](https://www.faa.gov/uas/research_development/traffic_management) transponders that use the standard MAVLink interfaces.

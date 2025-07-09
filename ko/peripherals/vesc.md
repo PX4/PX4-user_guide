@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/peripherals/vesc
+---
+
 # VESC ESCs (DroneCAN)
 
 The [VESC project](https://vesc-project.com/) is a fully open source hardware and software design for advanced FOC motor controllers. While it can be controlled using traditional PWM input, it also supports being connected over CAN bus using [DroneCAN](../dronecan/README.md).

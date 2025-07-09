@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/config/airframe
+---
+
 # Vehicle (Frame) Selection
 
 After installing firmware you need to select the [vehicle type and specific frame configuration](../airframes/airframe_reference.md) that best matches your vehicle frame. This applies appropriate default parameter values for the selected frame, such as the vehicle type, number of motors, relative motor position, and so on.

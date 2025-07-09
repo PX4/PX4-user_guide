@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/config/accelerometer
+---
+
 # Accelerometer Calibration
 
 You will need to calibrate your accelerometer on first use or if the flight controller orientation is changed.

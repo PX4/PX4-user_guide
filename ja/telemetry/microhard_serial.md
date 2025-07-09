@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/telemetry/microhard_serial
+---
+
 # Microhard Serial Telemetry Radios
 
 [Microhard Pico Serial Radios](http://microhardcorp.com/P900.php) integrate the [Microhard Pico Serial](http://microhardcorp.com/P900.php) P900 RF module.

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/msg_docs/EstimatorSensorBias
+---
+
 # EstimatorSensorBias (UORB message)
 
 Sensor readings and in-run biases in SI-unit form. Sensor readings are compensated for static offsets, scale errors, in-run bias and thermal drift (if thermal compensation is enabled and available).

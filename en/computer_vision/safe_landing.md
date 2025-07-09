@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/computer_vision/safe_landing
+---
+
 # Safe Landing (Multicopter + Companion Computer)
 
 The *Safe Landing* computer-vision feature ensures that multicopter vehicles only land on flat terrain.

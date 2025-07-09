@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/config_fw/pid_tuning_guide_fixedwing
+---
+
 # Fixed-wing Rate/Attitude Controller Tuning Guide
 
 This guide explains how to manually tune the fixed-wing PID loop. 它是为高级用户/专家设计的，因为错误的 PID 调节可能会使您的飞机坠毁。

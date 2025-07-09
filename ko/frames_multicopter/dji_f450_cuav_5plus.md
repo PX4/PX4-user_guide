@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/frames_multicopter/dji_f450_cuav_5plus
+---
+
 # DJI FlameWheel 450 + CUAV V5 nano 조립
 
 키트 조립법과 *QGroundControl*의 PX4 설정법을 설명합니다.

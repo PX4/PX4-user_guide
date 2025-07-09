@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/log/flight_review
+---
+
 # Flight Review를 이용한 로그 분석
 
 [Flight Review](http://logs.px4.io) 는 기체 상태 점검에 사용할 수 있습니다.

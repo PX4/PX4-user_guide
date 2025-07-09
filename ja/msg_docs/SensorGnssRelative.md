@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/msg_docs/SensorGnssRelative
+---
+
 # SensorGnssRelative (UORB message)
 
 GNSS relative positioning information in NED frame. The NED frame is defined as the local topological system at the reference station.

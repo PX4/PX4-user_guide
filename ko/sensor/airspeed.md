@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/sensor/airspeed
+---
+
 # 풍속 센서
 
 Airspeed sensors are *highly recommended* for fixed-wing and VTOL frames. They are so important because the autopilot does not have other means to detect stall. 고정익 비행의 경우 지상 속도가 아닌 양력을 보장하는 속도입니다.

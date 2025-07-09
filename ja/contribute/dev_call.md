@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/contribute/dev_call
+---
+
 # Weekly Community Q&A Call (Previously "Dev Call")
 
 <div v-if="$themeConfig.px4_version != 'main'">

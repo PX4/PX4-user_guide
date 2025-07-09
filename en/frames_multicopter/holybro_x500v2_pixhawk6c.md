@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/frames_multicopter/holybro_x500v2_pixhawk6c
+---
+
 # Holybro X500 V2 + Pixhawk 6C (PX4 Dev Kit)
 
 This topic provides full instructions for building the [Holybro X500 V2 ARF Kit](https://holybro.com/collections/x500-kits), also known as the Holybro PX4 Dev Kit.

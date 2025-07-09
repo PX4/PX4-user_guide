@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/flight_controller/raspberry_pi_pilotpi_ubuntu_server
+---
+
 # PilotPi 使用 Ubuntu Server 操作系统
 
 :::warning

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/simulation/flightgear
+---
+
 # FlightGear Simulation
 
 [FlightGear](https://www.flightgear.org/) is a flight simulator with powerful [FDM engines](http://wiki.flightgear.org/Flight_Dynamics_Model). This allows FlightGear to simulate rotorcrafts under various meteorological conditions (which is why the bridge was originally developed by [ThunderFly s.r.o.](https://www.thunderfly.cz/)).

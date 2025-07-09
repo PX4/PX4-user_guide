@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/tr/msg_docs/VehicleLocalPositionSetpoint
+---
+
 # VehicleLocalPositionSetpoint (UORB message)
 
 Local position setpoint in NED frame Telemetry of PID position controller to monitor tracking. NaN means the state was not controlled

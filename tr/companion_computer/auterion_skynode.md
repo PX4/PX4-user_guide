@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/tr/companion_computer/auterion_skynode
+---
+
 # Auterion Skynode
 
 [Skynode](https://auterion.com/product/skynode/) is a powerful flight computer that combines a mission computer, flight controller, video streaming, networking, and cellular connection, in a single tightly integrated device.

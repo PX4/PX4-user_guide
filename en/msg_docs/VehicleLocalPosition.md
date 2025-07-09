@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/msg_docs/VehicleLocalPosition
+---
+
 # VehicleLocalPosition (UORB message)
 
 Fused local position in NED.

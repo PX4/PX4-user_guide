@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/modules/modules_driver_airspeed_sensor
+---
+
 # Modules Reference: Airspeed Sensor (Driver)
 ## asp5033
 Source: [drivers/differential_pressure/asp5033](https://github.com/PX4/PX4-Autopilot/tree/release/1.14/src/drivers/differential_pressure/asp5033)

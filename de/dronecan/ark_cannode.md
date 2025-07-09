@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/de/dronecan/ark_cannode
+---
+
 # ARK CANnode
 
 [ARK CANnode](https://arkelectron.com/product/ark-cannode/) is an open source generic [DroneCAN](../dronecan/README.md) node that includes a 6 degree of freedom IMU. Its main purpose is to enable the use of non-CAN sensors (I2C, SPI, UART) on the CAN bus. It also has PWM outputs to expand a vehicle's control outputs in quantity and physical distance.

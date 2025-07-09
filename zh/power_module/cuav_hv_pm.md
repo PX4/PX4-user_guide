@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/power_module/cuav_hv_pm
+---
+
 # CUAV HV PM (High-Voltage Power Module)
 
 The CUAV<sup>&reg;</sup> *HV_PM* power module is a "high voltage" power module independently developed by CUAV.

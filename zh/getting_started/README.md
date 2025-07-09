@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/getting_started/README
+---
+
 # 开始使用 PX4 自动驾驶仪
 
 本节概述了您需要了解的基本概念，以便使用PX4 组装和控制无人飞机。

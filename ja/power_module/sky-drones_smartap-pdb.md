@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/power_module/sky-drones_smartap-pdb
+---
+
 # Sky-Drones SmartAP PDB
 
 [SmartAP PDB](https://sky-drones.com/power/smartap-pdb.html) (Power Distribution Board) is used to simplify the distribution of power from one or more batteries to ESCs (motors), flight controller, and other peripherals. It also acts as a [power module](../power_module/README.md), enabling battery voltage and current measurements. SmartAP PDB makes connecting high-power lines easier and much more reliable.

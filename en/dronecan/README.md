@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/dronecan/README
+---
+
 # DroneCAN
 
 [DroneCAN](https://dronecan.github.io/) is a open software communication protocol for flight controllers and other [CAN](../can/README.md) devices on a vehicle to communicate with each other.

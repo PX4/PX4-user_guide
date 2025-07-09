@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/modules/modules_estimator
+---
+
 # 模块参考：估计器
 
 ## AttitudeEstimatorQ

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/complete_vehicles/betafpv_beta75x
+---
+
 # BetaFPV Beta75X 2S 브러시리스 후프
 
 :::warning

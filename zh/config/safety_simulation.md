@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/config/safety_simulation
+---
+
 # Failsafe State Machine Simulation
 
 This page can be used to simulate the actions of the PX4 failsafe state machine under all possible configurations and conditions.

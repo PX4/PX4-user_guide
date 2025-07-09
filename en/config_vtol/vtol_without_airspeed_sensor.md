@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/config_vtol/vtol_without_airspeed_sensor
+---
+
 # VTOL Without an Airspeed Sensor
 
 :::warning

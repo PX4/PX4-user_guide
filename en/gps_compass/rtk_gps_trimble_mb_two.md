@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/gps_compass/rtk_gps_trimble_mb_two
+---
+
 # Trimble MB-Two
 
 The [Trimble MB-Two RTK GPS receiver](https://www.trimble.com/Precision-GNSS/MB-Two-Board.aspx) is a high-end, dual-frequency [RTK GPS module](../gps_compass/rtk_gps.md) that can be configured as either base or rover.

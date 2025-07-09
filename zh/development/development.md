@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/development/development
+---
+
 # PX4 开发
 
 本章节讲述了如何支持新的无人机/无人车类型及变种，如何修改飞行算法，如何添加新的飞行模式，如何集成新的硬件，如何通过外部飞控和PX4通信。

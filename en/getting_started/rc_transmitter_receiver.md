@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/getting_started/rc_transmitter_receiver
+---
+
 # Radio Control Systems
 
 A Radio Control (RC) system can be used to *manually* control your vehicle from a handheld RC controller.

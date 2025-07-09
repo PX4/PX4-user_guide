@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/msg_docs/GpioConfig
+---
+
 # GpioConfig (UORB message)
 
 GPIO configuration

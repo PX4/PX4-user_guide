@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/de/msg_docs/UwbDistance
+---
+
 # UwbDistance (UORB message)
 
 UWB distance contains the distance information measured by an ultra-wideband positioning system, such as Pozyx or NXP Rddrone.

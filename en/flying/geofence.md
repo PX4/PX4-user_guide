@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/flying/geofence
+---
+
 # GeoFence
 
 A GeoFence is a virtual boundary that defines where a vehicle can travel.

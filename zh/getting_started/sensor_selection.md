@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/getting_started/sensor_selection
+---
+
 # 传感器
 
 基于 PX4 的系统使用传感器来确定飞行器状态（自稳和启用自主控制所需）。 The vehicle states include: position/altitude, heading, speed, airspeed, orientation (attitude), rates of rotation in different directions, battery level, and so on.

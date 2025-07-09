@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/modules/modules_autotune
+---
+
 # Modules Reference: Autotune
 
 ## fw_autotune_attitude_control

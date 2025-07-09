@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/gps_compass/septentrio_asterx-rib
+---
+
 # AsteRx OEM with Robotics Interface Board
 
 Septentrio is the leading worldwide supplier of OEM GPS / GNSS receivers.

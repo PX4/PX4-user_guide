@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/tutorials/motion-capture
+---
+
 # Flying with Motion Capture (VICON, NOKOV, Optitrack)
 
 :::warning

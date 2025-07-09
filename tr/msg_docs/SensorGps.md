@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/tr/msg_docs/SensorGps
+---
+
 # SensorGps (UORB message)
 
 GPS position in WGS84 coordinates. the field 'timestamp' is for the position & velocity (microseconds)

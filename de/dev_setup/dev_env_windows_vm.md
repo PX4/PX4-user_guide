@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/de/dev_setup/dev_env_windows_vm
+---
+
 # Windows Virtual Machine-Hosted Toolchain
 
 :::warning

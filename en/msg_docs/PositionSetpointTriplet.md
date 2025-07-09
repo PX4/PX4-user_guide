@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/msg_docs/PositionSetpointTriplet
+---
+
 # PositionSetpointTriplet (UORB message)
 
 Global position setpoint triplet in WGS84 coordinates.

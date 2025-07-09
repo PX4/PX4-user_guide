@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/dev_setup/dev_env_windows_cygwin
+---
+
 # Windows Development Environment (Cygwin-based)
 
 The following instructions explain how to set up a (Cygwin-based) PX4 development environment on Windows 10.

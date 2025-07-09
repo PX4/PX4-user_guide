@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/tr/msg_docs/TuneControl
+---
+
 # TuneControl (UORB message)
 
 This message is used to control the tunes, when the tune_id is set to CUSTOM then the frequency, duration are used otherwise those values are ignored.

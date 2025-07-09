@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/flying/README
+---
+
 # Flying
 
 This section contains topics about flying your (fully configured) autopilot controlled vehicle. 

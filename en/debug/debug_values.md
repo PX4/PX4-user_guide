@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/debug/debug_values
+---
+
 # Send and Receive Debug Values
 
 It is often necessary during software development to output individual important numbers.

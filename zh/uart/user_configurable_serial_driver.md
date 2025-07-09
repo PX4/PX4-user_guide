@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/uart/user_configurable_serial_driver
+---
+
 # 将串口驱动程序设计为用户可配置
 
 本主题介绍了如何设置一个串行驱动程序，使其能够被最终用户配置(通过参数) 在飞行控制器板的任何可配置串行端口上运行。

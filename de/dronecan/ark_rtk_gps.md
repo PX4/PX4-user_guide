@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/de/dronecan/ark_rtk_gps
+---
+
 # ARK RTK GPS
 
 ARK RTK GPS is an open source [DroneCAN](README.md) [RTK GPS](../gps_compass/rtk_gps.md), [u-blox F9P](https://www.u-blox.com/en/product/zed-f9p-module), magnetometer, barometer, IMU, buzzer, and safety switch module.

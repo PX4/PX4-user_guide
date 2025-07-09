@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/sim_gazebo_classic/gazebo_worlds
+---
+
 # Gazebo Classic Worlds
 
 This topic provides imagery/information about the [Gazebo Classic](../sim_gazebo_classic/README.md) worlds supported by PX4.

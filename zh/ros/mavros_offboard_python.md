@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/ros/mavros_offboard_python
+---
+
 # MAVROS *Offboard* 控制示例 (Python)
 
 本教程使用 [Gazebo Classic](../sim_gazebo_classic/README.md) 模拟的Iris四旋翼无人机，用MAVROS Python来展示 *OFFBOARD* 控制的基础知识。 该教程提供分步指示，说明如何开始开发控制无人机以及在仿真环境中运行代码。

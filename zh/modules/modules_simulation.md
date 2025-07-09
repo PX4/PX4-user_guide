@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/modules/modules_simulation
+---
+
 # 模块参考：仿真
 
 ## simulator_sih

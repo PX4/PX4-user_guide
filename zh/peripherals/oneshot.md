@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/peripherals/oneshot
+---
+
 # OneShot Servos and ESCs (Motor Controllers)
 
 PX4 support OneShot 125 ESCs (only). These are typically faster and more responsive than [PWM ESCs](../peripherals/pwm_escs_and_servo.md) but share the same wiring setup (all you need to do is set some different parameters)

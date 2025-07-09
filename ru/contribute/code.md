@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/contribute/code
+---
+
 # Source Code Management
 
 ## Branching Model

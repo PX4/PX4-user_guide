@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/concept/control_allocation
+---
+
 # Control Allocation (Mixing)
 
 :::note

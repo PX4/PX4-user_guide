@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/advanced/computer_vision
+---
+
 # 컴퓨터 비전(광류 센서, 움직임 감지, 관성 주행 시각 측정, 회피)
 
 [컴퓨터 비전](https://en.wikipedia.org/wiki/Computer_vision)은 컴퓨터가 시각 데이터를 활용하여 실제 환경을 이해하는 기술입니다.

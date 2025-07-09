@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/companion_computer/companion_computer_peripherals
+---
+
 # 机载计算机外设
 
 本节包含关于机载计算机外设的信息。 其中既包括可能与机载计算机连接的组件（可能会与PX4交互/访问），也包括将机载计算机与飞行控制器连接起来。

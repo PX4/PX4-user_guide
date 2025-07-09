@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/flight_controller/snapdragon_flight
+---
+
 # Snapdragon 비행 자동조종장치 (단종됨)
 
 :::warning

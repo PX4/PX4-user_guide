@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/flight_controller/airlink
+---
+
 # Sky-Drones AIRLink
 
 :::warning

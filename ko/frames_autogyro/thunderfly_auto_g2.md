@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/frames_autogyro/thunderfly_auto_g2
+---
+
 # ThunderFly Auto-G2 오토자이로
 
 *ThunderFly Auto-G2*는 [Durafly ™ Auto-G2 Gyrocopter](https://hobbyking.com/en_us/duraflytm-auto-g2-gyrocopter-w-auto-start-system-821mm-pnf.html) RC 모델 기반의 자동 조종 자이로입니다.  원본 모델의 많은 부분이 3D 인쇄 가능한 모델로 대체되었습니다.

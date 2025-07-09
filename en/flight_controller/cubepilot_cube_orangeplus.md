@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/flight_controller/cubepilot_cube_orangeplus
+---
+
 # CubePilot Cube Orange+ Flight Controller
 
 :::warning

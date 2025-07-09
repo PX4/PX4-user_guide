@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/getting_started/led_meanings
+---
+
 # LED 신호 설명 (Pixhawk 시리즈)
 
 [Pixhawk 비행 콘트롤러 시리즈](../flight_controller/pixhawk_series.md)는  기체의 현재 상태를 LED에 표시합니다.

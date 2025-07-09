@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/frames_multicopter/holybro_x500V2_pixhawk5x
+---
+
 # Holybro X500 V2 (Pixhawk 5X Build)
 
 :::note

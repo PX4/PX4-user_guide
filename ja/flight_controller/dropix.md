@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/flight_controller/dropix
+---
+
 # DroPix Flight Controller (Discontinued)
 
 The Drotek<sup>&reg;</sup> _DroPix autopilot_ is no longer available on the Drotek website, and is assumed to be discontinued.

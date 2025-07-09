@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/flight_controller/silicon_errata
+---
+
 # Silicon Errata
 
 This page lists known issues with silicon (hardware) errata of 3rd-party parts (micro controller, sensors, etc.) used on the Pixhawk board series. Depending on the type of silicon error, these cannot be fixed in software and might impose specific limitations.

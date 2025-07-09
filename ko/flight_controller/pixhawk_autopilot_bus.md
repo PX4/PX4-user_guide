@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/flight_controller/pixhawk_autopilot_bus
+---
+
 # Pixhawk Autopilot Bus & Carriers
 
 The [Pixhawk Autopilot Bus (PAB) Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-010%20Pixhawk%20Autopilot%20Bus%20Standard.pdf) provides a standard interface design that allows any compliant Pixhawk flight controller to be used "plug-and-play" with any compliant base board.

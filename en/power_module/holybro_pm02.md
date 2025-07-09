@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/power_module/holybro_pm02
+---
+
 # Holybro PM02 (V3) Power Module
 
 This analog power module provides regulated power to flight controller and power distribution board, and sends information to the autopilot about battery voltage and current supplied to the flight controller and the motors.

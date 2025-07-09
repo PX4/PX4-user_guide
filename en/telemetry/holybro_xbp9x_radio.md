@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/telemetry/holybro_xbp9x_radio
+---
+
 # Holybro XBP9X Telemetry Radio (Discontinued)
 
 Holybro XBP9X radio can be configured easily using Digi’s free XCTU software or via Digi’s simplified AT or API command sets.

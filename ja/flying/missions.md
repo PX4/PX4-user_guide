@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/flying/missions
+---
+
 # Missions
 
 ## Planning Missions

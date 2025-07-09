@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/config/autotune
+---
+
 # 자동 튜닝
 
 자동 튜닝은 안정적이고 반응성은 높은 비행에 탁월한 컨트롤러인 PX4의 속도와 자세를 자동으로 튜닝합니다(다른 튜닝은 "선택 사항"에 가깝습니다). It is currently enabled for multicopter, fixed-wing, and hybrid VTOL fixed-wing vehicles.

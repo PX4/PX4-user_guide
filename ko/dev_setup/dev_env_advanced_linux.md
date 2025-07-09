@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/dev_setup/dev_env_advanced_linux
+---
+
 # 고급 Linux 사용 사례
 
 ## JTAG 프로그래밍 어댑터 사용

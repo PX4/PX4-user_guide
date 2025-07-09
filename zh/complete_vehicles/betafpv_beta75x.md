@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/complete_vehicles/betafpv_beta75x
+---
+
 # BetaFPV Beta75X 2S 穿越机
 
 :::warning

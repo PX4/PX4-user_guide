@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/msg_docs/VehicleCommandAck
+---
+
 # VehicleCommandAck (UORB message)
 
 Vehicle Command Ackonwledgement uORB message.

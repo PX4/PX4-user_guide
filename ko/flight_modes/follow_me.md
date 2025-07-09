@@ -1,4 +1,8 @@
 ---
+canonicalUrl: https://docs.px4.io/main/ko/flight_modes/follow_me
+---
+
+---
 author: Jimmy Johnson and Junwoo Hwang
 ---
 

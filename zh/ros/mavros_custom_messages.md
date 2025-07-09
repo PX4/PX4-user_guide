@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/ros/mavros_custom_messages
+---
+
 # 将自定义消息从 MOVROS 发送到 PX4
 
 按照 *Source Installation* 中的指导，从 [mavlink/mavros](https://github.com/mavlink/mavros/blob/master/mavros/README.md) 安装“ROS Kinetic”版本。

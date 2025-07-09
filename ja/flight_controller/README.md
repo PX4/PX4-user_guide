@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/flight_controller/README
+---
+
 # Flight Controller (Autopilot) Hardware
 
 This section lists autopilot hardware that can be used to run the PX4 flight stack).

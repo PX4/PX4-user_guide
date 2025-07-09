@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/de/simulation/airsim
+---
+
 # AirSim Simulation
 
 [AirSim](https://microsoft.github.io/AirSim/) is a open-source, cross platform simulator for drones, built on _Unreal Engine_. It provides physically and visually realistic simulations of Pixhawk/PX4 using either Hardware-In-The-Loop (HITL) or Software-In-The-Loop (SITL).

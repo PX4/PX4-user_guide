@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/assembly/quick_start_pixhawk5x
+---
+
 # Holybro Pixhawk 5x Wiring Quick Start
 
 :::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/de/getting_started/flight_modes
+---
+
 # PX4 Flight Modes Overview
 
 Flight modes define how the autopilot responds to remote control input, and how it manages vehicle movement during fully autonomous flight.

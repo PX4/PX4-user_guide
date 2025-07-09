@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/msg_docs/VehicleGlobalPosition
+---
+
 # VehicleGlobalPosition (UORB message)
 
 Fused global position in WGS84.

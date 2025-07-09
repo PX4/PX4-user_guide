@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/dev_airframes/adding_a_new_frame
+---
+
 # Adding a Frame Configuration
 
 PX4 [frame configuration files](#configuration-file-overview) are shell scripts that set up some (or all) of the parameters, controllers and apps needed for a particular vehicle frame, such as a quadcopter, ground vehicle, or boat. These scripts are executed when the corresponding [airframe is selected and applied](../config/airframe.md) in _QGroundControl_.

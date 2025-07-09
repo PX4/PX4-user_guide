@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/tr/frames_sub/README
+---
+
 # Submarines (Unmanned Underwater Vehicles - UUV)
 
 :::warning

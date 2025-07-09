@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/tr/ros/README
+---
+
 # ROS (Robot Operating System)
 
 [ROS](http://www.ros.org/) is a general purpose robotics library that can be used with PX4 for drone application development.

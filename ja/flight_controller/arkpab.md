@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/flight_controller/arkpab
+---
+
 # ARK Pixhawk Autopilot Bus Carrier
 
 :::warning

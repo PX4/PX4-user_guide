@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/dev_setup/building_px4
+---
+
 # PX4ソフトウェアのビルド
 
 PX4は、シミュレートされたターゲットとハードウェアの両方に対して、コンソールまたはIDEでビルドすることができます。

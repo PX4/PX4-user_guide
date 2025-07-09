@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/getting_started/vehicle_status
+---
+
 # Vehicle Status Notifications
 
 PX4 provides vehicle-based visual (LED) and audible (Buzzer) notifications of "high level" vehicle status and readiness to fly.

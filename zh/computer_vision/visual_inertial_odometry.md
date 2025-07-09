@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/computer_vision/visual_inertial_odometry
+---
+
 # Visual Inertial Odometry (VIO)
 
 *视觉惯性里程计测距*（VIO）是一种[计算机视觉](../computer_vision/README.md)技术，用于估算3D*姿态*（local 位置和方向），相对于 *local* 起始位置的移动的机体 *速度*。 它通常用于在GPS不存在或不可靠的情况下（例如室内或在桥下飞行时）给载具导航。

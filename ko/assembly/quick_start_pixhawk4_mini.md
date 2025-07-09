@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/assembly/quick_start_pixhawk4_mini
+---
+
 # Pixhawk 4 Mini 배선 퀵스타트
 
 :::warning PX4에서는 이 자동 항법 장치를 제조하지 않습니다. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.

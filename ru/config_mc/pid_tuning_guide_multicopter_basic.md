@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/config_mc/pid_tuning_guide_multicopter_basic
+---
+
 # Multicopter PID Tuning Guide (Manual/Basic)
 
 This tutorial explains how to _manually_ tune the PID loops on PX4 for all [multicopter setups](../airframes/airframe_reference.md#copter) (Quads, Hexa, Octo etc).

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/modules/hello_sky
+---
+
 # 첫 번째 애플리케이션 튜토리얼(Hello Sky)
 
 첫 번째 온보드 애플리케이션을 만들고 실행하는 방법을 설명합니다. PX4에서 앱 개발에 필요한 기본 개념과 API를 설명합니다.

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/advanced_config/imu_factory_calibration
+---
+
 # IMU Factory Calibration
 
 PX4 OEM manufacturers can perform an IMU factory calibration in order to store persistent values for the accelerometer, gyroscope and magnetometer biases into persistent storage (usually EEPROM). This ensures that end users can always reset vehicle configurations and tuning to a safe state for flying.

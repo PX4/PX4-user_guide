@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/de/msg_docs/LogMessage
+---
+
 # LogMessage (UORB message)
 
 A logging message, output with PX4_{WARN,ERR,INFO}

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/tr/README
+---
+
 <div style="float:right; padding:10px; margin-right:20px;"><a href="https://px4.io/"><img src="../assets/site/logo_pro_small.png" title="Px4 Logo" width="180px" /></a></div>
 
 # PX4 Otopilot Kullanıcı Rehberi ({{ $themeConfig.px4_version }})

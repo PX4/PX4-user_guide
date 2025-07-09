@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/companion_computer/pixhawk_companion
+---
+
 # Using a Companion Computer with Pixhawk Controllers
 
 PX4 running on Pixhawk-series flight controllers can connect to a companion computer using any free configurable serial port, including the Ethernet port (if supported).

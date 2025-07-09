@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/frames_autogyro/thunderfly_auto_g2
+---
+
 # ThunderFly Auto-G2 Autogyro
 
 The *ThunderFly Auto-G2* is an autopilot-controlled autogyro based on the [ Durafly™ Auto-G2 Gyrocopter](https://hobbyking.com/en_us/duraflytm-auto-g2-gyrocopter-w-auto-start-system-821mm-pnf.html) RC model, with several parts of the original model substituted for 3D printable ones.

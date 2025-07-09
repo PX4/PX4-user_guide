@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/flying/basic_flying
+---
+
 # Manual Flying
 
 本主题介绍了在手动或自动驾驶辅助飞行模式下使用[遥控器](../getting_started/rc_transmitter_receiver.md)操控机体的基础知识（有关自主飞行，请参阅：[任务](../flying/missions.md)）。

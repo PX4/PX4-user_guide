@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/peripherals/esc_motors
+---
+
 # ESC & モータ
 
 Many PX4 drones use brushless motors that are driven by the flight controller via an Electronic Speed Controller (ESC). The ESC takes a signal from the flight controller and uses it to set control the level of power delivered to the motor.

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/msg_docs/TrajectorySetpoint
+---
+
 # TrajectorySetpoint (UORB message)
 
 Trajectory setpoint in NED frame

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/advanced_config/parameter_reference
+---
+
 # 매개변수 정의서
 
 :::note

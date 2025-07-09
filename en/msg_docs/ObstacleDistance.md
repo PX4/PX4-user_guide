@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/msg_docs/ObstacleDistance
+---
+
 # ObstacleDistance (UORB message)
 
 Obstacle distances in front of the sensor.

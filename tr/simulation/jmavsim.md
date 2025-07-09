@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/tr/simulation/jmavsim
+---
+
 # jMAVSim with SITL
 
 jMAVSim is a simple multirotor/Quad simulator that allows you to fly *copter* type vehicles running PX4 around a simulated world. It is easy to set up and can be used to test that your vehicle can take off, fly, land, and responds appropriately to various fail conditions (e.g. GPS failure).

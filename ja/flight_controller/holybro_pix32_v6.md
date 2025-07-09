@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/flight_controller/holybro_pix32_v6
+---
+
 # Holybro Pix32 v6
 
 :::warning

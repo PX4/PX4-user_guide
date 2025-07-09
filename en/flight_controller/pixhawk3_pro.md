@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/flight_controller/pixhawk3_pro
+---
+
 # Pixhawk 3 Pro
 
 :::warning

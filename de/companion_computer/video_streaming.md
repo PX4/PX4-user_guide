@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/de/companion_computer/video_streaming
+---
+
 # Video Streaming (Companion Computer/QGroundControl)
 
 PX4-based vehicles support video streaming using a camera connected to a [companion computer](../companion_computer/README.md).

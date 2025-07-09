@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/advanced_config/bootloader_update_from_betaflight
+---
+
 # PX4 Bootloader Flashing onto Betaflight Systems
 
 This page documents how to flash the PX4 bootloader onto boards that are already flashed with Betaflight (e.g. [OmnibusF4 SD](../flight_controller/omnibus_f4_sd.md) or [Kakute F7](../flight_controller/kakutef7.md)).

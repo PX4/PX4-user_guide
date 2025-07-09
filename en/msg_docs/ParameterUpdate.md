@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/msg_docs/ParameterUpdate
+---
+
 # ParameterUpdate (UORB message)
 
 This message is used to notify the system about one or more parameter changes

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/flying/plan_safety_points
+---
+
 # Safety Points (Rally Points)
 
 Safety points are alternative [Return Mode](../flight_modes/return.md) destinations/landing points. When enabled, the vehicle will choose the *closest return destination* of: home location, mission landing pattern or a *safety point*.

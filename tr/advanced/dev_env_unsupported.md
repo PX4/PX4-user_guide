@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/tr/advanced/dev_env_unsupported
+---
+
 # Unsupported Developer Toolchains
 
 This section contains topics about _unsupported_ development platforms and tools (i.e. tools for which the code dev team are unlikely to be able to provide much advice).

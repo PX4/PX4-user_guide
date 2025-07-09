@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/SUMMARY
+---
+
 * [はじめに](README.md)
 * [さあ、はじめよう](getting_started/README.md)
   * [基本コンセプト](getting_started/px4_basic_concepts.md)

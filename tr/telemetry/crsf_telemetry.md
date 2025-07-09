@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/tr/telemetry/crsf_telemetry
+---
+
 # CRSF Telemetry (TBS Crossfire Telemetry)
 
 CRSF is a telemetry protocol that can be used for both [RC control](../getting_started/rc_transmitter_receiver.md) and to get telemetry information from the vehicle/flight controller on a compatible RC transmitter.

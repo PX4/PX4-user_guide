@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/msg_docs/Ekf2Timestamps
+---
+
 # Ekf2Timestamps (UORB message)
 
 this message contains the (relative) timestamps of the sensor inputs used by EKF2. It can be used for reproducible replay.

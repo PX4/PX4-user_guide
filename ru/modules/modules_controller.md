@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/modules/modules_controller
+---
+
 # Modules Reference: Controller
 
 ## airship_att_control

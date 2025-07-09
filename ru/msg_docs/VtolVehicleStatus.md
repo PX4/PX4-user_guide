@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/msg_docs/VtolVehicleStatus
+---
+
 # VtolVehicleStatus (UORB message)
 
 VEHICLE_VTOL_STATE, should match 1:1 MAVLinks's MAV_VTOL_STATE

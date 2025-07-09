@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/can/README
+---
+
 # CAN
 
 [Controller Area Network (CAN)](https://en.wikipedia.org/wiki/CAN_bus) is a robust wired network that allows drone components such as flight controller, ESCs, sensors, and other peripherals, to communicate with each other. Because it is designed to be democratic and uses differential signaling, it is very robust even over longer cable lengths (on large vehicles), and avoids a single point of failure. CAN also allows status feedback from peripherals and convenient firmware upgrades over the bus.

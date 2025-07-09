@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/config_vtol/vtol_quad_configuration
+---
+
 # Generic Standard VTOL (QuadPlane) Configuration & Tuning
 
 This is the configuration documentation for a [Generic Standard VTOL](../airframes/airframe_reference.md#vtol_standard_vtol_generic_standard_vtol), also known as a "QuadPlane VTOL". This is essentially a fixed-wing vehicle with the addition of quadcopter motors.

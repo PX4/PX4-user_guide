@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/getting_started/flight_modes
+---
+
 # PX4 비행 모드 개요
 
 비행 모드는 자동조종장치가 무선 조종기에 반응하는 메커니즘과 자율비행 방법을 정의합니다.

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/de/hardware/serial_port_mapping
+---
+
 # Serial Port Mapping
 
 This topic shows how to determine the mapping between USART/UART serial port device names (e.g. "ttyS0") and the associated ports on a flight controller, such as `TELEM1`, `TELEM2`, `GPS1`, `RC SBUS`, `Debug console`.

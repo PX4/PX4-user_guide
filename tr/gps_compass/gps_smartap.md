@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/tr/gps_compass/gps_smartap
+---
+
 # Sky-Drones SmartAP GPS
 
 [SmartAP GPS](https://sky-drones.com/navigation/smartap-gnss.html) is a GNSS navigation module with integrated antenna, UBlox Neo-M8N chipset, 3x 3-axis magnetometer (compass), 1x MS-5611 pressure sensor and RGB LED driver. SmartAP GPS supports concurrent reception of up to 3 GNSS (GPS, Galileo, GLONASS, BeiDou).

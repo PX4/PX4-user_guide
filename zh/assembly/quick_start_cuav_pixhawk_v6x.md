@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/assembly/quick_start_cuav_pixhawk_v6x
+---
+
 # CUAV Pixhawk V6X Wiring Quick Start
 
 This quick start guide shows how to power the [Pixhawk V6X<sup>&reg;</sup>](../flight_controller/cuav_pixhawk_v6x.md) flight controller and connect its most important peripherals.

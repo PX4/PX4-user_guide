@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/modules/modules_driver
+---
+
 # 模块参考：驱动
 子分类
 - [Imu](modules_driver_imu.md)

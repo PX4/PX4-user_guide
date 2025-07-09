@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/dronecan/px4_cannode_fw
+---
+
 # PX4 DroneCAN Firmware
 
 PX4 can run as the firmware on many DroneCAN peripherals. There are multiple benefits to this:

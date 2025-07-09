@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/de/complete_vehicles/px4_vision_kit
+---
+
 # PX4 Vision Autonomy Development Kit
 
 The [*PX4 Vision Autonomy Development Kit*](https://holybro.com/collections/multicopter-kit/PX4-Vision) is a robust and inexpensive kit for enabling computer vision development on autonomous vehicles.

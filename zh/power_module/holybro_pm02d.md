@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/power_module/holybro_pm02d
+---
+
 # Holybro PM02D Power Module
 
 The Holybro PM02D digital power module provides regulated power to flight controller and power distribution board, and sends information to the autopilot about battery voltage and current supplied to the flight controller and the motors.

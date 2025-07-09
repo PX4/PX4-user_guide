@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/config/actuators
+---
+
 # 作动器配置和测试
 
 _作动器设置_ 界面用于自定义飞行器的特定几何构型，将作动器和电机绑定至飞行控制器输出，并测试作动器和电机响应。

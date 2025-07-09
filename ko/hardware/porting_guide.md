@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/hardware/porting_guide
+---
+
 # 비행 콘트롤러 포팅 가이드
 
 이 섹션은 *신규* 비행 콘트롤러에 PX4를 포팅하는 개발자를 위한 것입니다.

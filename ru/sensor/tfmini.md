@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/sensor/tfmini
+---
+
 # Benewake TFmini LiDAR
 
 The _Benewake TFmini LiDAR_ is a tiny, low cost, and low power LIDAR with 12m range.

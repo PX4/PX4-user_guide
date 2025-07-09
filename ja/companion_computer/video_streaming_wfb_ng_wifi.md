@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/companion_computer/video_streaming_wfb_ng_wifi
+---
+
 # Video Streaming Data-link using WiFi in Raw Mode (WFB-ng)
 
 This tutorial shows how to set up a [companion computer](../companion_computer/README.md) with a Logitech C920 or RaspberryPi camera, such that the video stream is transferred from the UAV to a ground computer and displayed in _QGroundControl_. The setup uses WiFi in unconnected (broadcast) mode and software from the [WFB-ng project](https://github.com/svpcom/wfb-ng).

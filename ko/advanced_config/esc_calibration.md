@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/advanced_config/esc_calibration
+---
+
 # ESC 캘리브레이션
 
 :::note

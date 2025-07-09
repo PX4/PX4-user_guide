@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/airframes/README
+---
+
 # Vehicle Types & Setup
 
 PX4 supports numerous types of vehicles, including different configurations of multicopters, planes, VTOL vehicles, ground vehicles, and so on.

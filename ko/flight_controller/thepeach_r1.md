@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/flight_controller/thepeach_r1
+---
+
 # ThePeach FCC-R1
 
 :::warning PX4에서 이 제품을 제조하지 않습니다. 하드웨어 지원이나 호환 문제는 [제조사](https://thepeach.kr/)에 문의하십시오.

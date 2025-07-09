@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/complete_vehicles/README
+---
+
 # 완제품 기체
 
 이 섹션에서는 PX4 실행이 가능한 완제품 기체에 대하여 설명합니다. 바로 사용할 수 있는 상업용 차량, 자체 개발의 기반이 될 수 있는 드론 "플랫폼", 부품에서 무인 차량 조립 키트가 나열되어 있습니다.

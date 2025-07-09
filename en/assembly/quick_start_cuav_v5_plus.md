@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/assembly/quick_start_cuav_v5_plus
+---
+
 # CUAV V5+ Wiring Quick Start
 
 :::warning

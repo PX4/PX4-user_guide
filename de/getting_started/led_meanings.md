@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/de/getting_started/led_meanings
+---
+
 # LED Meanings (Pixhawk Series)
 
 [Pixhawk-series flight controllers](../flight_controller/pixhawk_series.md) use LEDs to indicate the current status of the vehicle.

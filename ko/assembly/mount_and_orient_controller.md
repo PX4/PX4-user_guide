@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/assembly/mount_and_orient_controller
+---
+
 # 비행 컨트롤러(FC) 장착
 
 ## 방향

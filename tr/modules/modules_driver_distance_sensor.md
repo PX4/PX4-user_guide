@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/tr/modules/modules_driver_distance_sensor
+---
+
 # Modules Reference: Distance Sensor (Driver)
 ## afbrs50
 Source: [drivers/distance_sensor/broadcom/afbrs50](https://github.com/PX4/PX4-Autopilot/tree/release/1.14/src/drivers/distance_sensor/broadcom/afbrs50)

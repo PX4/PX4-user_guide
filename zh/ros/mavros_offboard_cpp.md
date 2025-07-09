@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/ros/mavros_offboard_cpp
+---
+
 # MAVROS *Offboard* 控制示例 (C++)
 
 本教程介绍了基于MAVROS的*Offboard* 控制相关的基础知识，控制对象为 Gazbo/SITL 中的Iris模拟四轴飞行器 。 在教程结束时，你应该看到与下面的视频相同的行为, 即缓慢起飞到2米的高度。

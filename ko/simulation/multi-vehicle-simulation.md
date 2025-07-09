@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/simulation/multi-vehicle-simulation
+---
+
 # 다중 차량 시뮬레이션
 
 PX4는 다음 시뮬레이터를 사용하여 다중 차량 시뮬레이션을 지원합니다.

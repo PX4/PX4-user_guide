@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/config_vtol/README
+---
+
 # 垂直起降（VTOL）配置
 
 First perform the [Standard Configuration](../config/README.md). As part of this you should calibrate the [Airspeed sensor](../config/airspeed.md) (optional, but highly recommended) and [assign a VTOL transition switch](../config/flight_mode.md#what-flight-modes-and-switches-should-i-set) to your RC controller.

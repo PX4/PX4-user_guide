@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/log/plotjuggler_log_analysis
+---
+
 # Log Analysis using PlotJuggler
 
 [PlotJuggler](https://github.com/facontidavide/PlotJuggler) can be used to analyze ULogs for in-depth, development purposes. It is incredibly useful as every uORB topic is exposed / can be graphed, as well as having custom functions to modify the data (e.g. from Quaternion values to Roll / Pitch / Yaw).

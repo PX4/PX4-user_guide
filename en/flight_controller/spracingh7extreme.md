@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/flight_controller/spracingh7extreme
+---
+
 # SPRacingH7EXTREME (PX4 Edition)
 
 :::warning

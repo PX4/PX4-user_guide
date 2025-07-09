@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/SUMMARY
+---
+
 * [Introduction](README.md)
 * [Getting Started](getting_started/README.md)
   * [Basic Concepts](getting_started/px4_basic_concepts.md)

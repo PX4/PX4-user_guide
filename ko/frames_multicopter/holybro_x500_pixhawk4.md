@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/frames_multicopter/holybro_x500_pixhawk4
+---
+
 # Holybro X500 + Pixhawk4 조립
 
 :::note

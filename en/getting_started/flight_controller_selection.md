@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/getting_started/flight_controller_selection
+---
+
 # Flight Controller Selection
 
 Flight controllers are the "brains" of an unmanned vehicle.

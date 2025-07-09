@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/telemetry/ark_microhard_serial
+---
+
 # ARK Electron Microhard Serial Telemetry Radios
 
 *ARK Electron Microhard Serial Telemetry Radios* integrate the [Microhard Pico Serial](http://microhardcorp.com/P900.php) P900 RF module.

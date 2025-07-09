@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/config/safety
+---
+
 # 安全配置（故障保护）
 
 PX4有许多安全功能，可以在发生故障时保护并恢复您的机体：

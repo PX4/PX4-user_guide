@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/de/flight_controller/kakuteh7mini
+---
+
 # Holybro Kakute H7 mini
 
 :::warning

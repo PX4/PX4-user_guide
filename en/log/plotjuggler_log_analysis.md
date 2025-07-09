@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/log/plotjuggler_log_analysis
+---
+
 # Log Analysis using PlotJuggler
 
 [PlotJuggler](https://github.com/facontidavide/PlotJuggler) can be used to analyze ULogs for in-depth, development purposes.

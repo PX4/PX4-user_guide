@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/msg_docs/SensorPreflightMag
+---
+
 # SensorPreflightMag (UORB message)
 
 Pre-flight sensor check metrics. The topic will not be updated when the vehicle is armed

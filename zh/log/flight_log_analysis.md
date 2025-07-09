@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/log/flight_log_analysis
+---
+
 # 飞行日志分析
 
 This topic provide an overview of the tools and methods that can be used to analyze PX4 flight logs (more detailed topics are linked below in some cases).

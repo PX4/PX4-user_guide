@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/flight_controller/holybro_pix32
+---
+
 # Holybro pix32 Flight Controller (Discontinued)
 
 :::warning

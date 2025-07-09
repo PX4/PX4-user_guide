@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/dronecan/zubax_orel
+---
+
 # Zubax Orel 20/21
 
 The Zubax Orel 20 is an CAN ESC designed to run the open source [PX4 Sapog ESC Firmware](../dronecan/sapog.md).

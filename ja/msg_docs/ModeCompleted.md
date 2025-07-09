@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/msg_docs/ModeCompleted
+---
+
 # ModeCompleted (UORB message)
 
 Mode completion result, published by an active mode. Note that this is not always published (e.g. when a user switches modes or on failsafe activation)

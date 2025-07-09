@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/dev_setup/dev_env_advanced_linux
+---
+
 # Advanced Linux Installation Use-Cases
 
 ## Using JTAG Programming Adapters

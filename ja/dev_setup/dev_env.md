@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/dev_setup/dev_env
+---
+
 # Setting up a Developer Environment (Toolchain)
 
 The *supported platforms* for PX4 development are:

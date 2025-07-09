@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/advanced_config/static_pressure_buildup
+---
+
 # 정압 축적
 
 Air flowing over an enclosed vehicle can cause the _static pressure_ to change within the canopy/hull. 선체의 구멍/누출 위치에 따라 저압 또는 과압 (날개와 유사)이 발생할 수 있습니다.

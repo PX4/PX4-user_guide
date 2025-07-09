@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/de/modules/README
+---
+
 <Redirect to="modules_main" />
 
 # Modules

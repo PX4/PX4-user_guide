@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/debug/gdb_debugging
+---
+
 # 使用 GDB 调试
 
 [GNU DeBugger（GDB）](https://sourceware.org/gdb/download/onlinedocs/gdb/index.html)是用编译器工具链安装的形式为二进制`arm-none-eabi-gdb`。 调试器读取ELF文件内的调试富豪，以了解PX4固件的静态和动态内存布局。 要访问PX4自动驾驶仪微控制器，需要连接到[远程目标](https://sourceware.org/gdb/download/onlinedocs/gdb/Connecting.html)，这是由[SWD 调试探测器](swd_debug.md)提供的。

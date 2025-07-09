@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/frames_plane/turbo_timber_evolution
+---
+
 # Turbo Timber Evolution (TTE) Build
 
 The Turbo Timber Evolution is a model sold by Horizon Hobby originally intended for classic line-of-sight RC model flying.

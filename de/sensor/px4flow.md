@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/de/sensor/px4flow
+---
+
 # PX4FLOW Smart Camera (Deprecated)
 
 PX4 does not support the PX4Flow [optical flow](../sensor/optical_flow.md) sensor from PX4 v1.13.

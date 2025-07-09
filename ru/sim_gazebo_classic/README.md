@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/sim_gazebo_classic/README
+---
+
 # Gazebo Classic Simulation
 
 :::warning

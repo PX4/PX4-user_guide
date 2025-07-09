@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/modules/modules_template
+---
+
 # 모듈 참고: 템플릿
 
 ## module

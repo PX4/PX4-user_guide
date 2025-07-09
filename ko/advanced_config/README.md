@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/advanced_config/README
+---
+
 # 고급 설정
 
 This section contains contains more advanced configuration topics, and those for features that are more rarely modified, or that are specific only to manufacturers/OEMs.

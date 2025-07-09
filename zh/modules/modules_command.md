@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/modules/modules_command
+---
+
 # 模块参考：命令（Command）
 
 ## actuator_test

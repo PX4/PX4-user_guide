@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/tr/simulation/README
+---
+
 # Simulation
 
 Simulators allow PX4 flight code to control a computer modeled vehicle in a simulated "world". You can interact with this vehicle just as you might with a real vehicle, using *QGroundControl*, an offboard API, or a radio controller/gamepad.

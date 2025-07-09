@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/flying/pre_flight_checks
+---
+
 # 飞行前传感器 / 估算器检查
 
 PX4 performs a number of preflight sensor quality and estimator checks to determine if there is a good enough position estimate to arm and fly the vehicle (these checks are controlled by the [COM\_ARM\_](../advanced_config/parameter_reference.md#commander) parameters).

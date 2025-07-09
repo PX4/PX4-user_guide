@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/modules/modules_simulation
+---
+
 # Modules Reference: Simulation
 
 ## simulator_sih

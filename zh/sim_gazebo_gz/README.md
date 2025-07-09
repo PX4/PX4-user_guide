@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/sim_gazebo_gz/README
+---
+
 # Gazebo 仿真
 
 :::warning

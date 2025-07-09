@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/flight_controller/raspberry_pi_pilotpi_rpios
+---
+
 # 在 Raspberry Pi OS 上使用 PilotPi
 
 ## 开发者快速指南

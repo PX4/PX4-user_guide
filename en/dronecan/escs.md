@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/dronecan/escs
+---
+
 # DroneCAN ESCs
 
 PX4 supports DroneCAN compliant ESCs.

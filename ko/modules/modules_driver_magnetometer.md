@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/modules/modules_driver_magnetometer
+---
+
 # 모듈 참조: 자기 센서(드라이버)
 ## ak09916
 소스: [drivers/magnetometer/akm/ak09916](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/magnetometer/akm/ak09916)

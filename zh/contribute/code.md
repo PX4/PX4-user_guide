@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/contribute/code
+---
+
 # 源代码管理
 
 ## 分支模型

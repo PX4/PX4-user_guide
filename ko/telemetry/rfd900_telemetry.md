@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/telemetry/rfd900_telemetry
+---
+
 # RFD900 장거리 텔레메트리
 
 [jDrones](http://store.jDrones.com)과 [RFDesign](http://rfdesign.com.au/)에서는 * 장거리* [SiK](../telemetry/sik_radio.md) 호환 텔레메트리 라디오를 제공합니다. 라디오는 안테나와 5km 이상에서도 원활한 연결성을 제공합니다. 더 장거리에서도 통신 성공한 사례도 보고되었습니다.

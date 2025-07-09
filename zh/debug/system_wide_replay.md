@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/debug/system_wide_replay
+---
+
 # 全系统回放
 
 It is possible to record and replay arbitrary parts of the system based on ORB messages.

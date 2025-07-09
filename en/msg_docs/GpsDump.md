@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/msg_docs/GpsDump
+---
+
 # GpsDump (UORB message)
 
 This message is used to dump the raw gps communication to the log.
