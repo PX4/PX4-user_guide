@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/de/advanced_features/satcom_roadblock
+---
+
 # Iridium/RockBlock Satellite Communication System
 
 A satellite communication system can be used to provide long range high latency link between a ground station and a vehicle.

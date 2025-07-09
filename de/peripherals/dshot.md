@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/de/peripherals/dshot
+---
+
 # DShot ESCs
 
 DShot is an alternative ESC protocol that has several advantages over [PWM](../peripherals/pwm_escs_and_servo.md) or [OneShot](../peripherals/oneshot.md):

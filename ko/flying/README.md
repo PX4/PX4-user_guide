@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/flying/README
+---
+
 # 비행
 
 자동항법장치를 이용하여 비행하는 방법을 설명합니다. 수동 비행 방법과 자율 비행 방법에 대하여 설명합니다.

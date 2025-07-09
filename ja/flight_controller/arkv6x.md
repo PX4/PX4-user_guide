@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/flight_controller/arkv6x
+---
+
 # ARK Electronics ARKV6X
 
 :::warning

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/de/gps_compass/gps_holybro_m8n_m9n
+---
+
 # Holybro M8N & M9N GPS
 
 The GPS includes either a M8N or M9N UBLOX module, IST8310 compass, tri-colored LED indicator, and a safety switch.

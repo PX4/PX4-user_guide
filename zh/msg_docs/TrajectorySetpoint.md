@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/msg_docs/TrajectorySetpoint
+---
+
 # TrajectorySetpoint (UORB message)
 
 Trajectory setpoint in NED frame Input to PID position controller. Needs to be kinematically consistent and feasible for smooth flight. setting a value to NaN means the state should not be controlled

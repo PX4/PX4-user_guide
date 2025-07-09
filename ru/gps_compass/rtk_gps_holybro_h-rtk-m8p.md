@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/gps_compass/rtk_gps_holybro_h-rtk-m8p
+---
+
 # Holybro H-RTK M8P GNSS (Discontinued)
 
 :::warning

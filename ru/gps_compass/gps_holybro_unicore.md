@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/gps_compass/gps_holybro_unicore
+---
+
 # Holybro Unicore UM982 GPS
 
 :::warning

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/frames_plane/wing_wing_z84
+---
+
 # Wing Wing Z-84 Pixracer Build
 
 The Wing Wing Z-84 is a flying wing frame.

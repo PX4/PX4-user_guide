@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/flight_modes_mc/manual_stabilized
+---
+
 # 手动/自稳模式（多旋翼）
 
 [<img src="../../assets/site/difficulty_medium.png" title="飞行难度：中等" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="需要手动/遥控器控制" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;

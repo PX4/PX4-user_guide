@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/debug/binary_size_profiling
+---
+
 # 이진 크기 프로파일링
 
 `bloaty_compare_master` 빌드 타겟을 사용하면, 변경 사항이 코드 크기에 미치는 영향을 더 잘 이해할 수 있습니다. 사용할 때 도구 체인은 특정 펌웨어의 성공적인 최신 마스터 빌드를 다운로드하고, 이를 로컬 빌드와 비교합니다(바이너리용 [bloaty](https://github.com/google/bloaty) 크기 프로파일러 사용).

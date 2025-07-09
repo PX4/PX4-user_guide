@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/frames_multicopter/omnicopter
+---
+
 # Omnicopter
 
 An Omnicopter is a multicopter that can provide thrust in all directions (6 degrees of freedom).

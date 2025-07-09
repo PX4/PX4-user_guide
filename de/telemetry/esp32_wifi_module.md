@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/de/telemetry/esp32_wifi_module
+---
+
 # ESP32 WiFi Module
 
 ESP32 are readily available WiFi modules with dedicated UART, SPI and I2C interfaces, and full TCP/IP stack and microcontroller capability. They come without firmware, but *DroneBridge for ESP32* can be installed to enable them as a transparent and bi-directional serial to WiFi bridge. They can then be used as a WiFi telemetry module with any Pixhawk series controller.

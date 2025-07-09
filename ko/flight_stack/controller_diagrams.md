@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/flight_stack/controller_diagrams
+---
+
 # 콘트롤러 다이어그램
 
 이 섹션에는 PX4 컨트롤러에 대한 주요 다이어그램들이 있습니다.

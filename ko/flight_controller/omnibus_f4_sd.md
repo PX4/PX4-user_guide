@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/flight_controller/omnibus_f4_sd
+---
+
 # Omnibus F4 SD
 
 :::warning

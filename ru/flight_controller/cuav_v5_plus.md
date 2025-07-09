@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/flight_controller/cuav_v5_plus
+---
+
 # CUAV V5+ Autopilot
 
 :::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.cuav.net/) for hardware support or compliance issues.

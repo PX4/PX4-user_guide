@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/de/config_heli/README
+---
+
 # Helicopter Configuration
 
 This section contains topics related to [helicopter](../frames_helicopter/README.md) configuration and tuning.

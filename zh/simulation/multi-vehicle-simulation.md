@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/simulation/multi-vehicle-simulation
+---
+
 # 基于gazebo的多飞行器仿真
 
 本主题介绍如何使用 gazebo 和 sitl (仅限 linux) 模拟多架无人机/车辆。

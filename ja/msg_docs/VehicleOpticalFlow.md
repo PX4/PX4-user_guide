@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/msg_docs/VehicleOpticalFlow
+---
+
 # VehicleOpticalFlow (UORB message)
 
 Optical flow in XYZ body frame in SI units.

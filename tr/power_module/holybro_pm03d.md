@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/tr/power_module/holybro_pm03d
+---
+
 # Holybro PM03D Power Module
 
 The PM03D Power Module acts as both a Power Module (PM) and a Power Distribution Board (PDB). In addition to providing regulated power to Pixhawk v5X and the ESCs, it sends information to the autopilot about battery voltage and current supplied to the flight controller and the motors.

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/dev_setup/getting_started
+---
+
 # Getting Started
 
 This section contains topics about getting started with PX4 development:

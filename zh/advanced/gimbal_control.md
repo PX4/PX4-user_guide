@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/advanced/gimbal_control
+---
+
 # 云台配置
 
 本页面介绍了如何配置及控制一个安装了相机（或其他任务载荷）的云台。

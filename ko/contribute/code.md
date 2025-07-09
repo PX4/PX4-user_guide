@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/contribute/code
+---
+
 # 소스 코드 관리
 
 ## 분기 모델

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/debug/probe_bmp
+---
+
 # Black Magic Probe (and Dronecode Probe)
 
 

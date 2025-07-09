@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/smart_batteries/README
+---
+
 # Smart Batteries
 
 Smart Batteries provide more accurate (and often more detailed) information about the state of a battery than an autopilot can estimate for "dumb" batteries.

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/debug/mavlink_shell
+---
+
 # MAVLink Shell
 
 The MAVLink Shell is an *NSH console* that can be accessed via MAVLink over serial (USB/Telemetry) or WiFi (UDP/TCP) links (in particular, on NuttX-based systems like: Pixhawk, Pixracer, etc.).

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/tr/msg_docs/OrbitStatus
+---
+
 # OrbitStatus (UORB message)
 
 ORBIT_YAW_BEHAVIOUR

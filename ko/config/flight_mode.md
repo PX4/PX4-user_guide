@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/config/flight_mode
+---
+
 # 비행 모드 설정
 
 이 항목에서는 [비행 모드](../getting_started/flight_modes.md) 및 기타 기능을 무선 조종 송신기의 스위치에 매핑하는 방법을 설명합니다.

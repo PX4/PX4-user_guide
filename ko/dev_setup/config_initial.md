@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/dev_setup/config_initial
+---
+
 # 초기 설정과 구성
 
 개발자는 아래(또는 이와 유사한)에 설명된 기본 장비와 소프트웨어를 사용하는 것이 좋습니다.

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/dev_setup/dev_env_windows_cygwin
+---
+
 # Windows Development Environment (Cygwin-based)
 
 该工具链非常轻便，而且容易安装和使用。 它是目前Windows环境下用于PX4开发的最新和最好的工具。

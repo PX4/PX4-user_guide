@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/flight_controller/kakuteh7
+---
+
 # Holybro Kakute H7
 
 :::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/modules/modules_main
+---
+
 
 # 模块 & 命令 参考
 

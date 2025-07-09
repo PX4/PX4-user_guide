@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/dronecan/zubax_telega
+---
+
 # Zubax Telega ESCs
 
 Zubax Telega is a high end, proprietary sensorless FOC motor control technology. It is used in multiple products, including the [Zubax Myxa](https://zubax.com/products/myxa) ESC, [Zubax Mitochondrik](https://zubax.com/products/mitochondrik) motor controller module, and Zubax Sadulli integrated drive.

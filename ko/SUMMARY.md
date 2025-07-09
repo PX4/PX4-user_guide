@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/SUMMARY
+---
+
 * [소개](README.md)
 * [시작하기](getting_started/README.md)
   * [기본 개념](getting_started/px4_basic_concepts.md)

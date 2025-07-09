@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/tr/test_and_ci/README
+---
+
 # Platform Testing and Continuous Integration
 
 PX4 is extensively tested using unit and integration tests run via continuous integration. Live flight testing is also performed by the development team and the broader community.

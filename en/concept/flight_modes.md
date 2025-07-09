@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/concept/flight_modes
+---
+
 # Flight Modes
 
 *Flight Modes* define how the autopilot responds to user input and controls vehicle movement.

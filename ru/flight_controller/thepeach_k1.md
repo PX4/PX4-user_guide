@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/flight_controller/thepeach_k1
+---
+
 # ThePeach FCC-K1
 
 :::warning

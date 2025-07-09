@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/test_cards/mc_01_manual_modes
+---
+
 # 测试 MC_01 - 手动模式
 
 ## 解锁并起飞

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/flight_modes_fw/acro
+---
+
 # Acro Mode (Fixed-wing)
 
 [<img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;

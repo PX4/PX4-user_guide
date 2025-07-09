@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/simulation/simulation-in-hardware
+---
+
 # 硬件仿真
 
 Simulation-In-Hardware (SIH) is an alternative to [Hardware In The Loop simulation (HITL)](../simulation/hitl.md) for quadrotors, fixed-wing vehicles (airplane), and VTOL tailsitters.

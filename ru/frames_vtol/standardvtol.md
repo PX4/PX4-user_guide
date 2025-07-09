@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/frames_vtol/standardvtol
+---
+
 # Standard VTOL
 
 A **Standard VTOL** is a [VTOL](../frames_vtol/README.md) that has _completely separate_ flight controls for multicopter and fixed-wing flight.

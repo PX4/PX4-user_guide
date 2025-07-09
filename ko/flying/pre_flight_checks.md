@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/flying/pre_flight_checks
+---
+
 # 센서와 추정기 비행 사전 점검
 
 PX4는 비행전에 센서들의 품질과 추정기를 체크하여 시동과 비행에 충분한 위치 추정 가능 여부를 확인합니다. 사전 검사 여부는 [ COM*ARM*](../advanced_config/parameter_reference.md#commander) 매개변수에 저장됩니다.

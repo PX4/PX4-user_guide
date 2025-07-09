@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/flight_controller/holybro_pix32_v5
+---
+
 # Holybro Pix32 v5
 
 :::warning

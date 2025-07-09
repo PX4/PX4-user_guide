@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/msg_docs/HomePosition
+---
+
 # HomePosition (UORB message)
 
 GPS home position in WGS84 coordinates.

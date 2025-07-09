@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/config_mc/mc_jerk_limited_type_trajectory
+---
+
 # 멀티콥터 저크 제한 유형 궤적
 
 저크 제한 궤적 유형은 사용자 스틱 입력 또는 미션 변경 (예 : 촬영, 매핑,화물)에 응답하여 부드러운 동작을 제공합니다. 저크와 가속 제한이 항상 보장되는 부드러운 대칭 S-커브를 생성합니다.

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/flight_controller/autopilot_discontinued
+---
+
 # 단종 자동비행장치와 기종
 
 :::tip PX4 프로젝트 자동조종장치의 지원 수준에 대한 자세한 내용은 [px4.io/autopilots](https://px4.io/autopilots/)를 참고하십시오.

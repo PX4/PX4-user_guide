@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/dronecan/cuav_can_pmu
+---
+
 # CAUV CAN PMU
 
 CAN PMU<sup>&reg;</sup> is a high-precision [DroneCAN](README.md) power module developed by CUAV<sup>&reg;</sup>. It runs the CUAV ITT compensation algorithm, which enables drones to get the battery data more accurately.

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/dev_log/logging
+---
+
 # 日志记录
 
 [系统记录器](../modules/modules_system.md#logger) 能够记录任何 ORB 单元及其所有包含的字段。 Everything necessary is generated from the `.msg` file, so that only the topic name needs to be specified. An optional interval parameter specifies the maximum logging rate of a certain topic. 所有主题的实例将会被记录。

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/msg_docs/DistanceSensor
+---
+
 # DistanceSensor (UORB message)
 
 DISTANCE_SENSOR message data

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/contribute/docs
+---
+
 # 投稿指南
 
 Contributions to the PX4 User Guide are very welcome; from simple fixes to spelling and grammar, through to the creation of whole new sections.

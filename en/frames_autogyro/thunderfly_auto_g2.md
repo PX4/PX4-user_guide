@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/frames_autogyro/thunderfly_auto_g2
+---
+
 # ThunderFly Auto-G2 Autogyro
 
 The *ThunderFly Auto-G2* is an autopilot-controlled autogyro based on the [

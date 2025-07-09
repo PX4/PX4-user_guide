@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/de/flight_controller/cuav_pixhawk_v6x
+---
+
 # CUAV Pixhawk V6X
 
 :::warning

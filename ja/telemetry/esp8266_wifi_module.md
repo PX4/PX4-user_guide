@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/telemetry/esp8266_wifi_module
+---
+
 # ESP8266 WiFi Module
 
 The ESP8266 and its clones are low-cost and readily available Wi-Fi modules with full TCP/IP stack and microcontroller capability. They can be used with any Pixhawk series controller.

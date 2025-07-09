@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/flying/basic_flying
+---
+
 # Manual Flying
 
 This topic explains the basics of flying a vehicle using an [RC Transmitter](../getting_started/rc_transmitter_receiver.md) in a manual or autopilot-assisted flight mode (for autonomous flight see: [Missions](../flying/missions.md)).

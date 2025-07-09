@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/tr/peripherals/parachute
+---
+
 # Parachute
 
 PX4 can be configured to trigger a parachute during [flight termination](../advanced_config/flight_termination.md).

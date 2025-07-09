@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/de/computer_vision/obstacle_avoidance
+---
+
 # Obstacle Avoidance
 
 *Obstacle Avoidance* enables a vehicle to navigate around obstacles when following a preplanned path.

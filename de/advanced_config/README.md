@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/de/advanced_config/README
+---
+
 # Advanced Configuration
 
 This section contains contains more advanced configuration topics, and those for features that are more rarely modified, or that are specific only to manufacturers/OEMs.

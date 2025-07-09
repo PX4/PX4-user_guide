@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/middleware/micrortps
+---
+
 # RTPS/DDS Interface: PX4-Fast RTPS(DDS) Bridge
 
 [uXRCE-DDS (PX4-ROS 2/DDS Bridge)](../middleware/uxrce_dds.md) has replaced the _Fast-RTPS Bridge_.

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/contribute/notation
+---
+
 # 용어
 
 다음 용어, 기호, 문자는 이 안내서 전체의 텍스트와 다이어그램에 활용합니다.

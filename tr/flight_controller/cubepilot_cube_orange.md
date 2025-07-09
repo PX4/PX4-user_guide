@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/tr/flight_controller/cubepilot_cube_orange
+---
+
 # CubePilot Cube Orange Flight Controller
 
 :::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://cubepilot.org/#/home) for hardware support or compliance issues.

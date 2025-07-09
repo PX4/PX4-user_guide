@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/de/complete_vehicles/betafpv_beta75x
+---
+
 # BetaFPV Beta75X 2S Brushless Whoop
 
 :::warning

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/concept/pwm_limit
+---
+
 # PWM_limit 状态机
 
 The`PWM_limit State Machine` controls PWM outputs as a function of pre-armed and armed inputs. 并且会在解锁指令发出后、飞机油门增加之前引入一个延时。

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/telemetry/esp32_wifi_module
+---
+
 # ESP32 WiFi Module
 
 ESP32 are readily available WiFi modules with dedicated UART, SPI and I2C interfaces, and full TCP/IP stack and microcontroller capability.

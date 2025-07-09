@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/de/modules/hello_sky
+---
+
 # First Application Tutorial (Hello Sky)
 
 This topic explains how to create and run your first onboard application. It covers all the basic concepts and APIs required for app development on PX4.

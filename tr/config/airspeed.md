@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/tr/config/airspeed
+---
+
 # Airspeed Calibration
 
 :::note

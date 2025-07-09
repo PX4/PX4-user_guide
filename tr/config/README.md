@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/tr/config/README
+---
+
 # Standard Configuration
 
 This section covers the common software configuration and calibration needed for most PX4 vehicles.

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/complete_vehicles/README
+---
+
 # 整机
 
 This section contains information about "complete" vehicles that can PX4. It lists ready-to-use commercial vehicles, drone "platforms" on which you might base your own development, and kits that you can use to assemble an unmanned vehicle from parts.

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/computer_vision/obstacle_avoidance
+---
+
 # 장애물 회피
 
 *장애물 회피* 기능을 사용하여 계획된 경로를 비행시 장애물 주위를 탐색 할 수 있습니다.

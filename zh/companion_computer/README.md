@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/companion_computer/README
+---
+
 # Companion Computers
 
 Companion computers ("mission computers"), are separate on-vehicle computers that are connected to the flight controller, and which enable computationally expensive features like [object avoidance](../computer_vision/obstacle_avoidance.md) and [collision prevention](../computer_vision/collision_prevention.md).

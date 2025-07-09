@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/power_module/README
+---
+
 # Power Modules & Power Distribution Boards
 
 Power Modules provide a regulated power supply for the flight controller, along with information about battery voltage and current.

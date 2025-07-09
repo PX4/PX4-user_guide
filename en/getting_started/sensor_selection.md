@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/getting_started/sensor_selection
+---
+
 # Sensors
 
 PX4-based systems use sensors to determine vehicle state (needed for stabilization and to enable autonomous control).

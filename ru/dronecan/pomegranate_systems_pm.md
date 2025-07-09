@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/dronecan/pomegranate_systems_pm
+---
+
 # Pomegranate Systems Power Module
 
 :::note

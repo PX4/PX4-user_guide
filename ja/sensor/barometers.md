@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/sensor/barometers
+---
+
 # Barometers
 
 Barometers measure atmospheric pressure, and are used in drones as altitude sensors.

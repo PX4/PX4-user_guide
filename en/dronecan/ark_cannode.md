@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/dronecan/ark_cannode
+---
+
 # ARK CANnode
 
 [ARK CANnode](https://arkelectron.com/product/ark-cannode/) is an open source generic [DroneCAN](../dronecan/README.md) node that includes a 6 degree of freedom IMU.

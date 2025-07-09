@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/ros/raspberrypi_installation
+---
+
 # 라즈베리파이 ROS 설치
 
 Pixhawk 보조 컴퓨터 라즈베리파이에 ROS-indigo를 설치 방법을 설명합니다.

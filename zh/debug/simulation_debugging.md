@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/debug/simulation_debugging
+---
+
 # 仿真调试
 
 当模拟在主机上运行时，所有桌面开发工具都可用。

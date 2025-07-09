@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/msg_docs/VehicleConstraints
+---
+
 # VehicleConstraints (UORB message)
 
 Local setpoint constraints in NED frame

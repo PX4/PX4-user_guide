@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/dronecan/holybro_m8n_gps
+---
+
 # Holybro DroneCAN M8N GPS
 
 The Holybro DroneCAN GPS has an UBLOX M8N module, BMM150 compass, tri-colored LED indicator.

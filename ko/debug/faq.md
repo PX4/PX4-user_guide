@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/debug/faq
+---
+
 # 자주 묻는 질문
 
 

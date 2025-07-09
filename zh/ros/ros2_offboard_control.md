@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/ros/ros2_offboard_control
+---
+
 # ROS 2 Offboard 控制示例
 
 下面的 C++ 示例显示如何在ROS 2 节点中进行 [offboard模式](../flight_modes/offboard.md) 下的位置控制。

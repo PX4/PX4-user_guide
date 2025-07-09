@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/telemetry/holybro_sik_radio
+---
+
 # Holybro 텔레메트리 라디오
 
 This Holybro [SiK](../telemetry/sik_radio.md) Telemetry Radio is a small, light and inexpensive open source "plug-and-play" radio platform to connect your Autopilot Flight Controller and Ground Station.

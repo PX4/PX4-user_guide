@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/gps_compass/rtk_gps_holybro_unicore_um982
+---
+
 # Holybro H-RTK Unicore UM982 GPS
 
 The [Holybro H-RTK Unicore UM982 GPS](https://holybro.com/products/h-rtk-um982) is an multi-band high-precision [RTK GNSS System](../gps_compass/rtk_gps.md) launched by Holybro.

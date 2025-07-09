@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/SUMMARY
+---
+
 * [简介](README.md)
 * [入门指南](getting_started/README.md)
   * [基本概念](getting_started/px4_basic_concepts.md)

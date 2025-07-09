@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/peripherals/remote_id
+---
+
 # Remote ID (Open Drone ID)
 
 :::warning

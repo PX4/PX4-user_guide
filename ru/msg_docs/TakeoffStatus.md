@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/msg_docs/TakeoffStatus
+---
+
 # TakeoffStatus (UORB message)
 
 Status of the takeoff state machine currently just available for multicopters

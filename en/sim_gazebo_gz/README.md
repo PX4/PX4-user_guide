@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/sim_gazebo_gz/README
+---
+
 # Gazebo Simulation
 
 :::warning

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/modules/modules_driver_ins
+---
+
 # Modules Reference: Ins (Driver)
 ## vectornav
 Source: [drivers/ins/vectornav](https://github.com/PX4/PX4-Autopilot/tree/release/1.14/src/drivers/ins/vectornav)

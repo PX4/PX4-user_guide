@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/peripherals/oneshot
+---
+
 # OneShot Servos and ESCs (Motor Controllers)
 
 PX4 support OneShot 125 ESCs (only).

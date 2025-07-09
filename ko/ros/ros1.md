@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/ros/ros1
+---
+
 # ROS 1 with MAVROS
 
 :::tip PX4 개발 팀은 사용자가 [ROS 2](../ros/ros2.md)로 마이그레이션할 것을 권장합니다(즉, 이 섹션 건너뛰기)!

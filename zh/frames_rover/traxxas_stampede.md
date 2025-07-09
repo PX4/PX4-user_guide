@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/frames_rover/traxxas_stampede
+---
+
 # Traxxas Stampede VXL
 
 选择这辆车是为了了解Pixhawk如何能够用于轮式平台。 我们选择使用 Traxxas 车辆，因为它们非常受欢迎，是遥控车社区中一个非常强大的品牌。 其目的是建立一个平台，便于使用自动驾驶器控制轮式UGV。

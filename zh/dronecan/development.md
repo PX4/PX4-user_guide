@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/dronecan/development
+---
+
 # DroneCAN Development
 
 :::note

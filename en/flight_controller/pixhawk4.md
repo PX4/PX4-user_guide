@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/flight_controller/pixhawk4
+---
+
 # Holybro Pixhawk 4 (Discontinued)
 
 :::warning

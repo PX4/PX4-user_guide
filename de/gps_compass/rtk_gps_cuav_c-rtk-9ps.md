@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/de/gps_compass/rtk_gps_cuav_c-rtk-9ps
+---
+
 # CUAV C-RTK 9Ps
 
 The CUAV [C-RTK 9Ps](https://www.cuav.net/en/c_rtk_9ps/) is a multi-satellite, multi-band, centimeter-level, RTK GNSS system.

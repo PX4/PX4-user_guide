@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/advanced/out_of_tree_modules
+---
+
 # 外部模块（Out-of-Tree）
 
 外部模块为开发人员提供了一种便捷的机制，可以管理/分组他们想要添加（或更新）PX4 固件的专有模块。 外部模块可以使用与内部模块相同的includes，并可以通过uORB与内部模块交互。

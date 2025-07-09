@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/assembly/cable_wiring
+---
+
 # 배선 개요
 
 케이블은 플라이웨이, "화장실 볼링" 및 일반적으로 열악한 비행을 비롯한 문제를 일으킬 수 있는 [전자기 간섭(EMI)](https://en.wikipedia.org/wiki/Electromagnetic_interference)의 일반적인 원인입니다. 이러한 문제는 UAV에서 적절한 케이블을 사용하여 피할 수 있습니다.

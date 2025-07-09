@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/tr/msg_docs/EstimatorBias3d
+---
+
 # EstimatorBias3d (UORB message)
 
 

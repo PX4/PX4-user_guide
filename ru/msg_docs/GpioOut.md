@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/msg_docs/GpioOut
+---
+
 # GpioOut (UORB message)
 
 GPIO mask and state

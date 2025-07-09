@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/msg_docs/OffboardControlMode
+---
+
 # OffboardControlMode (UORB消息)
 
 Offboard控制模式

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/advanced/gimbal_control
+---
+
 # Gimbal Configuration
 
 This page explains how to configure and control a gimbal that has an attached camera (or any other payload).

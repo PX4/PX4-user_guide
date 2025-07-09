@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/modules/modules_driver_imu
+---
+
 # 모듈 참조: 관성 센서(드라이버)
 ## adis16448
 소스: [drivers/imu/analog_devices/adis16448](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/imu/analog_devices/adis16448)

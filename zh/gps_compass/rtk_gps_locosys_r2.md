@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/gps_compass/rtk_gps_locosys_r2
+---
+
 # LOCOSYS Hawk R2 RTK-Compass GPS
 
 The [LOCOSYS Hawk R2](https://www.locosystech.com/en/product/hawk-r2.html) is a dual-frequency [RTK GPS module](../gps_compass/rtk_gps.md) receiver designed for compatibility with Pixhawk. The only difference between this module and the [LOCOSYS Hawk R1](rtk_gps_locosys_r1.md) is the presence of a magnetometer on Hawk R2.

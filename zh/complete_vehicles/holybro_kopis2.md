@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/complete_vehicles/holybro_kopis2
+---
+
 # Holybro Kopis 2
 
 The [Holybro Kopis 2](https://holybro.com/products/kopis2-hdv-free-shipping) is a ready-to-fly race quad for flying FPV or line-of-sight.

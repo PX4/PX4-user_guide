@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/test_and_ci/docker
+---
+
 # PX4 도커 컨테이너
 
 Docker containers are provided for the complete [PX4 development toolchain](../dev_setup/dev_env.md#supported-targets) including NuttX and Linux based hardware, [Gazebo Classic](../sim_gazebo_classic/README.md) simulation, and [ROS](../simulation/ros_interface.md).

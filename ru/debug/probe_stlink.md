@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/debug/probe_stlink
+---
+
 # STLink Debug Probe
 
 The [STLinkv3-MINIE](https://www.st.com/en/development-tools/stlink-v3minie.html) is a cheap, fast and highly capable debug probe that can serve as a stand-alone debug and console communicator for a PX4 developer:

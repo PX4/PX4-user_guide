@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/flight_controller/modalai_voxl_2
+---
+
 # ModalAI VOXL 2
 
 :::warning

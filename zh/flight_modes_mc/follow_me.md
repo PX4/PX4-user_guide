@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/flight_modes_mc/follow_me
+---
+
 # Follow-Me Mode (Multicopter)
 
 [<img src="../../assets/site/position_fixed.svg" title="需要定位（例如GPS）" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)

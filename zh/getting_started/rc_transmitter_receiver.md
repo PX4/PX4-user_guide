@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/getting_started/rc_transmitter_receiver
+---
+
 # 遥控系统
 
 A Radio Control (RC) system can be used to *manually* control your vehicle from a handheld RC controller. This topic provides an overview of how RC works, how to choose an appropriate radio system for your vehicle, and how to connect it to your flight controller.

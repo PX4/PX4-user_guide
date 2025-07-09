@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/flying/README
+---
+
 # 飞行
 
 本节包含有关飞行（完全配置过的）自动驾驶仪控制机体的主题。 它涵盖了（自动驾驶仪辅助）手动飞行和完全自主飞行的任务规划。

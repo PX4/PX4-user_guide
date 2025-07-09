@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/debug/swd_gdb
+---
+
 # SWD GDB Hardware Debugging
 
 This page documents how to connect the hardware target using GDB (from a terminal). To use an IDE instead, see the instructions for [Eclipse](../debug/eclipse_jlink.md) or [VSCode](../dev_setup/vscode.md#hardware-debugging).

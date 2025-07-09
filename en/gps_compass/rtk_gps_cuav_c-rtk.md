@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/gps_compass/rtk_gps_cuav_c-rtk
+---
+
 # CUAV C-RTK
 
 The [CUAV C-RTK GPS receiver](https://www.cuav.net/en/c_rtk_9ps/) is an [RTK GPS module](../gps_compass/rtk_gps.md) for the mass market. 

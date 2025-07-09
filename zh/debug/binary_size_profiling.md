@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/debug/binary_size_profiling
+---
+
 # Binary Size Profiling
 
 The `bloaty_compare_master` build target allows you to get a better understanding of the impact of changes on code size. When it is used, the toolchain downloads the latest successful master build of a particular firmware and compares it to the local build (using the [bloaty](https://github.com/google/bloaty) size profiler for binaries).

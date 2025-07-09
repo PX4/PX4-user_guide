@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/dronecan/avanon_laser_interface
+---
+
 # Avionics Anonymous Laser Altimeter DroneCan Interface
 
 :::note

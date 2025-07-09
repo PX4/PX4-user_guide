@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/config_fw/position_tuning_guide_fixedwing
+---
+
 # Fixed-wing Altitude/Position Controller Tuning
 
 이 가이드는 비행 임무와 고도 및 위치 제어 모드에서 고정익 컨트롤러를 정밀 조정에 많은 도움이 됩니다. PX4 uses TECS for altitude and airspeed control, and NPFG for horizontal heading/position control.

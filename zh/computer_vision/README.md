@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/computer_vision/README
+---
+
 # 计算机视觉 (光流，MoCap， VIO，避障)
 
 [计算机视觉](https://en.wikipedia.org/wiki/Computer_vision) 技术使计算机能够使用视觉数据来理解他们的环境。

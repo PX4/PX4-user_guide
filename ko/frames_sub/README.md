@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/frames_sub/README
+---
+
 # Submarines (Unmanned Underwater Vehicles - UUV)
 
 :::warning UUV에 대한 지원은 _실험 단계_입니다. 이 플랫폼은 제품 품질 UUV에 필요한 모든 기능을 지원하지 않으며, 플랫폼은 핵심개발팀에서 정기적으로 테스트하지 않습니다.

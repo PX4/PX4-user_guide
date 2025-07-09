@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/modules/modules_estimator
+---
+
 # 모듈 참조: 추정기
 
 ## AttitudeEstimatorQ

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/tr/ros/ros2_offboard_control
+---
+
 # ROS 2 Offboard Control Example
 
 The following C++ example shows how to do position control in [offboard mode](../flight_modes/offboard.md) from a ROS 2 node.

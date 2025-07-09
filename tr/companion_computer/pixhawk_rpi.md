@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/tr/companion_computer/pixhawk_rpi
+---
+
 # Raspberry Pi Companion with Pixhawk
 
 This topic describes how to setup a Raspberry Pi ("RPi") companion companion running [ROS 2](../ros/ros2_comm.md) on Linux Ubuntu OS, connecting to a [Pixhawk](../flight_controller/autopilot_pixhawk_standard.md) flight controller using a serial connection between the Pixhawk `TELEM2` port and the RPi's TX/RX pins.

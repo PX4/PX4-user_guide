@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/config/compass
+---
+
 # Compass Calibration
 
 The compass calibration process configures all connected internal and external [magnetometers](../gps_compass/README.md). *QGroundControl* will guide you to position the vehicle in a number of set orientations and rotate the vehicle about the specified axis.

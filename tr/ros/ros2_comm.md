@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/tr/ros/ros2_comm
+---
+
 # ROS 2 User Guide
 
 The ROS 2-PX4 architecture provides a deep integration between ROS 2 and PX4, allowing ROS 2 subscribers or publisher nodes to interface directly with PX4 uORB topics.

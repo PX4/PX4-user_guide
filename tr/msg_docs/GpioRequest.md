@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/tr/msg_docs/GpioRequest
+---
+
 # GpioRequest (UORB message)
 
 Request GPIO mask to be read

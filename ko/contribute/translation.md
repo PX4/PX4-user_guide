@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/contribute/translation
+---
+
 # 번역
 
 *QGroundControl* 프로그램과 PX4, *QGroundControl*, MAVLink 안내서 번역 도움을 간절히 바랍니다!

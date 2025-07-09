@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/dev_setup/dev_env_windows_vm
+---
+
 # Windows 虚拟机托管的工具链
 
 Windows 平台开发者可以在运行Linux的虚拟机中运行 PX4 工具链。 设置好虚拟机后，在虚拟机内进行 PX4 开发环境的安装、设置的流程与原生 Linux 电脑没有任何差别。 本指南将引导你使用 VMWare 完成虚拟机的设置。

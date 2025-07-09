@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/msg_docs/Gripper
+---
+
 # Gripper (UORB message)
 
 # Used to command an actuation in the gripper, which is mapped to a specific output in the control allocation module

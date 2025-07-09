@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/power_module/README
+---
+
 # Power Modules & Power Distribution Boards
 
 Power Modules provide a regulated power supply for the flight controller, along with information about battery voltage and current. The voltage/current information is used to determine the consumed power, and to hence to estimate remaining battery capacity. This in turn allows the flight controller to provide failsafe warnings and other actions in the event of low power: [Safety > Low Battery Failsafe](../config/safety.md#low-battery-failsafe).

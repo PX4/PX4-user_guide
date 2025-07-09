@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/hardware/drone_parts
+---
+
 # Hardware (Drones & Drone Parts)
 
 This section contains information about complete pre-built PX4 vehicles, and components that you can use if building your own drones:

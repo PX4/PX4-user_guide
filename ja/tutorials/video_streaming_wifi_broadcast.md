@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/tutorials/video_streaming_wifi_broadcast
+---
+
 
 # Long-distance Data-link using WiFi in Raw Mode
 

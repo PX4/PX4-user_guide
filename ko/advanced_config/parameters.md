@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/advanced_config/parameters
+---
+
 # 파라미터 검색 및 수정
 
 PX4에서는 [매개변수](../advanced_config/parameter_reference.md)를 통하여 [멀티콥터 PID 계수](../config_mc/pid_tuning_guide_multicopter.md), 캘리브레이션 정보 등을 수정합니다.

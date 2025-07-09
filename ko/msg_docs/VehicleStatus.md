@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/msg_docs/VehicleStatus
+---
+
 # VehicleStatus (UORB message)
 
 Encodes the system state of the vehicle published by commander

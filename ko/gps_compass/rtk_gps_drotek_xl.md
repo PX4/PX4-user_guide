@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/gps_compass/rtk_gps_drotek_xl
+---
+
 # Drotek XL RTK GPS (Discontinued)
 
 :::note

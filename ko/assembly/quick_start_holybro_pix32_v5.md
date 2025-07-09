@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/assembly/quick_start_holybro_pix32_v5
+---
+
 # 픽스32 v5 배선 방법
 
 :::warning PX4에서는 이 자동항법장치를 제조하지 않습니다. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues.

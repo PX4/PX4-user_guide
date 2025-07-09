@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/dev_setup/dev_env
+---
+
 # 파일 및 코드 설치개발자 환경 설정 (툴체인)
 
 PX4 개발 *지원 플랫폼*은 다음과 같습니다.

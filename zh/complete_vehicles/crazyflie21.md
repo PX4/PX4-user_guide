@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/complete_vehicles/crazyflie21
+---
+
 # Crazyflie 2.1
 
 :::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://www.bitcraze.io/) for hardware support or compliance issues.

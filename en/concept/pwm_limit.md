@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/concept/pwm_limit
+---
+
 # PWM_limit State Machine
 
 The`PWM_limit State Machine` controls PWM outputs as a function of pre-armed and armed inputs.

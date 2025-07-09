@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/peripherals/frsky_telemetry
+---
+
 # FrSky Telemetry
 
 FrSky telemetry allows you to access vehicle [telemetry/status](#messages) information on a compatible RC transmitter.

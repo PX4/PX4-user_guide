@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/config/firmware
+---
+
 # 加载固件
 
 *QGroundControl* **桌面** 版本可以用于安装 PX4 固件到 [Pixhawk系列](../getting_started/flight_controller_selection.md) 飞行控制板。

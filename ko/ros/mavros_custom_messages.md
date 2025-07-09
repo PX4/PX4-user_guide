@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/ros/mavros_custom_messages
+---
+
 # MAVROS에서 PX4로 사용자 정의 메시지 전송
 
 :::warning

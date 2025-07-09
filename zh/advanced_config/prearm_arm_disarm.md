@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/advanced_config/prearm_arm_disarm
+---
+
 # Arm, Disarm, Prearm Configuration
 
 机体是有可移动的部件的，其中一些在通电后会有潜在的危险性（特别是电机和螺旋桨）！

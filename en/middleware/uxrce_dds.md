@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/middleware/uxrce_dds
+---
+
 # uXRCE-DDS (PX4-ROS 2/DDS Bridge)
 
 :::note

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/assembly/mount_gps_compass
+---
+
 # 安装GPS/指南针
 
 应尽可能将GPS/指南针安装在框架上远离其他电子设备的地方。 它的方向标记指向载具前面。 如果以这种方式安装，你可以立即着手 [指南针校准](../config/compass.md#performing-the-calibration)。

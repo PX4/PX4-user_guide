@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/complete_vehicles/nanomind110
+---
+
 ## NanoMind 110
 
 ![nanomind 11](../../assets/hardware/hardware-nanomind110.png)

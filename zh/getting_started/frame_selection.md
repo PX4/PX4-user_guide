@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/getting_started/frame_selection
+---
+
 # 载具选择
 
 PX4支持空中，表面（地面，水面）以及水下载具。 您可以在[机架参考](../airframes/airframe_reference.md)中查看已经经过PX4测试/调整过的载具类型或及其变种（“框架”）。

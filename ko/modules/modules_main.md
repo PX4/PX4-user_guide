@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/modules/modules_main
+---
+
 
 # 모듈 및 명령어 참조
 

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/tr/peripherals/gripper
+---
+
 # Grippers
 
 Grippers are mechanical devices that can be integrated with an unmanned vehicle to grip (hold) and release payloads.

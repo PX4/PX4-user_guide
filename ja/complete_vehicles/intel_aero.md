@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/complete_vehicles/intel_aero
+---
+
 # Intel Aero Ready to Fly Drone
 
 :::warning

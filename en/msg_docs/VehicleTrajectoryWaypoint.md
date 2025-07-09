@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/msg_docs/VehicleTrajectoryWaypoint
+---
+
 # VehicleTrajectoryWaypoint (UORB message)
 
 Vehicle Waypoints Trajectory description. See also MAVLink MAV_TRAJECTORY_REPRESENTATION msg

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/sim_gazebo_gz/gazebo_vehicles
+---
+
 # Gazebo Vehicles
 
 This topic lists/displays the vehicles supported by the PX4 [Gazebo](../sim_gazebo_gz/README.md) simulation, and the `make` commands required to run them (the commands are run from a terminal in the **PX4-Autopilot** directory).

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/config_mc/mc_jerk_limited_type_trajectory
+---
+
 # Jerk-limited Type Trajectory for Multicopters
 
 The Jerk-limited trajectory type provides smooth motion in response to user stick input or mission changes (e.g.: for filming, mapping, cargo).

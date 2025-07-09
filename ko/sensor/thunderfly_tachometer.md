@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/sensor/thunderfly_tachometer
+---
+
 # ThunderFly TFRPM01 Revolution Counter
 
 [TFRPM01](https://github.com/ThunderFly-aerospace/TFRPM01) 회전 속도계는 회전 카운터를 요구하는 작고 낮은 시스템입니다.

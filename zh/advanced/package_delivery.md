@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/advanced/package_delivery
+---
+
 # Package Delivery in Missions (Development)
 
 A package delivery mission is an extension of a waypoint mission, where a user can plan delivering a package as a waypoint.

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/flight_controller/pixhawk4_mini
+---
+
 # Holybro Pixhawk 4 Mini (Discontinued)
 
 *Pixhawk<sup>&reg;</sup> 4 Mini* 自动驾驶仪是为想办法利用 *Pixhawk 4* 的力量，但是使用的是较小的无人机的工程师和爱好者而设计的。 Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues. 这使得 *Pixhawk 4 Mini* 足够小，可以装到 250mm 的穿越机上。

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/frames_rover/README
+---
+
 # Rovers (UGVs)
 
 :::warning

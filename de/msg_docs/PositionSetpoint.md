@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/de/msg_docs/PositionSetpoint
+---
+
 # PositionSetpoint (UORB message)
 
 this file is only used in the position_setpoint triple as a dependency

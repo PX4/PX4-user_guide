@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/README
+---
+
 <div style="float:right; padding:10px; margin-right:20px;"><a href="https://px4.io/"><img src="../assets/site/logo_pro_small.png" title="PX4 로고" width="180px" /></a></div>
 
 # PX4 오토파일럿 사용자 설명서 ({{ $themeConfig.px4_version }})

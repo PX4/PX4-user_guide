@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/contribute/translation
+---
+
 # Translation
 
 We'd love your help to translate *QGroundControl*, and our guides for PX4, *QGroundControl* and MAVLink!

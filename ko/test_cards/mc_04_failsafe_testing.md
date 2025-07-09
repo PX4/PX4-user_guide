@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/test_cards/mc_04_failsafe_testing
+---
+
 # 시험 MC_04 - 안전 장치 시험
 
 ❏ 원격 조종 유실 동작이 회귀 지점 착륙인지 확인

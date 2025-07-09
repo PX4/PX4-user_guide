@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/config/accelerometer
+---
+
 # Accelerometer Calibration
 
 You will need to calibrate your accelerometer on first use or if the flight controller orientation is changed. Otherwise you should not need to recalibrate (except perhaps in winter, if you have a flight controller that was not [thermally calibrated](../advanced_config/sensor_thermal_calibration.md) in the factory).

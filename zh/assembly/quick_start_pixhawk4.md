@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/assembly/quick_start_pixhawk4
+---
+
 # Pixhawk 4 接线快速入门
 
 :::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://holybro.com/) for hardware support or compliance issues. :::

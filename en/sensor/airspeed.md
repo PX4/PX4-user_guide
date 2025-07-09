@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/sensor/airspeed
+---
+
 # Airspeed Sensors
 
 Airspeed sensors are *highly recommended* for fixed-wing and VTOL frames.

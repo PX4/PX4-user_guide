@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/computer_vision/path_planning_interface
+---
+
 # 路径规划接口
 
 PX4 使用数个 MAVLink 接口来整合机载计算机的路径规划服务（包括在执行航线任务时避障，[安全着陆](../computer_vision/safe_landing.md)和未来的一些服务）：

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/dev_log/logging
+---
+
 # Logging
 
 The [system logger](../modules/modules_system.md#logger) is able to log any ORB topic with all included fields.

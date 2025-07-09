@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/sensor_bus/translator_tfi2cadt
+---
+
 # TFI2CADT01 - I²C Address Translator
 
 [TFI2CADT01](https://github.com/ThunderFly-aerospace/TFI2CADT01) is an address translator module that is compatible with Pixhawk and PX4.

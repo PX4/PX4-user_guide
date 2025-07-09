@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/flight_controller/autopilot_experimental
+---
+
 # Community Supported & Experimental Autopilots
 
 :::tip

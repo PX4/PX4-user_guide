@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/config/gyroscope
+---
+
 # 자이로스코프 보정
 
 기체를 평탄한 곳에서 고정한 후에 *QGroundControl*을 실행하여 보정을 시작합니다.

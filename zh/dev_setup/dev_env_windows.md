@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/dev_setup/dev_env_windows
+---
+
 <Redirect to="dev_env_windows_wsl" />
 
 <!-- Everything deleted below here - redirects to Windows Cygwin -->

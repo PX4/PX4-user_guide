@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/modules/modules_communication
+---
+
 # 模块参考：通信（Communication）
 
 ## frsky_telemetry

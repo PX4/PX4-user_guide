@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/modules/modules_driver_distance_sensor
+---
+
 # 모듈 참조: 거리 센서(드라이버)
 ## afbrs50
 소스: [drivers/distance_sensor/leddar_one](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/distance_sensor/broadcom/afbrs50)

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/flight_controller/raspberry_pi_navio2
+---
+
 # Raspberry Pi 2/3/4 Navio2 Autopilot
 
 :::warning

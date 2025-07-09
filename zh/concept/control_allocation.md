@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/concept/control_allocation
+---
+
 # 控制分配 (混控)
 
 :::note

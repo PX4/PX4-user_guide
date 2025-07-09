@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/computer_vision/path_planning_interface
+---
+
 # Path Planning Interface
 
 PX4 uses a number of MAVLink interfaces for integrating path planning services from a companion computer (including obstacle avoidance in missions, [safe landing](../computer_vision/safe_landing.md), and future services):

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/complete_vehicles/modalai_starling
+---
+
 # VOXL 2 Starling PX4 Development Drone
 
 The [Starling](https://modalai.com/starling) is a SLAM development drone supercharged by [VOXL 2](../flight_controller/modalai_voxl_2.md) and PX4 with SWAP-optimized sensors and payloads optimized for indoor and outdoor autonomous navigation.

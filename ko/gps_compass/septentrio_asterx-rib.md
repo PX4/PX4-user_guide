@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/gps_compass/septentrio_asterx-rib
+---
+
 # AsteRx OEM with Robotics Interface Board
 
 Septentrio is the leading worldwide supplier of OEM GPS / GNSS receivers. Septentrio OEM receivers deliver accurate and reliable positions to demanding industrial applications in a small, light-weight form factor. There are several dual antenna receiver options that allows for GPS information to be fused into the heading (other attitude information can also be determined, but is not fused by PX4).

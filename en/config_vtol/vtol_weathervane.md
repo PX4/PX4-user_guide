@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/config_vtol/vtol_weathervane
+---
+
 # VTOL Weather Vane Feature
 
 The *weather vane* feature automatically turns a VTOL vehicle to face its nose into the relative wind during hover flight. 

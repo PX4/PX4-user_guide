@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/flight_controller/beaglebone_blue
+---
+
 # BeagleBone Blue
 
 :::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://beagleboard.org/blue) for hardware support or compliance issues.

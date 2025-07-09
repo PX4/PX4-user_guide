@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/advanced_features/satcom_roadblock
+---
+
 # 이리듐(RockBlock) 위성통신
 
 위성통신 시스템은 기체와 지상국간의 광역 통신을 제공합니다.

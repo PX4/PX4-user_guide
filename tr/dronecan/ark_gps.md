@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/tr/dronecan/ark_gps
+---
+
 # ARK GPS
 
 ARK GPS is an open source [DroneCAN](README.md) [GNSS/GPS](../gps_compass/README.md), magnetometer, IMU, barometer, buzzer, and safety switch module.

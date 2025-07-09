@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/msg_docs/TrajectoryBezier
+---
+
 # TrajectoryBezier (UORB message)
 
 Bezier Trajectory description. See also Mavlink TRAJECTORY msg

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/tr/concept/flight_modes
+---
+
 # Flight Modes
 
 *Flight Modes* define how the autopilot responds to user input and controls vehicle movement. They are loosely grouped into *manual*, *assisted* and *auto* modes, based on the level/type of control provided by the autopilot. The pilot transitions between flight modes using switches on the remote control or with a ground control station.

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/config_vtol/README
+---
+
 # VTOL Configuration
 
 First perform the [Standard Configuration](../config/README.md).

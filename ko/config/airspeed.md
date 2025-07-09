@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/config/airspeed
+---
+
 # 항속센서 보정
 
 :::note

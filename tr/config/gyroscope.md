@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/tr/config/gyroscope
+---
+
 # Gyroscope Calibration
 
 *QGroundControl* will guide you to place the vehicle on a flat surface and keep it still.

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/tr/peripherals/serial_configuration
+---
+
 # Serial Port Configuration
 
 PX4 defines [default functions](#default-serial-port-configuration) for many flight controller ports, which is why you can plug a GPS module into the port labelled `GPS 1`, an RC receiver into `RC IN`, or a telemetry module into `TELEM 1`, and generally they will just work.

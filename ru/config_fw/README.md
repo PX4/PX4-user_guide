@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/config_fw/README
+---
+
 # Fixed-wing Vehicle Configuration
 
 This section contains configuration and tuning topics related to fixed-wing vehicles.

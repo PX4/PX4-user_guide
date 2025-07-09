@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/sensor/sfxx_lidar
+---
+
 # LightWare SF1X/SF02/LW20 Lidar
 
 LightWare develops a range of light-weight, general purpose, laser altimeters ("Lidar") suitable for mounting on UAVs.

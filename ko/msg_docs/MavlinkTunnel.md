@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/msg_docs/MavlinkTunnel
+---
+
 # MavlinkTunnel (UORB message)
 
 MAV_TUNNEL_PAYLOAD_TYPE enum

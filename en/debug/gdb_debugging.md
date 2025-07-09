@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/debug/gdb_debugging
+---
+
 # Debugging with GDB
 
 The [GNU DeBugger (GDB)](https://sourceware.org/gdb/download/onlinedocs/gdb/index.html) comes installed with the compiler toolchain in the form of the `arm-none-eabi-gdb` binary.

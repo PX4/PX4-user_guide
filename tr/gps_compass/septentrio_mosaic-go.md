@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/tr/gps_compass/septentrio_mosaic-go
+---
+
 # Septentrio mosaic-go evaluation kit
 
 The mosaic-go Evaluation Kit is composed of the mosaic module soldered on an interface board inside a metallic housing.

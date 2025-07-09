@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/config/compass
+---
+
 # 罗盘校准
 
 罗盘校准过程配置了所有连接的外部和内部 [magnetometers](../gps_compass/README.md)。 *QGroundControl* will guide you to position the vehicle in a number of set orientations and rotate the vehicle about the specified axis.

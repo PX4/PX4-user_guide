@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/assembly/cable_wiring
+---
+
 # Cable Wiring Basics
 
 Cables are a common source of [electromagnetic interference (EMI)](https://en.wikipedia.org/wiki/Electromagnetic_interference), which can cause problems including flyways, "toilet bowling" and generally poor flight.

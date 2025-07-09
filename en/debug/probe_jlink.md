@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/debug/probe_jlink
+---
+
 # JLink Debug Probe
 
 The [J-Link debug probe][jlink] is a closed-source, commercial hardware probe which supports almost all ARM Cortex-M devices.

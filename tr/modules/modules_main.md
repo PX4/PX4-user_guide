@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/tr/modules/modules_main
+---
+
 
 # Modules & Commands Reference
 

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/sensor/ulanding_radar
+---
+
 # Ainstein US-D1 Standard Radar Altimeter
 
 :::tip

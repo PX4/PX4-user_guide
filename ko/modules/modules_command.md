@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/modules/modules_command
+---
+
 # 모듈 참조: 명령
 
 ## bl_update

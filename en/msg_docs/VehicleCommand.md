@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/msg_docs/VehicleCommand
+---
+
 # VehicleCommand (UORB message)
 
 Vehicle Command uORB message. Used for commanding a mission / action / etc.

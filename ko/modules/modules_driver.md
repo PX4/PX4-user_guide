@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/modules/modules_driver
+---
+
 # 모듈 참조: 드라이버
 하위 카테고리:
 - [관성 센서](modules_driver_imu.md)

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/msg_docs/LedControl
+---
+
 # LedControl (UORB message)
 
 LED control: control a single or multiple LED's. These are the externally visible LED's, not the board LED's

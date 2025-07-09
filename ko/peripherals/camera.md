@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/peripherals/camera
+---
+
 # 카메라 설정
 
 PX4 can be configured to connect physical outputs to trigger a camera, or it can be used with a [MAVLink camera](#mavlink-cameras).

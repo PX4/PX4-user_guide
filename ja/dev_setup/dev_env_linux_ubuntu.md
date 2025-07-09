@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/dev_setup/dev_env_linux_ubuntu
+---
+
 # Ubuntu Development Environment
 
 The following instructions set up a PX4 development environment on the [Ubuntu Linux LTS](https://wiki.ubuntu.com/LTS) versions supported by PX4. This includes: 18.04 (Bionic Beaver), 20.04 (Focal Fossa), and Ubuntu 22.04 (Jammy Jellyfish).

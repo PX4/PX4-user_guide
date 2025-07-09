@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/de/getting_started/flight_controller_selection
+---
+
 # Flight Controller Selection
 
 Flight controllers are the "brains" of an unmanned vehicle. PX4 can run on [many flight controller boards](../flight_controller/README.md).

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/frames_vtol/tiltrotor
+---
+
 # 틸트로터 VTOL
 
 **틸트로터 VTOL**은 90도 회전하는 로터가 있는 [VTOL](../frames_vtol/README.md) 차량으로 멀티콥터 로터 또는 고정익 프로펠러로 동작합니다.

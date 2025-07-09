@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/contribute/notation
+---
+
 # 术语
 
 本指南中的文本和图表中使用了以下术语、符号和装饰器。

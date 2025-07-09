@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/simulation/README
+---
+
 # 시뮬레이션
 
 시뮬레이터는 PX4 비행 코드가 시뮬레이션된 가상 "세계"에서 컴퓨터로 모델링된 기체를 제어합니다. *QGroundControl*, 오프보드 API 또는 무선 컨트롤러, 게임패드를 사용하여 실제 기체와 같이 상호 작용합니다.

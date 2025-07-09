@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/getting_started/sensor_selection
+---
+
 # 센서
 
 PX4 시스템은 안정화나 자율제어를  위하여 센서를 사용하여 기체의 상태를 파악합니다. The vehicle states include: position/altitude, heading, speed, airspeed, orientation (attitude), rates of rotation in different directions, battery level, and so on.

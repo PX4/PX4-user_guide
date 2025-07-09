@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/flight_controller/raspberry_pi_pilotpi_rpios
+---
+
 # PilotPi with Raspberry Pi OS
 
 ## Developer Quick Start

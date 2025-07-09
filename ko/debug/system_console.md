@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/debug/system_console
+---
+
 # PX4 시스템 콘솔
 
 The PX4 _System Console_ provides low-level access to the system, debug output and analysis of the system boot process.

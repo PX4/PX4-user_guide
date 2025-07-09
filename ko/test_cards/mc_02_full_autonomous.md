@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/test_cards/mc_02_full_autonomous
+---
+
 # 시험 MC_02 - 완전 자동화
 
 ## 임무 수립 및 업로드

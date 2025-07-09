@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/dronecan/holybro_m8n_gps
+---
+
 # Holybro DroneCAN M8N GPS
 
 Holybro DroneCAN GPS有一个UBLOX M8N 模块，BMM150指南针，三色LED指示器。

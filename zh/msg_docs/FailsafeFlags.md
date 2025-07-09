@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/msg_docs/FailsafeFlags
+---
+
 # FailsafeFlags (UORB message)
 
 Input flags for the failsafe state machine set by the arming & health checks.

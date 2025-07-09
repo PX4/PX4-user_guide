@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/dev_setup/dev_env_mac
+---
+
 # MacOS Development Environment
 
 The following instructions set up a PX4 development environment for macOS.

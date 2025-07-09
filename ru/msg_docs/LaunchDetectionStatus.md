@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/msg_docs/LaunchDetectionStatus
+---
+
 # LaunchDetectionStatus (UORB message)
 
 Status of the launch detection state machine (fixed-wing only)

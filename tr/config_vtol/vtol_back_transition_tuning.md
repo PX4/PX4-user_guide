@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/tr/config_vtol/vtol_back_transition_tuning
+---
+
 # VTOL Back-transition Tuning
 
 When a VTOL performs a back-transition (transition from fixed-wing mode to multicopter) it needs to slow down before the multicopter can take proper control. To help with braking, the controller will pitch up the vehicle if the current deceleration is below what is set in expected deceleration ([VT_B_DEC_MSS](../advanced_config/parameter_reference.md#VT_B_DEC_MSS)). The response of this deceleration controller can be tuned through a `FF` and a `I` gain: [VT_B_DEC_FF](../advanced_config/parameter_reference.md#VT_B_DEC_FF), [VT_B_DEC_I](../advanced_config/parameter_reference.md#VT_B_DEC_I). Usually leaving the `FF` at 0 and increasing the `I` if required yields the best results.

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/ros/ros2_multi_vehicle
+---
+
 # Multi-Vehicle Simulation with ROS 2
 
 [XRCE-DDS](../middleware/uxrce_dds.md) allows for multiple clients to be connected to the same agent over UDP. This is particular useful in simulation as only one agent needs to be started.
