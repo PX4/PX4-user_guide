@@ -213,7 +213,7 @@ This are the three next waypoints (or just the next two or one).
 - [PowerButtonState](PowerButtonState.md) — power button state notification message
 - [PowerMonitor](PowerMonitor.md) — power monitor message
 - [PpsCapture](PpsCapture.md)
-- [PurePursuitStatus](PurePursuitStatus.md)
+- [PurePursuitStatus](PurePursuitStatus.md) — Pure pursuit status
 - [PwmInput](PwmInput.md)
 - [Px4ioStatus](Px4ioStatus.md)
 - [QshellReq](QshellReq.md)
@@ -222,15 +222,15 @@ This are the three next waypoints (or just the next two or one).
 - [RateCtrlStatus](RateCtrlStatus.md)
 - [RcChannels](RcChannels.md)
 - [RcParameterMap](RcParameterMap.md)
-- [RoverAttitudeSetpoint](RoverAttitudeSetpoint.md)
-- [RoverAttitudeStatus](RoverAttitudeStatus.md)
-- [RoverPositionSetpoint](RoverPositionSetpoint.md)
-- [RoverRateSetpoint](RoverRateSetpoint.md)
-- [RoverRateStatus](RoverRateStatus.md)
-- [RoverSteeringSetpoint](RoverSteeringSetpoint.md)
-- [RoverThrottleSetpoint](RoverThrottleSetpoint.md)
-- [RoverVelocitySetpoint](RoverVelocitySetpoint.md)
-- [RoverVelocityStatus](RoverVelocityStatus.md)
+- [RoverAttitudeSetpoint](RoverAttitudeSetpoint.md) — Rover Attitude Setpoint
+- [RoverAttitudeStatus](RoverAttitudeStatus.md) — Rover Attitude Status
+- [RoverPositionSetpoint](RoverPositionSetpoint.md) — Rover Position Setpoint
+- [RoverRateSetpoint](RoverRateSetpoint.md) — Rover Rate setpoint
+- [RoverRateStatus](RoverRateStatus.md) — Rover Rate Status
+- [RoverSteeringSetpoint](RoverSteeringSetpoint.md) — Rover Steering setpoint
+- [RoverThrottleSetpoint](RoverThrottleSetpoint.md) — Rover Throttle setpoint
+- [RoverVelocitySetpoint](RoverVelocitySetpoint.md) — Rover Velocity Setpoint
+- [RoverVelocityStatus](RoverVelocityStatus.md) — Rover Velocity Status
 - [Rpm](Rpm.md)
 - [RtlStatus](RtlStatus.md)
 - [RtlTimeEstimate](RtlTimeEstimate.md)

@@ -1,12 +1,13 @@
 # RoverSteeringSetpoint (UORB message)
 
-
+Rover Steering setpoint
 
 [source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/RoverSteeringSetpoint.msg)
 
 ```c
-uint64 timestamp # time since system start (microseconds)
+# Rover Steering setpoint
 
-float32 normalized_steering_setpoint # [-1, 1] Positiv = Turn right, Negativ: Turn left (Ackermann: Steering angle, Differential/Mecanum: Speed difference between the left and right wheels)
+uint64 timestamp # [us] Time since system start
+float32 normalized_steering_setpoint # [@range -1 (Left), 1 (Right)] [@frame Body] Ackermann: Normalized steering angle, Differential/Mecanum: Normalized speed difference between the left and right wheels
 
 ```
