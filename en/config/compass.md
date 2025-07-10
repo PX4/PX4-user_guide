@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/config/compass
+---
+
 # Compass Calibration
 
 The compass calibration process configures all connected internal and external [magnetometers](../gps_compass/README.md).

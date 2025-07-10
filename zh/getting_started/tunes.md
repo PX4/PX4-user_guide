@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/getting_started/tunes
+---
+
 # 蜂鸣器含义（Pixhawk系列）
 
 [Pixhawk系列飞控](../flight_controller/pixhawk_series.md) 使用蜂鸣器 [LED](../getting_started/led_meanings.md) 来显示飞机的飞行状态和飞行事件（比如，解锁是否成功，低电量警告）。

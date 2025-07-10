@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/middleware/micrortps_manual_code_generation
+---
+
 # 手动生成客户端和代理端代码
 
 本主题演示如何手动生成客户端和代理的代码（而不是编译 PX4 时[自动生成](../middleware/micrortps.md)的）。

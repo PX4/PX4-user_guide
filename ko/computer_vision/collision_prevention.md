@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/computer_vision/collision_prevention
+---
+
 # 충돌 방지
 
 *충돌방지* 기능은 기체가 장애물을 만나면 자동으로 속도를 늦추거나 정지합니다

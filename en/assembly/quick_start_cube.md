@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/assembly/quick_start_cube
+---
+
 # Cube Wiring Quick Start
 
 :::warning

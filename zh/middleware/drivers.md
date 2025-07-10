@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/middleware/drivers
+---
+
 # 驱动开发
 
 NuttX device drivers are based on the [Device](https://github.com/PX4/Firmware/tree/master/src/lib/drivers/device) framework.

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/software_update/stm32_bootloader
+---
+
 # STM32 부트로더
 
 PX4 부트로더 코드는 깃허브 [Bootloader](https://github.com/px4/bootloader) 저장소에 있습니다.

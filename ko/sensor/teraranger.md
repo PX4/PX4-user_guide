@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/sensor/teraranger
+---
+
 # TeraRanger 거리계
 
 TeraRanger는 적외선 ToF(Time-of-Flight) 기반의 다양한 경량 거리측정 센서입니다. 일반적으로, 소나보다 더 빠르고 범위가 넓으며 레이저 기반 장치보다 작고 가볍습니다.

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/de/frames_vtol/vtol_tailsitter_caipiroshka_pixracer
+---
+
 # TBS Caipiroshka
 
 The Caipiroshka VTOL is a slightly modified *TBS Caipirinha*.

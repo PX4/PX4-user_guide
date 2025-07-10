@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/test_and_ci/unit_tests
+---
+
 # 단위 테스트
 
 개발자 여러분은 개발 새 기능 추가, 버그 수정, 리팩토링 등 전 영역에 걸쳐 단위 테스트를 작성하시는게 좋습니다.

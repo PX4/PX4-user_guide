@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/uavcan/README
+---
+
 # UAVCAN
 
 <img style="float:right; width: 200px ; padding: 10px;" src="../../assets/uavcan/uavcan_logo_transparent.png" alt="UAVCAN 로고" /> [UAVCAN](http://uavcan.org)은 자동조종장치가 주변 장치에 연결하는 온보드 네트워크입니다. 견고한 차동 신호를 사용하고 버스를 통한 펌웨어 업그레이드와 주변 장치의 상태 피드백을 지원합니다.

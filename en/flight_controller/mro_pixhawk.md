@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/flight_controller/mro_pixhawk
+---
+
 # mRo Pixhawk Flight Controller (Pixhawk 1)
 
 :::warning

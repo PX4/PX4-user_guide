@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/frames_rover/traxxas_stampede
+---
+
 # Traxxas Stampede VXL
 
 This vehicle was chosen to understand how a Pixhawk could be used for wheeled platforms.

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/de/frames_multicopter/holybro_s500_v2_pixhawk4
+---
+
 # Holybro S500 V2 + Pixhawk 4 Build
 
 This topic provides full instructions for building the kit and configuring PX4 using *QGroundControl*.

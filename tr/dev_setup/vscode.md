@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/tr/dev_setup/vscode
+---
+
 # Visual Studio Code IDE (VSCode)
 
 [Visual Studio Code](https://code.visualstudio.com/) is a powerful cross-platform source code editor/IDE that can be used for PX4 development on Ubuntu 18.04 LTS and macOS (Windows support coming soon).

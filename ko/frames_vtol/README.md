@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/frames_vtol/README
+---
+
 # VTOL 기체
 
 PX4는 VTOL에 관련된 기능을 대부분 제공합니다. 제공되는 기능과 설정들은 [기체정의서 > VTOL](../airframes/airframe_reference.md#vtol)를 참고하십시오.

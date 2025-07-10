@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/frames_vtol/README
+---
+
 # 垂直起降机体
 
 PX4支持几乎所有的垂起的配置（支持配置的完整集合可以在 [用户指南 > 垂起](../airframes/airframe_reference.md#vtol) 中看到）：

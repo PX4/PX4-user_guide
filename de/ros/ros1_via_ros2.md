@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/de/ros/ros1_via_ros2
+---
+
 # ROS (1) via ROS 2 Bridge (User Guide)
 
 This topic explains how use ROS (1) with PX4, by bridging via [ROS 2](../ros/ros2.md).

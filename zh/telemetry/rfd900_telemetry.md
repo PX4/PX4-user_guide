@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/telemetry/rfd900_telemetry
+---
+
 # RFD900长距离数传
 
 [jDrones](http://store.jDrones.com) 和 [RFDesign](http://rfdesign.com.au/)推出了一款兼容 SiK 的长距离数传电台。 这个电台配合普通天线可以提供最少5公里的稳定链接。

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/telemetry/telemetry_wifi
+---
+
 # WiFi 텔레메트리 라디오
 
 WiFi 텔레메트리는 기체의 WiFi 무선 장치와 GCS간에 MAVLink 통신을 가능하게 합니다. Wi-Fi는 일반적으로 일반 텔레메트리 라디오보다 단거리에서 동작하지만, 고속의 데이터 전송 속도를 지원하며 FPV/비디오 피드를 보다 쉽게 제공할 수 있습니다. 일반적으로 차량용 라디오 장치 하나만 필요합니다 (지상국에 이미 WiFi가 있다고 가정).

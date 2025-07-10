@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/tr/concept/flight_tasks
+---
+
 # Flight Tasks
 
 *Flight Tasks* are used within [Flight Modes](../concept/flight_modes.md) to provide specific movement behaviours: e.g. follow me, or flight smoothing.

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/advanced_config/static_pressure_buildup
+---
+
 # Static Pressure Buildup
 
 Air flowing over an enclosed vehicle can cause the *static pressure* to change within the canopy/hull. Depending on the location of holes/leaks in the hull, you can end up with under or overpressure (similar to a wing).

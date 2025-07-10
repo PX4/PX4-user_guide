@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/SUMMARY
+---
+
 # 概要
 
 * [はじめに](README.md)

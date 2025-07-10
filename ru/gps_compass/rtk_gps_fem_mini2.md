@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/gps_compass/rtk_gps_fem_mini2
+---
+
 # Femtones MINI2 Receiver
 
 [MINI2 Receiver](http://www.femtomes.com) is an RTK GPS receiver that delivers high-rate and reliable RTK initialization for centimeter level positioning. It is intended for applications that requre high-precision positioning (e.g. navigation and mapping, etc.).

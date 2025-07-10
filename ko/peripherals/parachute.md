@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/peripherals/parachute
+---
+
 # 낙하산
 
 PX4는 [비행 종료](../advanced_config/flight_termination.md) 과정에서 여분의 PWM 출력에 낙하산을 연결할 수 있습니다.

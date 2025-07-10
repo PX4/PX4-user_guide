@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/uavcan/notes
+---
+
 # 다양한 참고 사항
 
 UAVCAN을 설정하거나 다룰 때 문제를 해결하는 요령과 꼼수를 모아둔 문서입니다.

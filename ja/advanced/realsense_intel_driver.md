@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/advanced/realsense_intel_driver
+---
+
 # Intel RealSense R200 用の Ubuntu にドライバをインストールする
 
 このチュートリアルでは、収集した画像をロボットオペレーションシステム(ROS)経由でアクセスできるように、Linux 環境で Intel RealSense R200 カメラのドライバーをインストールする方法について説明します。 RealSense R200 カメラヘッドを以下に説明します。

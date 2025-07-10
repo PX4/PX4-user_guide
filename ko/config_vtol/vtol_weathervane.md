@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/config_vtol/vtol_weathervane
+---
+
 # VTOL 풍향계 특징
 
 *풍항계* 기능은 호버 비행 중에 VTOL의 기수를 바람 반대방향으로 향하도록 자동으로 전환합니다. 이 기능은 안정성을 향상시킵니다 (측면에서 바람이 기체를 뒤집을 가능성을 줄임).

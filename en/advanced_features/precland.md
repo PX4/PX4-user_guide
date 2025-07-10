@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/advanced_features/precland
+---
+
 # Precision Landing
 
 PX4 supports precision landing for *multicopters* (from PX4 v1.7.4) using the [IR-LOCK Sensor](https://irlock.com/products/ir-lock-sensor-precision-landing-kit), an IR beacon (e.g. [IR-LOCK MarkOne](https://irlock.com/collections/markone)), and a downward facing range sensor.

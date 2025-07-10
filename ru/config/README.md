@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/config/README
+---
+
 # Basic Configuration
 
 *QGroundControl* is used to install [firmware](../config/firmware.md) onto the flight controller hardware, specify an [airframe](../config/airframe.md), and configure the core sensors that PX4 needs to be present on every vehicle (compass, GPS, gyro etc.).

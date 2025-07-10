@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/peripherals/pwm_escs_and_servo
+---
+
 # PWM 서보 및 ESC (모터 컨트롤러)
 
 PWM 기반 브러시리스 모터 컨트롤러, 서보를 연결 방법과 전원 공급 방법을 설명합니다.

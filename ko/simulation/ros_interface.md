@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/simulation/ros_interface
+---
+
 # 가제보 모의 시험 환경의 ROS
 
 [ROS](../ros/README.md) (로봇 운영체제)는 PX4와 [가제보 모의 시험 환경](../simulation/gazebo.md)을 함께 쓸 수 있습니다. ROS는 PX4와 통신하는 [MAVROS](../ros/mavros_installation.md) MAVLink 노드를 활용합니다.

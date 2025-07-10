@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/tr/assembly/README
+---
+
 # Basic Assembly
 
 A typical autopilot "minimal" system running PX4 consists of a flight controller connected to a power system, GPS, external compass (optional), radio control system (optional) and/or telemetry radio system (optional).

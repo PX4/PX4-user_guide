@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/ros/external_position_estimation
+---
+
 # 利用视觉或运动捕捉系统进行位置估计
 
 可视惯性测距（VIO）和运动捕捉（MOCAP）系统允许载具在全局位置源不可用或不可靠时（例如在室内，或在桥下飞行时）导航。 等等……

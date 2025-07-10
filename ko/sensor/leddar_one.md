@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/sensor/leddar_one
+---
+
 # LeddarOne 라이다
 
 [ LeddarOne](https://leddartech.com/solutions/leddarone/)은 좁지만 확산 빔이 있는 소형 Lidar 모듈로, 견고하고 신뢰할 수 있으며, 가성비가 높은 패키지로 우수한 감지 범위를 가지고 있습니다. 감지 범위는 1cm ~ 40m이며 UART/직렬 버스로 연결합니다.

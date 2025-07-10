@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/hardware/reference_design
+---
+
 # PX4 参考飞行控制器设计
 
 PX4 参考设计是飞行控制器的 [Pixhawk 系列 ](../flight_controller/pixhawk_series.md)。 该设计于2011年首次发布，现已进入第5 [代](#reference_design_generations)（第六代电路板设计正在进行中）。

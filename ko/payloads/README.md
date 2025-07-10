@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/payloads/README
+---
+
 # 탑재 중량과 카메라
 
 PX4는 다양한 페이로드와 카메라를 지원합니다.

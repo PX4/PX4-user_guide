@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/getting_started/frame_selection
+---
+
 # Vehicle Selection
 
 PX4 supports air, surface, and submersible vehicles.

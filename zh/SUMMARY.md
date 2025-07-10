@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/SUMMARY
+---
+
 # 概览
 
 * [简介](README.md)

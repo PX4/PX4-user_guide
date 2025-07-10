@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/dev_setup/dev_env_linux_centos
+---
+
 # CentOS Development Environment
 
 :::warning

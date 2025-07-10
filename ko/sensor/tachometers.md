@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/sensor/tachometers
+---
+
 # 회전 속도계 (회전 카운터)
 
 회전 속도계([회전 카운터 센서](https://en.wikipedia.org/wiki/Tachometer#In_automobiles,_trucks,_tractors_and_aircraft)라고도 함)는 자동조종장치가 실속 또는 다른 회전자 고장(대기 속도 나지면 속도가 아닌 양력을 보장하는 블레이드의 회전)을 감지할 수 있기 때문에 회전 날개 프레임에 *적극 권장*합니다.

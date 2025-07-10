@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/uavcan/node_firmware
+---
+
 # UAVCAN 固件升级
 
 下载电调代码

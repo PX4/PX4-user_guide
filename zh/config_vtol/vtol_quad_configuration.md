@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/config_vtol/vtol_quad_configuration
+---
+
 # QuadPlane VTOL 配置 & 调参
 
 这是一份垂直起降固定翼飞行器的的配置文档（固定翼+四旋翼）。 对于具体的机型和构建指南请看[VTOL Framebuilds](../frames_vtol/README.md)。

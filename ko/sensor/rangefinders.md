@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/sensor/rangefinders
+---
+
 # 거리 센서 (거리 측정기)
 
 거리 센서는 [지형 추적](../flying/terrain_following_holding.md#terrain_following), [지형 유지](../flying/terrain_following_holding.md#terrain_hold) (예 : 사진 촬영을 위한 정밀 호버링), 향상된 착륙 동작([거리 지원](../flying/terrain_following_holding.md#range_aid)), 규제 높이 제한 경고, 충돌 방지 등에서 사용할 수있는 거리측정 기능을 제공합니다.

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/tr/config_vtol/vtol_back_transition_tuning
+---
+
 # VTOL Back-transition Tuning
 
 :::note

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/getting_started/tunes
+---
+
 # 소리 설명 (Pixhawk 시리즈)
 
 [ Pixhawk 비행 컨트롤러 시리즈](../flight_controller/pixhawk_series.md)는 가청 톤/튜닝 및 [LED](../getting_started/led_meanings.md)를 사용하여 기체 상태와 이벤트(예 : 시동 성공 및 실패, 배터리 부족 경고 등)를 표시합니다.

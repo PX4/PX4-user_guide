@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/computer_vision/collision_prevention
+---
+
 # 防撞功能
 
 *防撞*功能用于自动减速或制动，以免飞机撞上障碍物。

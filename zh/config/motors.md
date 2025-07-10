@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/config/motors
+---
+
 # 电机检查
 
 在机架设置并配置完毕后，您应该检查电机分配和旋转方向以及servo响应。 这些可以在QGroundControl中完成，其选项是Vehicle Setup > Motors tab.

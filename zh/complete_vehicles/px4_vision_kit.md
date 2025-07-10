@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/complete_vehicles/px4_vision_kit
+---
+
 # PX4 Vision 视觉自主开发套件
 
 [*PX4 Vision 视觉自主开发套件*](http://www.holybro.com/product/px4-vision/) 是一个稳定且高性价比的套件，让你能够在自动化载具上开发计算机视觉。

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/uavcan/notes
+---
+
 # 各种说明
 
 这是在设置或使用 UAVCAN 时解决问题的一系列提示和技巧。

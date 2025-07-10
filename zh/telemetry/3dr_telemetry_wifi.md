@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/telemetry/3dr_telemetry_wifi
+---
+
 # 3DR 无线数传 (停产)
 
 :::note

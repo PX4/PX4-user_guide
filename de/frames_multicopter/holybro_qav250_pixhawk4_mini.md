@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/de/frames_multicopter/holybro_qav250_pixhawk4_mini
+---
+
 # HolyBro QAV250 + Pixhawk4-Mini Build
 
 The [Holybro Pixhawk 4 Mini QAV250 Kit](https://shop.holybro.com/pixhawk-4-mini-qav250-kit_p1125.html) is a great way to start working with Pixhawk 4. The kit includes a carbon-fibre QAV250 racing frame, *Pixhawk 4 Mini*, and almost all other components needed (except battery and receiver). There are variants of the kit both with and without FPV support.

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/complete_vehicles/betafpv_beta75x
+---
+
 # BetaFPV Beta75X 2S 브러시리스 후프
 
 [BetaFPV Beta75X](https://betafpv.com/products/beta75x-2s-whoop-quadcopter)는 실내 또는 실외, FPV 또는 가시선으로 비행할 수있는 작은 쿼드콥터입니다.

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/simulation/airsim
+---
+
 # AirSim Simulation
 
 [AirSim](https://microsoft.github.io/AirSim/) is a open-source, cross platform simulator for drones, built on _Unreal Engine_.

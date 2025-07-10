@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/advanced/system_tunes
+---
+
 # 시스템 알림음
 
 PX4는 중요한 시스템 상태와 문제를 음성으로 알리는 여러가지 [표준 알림음](../getting_started/tunes.md)을 지정해두었습니다(예시: 시스템 시작, 이륙 준비 완료, 배터리 경고 등)

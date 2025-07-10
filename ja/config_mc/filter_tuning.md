@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/config_mc/filter_tuning
+---
+
 # MC Filter Tuning & Control Latency
 
 Filters can be used to trade off [control latency](#control-latency), which affects flight performance, and noise filtering, which impacts both flight performance and motor health.

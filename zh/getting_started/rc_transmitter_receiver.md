@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/getting_started/rc_transmitter_receiver
+---
+
 # 遥控系统
 
 如果你想用一个手持发射机 *手动* 控制你的飞机，那么你需要一个遥控系统（简称RC）。 这个章节解释了一些关于 RC 如何工作，如何为你的飞行器（车辆）选择一个合适的无线电系统和怎么连接到飞控。

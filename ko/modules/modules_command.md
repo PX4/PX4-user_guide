@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/modules/modules_command
+---
+
 # Modules Reference: Command
 
 ## bl_update

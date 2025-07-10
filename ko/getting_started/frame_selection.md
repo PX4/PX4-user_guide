@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/getting_started/frame_selection
+---
+
 # 기체 선택
 
 PX4는 항공, 지상, 수상 및 수중 차량을 지원합니다. PX4와 호환되는 차량 프레임의 전체 목록은 [기체 정의서](../airframes/airframe_reference.md)에서 확인할 수 있습니다.

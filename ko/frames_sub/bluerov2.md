@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/frames_sub/bluerov2
+---
+
 # BlueROV2 (UUV)
 
 [BlueROV2](https://bluerobotics.com/store/rov/bluerov2-upgrade-kits/brov2-heavy-retrofit-r1-rp/BlueROV2)는 검사, 연구와 탐사에 적절한 경제적인 고성능 수중 차량입니다.

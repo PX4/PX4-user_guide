@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/frames_multicopter/dji_flamewheel_450
+---
+
 # 거리 센서 및 RTK GPS가 장착 된 DJI Flame Wheel 450 (Pixhawk 3 Pro)
 
 *DJI<sup>&reg;</sup> Flame Wheel F450 * Quadcopter는 아마추어 항공 사진, 1 인칭 시점 애플리케이션 및 일반적인 비행 엔터테인먼트를 위해 설계되었습니다. 아래의 조립 방법은 Pixhawk 3 Pro 비행 컨트롤러와 함께 프레임을 사용하기위한 조립 방법과 설정 방법을 설명합니다. 정밀한 위치 지정을위한 RTK GPS와 거리 센서가 포함되어 있습니다.

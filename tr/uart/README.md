@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/tr/uart/README
+---
+
 # UART/Serial Bus
 
 This section contains topics about the serial bus and serial drivers:

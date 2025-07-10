@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/config/joystick
+---
+
 # Joystick Setup
 
 A [computer joystick](https://en.wikipedia.org/wiki/Joystick) or gamepad connected through *QGroundControl* can be used to manually control the vehicle (*instead* of using an [RC Transmitter](../config/radio.md)).

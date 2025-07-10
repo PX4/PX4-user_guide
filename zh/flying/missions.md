@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/flying/missions
+---
+
 # 任务
 
 ## 规划任务

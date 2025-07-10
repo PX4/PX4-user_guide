@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/tutorials/linux_sbus
+---
+
 # 리눅스에 원격 조종 수신기 연결 (S.Bus 포함)
 
 이 절에서는 [지원 원격 조종 수신기](../getting_started/rc_transmitter_receiver.md)를 임의의 직렬 포트에 연결하고 사용할 목적으로 리눅스 기반 오토파일럿을 설정하는 방법을 알려드립니다.

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/dev_setup/_ninja_build_system
+---
+
 ## Ninja 构建系统
 
 [Ninja](https://ninja-build.org/) is a faster build system than *Make* and the PX4 *CMake* generators support it.

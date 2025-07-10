@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/dev_setup/_gcc_toolchain_installation
+---
+
 <!-- GCC toolchain documentation used for all Linux platforms to build NuttX -->
 
 执行下面的脚本以安装 GCC 7-2017-q4：

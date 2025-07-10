@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/ros/ros2_comm
+---
+
 # ROS 2 User Guide (PX4-ROS 2 Bridge)
 
 This topic explains how to setup and use ROS 2 with PX4.

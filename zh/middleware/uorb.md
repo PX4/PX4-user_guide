@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/middleware/uorb
+---
+
 # uORB 消息
 
 ## 简介

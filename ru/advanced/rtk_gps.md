@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/advanced/rtk_gps
+---
+
 # RTK GPS (PX4 Integration)
 
 [Real Time Kinematic](https://en.wikipedia.org/wiki/Real_Time_Kinematic) (RTK) provides centimeter-level GPS accuracy. This page explains how RTK is integrated into PX4.

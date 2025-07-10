@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/de/getting_started/flight_controller_selection
+---
+
 # Flight Controller Selection
 
 You should select a board that suits the physical constraints of your vehicle, the activities you wish to perform, and of course cost.

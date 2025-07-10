@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/flying/first_flight_guidelines
+---
+
 # First Flight Guidelines
 
 [Learning to fly](../flying/basic_flying.md) is a lot of fun! These guidelines are designed to ensure that your first flight experience is enjoyable, educational, and safe.

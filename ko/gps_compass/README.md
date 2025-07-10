@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/gps_compass/README
+---
+
 # GPS와 나침반
 
 PX4는 u-blox, MTK Ashtech 또는 Emlid 프로토콜이나 UAVCAN 통신 수신기를 사용하여 글로벌 내비게이션 위성시스템(GNSS)(GPS, GLONASS, Galileo, BeiDou, QZSS 및 SBAS 포함)을 지원합니다. PX4는 센티미터 정밀도 GPS 시스템인 [실시간 운동학(RTK) GPS 수신기](../gps_compass/rtk_gps.md)를 지원합니다.

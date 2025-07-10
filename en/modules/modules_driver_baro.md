@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/modules/modules_driver_baro
+---
+
 # Modules Reference: Baro (Driver)
 ## bmp280
 Source: [drivers/barometer/bmp280](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/barometer/bmp280)

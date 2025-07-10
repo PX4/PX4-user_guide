@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/flight_stack/controller_diagrams
+---
+
 # Controller Diagrams
 
 This section contains diagrams for the main PX4 controllers.

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/uavcan/cuav_can_pmu
+---
+
 # CAUV CAN PMU
 
 CAN PMU<sup>&reg;</sup>는 CUAV<sup>&reg;</sup>에서 개발한 고정밀 [UAVCAN](../uavcan/README.md) 전원 모듈입니다. CUAV ITT 보상 알고리즘으로 보다 정확한 배터리 데이터를 획득합니다.

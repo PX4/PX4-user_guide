@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/concept/geometry_files
+---
+
 # Multicopter Geometry Files
 
 Geometry files are used by PX4 to generate mixer definitions that map the outputs of PX4 rate controllers to specific motors. The files describe the positions, direction of thrust, rotation direction, thrust and drag coefficients of each of the rotors.

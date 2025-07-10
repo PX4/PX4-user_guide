@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/computer_vision/path_planning_interface
+---
+
 # 경로 계획 인터페이스
 
 PX4는 보조 컴퓨터의 경로 계획 서비스 통합을 위하여 여러 가지 MAVLink 인터페이스를 사용합니다 (임무 수행 장애물 회피, [안전 착륙](../computer_vision/safe_landing.md) 및 향후 개발 서비스 포함).

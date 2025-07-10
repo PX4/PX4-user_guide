@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/flight_controller/autopilot_pixhawk_standard
+---
+
 # 표준 픽스호크 자동항법장치
 
 [Pixhawk 표준](https://pixhawk.org/)(Pixhawk 상표 사용 포함)을 준수하는 [Pixhawk 시리즈](../flight_controller/pixhawk_series.md) 보드는 PX4 프로젝트에서 지원됩니다.

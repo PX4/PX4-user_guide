@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/gps_compass/rtk_gps_freefly
+---
+
 # Freefly Systems RTK GPS
 
 [Freefly Systems RTK GPS 모듈](https://store.freeflysystems.com/products/rtk-gps-ground-station)은 매우 안정적인 내비게이션을 제공하는 Freefly Systems의 다중 대역 [RTK GPS 모듈](../gps_compass/rtk_gps.md)입니다. 모듈은 로버(항공기에 설치된 경우) 또는 기지국(컴퓨터에 연결된 경우)으로 작동할 수 있습니다.

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/gps_compass/rtk_gps_hex_hereplus
+---
+
 # HEX/ProfiCNC Here+ RTK GPS (단종됨)
 
 ::::note 이 GPS는 더 이상 구매할 수 없지만, PX4에 호환됩니다.

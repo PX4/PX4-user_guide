@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/peripherals/camera
+---
+
 # Camera Trigger
 
 The camera trigger driver allows the use of the AUX ports to send out pulses in order to trigger a camera.

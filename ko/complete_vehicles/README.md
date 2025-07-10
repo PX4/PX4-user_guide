@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/complete_vehicles/README
+---
+
 # 완제품 기체
 
 이 섹션에서는 PX4 실행이 가능한 완제품 기체에 대하여 설명합니다.

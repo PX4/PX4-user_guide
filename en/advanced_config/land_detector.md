@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/advanced_config/land_detector
+---
+
 # Land Detector Configuration
 
 The land detector is a dynamic vehicle model representing key vehicle states from ground contact through to landed.

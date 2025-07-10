@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/concept/flight_tasks
+---
+
 # 飞行任务
 
 *飞行任务* 在 [飞行模式](../concept/flight_modes.md) 中用于提供具体的移动行为：例如跟随或飞行平滑。

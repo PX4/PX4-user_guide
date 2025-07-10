@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/simulation/jsbsim
+---
+
 # JSBSim Simulation
 
 [JSBSim](http://jsbsim.sourceforge.net/index.html) is a open source flight simulator ("flight dynamics model (FDM)") that runs on Microsoft Windows, Apple Macintosh, Linux, IRIX, Cygwin (Unix on Windows), etc.

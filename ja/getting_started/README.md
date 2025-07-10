@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/getting_started/README
+---
+
 # PX4のはじめかた
 
 本章では，PX4を用いて無人機を構築・飛行させるのに理解する必要のある，基本的な概念についての概要を説明します．

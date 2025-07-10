@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/de/uavcan/node_enumeration
+---
+
 # UAVCAN Enumeration and Configuration
 
 :::note

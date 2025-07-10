@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/contribute/dev_call
+---
+
 # Weekly Dev Call
 
 <div v-if="$themeConfig.px4_version != 'master'">

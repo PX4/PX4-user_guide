@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/tr/hardware/README
+---
+
 # Hardware Integration
 
 This section contains topics about integrating PX4 with *new* autopilot and peripheral hardware, including:

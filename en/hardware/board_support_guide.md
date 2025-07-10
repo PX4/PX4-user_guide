@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/hardware/board_support_guide
+---
+
 # Manufacturer's PX4 Board Support Guide
 
 The PX4 development and test teams fully support and maintain boards that are compliant with the [Pixhawk Standard](https://pixhawk.org/standards/).

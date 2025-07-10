@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/flying/plan_safety_points
+---
+
 # 안전 지점 (랠리 포인트)
 
 안전 지점은 [반환 모드](../flight_modes/return.md)의 목적지/착륙 지점을 대체하는 지점입니다. 활성화되면 기체는 홈 위치, 임무 착륙 패턴 또는 *안전 지점*중 *가장 가까운 반환 목적지*를 선택합니다.

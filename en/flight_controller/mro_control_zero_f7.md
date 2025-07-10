@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/flight_controller/mro_control_zero_f7
+---
+
 # mRo Control Zero F7 Flight Controller
 
 :::warning

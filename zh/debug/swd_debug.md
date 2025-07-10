@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/debug/swd_debug
+---
+
 # SWD (JTAG) Hardware Debugging Interface
 
 PX4 usually runs on autopilot controller hardware that provides an ARM *Serial Wire Debug (SWD)* interface. SWD is a low pin-count physical interface for JTAG debugging on ARM-processors. It can be used with an SWD-compatible debug probe (e.g. [Segger J-Link EDU Mini](#segger_jlink_edu_mini), [Dronecode Probe](#dronecode_probe), etc.) to set breakpoints in PX4 and step through the code running on a real device.

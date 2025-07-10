@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/complete_vehicles/crazyflie2
+---
+
 # Crazyflie 2.0
 
 :::warning

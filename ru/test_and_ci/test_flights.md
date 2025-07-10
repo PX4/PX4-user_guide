@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/test_and_ci/test_flights
+---
+
 # Tests Flights
 
 <div v-if="$themeConfig.px4_version != 'master'">

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/hardware/serial_port_mapping
+---
+
 # Serial Port Mapping
 
 This topic shows how to determine the mapping between serial ports (UART), device (e.g. "ttyS0") and specific functions enabled by PX4 (e.g. TELEM1, TELEM2, GPS1, RC SBUS, Debug console).

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/telemetry/telemetry_wifi
+---
+
 # WiFi 数传电台
 
 WiFi telemetry enables MAVLink communication between a WiFi radio on a vehicle and a GCS.  

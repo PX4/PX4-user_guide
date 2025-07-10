@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/tutorials/linux_sbus
+---
+
 # Connecting an RC Receiver on Linux (Including S.Bus)
 
 This topic shows how to setup a PX4 Linux-based autopilot to connect and use a [supported RC receiver](../getting_started/rc_transmitter_receiver.md) on any serial port.

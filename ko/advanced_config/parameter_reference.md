@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/advanced_config/parameter_reference
+---
+
 # 매개 변수 참조
 
 > **Note** **This documentation was auto-generated from the source code for this PX4 version** (using `make parameters_metadata`).

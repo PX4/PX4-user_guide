@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/de/gps_compass/rtk_gps_hex_hereplus
+---
+
 # HEX/ProfiCNC Here+ RTK GPS (Discontinued)
 
 :::note

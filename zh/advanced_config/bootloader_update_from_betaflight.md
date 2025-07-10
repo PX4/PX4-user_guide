@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/advanced_config/bootloader_update_from_betaflight
+---
+
 # Betaflight 系统烧写 Bootloader
 
 本页介绍了如何将 PX4 bootloader 烧写到使用 Betaflight固件（例如[ OmnibusF4 SD ](../flight_controller/omnibus_f4_sd.md) 或 [ Kakute F7 ](../flight_controller/kakutef7.md)）的飞控板的 flash 中。

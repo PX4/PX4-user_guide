@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/test_and_ci/maintenance
+---
+
 # 유지보수 참고
 
 여기서는 코드 베이스 상태를 분석하고 유지 관리를 지원하는 몇가지 도구를 설명합니다.

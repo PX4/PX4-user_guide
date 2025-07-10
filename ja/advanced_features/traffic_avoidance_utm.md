@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/advanced_features/traffic_avoidance_utm
+---
+
 # Air Traffic Avoidance: UAS Traffic Management (UTM)
 
 PX4 can use MAVLink [`UTM_GLOBAL_POSITION`](https://mavlink.io/en/messages/common.html#UTM_GLOBAL_POSITION) messages to support simple air traffic avoidance in [missions](../flight_modes/mission.md). If a potential collision is detected, PX4 can *warn*, immediately [land](../flight_modes/land.md), or [return](../flight_modes/return.md) (depending on the value of [`NAV_TRAFF_AVOID`](#NAV_TRAFF_AVOID)).

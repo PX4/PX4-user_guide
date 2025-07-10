@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/telemetry/rfd900_telemetry
+---
+
 # RFD900 Long-Range Telemetry
 
 [jDrones](http://store.jDrones.com) and [RFDesign](http://rfdesign.com.au/) offer *long-range* [SiK](../telemetry/sik_radio.md)-compatible telemetry radios. The radios provide reliable connectivity at greater than 5km ranges with normal antennas (and have been reported to achieve much greater ranges).

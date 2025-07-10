@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/flight_controller/pixhack_v3
+---
+
 # Pixhack V3
 
 :::warning

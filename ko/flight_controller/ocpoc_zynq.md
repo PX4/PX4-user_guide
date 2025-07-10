@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/flight_controller/ocpoc_zynq
+---
+
 # Aerotenna OcPoC-Zynq 미니 비행 컨트롤러
 
 :::warning

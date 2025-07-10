@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/de/flight_modes/manual_fw
+---
+
 # Manual Mode (Fixed Wing)
 
 <!-- this requires review -->

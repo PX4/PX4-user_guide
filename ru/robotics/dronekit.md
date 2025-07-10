@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/robotics/dronekit
+---
+
 # Using DroneKit to communicate with PX4
 
 [DroneKit](http://dronekit.io) helps you create powerful apps for UAVs. These apps run on a UAV’s Companion Computer, and augment the autopilot by performing tasks that are both computationally intensive and require a low-latency link (e.g. computer vision).

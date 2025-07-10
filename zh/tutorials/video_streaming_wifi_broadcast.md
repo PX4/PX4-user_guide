@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/tutorials/video_streaming_wifi_broadcast
+---
+
 # Long-distance Video Streaming in QGroundControl
 
 This page shows how to set up a companion computer with a camera (Logitech C920 or RaspberryPi camera) such that the video stream is transferred from the UAV to a ground computer and displayed in *QGroundControl*. This setup uses WiFi in unconnected (broadcast) mode and software from the [Wifibroadcast project](https://github.com/svpcom/wifibroadcast/wiki). The mechanism also provide a bidirectional telemetry link (i.e. like SiK radio). 此设置使用未连接 (广播) 模式下的 wifi 和 [Wifibroadcast project](https://github.com/svpcom/wifibroadcast/wiki) 中的软件。

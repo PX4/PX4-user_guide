@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/frames_multicopter/lumenier_qav250_pixhawk_mini
+---
+
 # Lumenier QAV250 Pixhawk Mini Build
 
 The [Lumenier QAV250 Mini FPV Quadcopter](https://www.lumenier.com/products/legacy/qav250) is a small but fully functional FPV multicopter frame.

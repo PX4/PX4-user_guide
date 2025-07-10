@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/tr/test_cards/mc_04_failsafe_testing
+---
+
 # Test MC_04 - Failsafe Testing
 
 ❏ Verify RC Loss action is Return to Land

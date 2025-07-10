@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/uavcan/pomegranate_systems_pm
+---
+
 # Pomegranate 시스템 전원 모듈
 
 ![모듈 이미지](../../assets/hardware/power_module/pomegranate_systems_pm/main_image.jpg)

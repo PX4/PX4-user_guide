@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/simulation/airsim
+---
+
 # AirSim 모의 시험 환경
 
 AirSim은 언리얼 엔진기반으로 만들어진, 드론용 오픈소스, 크로스 플랫폼 모의 시험 환경입니다. Hardware-In-The-Loop \(HITL\) 혹은 Software-In-The-Loop \(SITL\)을 이용하여 Pixhawk/PX4의  물리적, 시각적으로 현실적인 모의 동작 경험을 제공합니다.

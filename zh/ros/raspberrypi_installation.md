@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/ros/raspberrypi_installation
+---
+
 # Raspberry Pi - ROS 安装
 
 这是本文指导如何在树莓派2上安装 ROS-indigo ，部署成与 Pixhawk 协同的一台地面站计算机的。

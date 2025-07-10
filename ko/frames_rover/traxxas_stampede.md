@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/frames_rover/traxxas_stampede
+---
+
 # Traxxas Stampede VXL
 
 이 차량은 Pixhawk가 바퀴가 달린 플랫폼에 어떻게 사용될 수 있는지 이해하기 위해 선택되었습니다. 우리는 Traxxas 차량이 매우 인기 있고 RC 커뮤니티에서 매우 강력한 브랜드이기 때문에 사용하기로 선택하였습니다. 이 아이디어는 자동 조종 장치로 바퀴 달린 UGV를 쉽게 제어 할 수있는 플랫폼을 개발하는 것이었습니다.

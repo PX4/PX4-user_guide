@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/assembly/mount_and_orient_controller
+---
+
 # Mounting the Flight Controller
 
 ## Orientation

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/de/telemetry/3dr_telemetry_wifi
+---
+
 # 3DR WiFi Telemetry (Discontinued)
 
 :::note

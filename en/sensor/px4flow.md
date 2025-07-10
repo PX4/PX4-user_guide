@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/sensor/px4flow
+---
+
 # PX4FLOW Smart Camera
 
 PX4FLOW is an [optical flow](../sensor/optical_flow.md) smart camera.

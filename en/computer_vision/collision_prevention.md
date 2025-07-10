@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/computer_vision/collision_prevention
+---
+
 # Collision Prevention
 
 *Collision Prevention* may be used to automatically slow and stop a vehicle before it can crash into an obstacle.

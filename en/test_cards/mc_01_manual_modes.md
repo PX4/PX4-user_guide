@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/test_cards/mc_01_manual_modes
+---
+
 # Test MC_01 - Manual Modes
 
 ## Arm and Take-off

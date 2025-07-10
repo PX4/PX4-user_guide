@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/flying/fixed_wing_takeoff
+---
+
 # Fixed Wing Takeoff
 
 PX4 supports fixed-wing takeoff in [missions](#mission-takeoff) and using the [Takeoff](#takeoff-flight-mode) flight mode. Vehicles can be *catapult/hand-launched* or use the runway takeoff mode. <!-- runway support in missions? -->

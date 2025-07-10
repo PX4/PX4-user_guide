@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/getting_started/sensor_selection
+---
+
 # 센서
 
 PX4 기반 시스템은 센서를 사용하여 기체의 상태를 결정합니다 (안정화 및 자율 제어 활성화에 필요). 기체 상태에는 위치, 고도, 방향, 속도, 대기 속도, 방향 (태도), 회전 속도와 배터리 잔량 등이 포함됩니다.

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/advanced/dev_env_unsupported
+---
+
 # 不支持的开发者工具
 
 本章节包含关于*不支持的*开发平台和工具（代码开发团队不太可能为其提供很多建议的工具）。

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/computer_vision/obstacle_avoidance
+---
+
 # 自主避障
 
 *自主避障* 使飞机沿预定路线前进时，能够自动绕开障碍物。

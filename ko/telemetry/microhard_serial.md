@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/telemetry/microhard_serial
+---
+
 # Microhard 직렬 라디오
 
 [Microhard Pico Serial](http://microhardcorp.com/P900.php) 무전기는 차량 무전기와 GCS 간의 MAVLink 통신이 가능합니다. Microhard Pico 직렬 라디오는 포인트 투 포인트, 포인트 투 멀티 포인트와 메시 모드를 지원하는 최대 1W 출력의 라디오입니다. Microhard Pico 라디오는 AES-256 암호화로 주문할 수도 있습니다.

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/simulation/multi_vehicle_flightgear
+---
+
 # Multi-Vehicle Simulation with FlightGear
 
 This topic explains how to simulate multiple vehicles using FlightGear in SITL.

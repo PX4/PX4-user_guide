@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/sensor/rangefinders
+---
+
 # Distance Sensors (Rangefinders)
 
 Distance sensors provide distance measurement that can be used for [terrain following](../flying/terrain_following_holding.md#terrain_following), [terrain holding](../flying/terrain_following_holding.md#terrain_hold) (i.e. precision hovering for photography), improved landing behaviour ([range aid](../flying/terrain_following_holding.md#range_aid)), warning of regulatory height limits, collision prevention, etc.

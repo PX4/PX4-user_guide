@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/frames_plane/wing_wing_z84
+---
+
 # Wing Wing Z-84 Pixracer 조립
 
 Wing Wing Z-84는 매우 좋은 표준 기체입니다. 작고 튼튼하며 [Pixracer](../flight_controller/pixracer.md)를 장착이 가능합니다.

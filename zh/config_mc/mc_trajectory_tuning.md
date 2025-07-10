@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/config_mc/mc_trajectory_tuning
+---
+
 # 多旋翼设定值调整（轨迹生成器）
 
 本文概述了改变*用户体验*的多旋翼参数如何调整：比如机体对摇杆的响应快慢，执行任务过程中的方向改变快慢，最大速度等。

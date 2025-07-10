@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/dev_setup/fast-dds-installation
+---
+
 # Fast DDS Installation
 
 <img alt="logo" src="../../assets/fastrtps/eprosima_logo.png" style="float:left;"/> [eProsima Fast DDS](https://github.com/eProsima/Fast-DDS) is a C++ implementation of the Object Management Group's (OMG) Data Distribution Service (DDS) specification and the Real Time Publish Subscribe (RTPS) protocol.

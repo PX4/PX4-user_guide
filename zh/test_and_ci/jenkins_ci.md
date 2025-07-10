@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/test_and_ci/jenkins_ci
+---
+
 # Jenkins CI（持续集成测试）
 
 <div v-if="$themeConfig.px4_version != 'master'">

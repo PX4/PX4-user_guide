@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/getting_started/flight_reporting
+---
+
 # Flight Reporting
 
 PX4 logs detailed aircraft state and sensor data, which can be used to analyze performance issues.

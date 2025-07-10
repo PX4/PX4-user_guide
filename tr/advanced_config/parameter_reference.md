@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/tr/advanced_config/parameter_reference
+---
+
 # Parameter Reference
 
 > **Note** **This documentation was auto-generated from the source code for this PX4 version** (using `make parameters_metadata`).

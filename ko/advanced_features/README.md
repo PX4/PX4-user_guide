@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/advanced_features/README
+---
+
 # 고급 기능
 
 PX4 자동비행 프로그램의 고급 기능에 대하여 설명합니다.

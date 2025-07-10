@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/assembly/README
+---
+
 # 조립 기초
 
 PX4 비행 컨트롤러의 최소 사양은 전원 시스템과 GPS이며, 선택 사양으로는 나침반, 무선 조종기와 텔레메트리 등이 있습니다.

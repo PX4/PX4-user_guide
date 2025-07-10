@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/hardware/README
+---
+
 # 하드웨어 조립
 
 PX4를 *새* 하드웨어와 통합하는 방법이 포함되어 있습니다.

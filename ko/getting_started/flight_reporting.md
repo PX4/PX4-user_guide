@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/getting_started/flight_reporting
+---
+
 # 비행 기록
 
 PX4는 성능 문제를 분석을 위하여 항공기 상태 및 센서 데이터를 자세하게 기록합니다. 이 항목에서는 로그를 다운로드 및 분석하고 검토를 위해 개발 팀과 공유하는 방법을 설명합니다.

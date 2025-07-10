@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/uavcan/node_enumeration
+---
+
 # UAVCAN 列举与配置
 
 Use [QGroundControl](../qgc/README.md) and switch to the Setup view. Select the Power Configuration on the left. Click on the 'start assignment' button. 选择左侧的电源配置。 单击“开始分配”按钮。

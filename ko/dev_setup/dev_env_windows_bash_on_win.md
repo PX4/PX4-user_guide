@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/dev_setup/dev_env_windows_bash_on_win
+---
+
 # Windows WSL-Based Development Environment
 
 :::warning

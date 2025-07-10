@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/peripherals/esc_motors
+---
+
 # ESC와 모터
 
 대대수의 PX4 드론의 비행 제어장치는 전자변속기(ESC)로 제어하는 브러시리스 모터를 사용합니다(전자변속기는 비행제어장치의 신호를 모터에 적절한 전력으로 변환합니다).

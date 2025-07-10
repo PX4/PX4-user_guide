@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/peripherals/esc_motors
+---
+
 # ESC & モータ
 
 多くのPX4ドローンでは，Electronic Speed Controller (ESC) によって駆動される，ブラシレスモータを使用します。(ESCはフライトコントローラからの信号を受けて，モータへ供給する動力を適切に制御します)。

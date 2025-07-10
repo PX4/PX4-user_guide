@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/log/flight_log_analysis
+---
+
 # 飞行日志分析
 
 本主题概述了用于 PX4 飞行日志分析的方法和软件包。

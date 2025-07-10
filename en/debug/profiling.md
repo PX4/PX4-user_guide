@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/debug/profiling
+---
+
 # Poor Man's Sampling Profiler
 
 This section describes how you can use the [Poor Man's Sampling Profiler](https://github.com/PX4/PX4-Autopilot/blob/master/platforms/nuttx/Debug/poor-mans-profiler.sh) (PMSP) shell script to assess the performance of PX4.

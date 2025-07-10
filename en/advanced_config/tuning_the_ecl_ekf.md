@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/advanced_config/tuning_the_ecl_ekf
+---
+
 # Using the ECL EKF
 
 This tutorial answers common questions about use of the ECL EKF algorithm.

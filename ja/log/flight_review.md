@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/log/flight_review
+---
+
 # Log Analysis using Flight Review
 
 The [Flight Review](http://logs.px4.io) plots for a flight can be used to analyze general vehicle condition.

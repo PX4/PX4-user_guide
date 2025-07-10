@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/config/accelerometer
+---
+
 # 가속도계 
 
 처음 PX4 사용하는 경우나, PX4 콘트롤러 방향이 바뀐 경우에는 가속도계를 교정해야 합니다. 그렇지 않고, 기존에 사용하던 장비를 계속 사용하는 경우에는 보정 작업을 하지 않아도 됩니다. (온도가 낮은 겨울철이나, 제조단계에서 [별도의 교정을 받지 않은 경우](../advanced_config/sensor_thermal_calibration.md)에는 교정해야되는 상황이 생길 수 있습니다.)

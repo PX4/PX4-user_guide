@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/gps_compass/rtk_gps_trimble_mb_two
+---
+
 # Trimble MB-Two
 
 [Trimble MB-Two RTK GPS 수신기](https://www.trimble.com/Precision-GNSS/MB-Two-Board.aspx)는 베이스 또는 로버로 구성할 수있는 하이엔드 듀얼 주파수 [RTK GPS 모듈](../gps_compass/rtk_gps.md)입니다.

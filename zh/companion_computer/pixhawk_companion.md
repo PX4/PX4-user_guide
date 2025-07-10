@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/companion_computer/pixhawk_companion
+---
+
 # Pixhawk系列的配套计算机
 
 Pixhawk与配套计算机(Raspberry Pi，Odroid，Tegra K1) 的交互方式只有一种：通过串口2 `TELEM 2`。 消息格式是MAVLINK。

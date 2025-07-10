@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/frames_plane/README
+---
+
 # Plane Frame Builds
 
 PX4 supports every imaginable plane geometry, including normal planes, flying wings, inverted V-tail planes etc. The complete set of supported configurations can be seen in [Airframes Reference > Plane](../airframes/airframe_reference.md#plane).

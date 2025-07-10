@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/ros/mavros_custom_messages
+---
+
 # Sending a Custom Message from MAVROS to PX4
 
 :::warning

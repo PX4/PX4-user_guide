@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/test_cards/mc_05_indoor_flight_manual_modes
+---
+
 # 测试 MC_05-室内飞行（手动模式）
 
 ## 何时使用此测试卡

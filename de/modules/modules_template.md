@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/de/modules/modules_template
+---
+
 # Modules Reference: Template
 
 ## module

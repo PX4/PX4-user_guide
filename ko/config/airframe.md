@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/config/airframe
+---
+
 # 기체 설정
 
 펌웨어를 설치 한 후 [특정 기체 프레임](../airframes/airframe_reference.md)에 대한 펌웨어 파라미터를 설정해야 합니다.
