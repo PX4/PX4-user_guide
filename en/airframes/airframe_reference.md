@@ -637,14 +637,6 @@ div.frame_variant td, div.frame_variant th {
  <td>Generic Rover Mecanum</td>
  <td>Maintainer: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 52000</p></td>
 </tr>
-<tr id="rover_rover_generic_ground_vehicle_(deprecated)">
- <td>Generic Ground Vehicle (Deprecated)</td>
- <td><p><code>SYS_AUTOSTART</code> = 59000</p><br><b>Specific Outputs:</b><ul><li><b>Motor1</b>: throttle</li><li><b>Servo1</b>: steering</li></ul></td>
-</tr>
-<tr id="rover_rover_nxp_cup_car:_df_robot_gpx_(deprecated)">
- <td>NXP Cup car: DF Robot GPX (Deprecated)</td>
- <td>Maintainer: Katrin Moritz<p><code>SYS_AUTOSTART</code> = 59001</p><br><b>Specific Outputs:</b><ul><li><b>Motor1</b>: Speed of left wheels</li><li><b>Servo1</b>: Steering servo</li></ul></td>
-</tr>
 </tbody>
 </table>
 </div>
