@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/msg_docs/camera_trigger
+---
+
 # camera_trigger (UORB message)
 
 

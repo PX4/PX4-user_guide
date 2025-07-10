@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/config/flight_controller_orientation
+---
+
 # 비행 콘트롤러와 센서 방향
 
 기본적으로 비행 콘트롤러와 외장 나침반 센서는 윗면이 위를 향하고 화살표가 기체 정면을 향하도록 기체에 장착합니다. 보드나 외장 나침반 센서가 다른 방향으로 설치된 경우에는 펌웨어에서 해당 방향을 설정하여야 합니다.

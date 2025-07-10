@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/msg_docs/uwb_grid
+---
+
 # uwb_grid (UORB message)
 
 UWB report message contains the grid information measured by an ultra-wideband positioning system,

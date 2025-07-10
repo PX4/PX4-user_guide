@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/advanced_config/advanced_flight_controller_orientation_leveling
+---
+
 # Advanced Flight Controller Orientation Tuning
 
 The orientation and horizon level may be fine-tuned manually with parameters to correct for sensor board small misalignment or minor calibration errors.

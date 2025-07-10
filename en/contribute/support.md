@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/contribute/support
+---
+
 # Support
 
 <div v-if="$themeConfig.px4_version != 'main'">

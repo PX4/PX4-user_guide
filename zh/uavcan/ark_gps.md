@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/uavcan/ark_gps
+---
+
 # ARK GPS
 
 ARK GPS is an open source [UAVCAN](README.md) [GNSS/GPS](../gps_compass/README.md), magnetometer, IMU, buzzer, and safety switch module.

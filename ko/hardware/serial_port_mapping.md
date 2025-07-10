@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/hardware/serial_port_mapping
+---
+
 # 시리얼 포트 매핑
 
 직렬 포트(UART), 장치(예: "ttyS0")와 PX4에서 활성화된 특정 기능(예: TELEM1, TELEM2, GPS1, RC SBUS, 디버그 콘솔)간의 매핑 방법을 설명합니다.

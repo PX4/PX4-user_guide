@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/msg_docs/estimator_sensor_bias
+---
+
 # estimator_sensor_bias (UORB message)
 
 Sensor readings and in-run biases in SI-unit form. Sensor readings are compensated for static offsets,

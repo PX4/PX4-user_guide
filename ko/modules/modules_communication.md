@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/modules/modules_communication
+---
+
 # 모듈 참조: 통신
 
 ## frsky_telemetry

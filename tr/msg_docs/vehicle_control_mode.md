@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/tr/msg_docs/vehicle_control_mode
+---
+
 # vehicle_control_mode (UORB message)
 
 

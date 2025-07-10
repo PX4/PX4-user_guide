@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/companion_computer/pixhawk_companion
+---
+
 # Companion Computer for Pixhawk Series
 
 PX4 can connect to companion computers (Raspberry Pi, Odroid, Tegra K1, etc.) using any configurable serial port, including the Ethernet port (if supported).

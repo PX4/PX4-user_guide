@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/test_and_ci/jenkins_ci
+---
+
 # 젠킨스 CI
 
 <div v-if="$themeConfig.px4_version != 'master'">

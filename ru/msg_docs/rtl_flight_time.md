@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/msg_docs/rtl_flight_time
+---
+
 # rtl_flight_time (UORB message)
 
 

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/modules/modules_main
+---
+
 
 # 모듈 및 명령어 참조
 다음 페이지들은 PX4 모듈, 드라이버 및 명령어에 대하여 설명합니다. 제공되는 기능, 높은 수준의 구현 개요 및 방법과 명령줄 인터페이스 사용 방법을 설명합니다.

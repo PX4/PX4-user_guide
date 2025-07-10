@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/msg_docs/estimator_optical_flow_vel
+---
+
 # estimator_optical_flow_vel (UORB message)
 
 

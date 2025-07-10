@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/modules/modules_system
+---
+
 # 모듈 참조: 시스템
 
 ## battery_simulator

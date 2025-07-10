@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/de/middleware/mavlink
+---
+
 # MAVLink Messaging
 
 [MAVLink](https://mavlink.io/en/) is a very lightweight messaging protocol that has been designed for the drone ecosystem.

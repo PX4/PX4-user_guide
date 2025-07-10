@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/uavcan/notes
+---
+
 # Various Notes
 
 This is a collection of tips and tricks to solve issues when setting up or working with the UAVCAN.

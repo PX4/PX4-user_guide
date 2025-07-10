@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/de/flying/fixed_wing_landing
+---
+
 # Fixed Wing Landing
 
 PX4 enables autopilot-controlled fixed-wing (FW) landing in [Missions](../flying/missions.md), [Land mode](../flight_modes/land.md), and [Return mode](../flight_modes/return.md).

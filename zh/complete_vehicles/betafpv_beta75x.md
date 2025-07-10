@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/complete_vehicles/betafpv_beta75x
+---
+
 # BetaFPV Beta75X 2S 穿越机
 
 BetaFPV的这款Beta75X 小型四旋翼穿越机, 可以进行室内或室外的FPV飞行或者是肉眼直飞。

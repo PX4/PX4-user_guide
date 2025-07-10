@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/uavcan/README
+---
+
 # UAVCAN 介绍
 
 <img style="float:right; width: 200px ; padding: 10px;" src="../../assets/uavcan/uavcan_logo_transparent.png" alt="UAVCAN Logo" /> [UAVCAN](http://uavcan.org) is an onboard network which allows the autopilot to connect to avionics/peripherals. It uses rugged, differential signalling, and supports firmware upgrades over the bus and status feedback from peripherals.

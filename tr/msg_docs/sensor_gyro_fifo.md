@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/tr/msg_docs/sensor_gyro_fifo
+---
+
 # sensor_gyro_fifo (UORB message)
 
 

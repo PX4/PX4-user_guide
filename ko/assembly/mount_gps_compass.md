@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/assembly/mount_gps_compass
+---
+
 # GPS/나침반 장착
 
 GPS/나침반은 전자 장치들과 가능한 멀리 떨어진 곳에 방향 표시가 기체의 전면을 향하도록 장착하는 것이 좋습니다. 아래 다이어그램은 Pixhawk 4와 나침반의 전방 마커를 나타냅니다.

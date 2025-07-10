@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/frames_vtol/tailsitter
+---
+
 # Tailsitter VTOL
 
 A **Tailsitter VTOL** takes off and lands on its tail, but flips into the fixed-wing orientation for normal flight. The tailsitter rotors are permanently fixed in position for forward flight.

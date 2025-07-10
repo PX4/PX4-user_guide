@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/de/flight_controller/pixhawk_mini
+---
+
 # Holybro Pixhawk Mini
 
 :::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://shop.holybro.com/) for hardware support or compliance issues. :::

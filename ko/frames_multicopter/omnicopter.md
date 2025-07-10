@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/frames_multicopter/omnicopter
+---
+
 # Omnicopter
 
 An Omnicopter is a multicopter that can provide thrust in all directions (6 degrees of freedom). This allows it to move in any direction without having to tilt, and it can hover at an arbitrary tilt angle. All of this is achieved by arranging the motor positions and thrust axis in specific ways:

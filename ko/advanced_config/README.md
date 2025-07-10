@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/advanced_config/README
+---
+
 # 고급 설정
 
 이 섹션에는 기체 튜닝과 덜 일반적인 센서 및 주변 장치들의 고급 설정 방법을 설명합니다.

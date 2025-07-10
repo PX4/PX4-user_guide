@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/test_and_ci/integration_testing
+---
+
 # ROS 통합 테스트
 
 PX4의 ROS 기반 통합 테스트 방법을 설명합니다.

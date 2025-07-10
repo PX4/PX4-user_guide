@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/simulation/jmavsim
+---
+
 # jMAVSim SITL
 
 jMAVSim은 시뮬레이션된 세계에서 PX4를 실행하는 *콥터* 유형의 기체를 비행할 수 있는 간단한 멀티콥터 시뮬레이터입니다. 설정이 쉽고, 기체가 이륙, 비행, 착륙할 수 있으며, 다양한 장애 조건(예: GPS 장애)에 적절하게 반응을 테스트할 수 있습니다.

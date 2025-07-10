@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/advanced_config/advanced_flight_controller_orientation_leveling
+---
+
 # 飞控方向的高级调参
 
 可以通过手动调参来修正无人机的方向和地平线水准，以校正传感器芯片存在的微小不对准或校准误差。

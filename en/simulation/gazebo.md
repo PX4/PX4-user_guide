@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/simulation/gazebo
+---
+
 # Gazebo Simulation
 
 [Gazebo](http://gazebosim.org) is a powerful 3D simulation environment for autonomous robots that is particularly suitable for testing object-avoidance and computer vision.

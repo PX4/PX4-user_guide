@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/advanced/rtk_gps
+---
+
 # RTK GPS (PX4 통합)
 
 [실시간 운동학](https://en.wikipedia.org/wiki/Real_Time_Kinematic)(RTK)은 센티미터 수준의 GPS 정확도를 제공합니다. RTK와 PX4 통합 방법을 설명합니다.

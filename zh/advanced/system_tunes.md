@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/advanced/system_tunes
+---
+
 # 系统通知提示音
 
 PX4 定义了一些用于为系统状态和问题提供音频通知的 [标准音符/提示音](../getting_started/tunes.md)（比如系统启动，解锁成功，电池警告等）

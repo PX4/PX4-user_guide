@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/flying/geofence
+---
+
 # 地理围栏
 
 围栏是一个虚拟边界，用于定义机体可以在哪些地方行驶。 围栏可用于防止机体飞出遥控器的范围，或进入不安全或受限制的空域。

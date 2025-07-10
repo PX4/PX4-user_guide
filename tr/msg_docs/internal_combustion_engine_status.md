@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/tr/msg_docs/internal_combustion_engine_status
+---
+
 # internal_combustion_engine_status (UORB message)
 
 

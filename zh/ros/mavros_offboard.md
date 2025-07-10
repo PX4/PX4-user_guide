@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/ros/mavros_offboard
+---
+
 # Macros 功能包的 offboard 模式控制例程
 
 本教程介绍了使用 Gazbo/SITL 中模拟的四轴飞行器 *Offboard* 控制的基础知识。 在教程的末尾, 你应该看到与下面的视频相同的行为, 即缓慢起飞到2米的高度。

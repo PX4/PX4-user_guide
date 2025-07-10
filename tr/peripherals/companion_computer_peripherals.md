@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/tr/peripherals/companion_computer_peripherals
+---
+
 # Companion Computer Peripherals
 
 This section contains information about companion computer peripherals. These include both components that might be connected to a companion computer (potentially triggered/accessed by PX4), and for connecting the computer to the flight controller.

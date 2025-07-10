@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/getting_started/rc_transmitter_receiver
+---
+
 # 遥控系统
 
 A radio control (RC) system is required if you want to *manually* control your vehicle from a handheld transmitter. 这个章节解释了一些关于 RC 如何工作，如何为你的飞行器（车辆）选择一个合适的无线电系统和怎么连接到飞控。

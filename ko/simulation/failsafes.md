@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/simulation/failsafes
+---
+
 # 안전장치 시뮬레이션
 
 [안전장치](../config/safety.md)는 PX4를 안전하게 사용할 수 있는 한계/조건과 안전 장치가 트리거시 수행 작업(예: 착륙, 위치 유지 또는 지정 지점 복귀)을 정의합니다.

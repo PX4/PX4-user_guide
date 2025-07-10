@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/simulation/flightgear_vehicles
+---
+
 # FlightGear 차량
 
 PX4 [FlightGear](../simulation/flightgear.md) 시뮬레이션이 지원하는 차량과 실행 `make` 명령을 설명합니다. 명령은 **PX4-Autopilot** 디렉토리의 터미널에서 실행됩니다. 지원되는 차량 유형은 고정익, 오토자이로와 로버입니다(이러한 유형 내에 특정 프레임이 있음).

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/flight_controller/dropix
+---
+
 # DroPix Flight Controller
 
 :::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.drotek.com/) for hardware support or compliance issues. :::

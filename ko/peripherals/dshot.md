@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/peripherals/dshot
+---
+
 # DShot ESC
 
 DShot은 PWM 또는 OneShot에 비해 여러 가지 장점을 가진 ESC 대체 프로토콜입니다.

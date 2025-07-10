@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/tr/msg_docs/task_stack_info
+---
+
 # task_stack_info (UORB message)
 
 stack information for a single running process

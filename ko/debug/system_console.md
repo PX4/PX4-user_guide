@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/debug/system_console
+---
+
 # PX4 시스템 콘솔
 
 PX4 *시스템 콘솔*은 시스템에 대한 낮은 수준의 액세스, 디버그 출력 및 시스템 부팅 프로세스 분석을 제공합니다.

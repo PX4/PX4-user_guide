@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/msg_docs/actuator_servos
+---
+
 # actuator_servos (UORB message)
 
 Servo control message

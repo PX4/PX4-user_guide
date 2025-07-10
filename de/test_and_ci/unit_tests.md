@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/de/test_and_ci/unit_tests
+---
+
 # Unit Tests
 
 Developers are encouraged to write unit tests during all parts of development, including adding new features, fixing bugs, and refactoring.

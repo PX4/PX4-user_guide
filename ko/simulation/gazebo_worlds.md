@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/simulation/gazebo_worlds
+---
+
 # 가제보 세계
 
 PX4에서 지원하는 [가제보](../simulation/gazebo.md) 세계에 대한 이미지/정보를 제공합니다.

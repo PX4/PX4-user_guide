@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/computer_vision/collision_prevention
+---
+
 # 防撞功能
 
 *Collision Prevention* may be used to automatically slow and stop a vehicle before it can crash into an obstacle.

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/getting_started/px4_basic_concepts
+---
+
 # 基本コンセプト
 
 本章では，ドローンの簡単な解説と，PX4の使い方について説明します。(初心者向けの内容ですが，熟練者にも良い紹介になると思われます)。

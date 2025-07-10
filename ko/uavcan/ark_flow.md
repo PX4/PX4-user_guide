@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/uavcan/ark_flow
+---
+
 # ARK Flow
 
 ARK Flow는 오픈 소스 [UAVCAN](README.md) [광류](../sensor/optical_flow.md), [거리 센서](../sensor/rangefinders.md) 및 IMU 모듈입니다.

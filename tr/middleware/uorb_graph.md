@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/tr/middleware/uorb_graph
+---
+
 # uORB Publication/Subscription Graph
 
 This page provides a uORB publication/subscription graph that shows the communication between modules. It is based on information that is extracted directly from the source code. Usage instructions are provided [below](#graph-properties).

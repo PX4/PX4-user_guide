@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/simulation/simulation-in-hardware
+---
+
 # 硬件仿真
 
 Simulation-In-Hardware (SIH) is an alternative to [Hardware In The Loop simulation (HITL)](../simulation/hitl.md) for quadrotors, fixed-wing vehicles (airplane), and tailsitters. 在这个设置中，所有的数据处理工作都在嵌入式硬件（PIXHAWK）中完成，包括控制器、状态估计器和仿真器。 与PIXHAWK连接的电脑只用来显示虚拟的载具。

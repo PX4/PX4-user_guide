@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/tr/sensor/cm8jl65_ir_distance_sensor
+---
+
 # Lanbao PSK-CM8JL65-CC5 ToF Infrared Distance Measuring Sensor
 
 The [Lanbao PSK-CM8JL65-CC5](https://www.seeedstudio.com/PSK-CM8JL65-CC5-Infrared-Distance-Measuring-Sensor-p-4028.html) is a very small IR distance sensor with a 0.17m-8m range and millimeter resolution. It must be connected to a UART/serial bus.

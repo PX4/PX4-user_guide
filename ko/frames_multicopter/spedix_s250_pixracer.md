@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/frames_multicopter/spedix_s250_pixracer
+---
+
 # Spedix S250AQ
 
 Spedix S250은 [Pixracer](../flight_controller/pixracer.md) 자동조종장치에 최적인 비대칭 레이싱 쿼드 콥터입니다.

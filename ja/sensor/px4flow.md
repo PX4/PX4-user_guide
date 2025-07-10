@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/sensor/px4flow
+---
+
 # PX4FLOW Smart Camera
 
 PX4FLOW is an [optical flow](../sensor/optical_flow.md) smart camera. It has a native resolution of 752x480 pixels and calculates optical flow on a 4x binned and cropped area at 400 Hz, giving it a very high light sensitivity.

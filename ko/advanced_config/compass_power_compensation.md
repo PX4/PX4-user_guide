@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/advanced_config/compass_power_compensation
+---
+
 # 나침반 전력 보정
 
 케이블은 나침반 판독 값을 왜곡시킬 수 있는 자기장을 유도하므로, 큰 전류가 흐르는 케이블에서 최대한 멀리 나침반(자력계)을 장착해야합니다.

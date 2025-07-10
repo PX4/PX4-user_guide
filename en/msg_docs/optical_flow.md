@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/msg_docs/optical_flow
+---
+
 # optical_flow (UORB message)
 
 Optical flow in XYZ body frame in SI units.

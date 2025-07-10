@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/hardware/README
+---
+
 # 하드웨어 통합
 
 PX4에 *신규* 자동조종장치와 주변장치를 통합하는 방법을 설명합니다.

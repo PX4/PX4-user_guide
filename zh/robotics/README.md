@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/robotics/README
+---
+
 # 机器人
 
 Drone APIs let you write code to control and integrate with PX4-powered vehicles, without having to understand intimate details of the vehicle and flight stack, or having to think about safety-critical behaviour.

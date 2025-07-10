@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/de/msg_docs/heater_status
+---
+
 # heater_status (UORB message)
 
 

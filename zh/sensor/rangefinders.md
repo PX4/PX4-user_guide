@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/sensor/rangefinders
+---
+
 # 距离传感器（测距仪）
 
 距离传感器提供的距离测量可用于[地形跟随](../flying/terrain_following_holding.md#terrain_following)、[地形保持](../flying/terrain_following_holding.md#terrain_hold)（即精确悬停拍摄）、改善着陆行为（[距离辅助](../flying/terrain_following_holding.md#range_aid)）、监管高度限制警告、碰撞预防等。

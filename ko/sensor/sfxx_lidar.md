@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/sensor/sfxx_lidar
+---
+
 # LightWare SF1X/SF02/LW20 라이다
 
 LightWare는 UAV에 장착에 적합한 경량의 범용 레이저 고도계( "라이다")를 개발합니다. 지형 추적, 정밀 호버링 (예 : 사진 촬영), 규제 높이 제한 경고, 충돌 방지 감지 등에 사용됩니다.

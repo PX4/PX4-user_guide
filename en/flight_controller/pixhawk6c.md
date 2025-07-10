@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/flight_controller/pixhawk6c
+---
+
 # Holybro Pixhawk 6C
 
 :::warning

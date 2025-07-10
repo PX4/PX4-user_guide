@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/assembly/vibration_isolation
+---
+
 # 진동 방지
 
 이 절에서는 진동의 세기를 판단 방법과 진동 특성 개선 방법을 설명합니다.

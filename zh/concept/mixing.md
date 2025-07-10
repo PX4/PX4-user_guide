@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/concept/mixing
+---
+
 # 混控器和执行器
 
 <!-- there is a useful doc here that we should still mine to further improve this topic: https://docs.google.com/document/d/1xCEQh48uDWyo7TjqedW6gYxBxMtNyuYZ2Xkt2MBb2-w -->

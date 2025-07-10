@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/sensor_bus/i2c_development
+---
+
 # I2C Bus (Development Overview)
 
 I2C is a packet-switched serial communication protocol that allows multiple master devices to connect to multiple slave devices using only 2 wires per connection.

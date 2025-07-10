@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/config_fw/trimming_guide_fixedwing
+---
+
 # Fixed-Wing Trimming Guide
 
 Trims are used to calibrate the control surfaces at trim conditions (relative airspeed, air density, angle of attack, aircraft configuration, etc.). 

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/concept/control_allocation
+---
+
 # Control Allocation (Mixing)
 
 PX4 takes desired torque and thrust commands from the core controllers and translates them to actuator commands which control motors or servos.

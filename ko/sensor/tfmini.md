@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/sensor/tfmini
+---
+
 # Benewake TFmini 라이다
 
 [Benewake TFmini Lidar](http://en.benewake.com/product/detail/5c345e26e5b3a844c472329c.html)는 12m 범위의 작고 저렴한 저전력의 라이다입니다. UART/직렬 버스에 연결됩니다.

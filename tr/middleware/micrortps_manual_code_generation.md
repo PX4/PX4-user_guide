@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/tr/middleware/micrortps_manual_code_generation
+---
+
 # Manually Generate Client and Agent Code
 
 This topic shows how to manually generate the code for the client and the agent (instead of [automatically generating](../middleware/micrortps.md) it when the PX4 firmware is compiled).

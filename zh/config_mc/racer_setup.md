@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/config_mc/racer_setup
+---
+
 # 穿越机设置
 
 本页面描述了：如何设置和配置一台穿越机来获取良好的性能（尤其对于特技模式）

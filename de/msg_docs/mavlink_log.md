@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/de/msg_docs/mavlink_log
+---
+
 # mavlink_log (UORB message)
 
 

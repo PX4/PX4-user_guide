@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/concept/dronecode_architecture
+---
+
 # Dronecode 平台硬件/软件架构
 
 下图提供了 [Dronecode 平台](https://www.dronecode.org/platform/) 的前瞻性系统顶级架构概述。 图的左侧展示的是一种可能的 *飞行控制器 （flight controller）* （亮蓝色）通过 [RTPS](../middleware/micrortps.md) 与 *视觉感知计算机（perception computer）* (深蓝色) 相连接的硬件配置。 感知计算机配备一个单独的相机载荷，并使用相机传感器阵列提供视觉控制和目标回避功能。

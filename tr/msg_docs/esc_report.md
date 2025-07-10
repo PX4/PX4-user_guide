@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/tr/msg_docs/esc_report
+---
+
 # esc_report (UORB message)
 
 

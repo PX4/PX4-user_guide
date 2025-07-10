@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/tr/msg_docs/yaw_estimator_status
+---
+
 # yaw_estimator_status (UORB message)
 
 

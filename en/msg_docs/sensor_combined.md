@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/msg_docs/sensor_combined
+---
+
 # sensor_combined (UORB message)
 
 Sensor readings in SI-unit form.

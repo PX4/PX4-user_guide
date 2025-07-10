@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/contribute/dev_call
+---
+
 # 주간 온라인 개발자 회의
 
 <div v-if="$themeConfig.px4_version != 'main'">

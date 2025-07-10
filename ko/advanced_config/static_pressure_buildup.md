@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/advanced_config/static_pressure_buildup
+---
+
 # 정압 축적
 
 밀폐된 차량 위로 공기가 흐르면 캐노피/선체 내에서 *정압*이 변경될 수 있습니다. 선체의 구멍/누출 위치에 따라 저압 또는 과압 (날개와 유사)이 발생할 수 있습니다.

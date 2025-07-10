@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/ros/ros1_via_ros2
+---
+
 # ROS 2 Bridge를 통한 ROS(1)(사용 설명서)
 
 이 항목에서는 [ROS 2](../ros/ros2.md)로 브리지하여, PX4와 함께 ROS(1)를 사용하는 방법을 설명합니다.

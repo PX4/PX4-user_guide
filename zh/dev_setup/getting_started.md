@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/dev_setup/getting_started
+---
+
 # 入门指南
 
 本节包含有关开始 PX4 开发的主题：

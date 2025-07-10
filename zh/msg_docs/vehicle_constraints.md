@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/msg_docs/vehicle_constraints
+---
+
 # vehicle_constraints (UORB message)
 
 Local setpoint constraints in NED frame setting something to NaN means that no limit is provided

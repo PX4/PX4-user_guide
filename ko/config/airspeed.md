@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/config/airspeed
+---
+
 # 항속센서 보정
 
 항속 보정 오프셋을 결정하기 위하여 항속이 0인 안정적인 기준선을 측정하여야 합니다.

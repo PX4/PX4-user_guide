@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/advanced_config/README
+---
+
 # Advanced Configuration
 
 This section contains advanced configuration topics, covering vehicle-specific tuning, and less-common sensors and peripherals.

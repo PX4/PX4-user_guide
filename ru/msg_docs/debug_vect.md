@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/msg_docs/debug_vect
+---
+
 # debug_vect (UORB message)
 
 

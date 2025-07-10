@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/telemetry/cuav_p8_radio
+---
+
 # CUAV P8 Telemetry Radio
 
 CUAV P8 Radio is a long range (>60km) and high data rate (375Kbps) remote data transmission module for drones that works plug-and-play with PX4.

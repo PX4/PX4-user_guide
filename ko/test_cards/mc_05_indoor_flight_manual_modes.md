@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/test_cards/mc_05_indoor_flight_manual_modes
+---
+
 # 시험 MC_05 - 실내 비행 (수동 모드)
 
 ## 이 시험 카드를 사용하는 경우

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/msg_docs/rc_parameter_map
+---
+
 # rc_parameter_map (UORB message)
 
 

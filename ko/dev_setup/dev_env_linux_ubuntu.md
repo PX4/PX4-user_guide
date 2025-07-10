@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/dev_setup/dev_env_linux_ubuntu
+---
+
 # 우분투 개발 환경
 
 아래에서 Ubuntu Linux 18.04 amd 20.04에서 PX4 개발 환경에 대하여 설명합니다. 이 환경은 [대부분의 PX4 타켓](../dev_setup/dev_env.md#supported-targets) 빌드에 사용됩니다.

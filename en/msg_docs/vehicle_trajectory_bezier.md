@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/msg_docs/vehicle_trajectory_bezier
+---
+
 # vehicle_trajectory_bezier (UORB message)
 
 Vehicle Waypoints Trajectory description. See also MAVLink MAV_TRAJECTORY_REPRESENTATION msg

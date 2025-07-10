@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/complete_vehicles/nanomind110
+---
+
 ## NanoMind 110
 
 ![nanomind 11

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/simulation/gazebo_vehicles
+---
+
 # 가제보 기체
 
 PX4 [Gazebo](../simulation/gazebo.md) 시뮬레이션과 이를 실행하는 데 필요한 `make` 명령이 지원하는 차량을 설명합니다(명령은 **PX4- Autopilot** 디렉토리).

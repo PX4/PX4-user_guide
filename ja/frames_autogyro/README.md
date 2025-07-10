@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/frames_autogyro/README
+---
+
 # Autogyro Frame Builds
 
 An [Autogyro](https://en.wikipedia.org/wiki/Autogyro) is a type of [rotorary-wing](https://en.wikipedia.org/wiki/Rotorcraft). Compared to other designs it possesses following advantages:

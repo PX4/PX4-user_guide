@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/flight_controller/modalai_voxl_flight
+---
+
 # ModalAI VOXL Flight
 
 :::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://forum.modalai.com/) for hardware support or compliance issues.

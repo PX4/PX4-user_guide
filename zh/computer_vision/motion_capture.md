@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/computer_vision/motion_capture
+---
+
 # 运动捕捉（MoCap）
 
 运动捕捉（MoCap）是一种 [计算机视觉](https://en.wikipedia.org/wiki/Computer_vision) 技术， 用于使用 *外部*定位机制估算无人机 3D *姿态* （位置和方向）。 It is commonly used to navigate a vehicle in situations where GPS is absent (e.g. indoors), and provides position relative to a *local* coordinate system.

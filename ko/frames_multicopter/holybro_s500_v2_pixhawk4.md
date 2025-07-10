@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/frames_multicopter/holybro_s500_v2_pixhawk4
+---
+
 # Holybro S500 V2 + Pixhawk 4 조립
 
 키트 조립법과 *QGroundControl*의 PX4 설정법을 설명합니다.

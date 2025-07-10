@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/test_cards/mc_02_full_autonomous
+---
+
 # Test MC_02 - Full Autonomous
 
 ## Create and upload mission

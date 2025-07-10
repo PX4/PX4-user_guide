@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/uavcan/developer
+---
+
 # UAVCAN 개발
 
 PX4 자동조종장치에 [UAVCAN](http://uavcan.org) 하드웨어를 추가 개발 자료들이 있습니다.

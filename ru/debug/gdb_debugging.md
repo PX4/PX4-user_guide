@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/debug/gdb_debugging
+---
+
 # Embedded Debugging
 
 ## Handy console commands

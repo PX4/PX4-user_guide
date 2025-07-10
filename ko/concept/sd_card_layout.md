@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/concept/sd_card_layout
+---
+
 # PX4 SD 카드 디렉토리 구조
 
 PX4에서는 SD 카드에 구성 파일, 비행 로그, 임무 정보 등을 저장합니다.

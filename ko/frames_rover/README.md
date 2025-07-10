@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/frames_rover/README
+---
+
 # Rovers (UGVs)
 
 PX4 supports rovers (Unmanned Ground Vehicles - UGVs) with [ackermann and differential](#rover-types) steering.

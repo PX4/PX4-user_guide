@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/ros/mavros_offboard_python
+---
+
 # MAVROS *Offboard* control example (Python)
 
 This tutorial shows the basics of *OFFBOARD* control with MAVROS Python, using an Iris quadcopter simulated in Gazebo/SITL.

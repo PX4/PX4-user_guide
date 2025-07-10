@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/frames_vtol/tailsitter
+---
+
 # 테일시터 VTOL
 
 **테일시터 VTOL**은 꼬리로 이착륙하지만, 일반 비행을 위해 고정익 방향으로 뒤집힙니다. 테일 시터 로터는 전진 비행을 위해 영구적으로 고정됩니다.

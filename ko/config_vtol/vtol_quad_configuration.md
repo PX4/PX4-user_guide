@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/config_vtol/vtol_quad_configuration
+---
+
 # QuadPlane VTOL 설정 및 튜닝
 
 이것은 QuadPlane VTOL(Quadcopter와 결합된 비행기)에 대한 설정 문서입니다. 기체별 문서와 조립 방법은 [VTOL 프레임 조립](../frames_vtol/README.md)를 참고하십시오.

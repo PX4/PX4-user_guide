@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/config/airspeed
+---
+
 # Airspeed Calibration
 
 The airspeed calibration needs to read a stable baseline with 0 airspeed in order to determine an offset.

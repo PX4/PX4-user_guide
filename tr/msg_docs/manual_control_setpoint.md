@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/tr/msg_docs/manual_control_setpoint
+---
+
 # manual_control_setpoint (UORB message)
 
 

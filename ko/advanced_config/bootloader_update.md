@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/advanced_config/bootloader_update
+---
+
 # 부트로더 업데이트
 
 [PX4 부트로더](https://github.com/PX4/Bootloader)는 픽스호크 보드(PX4FMU, PX4IO)와 PX4FLOW에 펌웨어를 불러오는 데 사용됩니다.

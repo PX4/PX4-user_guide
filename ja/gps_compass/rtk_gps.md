@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/gps_compass/rtk_gps
+---
+
 # RTK GPS
 
 *RTK GPS* devices can be accurate to centimeter-level, allowing PX4 to be used in applications like precision surveying (where pinpoint accuracy is essential).

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/log/flight_review
+---
+
 # 使用 Flight Review 进行日志分析
 
 [飞行复查](http://logs.px4.io)可以绘制图表来分析一般的车辆状况。

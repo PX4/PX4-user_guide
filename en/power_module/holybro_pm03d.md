@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/power_module/holybro_pm03d
+---
+
 # Holybro PM03D Power Module
 
 The PM03D Power Module acts as both a Power Module (PM) and a Power Distribution Board (PDB).

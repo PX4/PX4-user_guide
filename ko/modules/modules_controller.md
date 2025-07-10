@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/modules/modules_controller
+---
+
 # 모듈 참조: 콘트롤러
 
 ## ODULE_NAM

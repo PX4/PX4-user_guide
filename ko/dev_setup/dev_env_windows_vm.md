@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/dev_setup/dev_env_windows_vm
+---
+
 # Windows 가상 머신 호스팅 도구 모음
 
 :::warning

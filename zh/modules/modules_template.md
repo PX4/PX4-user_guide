@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/modules/modules_template
+---
+
 # 模块参考: 模板
 
 ## 模块

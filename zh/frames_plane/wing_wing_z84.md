@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/frames_plane/wing_wing_z84
+---
+
 # Wing Wing Z-84 Pixracer Build
 
 The Wing Wing Z-84 is our gold standard airframe - small, rugged and just large enough to host a [Pixracer](../flight_controller/pixracer.md).

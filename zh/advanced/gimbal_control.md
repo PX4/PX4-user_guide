@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/advanced/gimbal_control
+---
+
 # 云台控制设置
 
 如果你想要去控制一个装在飞机上带相机的云台（或者是其他的挂载设备），你需要配置使用什么去控制它和 PX4 怎样才能命令它。 本页内容就是讲解这些设置。

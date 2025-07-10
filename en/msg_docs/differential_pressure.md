@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/msg_docs/differential_pressure
+---
+
 # differential_pressure (UORB message)
 
 

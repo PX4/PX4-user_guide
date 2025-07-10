@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/advanced_features/precland
+---
+
 # 精准着陆
 
 PX4 supports precision landing for *multicopters* on either stationary or moving targets. The target may be provided by an onboard IR sensor and a landing beacon, or by an offboard positioning system.

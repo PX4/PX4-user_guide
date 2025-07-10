@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/tr/config/firmware
+---
+
 # Loading Firmware
 
 *QGroundControl* **desktop** versions can be used to install PX4 firmware onto [Pixhawk-series](../getting_started/flight_controller_selection.md) flight-controller boards.

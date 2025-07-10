@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/de/config/autotune
+---
+
 # Auto-tuning
 
 Auto-tuning automates the process of tuning the PX4 rate and attitude controllers, which are the most important controllers for stable and responsive flight (other tuning is more "optional"). It is currently enabled for multicopter, fixed wing, and hybrid VTOL fixed wing vehicles.

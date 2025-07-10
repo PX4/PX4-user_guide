@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/sensor/lidar_lite
+---
+
 # Lidar-Lite
 
 LIDAR-Lite는 드론, 로봇 또는 무인 차량용 소형 고성능 광학 원거리 측정 센서입니다. I2C 또는 PWM에 연결됩니다.

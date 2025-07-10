@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/tr/companion_computer/video_streaming
+---
+
 # Video Streaming (Companion Computer/QGroundControl)
 
 PX4-based vehicles support video streaming using a camera connected to a companion computer. GStreamer is used to send the video to *QGroundControl* over an IP link.

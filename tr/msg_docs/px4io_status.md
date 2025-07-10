@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/tr/msg_docs/px4io_status
+---
+
 # px4io_status (UORB message)
 
 

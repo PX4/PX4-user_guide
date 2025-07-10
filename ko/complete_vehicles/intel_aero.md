@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/complete_vehicles/intel_aero
+---
+
 # Intel Aero 즉시 비행 가능 드론
 
 :::warning

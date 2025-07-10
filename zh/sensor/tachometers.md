@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/sensor/tachometers
+---
+
 # 转速计（转数计数器）
 
 转速计（也称为[转数计数器传感器](https://en.wikipedia.org/wiki/Tachometer#In_automobiles,_trucks,_tractors_and_aircraft)）*强烈推荐*用于旋翼机框架，因为它们允许自动驾驶仪检测失速或其他旋翼故障（对于旋翼飞行，是叶片的旋转保证升力，而不是空速或地速）。

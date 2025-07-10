@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/config/airframe
+---
+
 # 机架设置
 
 安装固件后，您需要选择最适合您载具的 [机架配置](../airframes/airframe_reference.md)。

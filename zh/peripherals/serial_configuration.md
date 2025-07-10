@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/peripherals/serial_configuration
+---
+
 # 串口配置
 
 Many serial (UART) ports on a Pixhawk board can be fully configured via parameters: e.g.: `GPS1`, `TELEM1`, `TELEM2`, `TELEM4` (`UART+I2C`).

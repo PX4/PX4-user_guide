@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/debug/faq
+---
+
 # 常见问题
 
 

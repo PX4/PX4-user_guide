@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/msg_docs/sensors_status
+---
+
 # sensors_status (UORB message)
 
 Sensor check metrics. This will be zero for a sensor that's primary or unpopulated.

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/frames_vtol/vtol_tiltrotor_eflite_convergence_pixfalcon
+---
+
 # E-flite Convergence Tiltrotor VTOL (Pixfalcon)
 
 The [E-Flite Convergence](https://youtu.be/HNedXQ_jhYo) can easily be converted to a fully autonomous VTOL with PX4.

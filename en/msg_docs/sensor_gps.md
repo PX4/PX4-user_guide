@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/msg_docs/sensor_gps
+---
+
 # sensor_gps (UORB message)
 
 GPS position in WGS84 coordinates.

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/modules/modules_driver
+---
+
 # Modules Reference: Driver
 Subcategories:
 - [Imu](modules_driver_imu.md)

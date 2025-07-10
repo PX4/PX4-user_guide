@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/msg_docs/sensor_mag
+---
+
 # sensor_mag (UORB message)
 
 

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/getting_started/rc_transmitter_receiver
+---
+
 # 무선 조종기(RC)
 
 휴대용 송신기로 차량을 *수동으로* 제어하려면, 무선조종기(RC)가 필요합니다. 무선 조종기 작동 방법, 차량에 적합한 무선 시스템 선택법 및 비행 콘트롤러에 연결하는 방법에 대하여 설명합니다.

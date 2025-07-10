@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/msg_docs/gimbal_device_attitude_status
+---
+
 # gimbal_device_attitude_status (UORB message)
 
 

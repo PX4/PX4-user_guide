@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/msg_docs/ulog_stream_ack
+---
+
 # ulog_stream_ack (UORB message)
 
 Ack a previously sent ulog_stream message that had the NEED_ACK flag set

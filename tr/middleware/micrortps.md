@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/tr/middleware/micrortps
+---
+
 # RTPS/DDS Interface: PX4-Fast RTPS(DDS) Bridge
 
 The *PX4-Fast RTPS(DDS) Bridge*, which is also referred to as as the *microRTPS Bridge*, adds a Real Time Publish Subscribe (RTPS) interface to the PX4 Autopilot, enabling the exchange of [uORB messages](../middleware/uorb.md) between the various PX4 Autopilot internal components and (offboard) *Fast DDS* applications in realtime.

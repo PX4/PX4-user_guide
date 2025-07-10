@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/advanced_config/tuning_the_ecl_ekf
+---
+
 # 使用 ECL EKF
 
 本文主要回答使用 ECL EKF 算法的常见问题。

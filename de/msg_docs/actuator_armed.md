@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/de/msg_docs/actuator_armed
+---
+
 # actuator_armed (UORB message)
 
 

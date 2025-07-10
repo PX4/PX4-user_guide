@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/flying/fixed_wing_landing
+---
+
 # 固定翼着陆
 
 PX4 允许自动驾驶控制固定翼 (FW) 在 [任务模式](../flying/missions.md)、[着陆模式](../flight_modes/land.md) 和 [返航模式](../flight_modes/return.md) 中着陆。

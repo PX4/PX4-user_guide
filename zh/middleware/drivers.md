@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/middleware/drivers
+---
+
 # 驱动开发
 
 PX4 device drivers are based on the [Device](https://github.com/PX4/PX4-Autopilot/tree/release/1.13/src/lib/drivers/device) framework.

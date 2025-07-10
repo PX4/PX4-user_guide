@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/msg_docs/position_controller_status
+---
+
 # position_controller_status (UORB message)
 
 

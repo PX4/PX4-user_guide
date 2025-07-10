@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/modules/modules_system
+---
+
 # 模块参考：系统
 
 ## battery_simulator

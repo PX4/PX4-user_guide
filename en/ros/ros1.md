@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/ros/ros1
+---
+
 # ROS (1) with MAVROS
 
 :::tip

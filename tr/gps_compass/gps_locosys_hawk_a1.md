@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/tr/gps_compass/gps_locosys_hawk_a1
+---
+
 # LOCOSYS Hawk A1 GPS/GNSS
 
 The [LOCOSYS HAWK A1 GPS/GNSS receiver](https://www.locosystech.com/en/product/hawk-a1-LU23031-V2.html) is a dual frequency multi-constellation GNSS/GPS receiver compatible with PX4.

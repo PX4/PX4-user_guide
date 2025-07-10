@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/msg_docs/rate_ctrl_status
+---
+
 # rate_ctrl_status (UORB message)
 
 

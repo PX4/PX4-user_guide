@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/de/sensor_bus/i2c_general
+---
+
 # I2C Bus Peripherals
 
 [I2C](https://en.wikipedia.org/wiki/I2C) is a serial communication protocol that is commonly used (at least on smaller drones), for connecting peripheral components like rangefinders, LEDs, Compass, etc.

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/msg_docs/rc_channels
+---
+
 # rc_channels (UORB message)
 
 

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/assembly/vibration_isolation
+---
+
 # Vibration Isolation
 
 This topic shows how to determine whether vibration levels are too high, and lists some simple steps to improve vibration characteristics.

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/dev_airframes/README
+---
+
 # 기체
 
 PX4에는 단일 코드베이스를 통하여 상상 가능한 대부분의 차량 유형과프레임을 지원할 수 있는 유연한 [믹싱 시스템](../concept/mixing.md)이 있습니다.

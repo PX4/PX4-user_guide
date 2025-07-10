@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/msg_docs/estimator_innovations
+---
+
 # estimator_innovations (UORB message)
 
 

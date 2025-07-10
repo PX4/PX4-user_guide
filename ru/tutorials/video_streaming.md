@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/tutorials/video_streaming
+---
+
 # Video Streaming from Odroid C1 to QGroundControl
 
 :::note

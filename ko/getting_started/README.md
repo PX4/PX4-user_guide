@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/getting_started/README
+---
+
 # PX4 자율 비행
 
 PX4를 이용한 기체 조립 방법과 조종 방법에 관한 기본 개념을 설명합니다.

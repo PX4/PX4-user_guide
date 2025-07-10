@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/msg_docs/irlock_report
+---
+
 # irlock_report (UORB message)
 
 IRLOCK_REPORT message data

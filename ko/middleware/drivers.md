@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/middleware/drivers
+---
+
 # 드라이버 개발
 
 PX4 장치 드라이버는 [장치](https://github.com/PX4/PX4-Autopilot/tree/master/src/lib/drivers/device) 프레임워크를 기반으로 합니다.

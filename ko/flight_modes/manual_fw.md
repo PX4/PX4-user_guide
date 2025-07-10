@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/flight_modes/manual_fw
+---
+
 # 수동 모드(고정 날개)
 
 <!-- this requires review -->

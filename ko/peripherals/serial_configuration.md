@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/peripherals/serial_configuration
+---
+
 # 직렬 포트 설정
 
 Pixhawk 보드의 직렬(UART) 포트들은 매개변수를 통하여 설정합니다. 예 : `GPS1`, `TELEM1`, `TELEM2`, `TELEM4` (`UART + I2C`).

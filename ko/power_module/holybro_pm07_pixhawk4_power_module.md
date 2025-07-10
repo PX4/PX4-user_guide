@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/power_module/holybro_pm07_pixhawk4_power_module
+---
+
 # Holybro Pixhawk 4 전원 모듈 (PM07)
 
 전원 관리 보드(PM 보드)는 전원 모듈과 배전 보드 용도로 사용됩니다. Pixhawk 4와 ESC에 조정 전력을 제공하고, 비행 콘트롤러와 모터에 공급되는 배터리의 전압과 전류에 대한 정보를 자동조종장치에 전송합니다.

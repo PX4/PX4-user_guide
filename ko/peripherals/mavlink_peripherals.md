@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/peripherals/mavlink_peripherals
+---
+
 # MAVLink 주변 장치(OSD/GCS/보조 컴퓨터 등)
 
 GCS(Ground Control Station), OSD(On-Screen Display), 보조 컴퓨터, ADS-B 수신기와 기타 MAVLink 주변 장치들은 서로 다른 직렬 포트를 통하여 전송되는 별도의 MAVLink 스트림을 통하여 PX4와 상호 작용합니다. 이러한 통신 채널은 [MAVLink 매개변수](../advanced_config/parameter_reference.md#mavlink)를 사용하여 설정됩니다.

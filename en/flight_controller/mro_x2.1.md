@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/flight_controller/mro_x2.1
+---
+
 # mRo-X2.1 Autopilot
 
 :::warning

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/config_vtol/vtol_quad_configuration
+---
+
 # QuadPlane VTOL Configuration & Tuning
 
 This is the configuration documentation for a QuadPlane VTOL setup (Plane combined with Quadcopter).

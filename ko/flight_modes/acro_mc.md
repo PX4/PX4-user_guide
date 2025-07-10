@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/flight_modes/acro_mc
+---
+
 # 아크로 모드(멀티콥터)
 
 [<img src="../../assets/site/difficulty_hard.png" title="고급 난이도 비행" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="수동/원격 제어 필요" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;

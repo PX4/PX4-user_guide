@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/msg_docs/actuator_outputs
+---
+
 # actuator_outputs (UORB message)
 
 

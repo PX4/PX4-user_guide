@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/ros/mavros_offboard
+---
+
 # MAVROS *오프보드* 콘트롤 예제
 
 Gazebo/SITL에서 시뮬레이션된 Iris 쿼드콥터를 사용하여 MAVROS로 *오프보드* 제어의 기본 사항을 설명합니다. 튜토리얼이 끝나면 아래 비디오와 같은 동작, 즉 고도 2미터까지 천천히 이륙하는 것을 볼 수 있습니다.

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/contribute/dev_call
+---
+
 # 每周开发通讯
 
 <div v-if="$themeConfig.px4_version != 'main'">

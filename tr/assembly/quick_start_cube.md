@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/tr/assembly/quick_start_cube
+---
+
 # Cube Wiring Quick Start
 
 :::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://cubepilot.org/#/home) for hardware support or compliance issues.

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/msg_docs/npfg_status
+---
+
 # npfg_status (UORB message)
 
 

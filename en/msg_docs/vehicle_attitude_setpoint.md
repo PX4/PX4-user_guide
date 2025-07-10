@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/msg_docs/vehicle_attitude_setpoint
+---
+
 # vehicle_attitude_setpoint (UORB message)
 
 

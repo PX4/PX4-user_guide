@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/contribute/README
+---
+
 # 기여하는 방법
 
 <div v-if="$themeConfig.px4_version != 'main'">

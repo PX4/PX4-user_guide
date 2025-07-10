@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/frames_rover/traxxas_stampede
+---
+
 # Traxxas Stampede VXL
 
 This vehicle was chosen to understand how a Pixhawk could be used for wheeled platforms. We chose to use a Traxxas vehicle as they are very popular and it is a very strong brand in the RC community. The idea was to develop a platform that allows for easy control of wheeled UGVs with an autopilot.

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/tr/msg_docs/vehicle_torque_setpoint
+---
+
 # vehicle_torque_setpoint (UORB message)
 
 

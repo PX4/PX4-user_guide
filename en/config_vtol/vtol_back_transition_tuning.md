@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/config_vtol/vtol_back_transition_tuning
+---
+
 # VTOL Back-transition Tuning
 
 When a VTOL performs a back-transition (transition from fixed wing mode to multicopter) it needs to slow down before the multicopter can take proper control.

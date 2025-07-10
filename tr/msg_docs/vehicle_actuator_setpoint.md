@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/tr/msg_docs/vehicle_actuator_setpoint
+---
+
 # vehicle_actuator_setpoint (UORB message)
 
 

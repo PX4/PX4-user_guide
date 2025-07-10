@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/msg_docs/vehicle_angular_acceleration_setpoint
+---
+
 # vehicle_angular_acceleration_setpoint (UORB message)
 
 

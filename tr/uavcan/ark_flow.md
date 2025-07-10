@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/tr/uavcan/ark_flow
+---
+
 # ARK Flow
 
 ARK Flow is an open source [UAVCAN](README.md) [optical flow](../sensor/optical_flow.md), [distance sensor](../sensor/rangefinders.md), and IMU module.

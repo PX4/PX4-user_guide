@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/development/development
+---
+
 # PX4 Development
 
 このセクションでは、新しい機体のサポート方法、飛行アルゴリズムの改造，飛行モードの追加、新しいハードウェアへの統合、フライトコントローラ外部との通信について記述しています．

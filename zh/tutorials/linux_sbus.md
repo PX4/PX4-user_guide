@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/tutorials/linux_sbus
+---
+
 # 用于 Linux 的 S.Bus 驱动
 
 The *S.Bus Driver for Linux* allows a Linux-based autopilot to access up to 16 channels from a *Futaba S.Bus receiver* via a serial port. The driver should also work with other receivers that use the S.Bus protocol, including as FrSky, RadioLink, and even S.Bus encoders.

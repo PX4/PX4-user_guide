@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/advanced_config/ethernet_setup
+---
+
 # PX4 Ethernet Setup
 
 Ethernet connectivity provides a fast, reliable, and flexible communication alternative to using USB or other serial connections.

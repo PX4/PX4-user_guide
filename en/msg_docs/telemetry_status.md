@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/msg_docs/telemetry_status
+---
+
 # telemetry_status (UORB message)
 
 

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/advanced_config/parameter_reference
+---
+
 # 参数参照表
 
 :::note

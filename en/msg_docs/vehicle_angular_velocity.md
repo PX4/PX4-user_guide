@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/msg_docs/vehicle_angular_velocity
+---
+
 # vehicle_angular_velocity (UORB message)
 
 

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/concept/flight_modes
+---
+
 # 飞行模式
 
 *飞行模式* 定义自动驾驶仪如何响应用户输入并控制飞机飞行。 可以根据飞控闭环的回路层级将飞行模式大致分为 *手动 （manual）*, *辅助 （assisted）* 和 *自动 （auto）* 三大模式。 飞手使用遥控器上的开关或者 ground control station 在飞行模式之间进行切换。

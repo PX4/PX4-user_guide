@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/uavcan/cuav_can_pmu
+---
+
 # CAUV CAN PMU
 
 CAN PMU<sup>&reg;</sup> is a high-precision [UAVCAN](../uavcan/README.md) power module developed by CUAV<sup>&reg;</sup>.

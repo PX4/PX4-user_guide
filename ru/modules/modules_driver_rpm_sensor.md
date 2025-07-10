@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/modules/modules_driver_rpm_sensor
+---
+
 # Modules Reference: Rpm Sensor (Driver)
 ## pcf8583
 Source: [drivers/rpm/pcf8583](https://github.com/PX4/PX4-Autopilot/tree/release/1.13/src/drivers/rpm/pcf8583)

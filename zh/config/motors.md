@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/config/motors
+---
+
 # 电机检查
 
 :::note

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/msg_docs/trajectory_waypoint
+---
+
 # trajectory_waypoint (UORB message)
 
 Waypoint Trajectory description. See also Mavlink TRAJECTORY msg

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/assembly/quick_start_holybro_pix32_v5
+---
+
 # Pix32 v5 Wiring Quick Start
 
 :::warning

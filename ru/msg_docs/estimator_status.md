@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/msg_docs/estimator_status
+---
+
 # estimator_status (UORB message)
 
 

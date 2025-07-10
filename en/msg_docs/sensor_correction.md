@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/msg_docs/sensor_correction
+---
+
 # sensor_correction (UORB message)
 
 Sensor corrections in SI-unit form for the voted sensor

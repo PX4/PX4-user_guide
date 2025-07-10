@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/msg_docs/action_request
+---
+
 # action_request (UORB message)
 
 

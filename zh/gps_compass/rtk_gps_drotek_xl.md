@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/gps_compass/rtk_gps_drotek_xl
+---
+
 # Drotek XL RTK GPS
 
 The [Drotek XL RTK GPS receiver](https://store-drotek.com/881-DP0503.html) is a competitively priced [RTK GPS module](../gps_compass/rtk_gps.md) that can be configured as either base or rover. 使用RTK，PX4控制器可以获取到它的位置，并且这个位置的精度可以达到厘米级的精度，这比普通GPS提供的位置更加精确。

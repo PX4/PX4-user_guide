@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/concept/flight_tasks
+---
+
 # 비행 작업
 
 *비행 작업*은 [비행 모드](../concept/flight_modes.md)에서 정해진 이동 동작(예: 사람 추적, 비행 평활화)을 수행합니다.

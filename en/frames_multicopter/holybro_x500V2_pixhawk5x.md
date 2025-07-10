@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/frames_multicopter/holybro_x500V2_pixhawk5x
+---
+
 # Holybro X500 V2 (Pixhawk 5X Build)
 
 This topic provides full instructions for building the [Holybro X500 V2 ARF Kit](http://shop.holybro.com/x500-v2-kit_p1288.html) and configuring PX4 using *QGroundControl*.

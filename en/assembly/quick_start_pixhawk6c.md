@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/assembly/quick_start_pixhawk6c
+---
+
 # Holybro Pixhawk 6C Wiring Quick Start
 
 :::warning

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/msg_docs/led_control
+---
+
 # led_control (UORB message)
 
 LED control: control a single or multiple LED's.

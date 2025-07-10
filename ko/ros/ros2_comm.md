@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/ros/ros2_comm
+---
+
 # ROS 2 사용 설명서(PX4-ROS 2 브리지)
 
 PX4에서 ROS 2를 설정하고 사용하는 방법을 설명합니다.

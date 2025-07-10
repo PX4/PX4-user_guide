@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/uart/user_configurable_serial_driver
+---
+
 # 사용자 설정 가능 직렬 포트 드라이버 제작
 
 비행 콘트롤러에서 설정 가능 직렬 포트에서 실행되도록 사용자가 (매개변수를 통하여) 구성할 수 있도록 직렬 드라이버를 설정하는 방법을 설명합니다.

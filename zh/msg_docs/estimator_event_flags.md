@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/msg_docs/estimator_event_flags
+---
+
 # estimator_event_flags (UORB message)
 
 

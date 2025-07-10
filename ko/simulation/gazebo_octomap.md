@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/simulation/gazebo_octomap
+---
+
 # ROS Gazebo OctoMap 3D 모델
 
 [OctoMap 라이브러리](http://octomap.github.io/)는 센서 데이터에서 체적 3D 환경 모델을 생성하는 오픈 소스 라이브러리입니다. 이 모델 데이터를 드론 탐색 및 장애물 회피에 사용할 수 있습니다.

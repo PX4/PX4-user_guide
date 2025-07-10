@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/flight_controller/pixhawk6x
+---
+
 # Holybro Pixhawk 6X
 
 :::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://shop.holybro.com/) for hardware support or compliance issues.

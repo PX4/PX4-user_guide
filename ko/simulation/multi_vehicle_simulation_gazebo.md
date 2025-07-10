@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/simulation/multi_vehicle_simulation_gazebo
+---
+
 # Gazebo 다중 차량 시뮬레이션
 
 이 항목에서는 Gazebo와 SITL(Linux만 해당)을 사용하여 다중 UAV 차량 시뮬레이션 방법을 설명합니다. ROS 유무에 따라 시뮬레이션 접근 방식이 달라집니다.

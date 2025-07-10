@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/flight_controller/kakutef7
+---
+
 # Holybro  Kakute F7
 
 :::warning

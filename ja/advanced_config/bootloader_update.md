@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/advanced_config/bootloader_update
+---
+
 # Bootloader Update
 
 The [PX4 bootloader](https://github.com/PX4/Bootloader) is used to load firmware for Pixhawk boards (PX4FMU, PX4IO) and [PX4FLOW](../sensor/px4flow.md).

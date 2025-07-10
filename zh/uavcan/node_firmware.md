@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/uavcan/node_firmware
+---
+
 # UAVCAN 固件升级
 
 PX4 will automatically upgrade firmware on UAVCAN nodes if the appropriate firmware is supplied. The firmware build process is manufacturer dependent (instructions for different firmware linked below).

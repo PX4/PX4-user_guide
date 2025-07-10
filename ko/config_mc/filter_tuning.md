@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/config_mc/filter_tuning
+---
+
 # MC 필터 튜닝과 제어 지연
 
 필터를 사용하여 비행 성능에 영향을 미치는 [제어 지연](#control-latency)과 비행 성능과 모터 상태에 영향을 미치는 소음 필터링을 절충할 수 있습니다.

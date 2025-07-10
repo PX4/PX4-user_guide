@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/tr/frames_multicopter/spedix_s250_pixracer
+---
+
 # Spedix S250AQ
 
 The Spedix S250 is a asymmetric racing quadcopter perfectly suited for the [Pixracer](../flight_controller/pixracer.md) autopilot.

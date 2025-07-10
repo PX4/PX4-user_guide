@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/frames_multicopter/dji_f450_cuav_5nano
+---
+
 # DJI FlameWheel 450 + CUAV V5 nano Build
 
 This topic provides full instructions for building the kit and configuring PX4 using *QGroundControl*.

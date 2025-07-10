@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/dev_setup/dev_env_linux_centos
+---
+
 # CentOS 上的开发环境
 
 开发环境编译工作需要 Python 2.7.5 的支持，因此本文使用 CentOS 7 操作系统。 See [Toolchain Installation](../dev_setup/dev_env.md) for information about the environments and tools we do support! （如使用更早版本的 CentOS 则需要额外安装 python v2.7.5）。

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/hardware/porting_guide_nuttx
+---
+
 # NuttX 보드 포팅 가이드
 
 NuttX의 PX4를 포팅하려면, 하드웨어가 NuttX를 지원하여야 합니다. NuttX 프로젝트는 NuttX를 새로운 플랫폼으로 포팅하기 위한 [포팅 가이드](https://cwiki.apache.org/confluence/display/NUTTX/Porting+Guide)를 제공합니다.

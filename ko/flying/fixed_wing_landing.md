@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/flying/fixed_wing_landing
+---
+
 # 고정익 착륙
 
 PX4는 [임수](../flying/missions.md), [착륙 모드](../flight_modes/land.md) 및 [복귀 모드](../flight_modes/return.md)에서 자동 조종 제어 고정익(FW) 착륙이 가능합니다.

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/msg_docs/follow_target
+---
+
 # follow_target (UORB message)
 
 

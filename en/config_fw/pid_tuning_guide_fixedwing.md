@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/config_fw/pid_tuning_guide_fixedwing
+---
+
 # Fixed-wing PID Tuning Guide
 
 This guide explains how to manually tune the fixed wing PID loop.

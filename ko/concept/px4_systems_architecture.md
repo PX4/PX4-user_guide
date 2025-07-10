@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/concept/px4_systems_architecture
+---
+
 # PX4 시스템 아키텍처
 
 아래 섹션에서는 "일반적인" PX4 시스템의 하드웨어와 소프트웨어 개요를 제공합니다. 하나는 비행 콘트롤러만 있는 것이고 다른 하나는 비행 컨트롤러와 보조 컴퓨터("미션 컴퓨터"라고도 함)가 있습니다.

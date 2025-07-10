@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/advanced_config/parameter_reference
+---
+
 # Parameter Reference
 
 :::note

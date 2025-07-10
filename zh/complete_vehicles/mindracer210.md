@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/complete_vehicles/mindracer210
+---
+
 ## MindRacer 210
 
 ![MindRacer 210](../../assets/hardware/hardware-mindracer210.png)

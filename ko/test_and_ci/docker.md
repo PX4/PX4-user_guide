@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/test_and_ci/docker
+---
+
 # PX4 도커 컨테이너
 
 도커 컨테이너는 NuttX 및 Linux 기반 하드웨어, [Gazebo 시뮬레이션](../simulation/gazebo.md) 및 [ROS](../simulation/ros_interface.md)를 포함한 전체 [PX4 개발 툴체인](../dev_setup/dev_env.md#supported-targets)을 제공됩니다.

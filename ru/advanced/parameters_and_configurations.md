@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/advanced/parameters_and_configurations
+---
+
 # Parameters & Configurations
 
 PX4 uses the *param subsystem* (a flat table of `float` and `int32_t` values) and text files (for mixers and startup scripts) to store its configuration.

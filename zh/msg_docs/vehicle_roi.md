@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/msg_docs/vehicle_roi
+---
+
 # vehicle_roi (UORB message)
 
 Vehicle Region Of Interest (ROI)

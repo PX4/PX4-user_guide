@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/de/config/actuators
+---
+
 # Actuator Configuration and Testing
 
 The _Actuators Setup_ view is used to customize the specific geometry of the vehicle, assign actuators and motors to flight controller outputs, and test the actuator and motor response.

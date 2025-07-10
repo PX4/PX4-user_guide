@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/advanced_features/README
+---
+
 # 高级功能
 
 这部分包含了部分关于PX4自驾仪的高级功能：

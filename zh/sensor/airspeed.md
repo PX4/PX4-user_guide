@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/sensor/airspeed
+---
+
 # 空速传感器
 
 Airspeed sensors are *highly recommended* for fixed-wing and VTOL frames. 它们非常重要，因为自驾仪没有其他方法来检测失速。 对于固定翼飞行来说，保证升力的是空速而不是地速。

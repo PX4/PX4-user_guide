@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/advanced_config/README
+---
+
 # 高级配置
 
 本节包含高级配置主题，覆盖特殊载具调参，以及不常见的传感器和外设。

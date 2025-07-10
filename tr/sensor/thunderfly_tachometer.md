@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/tr/sensor/thunderfly_tachometer
+---
+
 # ThunderFly TFRPM01 Revolution Counter
 
 The [TFRPM01](https://github.com/ThunderFly-aerospace/TFRPM01) tachometer is a small, and low system demanding revolution-counter.

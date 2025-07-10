@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/config_mc/mc_trajectory_tuning
+---
+
 # 多旋翼设定值调整（轨迹生成器）
 
 This document provides an overview of the multicopter tuning parameters that change the *user experience*: how fast the vehicle reacts to stick movements or direction changes in missions, the maximum allowed velocity, etc.

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/flight_controller/pixhawk
+---
+
 # 3DR Pixhawk 1 비행 콘트롤러 (단종됨)
 
 :::warning

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/frames_sub/README
+---
+
 # Underwater Vehicles (UUV)
 
 :::warning

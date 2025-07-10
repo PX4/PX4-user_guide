@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/flight_controller/mind_series
+---
+
 # (Air)Mind 系列
 
 AirMind<sup>&reg;</sup> have created two new controller series branched from the [Pixhawk Series](../flight_controller/pixhawk_series.md).

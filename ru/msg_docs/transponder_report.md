@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/msg_docs/transponder_report
+---
+
 # transponder_report (UORB message)
 
 

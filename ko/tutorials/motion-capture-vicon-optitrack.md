@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/tutorials/motion-capture-vicon-optitrack
+---
+
 # 모션 캡처 비행(VICON, Optitrack)
 
 :::warning
