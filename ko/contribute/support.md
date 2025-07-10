@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/contribute/support
+---
+
 # 지원 방법
 
 <div v-if="$themeConfig.px4_version != 'main'">

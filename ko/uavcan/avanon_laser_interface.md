@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/uavcan/avanon_laser_interface
+---
+
 # Avionics Anonymous Laser Altimeter UAVCAN 인터페이스
 
 [Avionics Anonymous Laser Altimeter Interface](https://www.tindie.com/products/avionicsanonymous/uavcan-laser-altimeter-interface/)는 UAVCAN 버스로 [공통 거리계](#supported_rangefinders)를 연결합니다 (이는 I2C보다 강력한 인터페이스).

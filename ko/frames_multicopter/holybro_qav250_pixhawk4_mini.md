@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/frames_multicopter/holybro_qav250_pixhawk4_mini
+---
+
 # HolyBro QAV250 + Pixhawk4-Mini 조립
 
 [Holybro Pixhawk 4 Mini QAV250 키트](https://shop.holybro.com/pixhawk-4-mini-qav250-kit_p1125.html)는 Pixhawk 4을 조립 학습에 최적의 키트입니다. [Holybro Pixhawk 4 Mini QAV250 키트](https://shop.holybro.com/pixhawk-4-mini-qav250-kit_p1125.html)는 Pixhawk 4을 조립 학습에 최적의 키트입니다. FPV 지원 유무에 따라 키트가 조금씩 달라집니다.

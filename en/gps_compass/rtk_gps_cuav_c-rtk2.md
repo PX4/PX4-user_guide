@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/gps_compass/rtk_gps_cuav_c-rtk2
+---
+
 # CUAV C-RTK2 GNSS Module (RTK/PPK)
 
 The [CUAV C-RTK2 receiver](http://doc.cuav.net/gps/c-rtk/en/) is a high-performance PPK/RTK positioning module created by CUAV for professional applications such as drone aerial surveying and mapping.

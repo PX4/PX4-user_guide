@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/test_and_ci/maintenance
+---
+
 # 维护说明
 
 这选择并描述了一些工具来帮助分析代码库的状态并支持其维护。

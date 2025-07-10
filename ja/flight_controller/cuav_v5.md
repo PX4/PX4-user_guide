@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/flight_controller/cuav_v5
+---
+
 # CUAV v5 (Discontinued)
 
 :::warning

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/assembly/quick_start_pixhawk4
+---
+
 # Pixhawk 4 Wiring Quick Start
 
 :::warning

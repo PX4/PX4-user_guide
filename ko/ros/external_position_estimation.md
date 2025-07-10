@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/ros/external_position_estimation
+---
+
 # 위치 추정을 위한 비전 또는 모션 캡처 사용
 
 전역 위치 소스를 사용할 수 없거나 신뢰할 수 없는 경우(예: 실내나 다리 아래를 비행시)에, VIO(Visual Inertial Odometry) 및 MoCap(모션 캡처) 시스템을 사용하여 차량 내비게이션이 가능합니다.

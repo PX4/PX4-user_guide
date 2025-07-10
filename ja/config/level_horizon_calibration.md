@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/config/level_horizon_calibration
+---
+
 # Level Horizon Calibration
 
 You can use *Level Horizon Calibration* to compensate for small miss-alignments in controller orientation and to level the horizon in the *QGroundControl* flight view (blue on top and green on bottom).

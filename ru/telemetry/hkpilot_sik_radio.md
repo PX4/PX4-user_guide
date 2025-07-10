@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/telemetry/hkpilot_sik_radio
+---
+
 # HKPilot Telemetry Radio
 
 HKPilot has a [SiK Radio](../telemetry/sik_radio.md)-compatible telemetry set that can be used with PX4, and which comes in 915MHz (USA) and 433MHz (Europe) versions.

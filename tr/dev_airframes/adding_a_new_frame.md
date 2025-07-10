@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/tr/dev_airframes/adding_a_new_frame
+---
+
 # Adding a New Airframe Configuration
 
 PX4 uses canned airframe configurations as starting point for airframes. The configurations are defined in [config files](#config-file) that are stored in the [ROMFS/px4fmu_common/init.d](https://github.com/PX4/PX4-Autopilot/tree/release/1.13/ROMFS/px4fmu_common/init.d) folder.

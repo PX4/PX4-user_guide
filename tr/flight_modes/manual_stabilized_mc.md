@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/tr/flight_modes/manual_stabilized_mc
+---
+
 # Manual/Stabilized Mode (Multicopter)
 
 [<img src="../../assets/site/difficulty_medium.png" title="Medium difficulty to fly" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;

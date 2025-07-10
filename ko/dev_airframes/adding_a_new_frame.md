@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/dev_airframes/adding_a_new_frame
+---
+
 # 신규 기체 구성 추가
 
 PX4는 고정된 기체 구성을 기체의 시작점으로 사용합니다. 구성은 [ROMFS/px4fmu_common/init.d](https://github.com/PX4/PX4-Autopilot/tree/master/ROMFS/px4fmu_common/init.d) 폴더에 저장된 [구성 파일](#config-file)에 정의됩니다.

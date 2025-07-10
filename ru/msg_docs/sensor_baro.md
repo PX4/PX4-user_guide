@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/msg_docs/sensor_baro
+---
+
 # sensor_baro (UORB message)
 
 

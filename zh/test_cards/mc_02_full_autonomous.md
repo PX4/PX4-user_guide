@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/test_cards/mc_02_full_autonomous
+---
+
 # 测试 MC_02-完全自主
 
 ## 创建和上传任务

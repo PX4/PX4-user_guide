@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/flight_controller/modalai_fc_v1
+---
+
 # ModalAI Flight Core v1
 
 :::warning

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/tutorials/video_streaming_wifi_broadcast
+---
+
 # Raw Wi-Fi 라디오를 통한 장거리 비디오 스트리밍 및 텔레메트리
 
 UAV에서 동영상을 지상 컴퓨터로 전송하고 *QGroundControl*에 표출하기 위하여 카메라(Logitech C920 또는 RaspberryPi 카메라)가 있는 보조 컴퓨터 설정 방법을 설명합니다. 이 메커니즘은 양방향 텔레메트리(예: SiK 라디오)통신을 제공합니다. 이 설정은 연결되지 않은(브로드캐스트) 모드의 Wi-Fi와 [Wifibroadcast 프로젝트](https://github.com/svpcom/wifibroadcast/wiki)의 소프트웨어를 사용합니다.

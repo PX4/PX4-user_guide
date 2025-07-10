@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/concept/architecture
+---
+
 # PX4 아키텍처 개요
 
 PX4는 두 가지 주요 레이어로 구성됩니다. [비행 스택](#flight-stack)은 추정 및 비행제어시스템이며, [미들웨어](#middleware)는 자율 로봇을 지원할 수 있는 일반 로봇 계층으로 내외부 통신 및 하드웨어 통합을 제공합니다.

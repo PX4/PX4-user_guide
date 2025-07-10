@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/msg_docs/uavcan_parameter_value
+---
+
 # uavcan_parameter_value (UORB message)
 
 UAVCAN-MAVLink parameter bridge response type

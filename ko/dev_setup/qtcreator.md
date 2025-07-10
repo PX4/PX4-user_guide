@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/dev_setup/qtcreator
+---
+
 # Qt Creator IDE
 
 :::warning

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/dev_setup/building_px4
+---
+
 # 编译 PX4 软件
 
 对于模拟目标和硬件目标，可以在控制台上或 IDE 中生成 PX4。

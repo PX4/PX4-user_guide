@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/msg_docs/commander_state
+---
+
 # commander_state (UORB message)
 
 Main state, i.e. what user wants. Controlled by RC or from ground station via telemetry link.

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/advanced_features/precland
+---
+
 # Precision Landing
 
 PX4 supports precision landing for *multicopters* on either stationary or moving targets.

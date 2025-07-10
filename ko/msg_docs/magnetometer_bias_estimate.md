@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/msg_docs/magnetometer_bias_estimate
+---
+
 # magnetometer_bias_estimate (UORB message)
 
 

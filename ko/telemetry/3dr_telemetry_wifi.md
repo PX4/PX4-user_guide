@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/telemetry/3dr_telemetry_wifi
+---
+
 # 3DR WiFi 텔레메트리 (단종됨)
 
 ::::note </ 0>이 제품은 더 이상 제조되지 않거나 3DR에서 구매할 수 없습니다.

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/msg_docs/control_allocator_status
+---
+
 # control_allocator_status (UORB message)
 
 

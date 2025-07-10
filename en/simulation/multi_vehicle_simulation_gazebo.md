@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/simulation/multi_vehicle_simulation_gazebo
+---
+
 # Multi-Vehicle Simulation with Gazebo
 
 This topic explains how to simulate multiple UAV vehicles using Gazebo and SITL (Linux only).

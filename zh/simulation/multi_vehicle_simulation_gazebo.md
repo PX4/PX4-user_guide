@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/simulation/multi_vehicle_simulation_gazebo
+---
+
 # Gazebo 多机仿真
 
 本文介绍如何使用 Gazebo 仿真器配合软件在环仿真进行多机仿真（仅适用于 Linux ）。 A different approach is used for simulation with and without ROS.

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/de/gps_compass/rtk_gps_holybro_h-rtk-f9p
+---
+
 # Holybro H-RTK F9P GNSS
 
 The [Holybro H-RTK F9P GNSS](http://www.holybro.com/product/h-rtk-f9p/) is an multi-band high-precision [RTK GNSS System](../gps_compass/rtk_gps.md) series launched by Holybro. This family is similar to the [H-RTK M8P](../gps_compass/rtk_gps_holybro_h-rtk-m8p.md) series, but uses multi-band RTK with faster convergence times and reliable performance, concurrent reception of GPS, GLONASS, Galileo and BeiDou, and faster update rate for highly dynamic and high volume applications with centimeter-accuracy. It uses a u-blox F9P module, a IST8310 compass, and a tri-colored LED indicator. It also has an integrated safety switch for a simple and convenient operation.

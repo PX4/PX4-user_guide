@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/simulation/ros_interface
+---
+
 # Gazebo 与 ROS 仿真
 
 [ ROS](../ros/README.md)（机器人操作系统）可与 PX4 和[ Gazebo 模拟器](../simulation/gazebo.md)一起使用。 它使用[ MAVROS](../ros/mavros_installation.md) MAVLink 节点与 PX4 通信。

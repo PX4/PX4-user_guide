@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/debug/gdb_debugging
+---
+
 # 嵌入式调试
 
 ## 识别大型内存使用者

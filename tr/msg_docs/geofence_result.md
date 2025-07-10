@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/tr/msg_docs/geofence_result
+---
+
 # geofence_result (UORB message)
 
 

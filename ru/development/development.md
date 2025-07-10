@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/development/development
+---
+
 # PX4 Development
 
 This section explains how to support new vehicle types and variants, modify flight algorithms, add new modes, integrate new hardware, and communicate with PX4 from outside the flight controller.

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/msg_docs/vehicle_status_flags
+---
+
 # vehicle_status_flags (UORB message)
 
 This is a struct used by the commander internally.

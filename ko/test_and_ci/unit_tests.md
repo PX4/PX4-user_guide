@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/test_and_ci/unit_tests
+---
+
 # 단위 테스트
 
 개발자는 기능 추가, 버그 수정, 리팩토링 등 전 영역에 걸쳐 단위 테스트를 하는 것이 바람직합니다.

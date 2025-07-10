@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/middleware/uorb_graph
+---
+
 # uORB Pub/Sub 그래프
 
 모듈들간의 통신을 보여주는 uORB Pub/Sub 그래프를 제공합니다. It is based on information that is extracted directly from the source code. 사용 명령어는 [아래](#graph-properties)을 참고하십시오.

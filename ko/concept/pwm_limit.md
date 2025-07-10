@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/concept/pwm_limit
+---
+
 # PWM 제한 상태 머신
 
 [PWM 제한 상태 머신]은 사전 준비와 준비 입력의 기능으로 PWM 출력을 제어합니다. "armed"의 어설션과 준비된 신호의 어설션에 대한 스로틀 증가 사이의 지연을 제공합니다.

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/peripherals/camera
+---
+
 # Camera Trigger & Capture
 
 PX4 can map outputs to trigger a camera.

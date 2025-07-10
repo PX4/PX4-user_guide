@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/flight_modes/manual_fw
+---
+
 # 手动模式（固定翼）
 
 <!-- this requires review -->

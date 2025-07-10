@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/peripherals/camera_t265_vio
+---
+
 # T265 Intel Realsense Tracking Camera (VIO)
 
 The [Intel Realsense Tracking Camera T265](https://www.intelrealsense.com/tracking-camera-t265/) provides odometry information that can be used for [VIO](../computer_vision/visual_inertial_odometry.md), augmenting or replacing other positioning systems on PX4.

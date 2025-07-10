@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/debug/gdb_debugging
+---
+
 # 임베디드 디버깅
 
 ## 편리한 콘솔 명령어

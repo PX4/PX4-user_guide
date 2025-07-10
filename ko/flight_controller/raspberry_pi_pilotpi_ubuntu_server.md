@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/flight_controller/raspberry_pi_pilotpi_ubuntu_server
+---
+
 # 우분투 서버 기반 파일럿파이
 
 :::warning

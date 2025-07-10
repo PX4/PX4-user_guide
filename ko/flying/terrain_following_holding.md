@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/flying/terrain_following_holding
+---
+
 # 지형 추적, 유지 및 범위 보조
 
 PX4는 *멀티 콥터*에서 [위치](../flight_modes/position_mc.md) 및 [고도 모드](../flight_modes/altitude_mc.md)에서 [지형 추적](#terrain_following) 및 [지형 유지](#terrain_hold), 및 [거리 센서](../sensor/rangefinders.md)가 있는 *MC 모드의 VTOL 차량*를 지원합니다.

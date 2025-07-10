@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/de/modules/modules_driver_imu
+---
+
 # Modules Reference: Imu (Driver)
 ## adis16448
 Source: [drivers/imu/analog_devices/adis16448](https://github.com/PX4/PX4-Autopilot/tree/release/1.13/src/drivers/imu/analog_devices/adis16448)

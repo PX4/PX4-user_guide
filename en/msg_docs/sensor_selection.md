@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/msg_docs/sensor_selection
+---
+
 # sensor_selection (UORB message)
 
 Sensor ID's for the voted sensors output on the sensor_combined topic.

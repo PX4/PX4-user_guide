@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/tr/msg_docs/mission_result
+---
+
 # mission_result (UORB message)
 
 

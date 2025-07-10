@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/msg_docs/vehicle_land_detected
+---
+
 # vehicle_land_detected (UORB message)
 
 

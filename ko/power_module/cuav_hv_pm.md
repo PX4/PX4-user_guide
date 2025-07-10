@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/power_module/cuav_hv_pm
+---
+
 # CUAV HV PM (고전압 전원 모듈)
 
 CUAV<sup>&reg;</sup> *HV_PM* 전원 모듈은 CUAV에서 개발한 "고전압" 전원 모듈입니다.

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/msg_docs/failure_detector_status
+---
+
 # failure_detector_status (UORB message)
 
 

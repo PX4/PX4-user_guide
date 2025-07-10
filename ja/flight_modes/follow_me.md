@@ -1,4 +1,8 @@
 ---
+canonicalUrl: https://docs.px4.io/main/ja/flight_modes/follow_me
+---
+
+---
 author: Jimmy Johnson
 ---
 

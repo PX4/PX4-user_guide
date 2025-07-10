@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/assembly/mount_and_orient_controller
+---
+
 # 安装固定飞控
 
 ## 安装方向

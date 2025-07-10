@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/flight_controller/auav_x2
+---
+
 # AUAV-X2 自动驾驶仪 (停产)
 
 :::warning

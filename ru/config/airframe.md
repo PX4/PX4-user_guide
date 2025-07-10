@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/config/airframe
+---
+
 # Airframe Setup
 
 After installing firmware you need to select the [airframe configuration](../airframes/airframe_reference.md) that best matches your vehicle.

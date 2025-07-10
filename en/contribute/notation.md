@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/contribute/notation
+---
+
 # Terminology
 
 The following terms, symbols, and decorators are used in text and diagrams throughout this guide.

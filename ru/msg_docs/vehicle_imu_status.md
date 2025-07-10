@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/msg_docs/vehicle_imu_status
+---
+
 # vehicle_imu_status (UORB message)
 
 

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/de/modules/modules_driver_transponder
+---
+
 # Modules Reference: Transponder (Driver)
 ## sagetech_mxs
 Source: [drivers/transponder/sagetech_mxs](https://github.com/PX4/PX4-Autopilot/tree/release/1.13/src/drivers/transponder/sagetech_mxs)

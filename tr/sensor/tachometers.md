@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/tr/sensor/tachometers
+---
+
 # Tachometers (Revolution Counters)
 
 Tachometers (also known as [revolution-counter sensors](https://en.wikipedia.org/wiki/Tachometer#In_automobiles,_trucks,_tractors_and_aircraft)) are *highly recommended* for rotor-wing frames because they allow the autopilot to detect stall or another rotor failure (for rotor-flight it is the rotation of blades that guarantees lift not airspeed or ground speed).

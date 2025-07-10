@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/telemetry/README
+---
+
 # 数传电台模块
 
 Telemetry Radios can (optionally) be used to provide a wireless MAVLink connection between a ground control station like *QGroundControl* and a vehicle running PX4. 这使得飞机飞行时调试、检查数传、更改任务等等成为了可能。

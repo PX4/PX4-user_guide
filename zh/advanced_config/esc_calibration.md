@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/advanced_config/esc_calibration
+---
+
 # 电调（ESC）校准
 
 :::note

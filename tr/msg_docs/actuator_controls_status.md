@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/tr/msg_docs/actuator_controls_status
+---
+
 # actuator_controls_status (UORB message)
 
 

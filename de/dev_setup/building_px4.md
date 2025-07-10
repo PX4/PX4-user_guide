@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/de/dev_setup/building_px4
+---
+
 # Building PX4 Software
 
 PX4 can be built on the console or in an IDE, for both simulated and hardware targets.

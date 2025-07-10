@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/de/frames_multicopter/matrice100
+---
+
 # DJI Matrice 100 (Pixhawk 1)
 
 The DJI<sup>&reg;</sup> Matrice quadcopter is a fully customizable and programmable flight platform. This build log provides build and configuration instructions for using the frame with the *3DR Pixhawk* flight controller.

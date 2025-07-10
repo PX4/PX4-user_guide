@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/de/dev_setup/dev_env_linux_ubuntu
+---
+
 # Ubuntu Development Environment
 
 The following instructions set up a PX4 development environment on Ubuntu Linux 18.04 amd 20.04. This environment can be used to build PX4 for [most PX4 targets](../dev_setup/dev_env.md#supported-targets):

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/flight_controller/snapdragon_flight
+---
+
 # Snapdragon Flight Autopilot (Discontinued)
 
 :::warning

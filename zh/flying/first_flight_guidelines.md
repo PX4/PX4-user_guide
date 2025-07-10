@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/flying/first_flight_guidelines
+---
+
 # 首次飞行指南
 
 [学习飞行](../flying/basic_flying.md)是很有趣的! 这些指南旨在确保您的首次飞行体验愉快、有教育意义且安全。

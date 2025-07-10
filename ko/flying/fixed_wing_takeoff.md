@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/flying/fixed_wing_takeoff
+---
+
 # 고정익 이륙
 
 PX4는 [임무](#mission-takeoff)와 [이륙](#takeoff-flight-mode) 비행 모드에서 고정익 이륙을 지원합니다. 기체는 *투석기/수동 발사*를 사용하거나 활주로 이륙 모드를 사용할 수 있습니다. <!-- runway support in missions? -->

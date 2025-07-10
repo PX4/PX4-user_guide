@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/advanced_config/prearm_arm_disarm
+---
+
 # 시동 전, 시동, 제동 구성
 
 기체에는 움직이는 부품이 있으며, 그 중에는 특히 모터와 프로펠러는 전원 공급시 위험할 수 있습니다.

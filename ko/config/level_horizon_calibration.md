@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/config/level_horizon_calibration
+---
+
 # 수평 보정
 
 *수평 보정* 작업은 장치들의 미세한 방향 오차를 보정하고, *QGroundControl* 비행 시야의 수평(파란색이 위로, 녹색이 아래로 가게)을 보정합니다.

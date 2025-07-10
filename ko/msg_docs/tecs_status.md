@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/msg_docs/tecs_status
+---
+
 # tecs_status (UORB message)
 
 

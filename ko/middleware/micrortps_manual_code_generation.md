@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/middleware/micrortps_manual_code_generation
+---
+
 # 클라이언트 및 에이전트 코드 수동 생성
 
 클라이언트와 에이전트 코드를 수동으로 생성하는 방법을 설명합니다(PX4 펌웨어가 컴파일될 때 코드를 [자동으로 생성](../middleware/micrortps.md)하는 대신).

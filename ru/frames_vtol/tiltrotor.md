@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/frames_vtol/tiltrotor
+---
+
 # Tiltrotor VTOL
 
 A **Tiltrotor VTOL** is a [VTOL](../frames_vtol/README.md) vehicle that has rotors that can swivel 90 degrees, allowing them to act as either multicopter rotors or as fixed-wing propellers.

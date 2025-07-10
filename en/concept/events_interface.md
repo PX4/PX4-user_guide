@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/concept/events_interface
+---
+
 # Events Interface
 
 The *Events Interface* provides a system-wide API for notification of events, which are published to GCSs via the *MAVLink Events Service* (to GCSs and other components) and also stored in [system logs](../dev_log/logging.md).

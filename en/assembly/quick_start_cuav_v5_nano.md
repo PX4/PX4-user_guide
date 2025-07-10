@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/assembly/quick_start_cuav_v5_nano
+---
+
 # CUAV V5 nano Wiring Quick Start
 
 :::warning

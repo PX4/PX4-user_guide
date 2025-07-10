@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/de/flying/README
+---
+
 # Flying
 
 This section contains topics about flying your (fully configured) autopilot controlled vehicle. It covers both (autopilot-assisted) manual flight and mission planning for fully autonomous flight.

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/modules/modules_driver_baro
+---
+
 # 모듈 참조: 기압 센서(드라이버)
 ## bmp280
 소스: [drivers/barometer/bmp280](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/barometer/bmp280)

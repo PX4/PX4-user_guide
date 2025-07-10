@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/dev_log/flight_log_analysis
+---
+
 # 비행 로그 분석
 
 비행 로그 수집과 분석 방법에 대하여 설명합니다.

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/msg_docs/orb_test_large
+---
+
 # orb_test_large (UORB message)
 
 

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/test_and_ci/README
+---
+
 # 平台测试和持续集成
 
 PX4 提供广泛的测试和测试设施，包括通过持续集成运行的单元和集成测试以及由我们的专业测试团队进行的“实时”飞行测试。 此页面提供概述。

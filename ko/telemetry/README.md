@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/telemetry/README
+---
+
 # 텔레메트리 라디오/모뎀
 
 텔레메트리 라디오는 (선택적으로) *QGroundControl*과 같은 지상 관제소와 PX4를 실행 기체간의 무선 MAVLink 연결을 제공합니다. 기체가 비행 중일 때 매개변수를 조정하고, 실시간으로 원격 측정 데이터를 확인하고, 비행 중 임무를 변경 등의 작업을 수행합니다.

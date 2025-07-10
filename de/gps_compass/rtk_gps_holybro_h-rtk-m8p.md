@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/de/gps_compass/rtk_gps_holybro_h-rtk-m8p
+---
+
 # Holybro H-RTK M8P GNSS
 
 The [Holybro H-RTK M8P GNSS](http://www.holybro.com/product/h-rtk-m8p-rover-lite/) is an [RTK GNSS module](../gps_compass/rtk_gps.md) series for the mass market. This family is similar to the [H-RTK M9P](../gps_compass/rtk_gps_holybro_h-rtk-f9p.md) series but uses the smaller, lighter, and less expensive M8P u-blox RTK GNSS module (which still provides far superior position resolution than previous generations_.

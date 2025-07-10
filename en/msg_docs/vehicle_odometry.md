@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/msg_docs/vehicle_odometry
+---
+
 # vehicle_odometry (UORB message)
 
 Vehicle odometry data. Fits ROS REP 147 for aerial vehicles

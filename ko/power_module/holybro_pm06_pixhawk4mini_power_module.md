@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/power_module/holybro_pm06_pixhawk4mini_power_module
+---
+
 # Holybro Micro 전원 모듈 (PM06)
 
 This power module has integrated power distribution board and provides regulated power for a flight controller and ESCs, and sends information to the autopilot about the battery’s voltage and current draw.

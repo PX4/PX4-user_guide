@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/simulation/ignition_gazebo
+---
+
 # Ignition Gazebo Simulation
 
 :::warning

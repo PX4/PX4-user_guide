@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/companion_computer/video_streaming
+---
+
 # 동영상 스트리밍 (보조 컴퓨터/QGroundControl)
 
 PX4 기반의 기체는 보조 컴퓨터에 연결된 카메라를 사용하여 비디오 스트리밍을 제공합니다. GStreamer는인터넷으로 *QGroundControl*에 비디오를 전송합니다.

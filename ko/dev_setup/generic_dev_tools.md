@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/dev_setup/generic_dev_tools
+---
+
 # 일반적인 개발 도구
 
 이 절에서는 핵심 PX4 빌드 툴체인이 아닌 유용한 추가 개발 도구를 나열합니다.

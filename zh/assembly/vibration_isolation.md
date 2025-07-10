@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/assembly/vibration_isolation
+---
+
 # 振动隔离
 
 本主题展示了如何确定振动水平是否过高，并列出了一些改善振动特征的简单步骤。

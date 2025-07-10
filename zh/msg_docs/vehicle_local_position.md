@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/msg_docs/vehicle_local_position
+---
+
 # vehicle_local_position (UORB message)
 
 Fused local position in NED. The coordinate system origin is the vehicle position at the time when the EKF2-module was started.

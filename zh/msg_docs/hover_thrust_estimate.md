@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/msg_docs/hover_thrust_estimate
+---
+
 # hover_thrust_estimate (UORB message)
 
 

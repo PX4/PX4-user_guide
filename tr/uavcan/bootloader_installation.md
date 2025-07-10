@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/tr/uavcan/bootloader_installation
+---
+
 # UAVCAN Bootloader Installation
 
 :::warning

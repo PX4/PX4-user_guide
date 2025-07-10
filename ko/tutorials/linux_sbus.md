@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/tutorials/linux_sbus
+---
+
 # Linux에서 RC 수신기 연결(S.Bus 포함)
 
 직렬 포트에서 [지원되는 RC 수신기](../getting_started/rc_transmitter_receiver.md)를 연결하고 사용하도록, PX4 Linux 기반 자동조종장치 설정 방법을 설명합니다.

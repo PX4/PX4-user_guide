@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/msg_docs/manual_control_switches
+---
+
 # manual_control_switches (UORB message)
 
 

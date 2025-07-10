@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/de/frames_multicopter/robocat_270_pixracer
+---
+
 # Robocat 270
 
 The Robocat 270 is a small quadcopter design, rather meant for cruising than for racing, still a perfect trial base for the [Pixracer](../flight_controller/pixracer.md) autopilot. It is heavier than a typical 250 racer, but offers a lot of space for add owns and bigger batteries up to 3S/2200mAh. Its an robust small quadcopter for beginners, very well visible for older Pros as well. It's so easy: Robocat, Pixracer with PX4 Software and QGroundControl Groundstation: Build, calibrate and fly !

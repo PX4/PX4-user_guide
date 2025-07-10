@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/advanced/dev_env_unsupported
+---
+
 # 지원되지 않는 개발 도구 모음
 
 *지원되지 않는* 개발 플랫폼 및 도구(예: 코드 개발 팀에서 많은 조언을 제공할 수 없는 도구)에 대하여 설명합니다.

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/advanced/switching_state_estimators
+---
+
 # 상태 추정기 전환
 
 어떤 상태 추정기를 사용할 수 있고 어떻게 전환할 수 있는 지를 설명합니다.

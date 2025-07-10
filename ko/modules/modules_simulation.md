@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/modules/modules_simulation
+---
+
 # 모듈 참조: 시뮬레이션
 
 ## sih

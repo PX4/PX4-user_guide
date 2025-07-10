@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/frames_vtol/README
+---
+
 # VTOL 기체
 
 PX4는 고정익의 전방 비행과 멀티콥터의 수직 이착륙을 기능을 모두 지원하는 차량을 지칭하는 VTOL이라는 용어를 사용합니다.

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/frames_multicopter/robocat_270_pixracer
+---
+
 # Robocat 270
 
 Robocat 270은 경주용이 아닌 순항용으로 설계된 소형 쿼드 콥터로 [Pixracer](../flight_controller/pixracer.md) 자동조종장치를위한 최적의 시험용 제품입니다. It is heavier than a typical 250 racer, but offers a lot of space for add owns and bigger batteries up to 3S/2200mAh. 초보자를위한 견고한 소형 쿼드 콥터로, 노년층 전문가에게도 적당합니다. 매우 쉽습니다 : Robocat, PX4 소프트웨어가 포함된 Pixracer 및 QGroundControl Groundstation : 조립, 보정 및 비행!

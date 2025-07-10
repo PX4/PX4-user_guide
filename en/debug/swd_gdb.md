@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/debug/swd_gdb
+---
+
 # SWD GDB Hardware Debugging
 
 This page documents how to connect the hardware target using GDB (from a terminal).

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/config/motors
+---
+
 # Motor/Servo Checks
 
 :::note

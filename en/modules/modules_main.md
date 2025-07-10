@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/modules/modules_main
+---
+
 
 # Modules & Commands Reference
 The following pages document the PX4 modules, drivers and commands. They

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/de/msg_docs/power_button_state
+---
+
 # power_button_state (UORB message)
 
 power button state notification message

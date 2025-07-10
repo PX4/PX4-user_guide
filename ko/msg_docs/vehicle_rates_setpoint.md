@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/msg_docs/vehicle_rates_setpoint
+---
+
 # vehicle_rates_setpoint (UORB message)
 
 

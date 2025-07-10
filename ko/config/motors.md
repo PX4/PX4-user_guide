@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/config/motors
+---
+
 # 모터/서보 점검
 
 :::note

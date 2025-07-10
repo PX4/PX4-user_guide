@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/gps_compass/README
+---
+
 # GPS&罗盘
 
 PX4 supports global navigation satellite systems (GNSS) (including GPS, GLONASS, Galileo, BeiDou, QZSS and SBAS) using receivers that communicate via the u-blox, MTK Ashtech or Emlid protocols, or via UAVCAN. It also supports [Real Time Kinematic (RTK) ](../gps_compass/rtk_gps.md) and **Post-Processing Kinematic (PPK)** GPS Receivers, which extend GPS systems to centimetre-level precision.

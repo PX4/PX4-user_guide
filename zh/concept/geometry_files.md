@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/concept/geometry_files
+---
+
 # Multicopter Geometry Files
 
 :::note

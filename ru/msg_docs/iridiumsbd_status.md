@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/msg_docs/iridiumsbd_status
+---
+
 # iridiumsbd_status (UORB message)
 
 

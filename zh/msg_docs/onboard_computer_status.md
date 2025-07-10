@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/msg_docs/onboard_computer_status
+---
+
 # onboard_computer_status (UORB message)
 
 ONBOARD_COMPUTER_STATUS message data

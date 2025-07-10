@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/tr/dev_setup/getting_started
+---
+
 # Başlangıç
 
 Bu bölüm, PX4 geliştirmeye başlamakla ilgili konuları içermektedir:

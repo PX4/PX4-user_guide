@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/config/README
+---
+
 # 기본 설정
 
 PX4 차량의 표준 소프트웨어 설정 방법과 보정 방법에 대하여 설명합니다.

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/dev_setup/dev_env_windows_wsl
+---
+
 # Windows WSL2-Based Development Environment
 
 The following instructions explain how to set up a PX4 development environment on Windows 11, running on Ubuntu Linux within [WSL2](https://docs.microsoft.com/en-us/windows/wsl/about).

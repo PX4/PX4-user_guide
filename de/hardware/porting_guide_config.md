@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/de/hardware/porting_guide_config
+---
+
 # PX4 Board Configuration (Kconfig)
 
 The PX4 Autopilot firmware can be configured at build time to adapt it for specialized applications (fixedwing, multicopter, rover or more), to enable new and experimental features (such as RTPS or UAVCANv1) or to save flash & RAM usage by disabling some drivers and subsystems. This configuration is handled through *Kconfig*, which is the same [configuration system used by NuttX](../hardware/porting_guide_nuttx.md#nuttx-menuconfig-setup).

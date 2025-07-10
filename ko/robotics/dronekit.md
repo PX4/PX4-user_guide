@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/robotics/dronekit
+---
+
 # DroneKit PX4 통신
 
 DroneKit is no longer recommended.

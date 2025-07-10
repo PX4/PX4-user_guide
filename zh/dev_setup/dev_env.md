@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/dev_setup/dev_env
+---
+
 # 安装文件和代码
 
 The *supported platforms* for PX4 development are:

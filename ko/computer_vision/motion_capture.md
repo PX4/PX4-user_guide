@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/computer_vision/motion_capture
+---
+
 # 모션 캡쳐 (MoCap)
 
 모션 캡쳐(MoCap)는 *외부 * 포지셔닝 메커니즘을 사용하여 기체의 삼차원 *자세* (위치와 방향)를 추정하는 [컴퓨터 비전](https://en.wikipedia.org/wiki/Computer_vision) 기술입니다. It is commonly used to navigate a vehicle in situations where GPS is absent (e.g. indoors), and provides position relative to a *local* coordinate system.

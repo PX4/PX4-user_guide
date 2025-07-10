@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/sensor/optical_flow
+---
+
 # 光流
 
 *Optical Flow* uses a downward facing camera and a downward facing distance sensor for velocity estimation.

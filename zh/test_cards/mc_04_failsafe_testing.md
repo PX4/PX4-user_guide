@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/test_cards/mc_04_failsafe_testing
+---
+
 # 测试 MC_04 -故障安全测试
 
 ❏ 验证 RC Loss 动作是否返回陆地

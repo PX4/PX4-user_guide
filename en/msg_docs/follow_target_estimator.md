@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/msg_docs/follow_target_estimator
+---
+
 # follow_target_estimator (UORB message)
 
 

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/sensor_bus/README
+---
+
 # Sensor and Actuator I/O
 
 This section contains topics about integrating sensors and actuators into PX4.

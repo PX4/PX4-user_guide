@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/tr/advanced/switching_state_estimators
+---
+
 # Switching State Estimators
 
 This page shows you which state estimators are available and how you can switch between them.

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/dev_log/logging
+---
+
 # 로깅
 
 The [system logger](../modules/modules_system.md#logger) is able to log any ORB topic with all included fields. 필요한 모든 것은 `.msg` 파일에서 생성되므로, 주제 이름만 지정하면 됩니다. 선택적 간격 매개변수는 특정 주제의 최대 로깅 속도를 지정합니다. 주제의 모든 기존 인스턴스가 기록됩니다.

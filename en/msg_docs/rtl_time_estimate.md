@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/msg_docs/rtl_time_estimate
+---
+
 # rtl_time_estimate (UORB message)
 
 

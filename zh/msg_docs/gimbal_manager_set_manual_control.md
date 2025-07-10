@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/msg_docs/gimbal_manager_set_manual_control
+---
+
 # gimbal_manager_set_manual_control (UORB message)
 
 

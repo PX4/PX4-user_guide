@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/getting_started/vehicle_status
+---
+
 # Vehicle Status Notifications
 
 PX4 provides vehicle-based visual (LED) and audible (Buzzer) notifications of "high level" vehicle status and readiness to fly. These notifications indicate, for example, whether or not the vehicle is properly calibrated, has an SD card, has position lock, is safe to approach, whether or not it is armed, when it is ready to fly, etc.

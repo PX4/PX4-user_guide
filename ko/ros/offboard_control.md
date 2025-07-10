@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/ros/offboard_control
+---
+
 # 오프보드 제어
 
 :::warning

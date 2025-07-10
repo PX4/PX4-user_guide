@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/concept/geometry_files
+---
+
 # 멀티콥터 지오메트리 파일
 
 :::note

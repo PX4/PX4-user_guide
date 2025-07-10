@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/simulation/multi_vehicle_jmavsim
+---
+
 # JMAVSim 다중 차량 시뮬레이션
 
 이 항목에서는 JMAVSim과 SITL을 사용하여 다중 UAV(멀티콥터) 차량을 시뮬레이션 방법을 설명합니다. 모든 차량 인스턴스는 시뮬레이션의 동일한 위치에서 시작합니다.

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/msg_docs/debug_array
+---
+
 # debug_array (UORB message)
 
 

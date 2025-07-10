@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/msg_docs/ulog_stream
+---
+
 # ulog_stream (UORB message)
 
 Message to stream ULog data from the logger. Corresponds to the LOGGING_DATA mavlink message

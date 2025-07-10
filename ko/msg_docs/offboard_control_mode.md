@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/msg_docs/offboard_control_mode
+---
+
 # offboard_control_mode (UORB message)
 
 Off-board control mode

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/advanced_config/bootloader_update
+---
+
 # Bootloader 更新
 
 [PX4 bootloader](https://github.com/PX4/Bootloader)用于为 Pixhawk 板（PX4FMU, PX4IO）和[PX4FLOW](../sensor/px4flow.md)加载固件。

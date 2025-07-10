@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/dev_setup/dev_env_linux_arch
+---
+
 # ArchLinux 上的开发环境
 
 :::warning

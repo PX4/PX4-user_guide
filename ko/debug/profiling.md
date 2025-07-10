@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/debug/profiling
+---
+
 # 가난한 자의 샘플링 프로파일러
 
 [Poor Man's Sampling Profiler](https://github.com/PX4/PX4-Autopilot/blob/master/platforms/nuttx/Debug/poor-mans-profiler.sh)(PMSP) 셸 스크립트를 사용하여 PX4 성능 평가 방법을 설명합니다. 이것은 원래 [Mark Callaghan과 Domas Mituzas](https://poormansprofiler.org/)가 발명한 알려진 방법의 구현입니다.

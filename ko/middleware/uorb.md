@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/middleware/uorb
+---
+
 # uORB 메시징
 
 ## 소개

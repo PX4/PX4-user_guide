@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/de/msg_docs/estimator_aid_source_2d
+---
+
 # estimator_aid_source_2d (UORB message)
 
 

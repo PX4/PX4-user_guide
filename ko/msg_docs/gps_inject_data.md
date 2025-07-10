@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/msg_docs/gps_inject_data
+---
+
 # gps_inject_data (UORB message)
 
 

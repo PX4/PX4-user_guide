@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/sensor/teraranger
+---
+
 # TeraRanger Rangefinders
 
 TeraRanger provide a number of lightweight distance measurement sensor based on infrared Time-of-Flight (ToF) technology. 

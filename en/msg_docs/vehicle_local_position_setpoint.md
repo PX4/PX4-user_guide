@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/msg_docs/vehicle_local_position_setpoint
+---
+
 # vehicle_local_position_setpoint (UORB message)
 
 Local position setpoint in NED frame

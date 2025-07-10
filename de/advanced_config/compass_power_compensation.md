@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/de/advanced_config/compass_power_compensation
+---
+
 # Compass Power Compensation
 
 Compasses (magnetometers) should be mounted as far as possible from cables that carry large currents, as these induce magnetic fields that may corrupt the compass readings.

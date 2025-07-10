@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/computer_vision/safe_landing
+---
+
 # Safe Landing
 
 The *Safe Landing* feature ensures that vehicles only land on flat terrain.

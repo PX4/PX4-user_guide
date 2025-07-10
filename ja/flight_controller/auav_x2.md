@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/flight_controller/auav_x2
+---
+
 # AUAV-X2 Autopilot (Discontinued)
 
 :::warning

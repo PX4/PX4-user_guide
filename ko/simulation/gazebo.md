@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/simulation/gazebo
+---
+
 # Gazebo 시뮬레이션
 
 [Gazebo](http://gazebosim.org)는 물체 회피 및 컴퓨터 비전 테스트에 적합한 자율 로봇을 위한 강력한 3D 시뮬레이션 환경입니다. 이 페이지에서는 SITL과 단일 차량과 함께 사용하는 방법을 설명합니다. Gazebo는 [HITL](../simulation/hitl.md) 및 [다중 차량 시뮬레이션](../simulation/multi-vehicle-simulation.md)과 함께 사용할 수 있습니다.

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/tr/assembly/mount_gps_compass
+---
+
 # Mounting the GPS/Compass
 
 The GPS/Compass should be mounted on the frame as far away from other electronics as possible, with the direction marker pointing towards the front of the vehicle. The diagram below shows the heading marker on the Pixhawk 4 and compass.

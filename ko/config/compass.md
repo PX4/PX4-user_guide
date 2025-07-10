@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/config/compass
+---
+
 # 나침반 보정
 
 나침반 보정은 내부 및 외부 [나침반 센서](../gps_compass/README.md)들을 설정합니다. *QGroundControl*에서 차량을 설정 방향으로 배치하고, 지정된 축을 기준으로 차량을 회전하도록 안내합니다.

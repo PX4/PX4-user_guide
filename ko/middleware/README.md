@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/middleware/README
+---
+
 # 미들웨어
 
 PX4 내부 통신 메커니즘([uORB](../middleware/uorb.md))을 비롯한 PX4 미들웨어와 PX4와 컴패니언 컴퓨터 및 GCS(예: [MAVLink](../middleware/mavlink.md), [RTPS](../middleware/micrortps.md))와 같은 오프보드 시스템 간의 통신에 대하여 설명합니다.

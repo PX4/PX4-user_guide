@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/telemetry/rfd900_telemetry
+---
+
 # RFD900长距离数传
 
 [jDrones](http://store.jDrones.com) and [RFDesign](http://rfdesign.com.au/) offer *long-range* [SiK](../telemetry/sik_radio.md)-compatible telemetry radios. 这个电台配合普通天线可以提供最少5公里的稳定链接。

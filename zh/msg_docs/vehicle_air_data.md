@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/msg_docs/vehicle_air_data
+---
+
 # vehicle_air_data (UORB message)
 
 

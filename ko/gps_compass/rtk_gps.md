@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/gps_compass/rtk_gps
+---
+
 # RTK GPS
 
 PX4에서는 *RTK GPS* 장치의 센티미터 수준의 정확도로 정밀측량이 가능합니다.

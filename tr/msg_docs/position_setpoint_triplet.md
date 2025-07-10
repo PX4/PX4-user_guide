@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/tr/msg_docs/position_setpoint_triplet
+---
+
 # position_setpoint_triplet (UORB message)
 
 Global position setpoint triplet in WGS84 coordinates. This are the three next waypoints (or just the next two or one).

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/msg_docs/sensor_hygrometer
+---
+
 # sensor_hygrometer (UORB message)
 
 

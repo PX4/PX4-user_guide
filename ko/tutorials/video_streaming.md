@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/tutorials/video_streaming
+---
+
 # 오드로이드 C1에서 QGroundControl로의 동영상 스트리밍
 
 :::note

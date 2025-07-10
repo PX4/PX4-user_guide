@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/dev_log/flight_log_analysis
+---
+
 # Flight Log Analysis
 
 Information about collecting and analysing flight logs is covered in:

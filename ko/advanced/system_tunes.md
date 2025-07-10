@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/advanced/system_tunes
+---
+
 # 시스템 알림음
 
 PX4는 중요한 시스템 상태와 문제(예: 시스템 시작, 준비 성공, 배터리 경고 등)들에 대한 오디오 알림을 위한 다양한 [표준 톤/곡](../getting_started/tunes.md)을 정의합니다.

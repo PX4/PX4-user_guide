@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/simulation/jsbsim
+---
+
 # JSBSim 시뮬레이션
 
 [JSBSim](http://jsbsim.sourceforge.net/index.html)은 Microsoft Windows, Apple Macintosh, Linux, IRIX, Cygwin(Windows의 Unix) 등에서 실행되는 오픈 소스 비행 시뮬레이터("비행 역학 모델(FDM)")입니다. 주요 특징은 다음과 같습니다: 완전히 구성 가능한 공기 역학 및 항공기의 복잡한 비행 역학을 모델링할 수 있는 추진 시스템. 지구 회전 효과도 역학으로 모델링됩니다.

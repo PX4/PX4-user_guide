@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/de/msg_docs/gimbal_manager_information
+---
+
 # gimbal_manager_information (UORB message)
 
 

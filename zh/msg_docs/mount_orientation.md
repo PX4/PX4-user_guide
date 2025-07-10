@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/msg_docs/mount_orientation
+---
+
 # mount_orientation (UORB message)
 
 

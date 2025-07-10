@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/gps_compass/rtk_gps_hex_here2
+---
+
 # HEX/ProfiCNC Here2 RTK GPS
 
 The [Here2 RTK GPS receiver](http://www.proficnc.com/all-products/152-gps-module.html) is a new [RTK GPS module](../gps_compass/rtk_gps.md) from HEX that provides highly reliable navigation. Using RTK, PX4 can get its position with centimetre-level accuracy, which is much more accurate than can be provided by a normal GPS.

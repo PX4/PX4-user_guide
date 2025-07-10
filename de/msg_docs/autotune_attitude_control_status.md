@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/de/msg_docs/autotune_attitude_control_status
+---
+
 # autotune_attitude_control_status (UORB message)
 
 

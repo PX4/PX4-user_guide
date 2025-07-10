@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/msg_docs/gimbal_manager_set_attitude
+---
+
 # gimbal_manager_set_attitude (UORB message)
 
 

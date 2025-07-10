@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/companion_computer/pixhawk_companion
+---
+
 # 픽스호크 시리즈 보조 컴퓨터
 
 PX4 can connect to companion computers (Raspberry Pi, Odroid, Tegra K1, etc.) using any configurable serial port, including the Ethernet port (if supported). Message are sent over the link using the [MAVLink](https://mavlink.io/en/) protocol.

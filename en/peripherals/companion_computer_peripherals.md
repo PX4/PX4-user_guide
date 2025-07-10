@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/peripherals/companion_computer_peripherals
+---
+
 # Companion Computer Peripherals
 
 This section contains information about companion computer peripherals.

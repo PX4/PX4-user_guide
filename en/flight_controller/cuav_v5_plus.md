@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/flight_controller/cuav_v5_plus
+---
+
 # CUAV V5+ Autopilot
 
 :::warning

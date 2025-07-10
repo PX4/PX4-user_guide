@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/tr/payloads/README
+---
+
 # Payloads and Cameras
 
 PX4 supports a wide range of payloads and cameras.

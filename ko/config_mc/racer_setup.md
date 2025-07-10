@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/config_mc/racer_setup
+---
+
 # 레이서 설정
 
 레이서의 최적의 성능 (특히 [곡예 모드](../flight_modes/acro_mc.md))을 위한 설정법을 설명합니다.

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/de/flying/terrain_following_holding
+---
+
 # Terrain Following/Holding & Range Aid
 
 PX4 supports [Terrain Following](#terrain_following) and [Terrain Hold](#terrain_hold) in [Position](../flight_modes/position_mc.md) and [Altitude modes](../flight_modes/altitude_mc.md), on *multicopters* and *VTOL vehicles in MC mode* that have a [distance sensor](../sensor/rangefinders.md).

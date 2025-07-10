@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/flight_controller/cuav_v5
+---
+
 # CUAV v5 (단종)
 
 :::warning

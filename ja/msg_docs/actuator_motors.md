@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/msg_docs/actuator_motors
+---
+
 # actuator_motors (UORB message)
 
 Motor control message

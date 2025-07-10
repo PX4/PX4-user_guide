@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/getting_started/rc_transmitter_receiver
+---
+
 # 無線操縦システム
 
 無線操縦 (RC) システムは，*マニュアルで* 機体を手持ちの送信機から操縦する場合に必要です。 本章では，無線操縦システムについての概要と，選定の仕方，接続の仕方について解説します。

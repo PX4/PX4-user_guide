@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/airframes/airframe_reference
+---
+
 # 에어프레임 참조
 
 :::note

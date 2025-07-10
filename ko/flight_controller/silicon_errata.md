@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/flight_controller/silicon_errata
+---
+
 # 실리콘 정오표
 
 Pixhawk 보드 시리즈에 사용되는 타사 부품(마이크로 컨트롤러, 센서 등)의 실리콘 (하드웨어) 정오표와 관련된 문제점들을 설명합니다. 실리콘 오류 유형에 따라 이러한 오류는 소프트웨어에서 수정할 수 없으며 특정 제한이 적용될 수 있습니다.

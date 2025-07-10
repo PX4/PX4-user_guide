@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/flight_modes/README
+---
+
 # 飞行模式
 
 *Flight Modes* define how the autopilot responds to user input and controls vehicle movement. 下表总结了固定机翼和直升机的飞行模式 （[表键如下](#key)）。 请注意，这是 "上层" 默认行为，可能因机体参数而异。 链接的主题（侧边栏）提供了有关各个模式的详细信息，包括它们的调整参数。

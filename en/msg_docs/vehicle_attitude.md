@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/msg_docs/vehicle_attitude
+---
+
 # vehicle_attitude (UORB message)
 
 This is similar to the mavlink message ATTITUDE_QUATERNION, but for onboard use

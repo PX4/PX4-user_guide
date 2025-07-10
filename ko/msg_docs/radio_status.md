@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/msg_docs/radio_status
+---
+
 # radio_status (UORB message)
 
 

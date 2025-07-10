@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/debug/mavlink_shell
+---
+
 # MAVLink 쉘
 
 MAVLink Shell은 직렬(USB/Telemetry) 또는 Wi-Fi(UDP/TCP)를 통하여 MAVLink에 접근할 수 있는 *NSH 콘솔*입니다(특히 Pixhawk, Pixracer, 등.).

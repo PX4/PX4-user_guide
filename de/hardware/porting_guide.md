@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/de/hardware/porting_guide
+---
+
 # Flight Controller Porting Guide
 
 This topic is for developers who want to port PX4 to work with *new* flight controller hardware.

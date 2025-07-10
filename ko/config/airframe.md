@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/config/airframe
+---
+
 # 기체 설정
 
 펌웨어를 설치한 후에 차량에 적절한 [기체 설정](../airframes/airframe_reference.md)을 선택하여야 합니다.

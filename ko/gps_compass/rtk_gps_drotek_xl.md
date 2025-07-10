@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/gps_compass/rtk_gps_drotek_xl
+---
+
 # Drotek XL RTK GPS
 
 [Drotek XL RTK GPS 수신기](https://store-drotek.com/881-DP0503.html)는베이스 또는 로버로 설정 가능한 저렴한 가격의 [RTK GPS 모듈](../gps_compass/rtk_gps.md)입니다. RTK를 사용하면 PX4는 일반 GPS에서 제공하는 것 보다 훨씬 더 정확한 센티미터 수준의 정확도로 위치를 파악할 수 있습니다.

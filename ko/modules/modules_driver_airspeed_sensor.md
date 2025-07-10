@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/modules/modules_driver_airspeed_sensor
+---
+
 # 모듈 참조: 항속 센서(드라이버)
 ## ets_airspeed
 소스: [drivers/differential_pressure/ets](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/differential_pressure/ets)

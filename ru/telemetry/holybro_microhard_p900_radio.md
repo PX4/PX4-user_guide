@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/telemetry/holybro_microhard_p900_radio
+---
+
 # Holybro Microhard P900 Radio
 
 The [Holybro Microhard P900 Radio](http://www.holybro.com/product/microhard-p900-radio/) integrates the [Microhard Pico Serial](http://microhardcorp.com/P900.php) P900 RF module, which is capable of delivering high-performance wireless serial communications in robust and secure mesh, point-to-point or point-to-multipoint topologies. It enables MAVLink communication between a radio on a vehicle and a GCS.

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/tr/msg_docs/landing_target_innovations
+---
+
 # landing_target_innovations (UORB message)
 
 

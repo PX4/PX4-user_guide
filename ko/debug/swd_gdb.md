@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/debug/swd_gdb
+---
+
 # SWD GDB 하드웨어 디버깅
 
 터미널에서 GDB를 사용하여 하드웨어 대상을 연결하는 방법을 설명합니다. IDE를 사용하려면 [Eclipse](../debug/eclipse_jlink.md) 또는 [VSCode](../dev_setup/vscode.md#hardware-debugging) 사용법을 참고하십시오.

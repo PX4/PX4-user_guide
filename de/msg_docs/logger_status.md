@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/de/msg_docs/logger_status
+---
+
 # logger_status (UORB message)
 
 

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/hardware/board_support_guide
+---
+
 # 제조사의 PX4 보드 지원 가이드
 
 PX4 개발 및 테스트 팀은 [Pixhawk 표준](https://pixhawk.org/standards/)을 준수하는 보드를 완벽하게 지원하고 유지 관리합니다. 표준을 준수하지 않거나 새로운 보드를 제작하는 업체에서는 호환성 차이를 지원하여야 합니다.

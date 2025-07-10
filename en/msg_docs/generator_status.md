@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/msg_docs/generator_status
+---
+
 # generator_status (UORB message)
 
 

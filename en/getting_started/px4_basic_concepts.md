@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/getting_started/px4_basic_concepts
+---
+
 # Basic Concepts
 
 This topic provides a basic introduction to drones and using PX4 (it is meant mostly for novice users but is also a good introduction for experienced users).

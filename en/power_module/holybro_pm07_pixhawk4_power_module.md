@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/power_module/holybro_pm07_pixhawk4_power_module
+---
+
 # Holybro Pixhawk 4 Power Module (PM07)
 
 The Power Management Board (PM Board) serves the purpose of a Power Module as well as a Power Distribution Board.

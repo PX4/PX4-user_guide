@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/msg_docs/tune_control
+---
+
 # tune_control (UORB message)
 
 This message is used to control the tunes, when the tune_id is set to CUSTOM

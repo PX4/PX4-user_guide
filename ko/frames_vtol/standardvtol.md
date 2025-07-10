@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/frames_vtol/standardvtol
+---
+
 # 표준 VTOL
 
 **표준 VTOL**은 멀티콥터와 고정익 비행 제어가 _완전히 분리된_ [VTOL](../frames_vtol/README.md)입니다.

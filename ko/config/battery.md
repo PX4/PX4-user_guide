@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/config/battery
+---
+
 # 배터리 파워 모듈 설정
 
 전원 설정 방법에 대하여 설명합니다.

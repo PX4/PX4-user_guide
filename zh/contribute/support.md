@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/contribute/support
+---
+
 # 技术支持
 
 <div v-if="$themeConfig.px4_version != 'main'">

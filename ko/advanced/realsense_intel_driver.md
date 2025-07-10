@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/advanced/realsense_intel_driver
+---
+
 # 우분투에 인텔 리얼센스 R200 드라이버 설치
 
 이 튜토리얼에서는 촬영 이미지를 ROS(Robot Operation System)를 통하여 액세스할 수 있도록, Linux 환경에서 Intel RealSense R200 카메라 드라이버를 설치 방법을 설명합니다. RealSense R200 카메라 헤드는 다음과 같습니다.

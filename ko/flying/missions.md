@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/flying/missions
+---
+
 # 임무
 
 ## 임무 계획하기

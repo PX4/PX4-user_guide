@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/msg_docs/actuator_servos_trim
+---
+
 # actuator_servos_trim (UORB message)
 
 Servo trims, added as offset to servo outputs

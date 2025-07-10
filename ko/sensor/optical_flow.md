@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/sensor/optical_flow
+---
+
 # 광류
 
 *광류*는 속도 추정을 위하여 하향 카메라와 하향 거리 센서를 사용합니다.

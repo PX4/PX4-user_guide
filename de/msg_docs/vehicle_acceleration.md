@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/de/msg_docs/vehicle_acceleration
+---
+
 # vehicle_acceleration (UORB message)
 
 

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/advanced_config/prearm_arm_disarm
+---
+
 # Prearm, Arm, Disarm Configuration
 
 Vehicles may have moving parts, some of which are potentially dangerous when powered (in particular motors and propellers)!

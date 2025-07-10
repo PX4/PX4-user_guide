@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/payloads/README
+---
+
 # 탑재 중량과 카메라
 
 PX4는 카메라와 같은 다양한 장치들을 탑재할 수 있습니다.

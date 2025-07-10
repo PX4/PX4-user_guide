@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/test_and_ci/integration_testing_mavsdk
+---
+
 # MAVSDK 통합 테스트
 
 PX4는 [MAVSDK](https://mavsdk.mavlink.io)를 기반으로 종단간 통합 테스트를 할 수 있습니다.

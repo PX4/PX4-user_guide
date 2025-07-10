@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/ros/mavros_installation
+---
+
 # ROS/MAVROS 설치 가이드
 
 [mavros](http://wiki.ros.org/mavros#mavros.2BAC8-Plugins.sys_status)는 MAVLink 지원 자동조종장치, 지상국 또는 주변 장치에 대해 ROS(1)를 실행하는 컴퓨터 간에 MAVLink 확장 통신을 가능하게 하는 ROS(1) 패키지입니다. *MAVROS*는 ROS(1)와 MAVLink 프로토콜 간의 "공식" 지원 브리지입니다.

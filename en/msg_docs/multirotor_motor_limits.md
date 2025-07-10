@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/msg_docs/multirotor_motor_limits
+---
+
 # multirotor_motor_limits (UORB message)
 
 

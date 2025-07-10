@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/simulation/ignition_gazebo
+---
+
 # 연소 가제보 시뮬레이션
 
 :::warning

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/tr/advanced_config/sensor_thermal_calibration
+---
+
 # Thermal Calibration and Compensation
 
 PX4 contains functionality to calibrate and compensate rate gyro, accelerometer and barometric pressure sensors for the effect of changing sensor temperature on sensor bias.

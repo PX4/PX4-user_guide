@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/airframes/airframe_reference
+---
+
 # Airframes Reference
 
 :::note

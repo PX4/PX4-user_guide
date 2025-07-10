@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/msg_docs/landing_gear
+---
+
 # landing_gear (UORB message)
 
 

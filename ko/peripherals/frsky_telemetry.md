@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/peripherals/frsky_telemetry
+---
+
 # FrSky 텔레메트리
 
 FrSky 텔레메트리는 호환 RC 송신기의 기체 [텔레메트리](#messages) 정보에 접근할 수 있습니다.

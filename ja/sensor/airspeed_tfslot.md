@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/sensor/airspeed_tfslot
+---
+
 # TFSLOT - Venturi effect airspeed sensor
 
 [TFSLOT](https://github.com/ThunderFly-aerospace/TFSLOT01) is an open-source airspeed sensor based on the [Venturi effect](https://en.wikipedia.org/wiki/Venturi_effect) that also has an IMU.
