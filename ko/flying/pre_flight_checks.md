@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/flying/pre_flight_checks
+---
+
 # 센서/에스티메이터 비행 사전 점검
 
 PX4는 다양한 비행 전 센서 품질 및 추정 검사를 수행하여 차량을 무장하고 비행하기에 충분한 위치 추정치가 있는지 확인합니다 (이러한 검사는 [ COM \ * ARM \ * ](../advanced_config/parameter_reference.md#commander) 매개 변수)

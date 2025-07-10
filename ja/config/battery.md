@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/config/battery
+---
+
 # Battery and Power Module Setup
 
 This topic explains how to configure power settings.

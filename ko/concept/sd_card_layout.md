@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/concept/sd_card_layout
+---
+
 # PX4 SD 카드 배치
 
 PX4 SD 카드는 설정 파일, 비행 기록, 임무 정보 등을 저장하는 용도로 사용합니다.

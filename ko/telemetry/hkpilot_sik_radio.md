@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/telemetry/hkpilot_sik_radio
+---
+
 # HKPilot 텔레메트리 라디오
 
 HKPilot은 PX4에 사용할 수 있으며 915MHz(USA) 및 433MHz(유럽) 버전의 [SiK 라디오](../telemetry/sik_radio.md) 호환 텔레메트리가 있습니다

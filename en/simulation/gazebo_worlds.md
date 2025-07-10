@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/simulation/gazebo_worlds
+---
+
 # Gazebo Worlds
 
 This topic provides imagery/information about the [Gazebo](../simulation/gazebo.md) worlds supported by PX4.

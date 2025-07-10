@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/debug/debug_values
+---
+
 # Send and Receive Debug Values
 
 It is often necessary during software development to output individual important numbers. This is where the generic `NAMED_VALUE_FLOAT`, `DEBUG` and `DEBUG_VECT` packets of MAVLink come in.

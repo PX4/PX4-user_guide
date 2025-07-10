@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/config/motors
+---
+
 # Motor/Servo Checks
 
 After the airframe is setup and configured you should validate the motor assignment and spin direction, and the servo response.

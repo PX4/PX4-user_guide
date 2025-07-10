@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/complete_vehicles/README
+---
+
 # 整机
 
 本节包含运行PX4的整机。

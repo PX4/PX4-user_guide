@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/de/config_mc/README
+---
+
 # Multicopter Configuration
 
 This section contains topics related to multicopter configuration and tuning.

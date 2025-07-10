@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/dev_log/ulog_file_format
+---
+
 # ULog File Format
 
 ULog is the file format used for logging system data.

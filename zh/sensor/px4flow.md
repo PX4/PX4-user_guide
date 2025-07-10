@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/sensor/px4flow
+---
+
 # PX4FlOW 光流智能相机
 
 PX4FLOW 是一款 [光流](../sensor/optical_flow.md) 智能相机。 它的自然分辨率为 752 x 480 像素，并在400赫兹下计算4倍剪切区域的光流，使其具有很高的光敏度。

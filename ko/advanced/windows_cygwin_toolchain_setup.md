@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/advanced/windows_cygwin_toolchain_setup
+---
+
 # 윈도우즈 환경의 Cygwin 개발 환경 설정 (유지 보수 지침)
 
 이 주제는 어떤 방식으로 [Cygwin 기반의 윈도우 개발 환경](../dev_setup/dev_env_windows_cygwin.md)을 구성하고 확장하는 방법을 설명해주는 글입니다.

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/debug/binary_size_profiling
+---
+
 # Binary Size Profiling
 
 The `bloaty_compare_master` build target allows you to get a better understanding of the impact of changes on code size.

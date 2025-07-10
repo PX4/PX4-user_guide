@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/hardware/reference_design
+---
+
 # PX4 참조 비행체 제어 장치 설계
 
 PX4 참조 설계는 비행체 제어 장치의 [픽스호크 계열](../flight_controller/pixhawk_series.md)입니다. 2011년 처음 출시했으며, 현재 설계는 5번째 [세대](#reference_design_generations)입니다(6세대 보드 설계는 진행중).

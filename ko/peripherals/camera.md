@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/peripherals/camera
+---
+
 # 카메라 트리거 
 
 카메라 트리거 드라이버를 사용하여 AUX 포트로 카메라를 트리거 펄스를 전송할 수 있습니다.

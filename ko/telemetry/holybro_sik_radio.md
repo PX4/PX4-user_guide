@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/telemetry/holybro_sik_radio
+---
+
 # Holybro 텔레메트리 라디오
 
 Holybro는 PX4에서 사용 가능한 [SiK](../telemetry/sik_radio.md) 호환 텔레메트리 라디오를 제공합니다. 915MHz(미국) 및 433MHz(유럽) 버전을 사용할 수 있습니다.

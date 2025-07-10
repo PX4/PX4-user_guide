@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/flight_controller/raspberry_pi_navio2
+---
+
 # Raspberry Pi 2/3 Navio2 Autopilot
 
 :::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://emlid.com/) for hardware support or compliance issues.

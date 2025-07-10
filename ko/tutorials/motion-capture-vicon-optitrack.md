@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/tutorials/motion-capture-vicon-optitrack
+---
+
 # 움직임 감지 기술로 비행하기 (VICON, 광추적)
 
 :::warning

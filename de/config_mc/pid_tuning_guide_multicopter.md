@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/de/config_mc/pid_tuning_guide_multicopter
+---
+
 # Multicopter PID Tuning Guide (Advanced/Detailed)
 
 This topic provides detailed information about PX4 controllers, and how they are tuned.

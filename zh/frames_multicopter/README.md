@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/frames_multicopter/README
+---
+
 # 多旋翼机架构建
 
 PX4提供大量单-多旋翼， 包括单旋翼、三旋翼、四旋翼、六旋翼、十二旋翼等多种几何结构。 全部可支持的机型可见 [机型参考](../airframes/airframe_reference.md#copter)。

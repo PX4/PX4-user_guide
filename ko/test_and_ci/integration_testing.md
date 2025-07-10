@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/test_and_ci/integration_testing
+---
+
 # 통합 테스트
 
 This topic explains how to run (and extend) PX4's ROS-based integration tests.

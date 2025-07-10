@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/config/airframe
+---
+
 # 机架安装
 
 你已经安装完固件，下一步就是为你的 [机架类型](../airframes/airframe_reference.md)配置参数了。

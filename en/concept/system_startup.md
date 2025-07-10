@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/concept/system_startup
+---
+
 # System Startup
 
 The PX4 startup is controlled by shell scripts.

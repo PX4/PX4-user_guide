@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/config_fw/pid_tuning_guide_fixedwing
+---
+
 # 고정익 튜닝 가이드
 
 이 가이드는 고정익 PID 계수를 튜닝 방법을 설명합니다.

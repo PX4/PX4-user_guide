@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/de/ros/ros2
+---
+
 # ROS 2
 
 [ROS 2](https://index.ros.org/doc/ros2/) is the newest version of [ROS](http://www.ros.org/) (Robot Operating System), a general purpose robotics library that can be used with the PX4 Autopilot to create powerful drone applications. It captures most of the learnings and recently added features of [ROS (1)](../ros/ros1.md), improving a number of flaws of the earlier version.

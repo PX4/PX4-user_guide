@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/de/advanced/windows_cygwin_toolchain_setup
+---
+
 # Windows Cygwin Development Environment (Maintenance Instructions)
 
 This topic explains how to construct and extend the development environment used for the supported [Cygwin-based Windows Development Environment](../dev_setup/dev_env_windows_cygwin.md).

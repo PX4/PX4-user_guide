@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/frames_multicopter/lumenier_qav250_pixhawk_mini
+---
+
 # Lumenier QAV250 Pixhawk Mini 조립
 
 [Lumenier QAV250 Mini FPV Quadcopter](https://www.lumenier.com/products/legacy/qav250)는 작지만 완벽하게 작동하는 FPV 멀티 콥터 프레임입니다. *QGroundControl*을 사용하여 PX4 자동 조종 장치를 설치 및 구성하는 방법을 포함하여 * Pixhawk Mini* 비행 컨트롤러와 함께 프레임을 사용하기위한 전체 조립 방법 및 설정 방법을 설명합니다.

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/contribute/git_examples
+---
+
 # git 예제
 
 <a id="contributing_code"></a>

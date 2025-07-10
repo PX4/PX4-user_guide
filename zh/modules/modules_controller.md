@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/modules/modules_controller
+---
+
 # 模块参考：控制器
 
 ## ODULE_NAM

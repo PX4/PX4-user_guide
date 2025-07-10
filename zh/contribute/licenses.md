@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/contribute/licenses
+---
+
 # 许可证
 
 :::note

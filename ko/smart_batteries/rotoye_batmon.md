@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/smart_batteries/rotoye_batmon
+---
+
 # Rotoye Batmon
 
 [Rotoye Batmon](https://rotoye.com/batmon/)은 기성품인 리튬 이온 및 LiPo 배터리에 스마트 배터리 기능을 추가하는 키트입니다. 독립형 장치로 또는 공장에서 조립된 스마트 배터리의 일부로 구입할 수 있습니다.

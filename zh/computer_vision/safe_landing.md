@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/computer_vision/safe_landing
+---
+
 # 安全着陆
 
 *安全着陆* 功能确保车辆只能降落在平坦的地形上。

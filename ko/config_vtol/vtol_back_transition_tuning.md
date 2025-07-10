@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/config_vtol/vtol_back_transition_tuning
+---
+
 # VTL 역전환 튜닝
 
 :::note

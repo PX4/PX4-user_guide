@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/getting_started/flight_controller_selection
+---
+
 # 비행 컨트롤러 선택
 
 기체의 물리적인 조건, 비행 목적과 비용에 적합한 하드웨어를 선택해야 합니다.

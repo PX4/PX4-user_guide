@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/de/concept/dronecode_architecture
+---
+
 # PX4 Platform Hardware/Software Architecture
 
 The diagram below provides a forward-looking high level overview of a full PX4 onboard and offboard stack. The left hand side shows one possible hardware configuration with a *flight controller* (light blue) connected to a *perception computer* (dark blue) via [RTPS](../middleware/micrortps.md). The perception computer provides vision control and object avoidance using a camera sensor array, and has a separate payload camera.

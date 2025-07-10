@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/modules/modules_main
+---
+
 
 # 模块 & 命令 参考
 以下页面介绍了 PX4 模块， 驱动和命令。 主要描述了各自提供的功能、功能实现的高层次总览以及如何使用命令行进行交互。

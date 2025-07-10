@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/uart/user_configurable_serial_driver
+---
+
 # 설정 가능 직렬 포트 드라이버 구성
 
 이 주제에서는 사용자가 비행체 제어 장치 보드의 설정 직렬 포트를 (매개변수를 설정하여) 동작하게 하는 방법을 설명합니다.

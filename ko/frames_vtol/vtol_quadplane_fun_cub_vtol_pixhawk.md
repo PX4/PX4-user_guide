@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/frames_vtol/vtol_quadplane_fun_cub_vtol_pixhawk
+---
+
 # FunCub QuadPlane (Pixhawk)
 
 Fun Cub QuadPlane VTOL은 QuadCopter 시스템으로 개조된 표준 테일 플레인 항공기 (Multiplex FunCub)입니다.

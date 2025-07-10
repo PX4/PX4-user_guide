@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/assembly/quick_start_holybro_pix32_v5
+---
+
 # Pix32 v5 Wiring Quick Start
 
 :::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://shop.holybro.com/) for hardware support or compliance issues.

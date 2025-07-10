@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/smart_batteries/rotoye_batmon
+---
+
 # Rotoye Batmon
 
 [Rotoye Batmon](https://rotoye.com/batmon/) is a kit for adding smart battery functionality to off-the-shelf Lithium-Ion and LiPo batteries.

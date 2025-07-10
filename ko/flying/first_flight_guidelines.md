@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/flying/first_flight_guidelines
+---
+
 # 첫 비행 지침
 
 [비행 방법을 배우는 것](../flying/basic_flying.md)은 매우 즐거운 일입니다. 즐겁고 안전한 처녀 비행을 위한 지침들을 설명합니다.

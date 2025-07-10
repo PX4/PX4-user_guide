@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/simulation/multi_vehicle_flightgear
+---
+
 # 用 FlightGear 进行多机仿真
 
 本节介绍如何在SITL中使用 FlightGear 进行多机仿真 所有车辆实例都有其启动脚本定义的参数。

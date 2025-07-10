@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/airframes/README
+---
+
 # Airframe/Vehicle Builds
 
 PX4 supports numerous types of vehicles, including different configurations of multicopters, planes, VTOL vehicles, ground vehicles, etc. The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).

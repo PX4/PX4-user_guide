@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/tr/frames_vtol/vtol_quadplane_fun_cub_vtol_pixhawk
+---
+
 # FunCub QuadPlane (Pixhawk)
 
 The Fun Cub QuadPlane VTOL is a standard tailplane aircraft (the Multiplex FunCub) that has been retrofitted with a QuadCopter system.

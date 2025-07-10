@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/test_cards/mc_01_manual_modes
+---
+
 # 시험 MC_01 - 수동 상태
 
 ## 시동 및 이륙

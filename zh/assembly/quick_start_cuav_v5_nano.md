@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/assembly/quick_start_cuav_v5_nano
+---
+
 # 雷迅CUAV V5 nano飞控接线快速入门
 
 :::warning PX4 没有制造这款（或任何一款）飞控。 若需要硬件支持或咨询合规问题，请联系 [制造商](https://store.cuav.net/)。

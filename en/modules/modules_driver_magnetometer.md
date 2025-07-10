@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/modules/modules_driver_magnetometer
+---
+
 # Modules Reference: Magnetometer (Driver)
 ## ak09916
 Source: [drivers/magnetometer/akm/ak09916](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/magnetometer/akm/ak09916)

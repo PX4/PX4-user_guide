@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/de/middleware/uorb
+---
+
 # uORB Messaging
 
 ## Introduction

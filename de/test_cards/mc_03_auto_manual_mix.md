@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/de/test_cards/mc_03_auto_manual_mix
+---
+
 # Test MC_03 - Auto Manual Mix
 
 ## Create and Upload Mission

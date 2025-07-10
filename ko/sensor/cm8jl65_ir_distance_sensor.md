@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/sensor/cm8jl65_ir_distance_sensor
+---
+
 # Lanbao PSK-CM8JL65-CC5 ToF 적외선 거리 측정 센서
 
 [Lanbao PSK-CM8JL65-CC5](https://www.seeedstudio.com/PSK-CM8JL65-CC5-Infrared-Distance-Measuring-Sensor-p-4028.html)는 0.17m-8m 범위와 밀리미터 분해능을 가진 초소형 IR 거리 센서입니다. UART/직렬 버스에 연결됩니다.

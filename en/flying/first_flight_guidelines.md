@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/flying/first_flight_guidelines
+---
+
 # First Flight Guidelines
 
 [Learning to fly](../flying/basic_flying.md) is a lot of fun! 

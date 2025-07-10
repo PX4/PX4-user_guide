@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/gps_compass/rtk_gps_drotek_xl
+---
+
 # Drotek XL RTK GPS
 
 The [Drotek XL RTK GPS receiver](https://store-drotek.com/881-DP0503.html) is a competitively priced [RTK GPS module](../gps_compass/rtk_gps.md) that can be configured as either base or rover. 

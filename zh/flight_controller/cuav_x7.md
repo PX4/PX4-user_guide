@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/flight_controller/cuav_x7
+---
+
 # CUAV X7 飞行控制器
 
 :::警告 PX4 没有制造这个(或任何)自动解压。 Contact the [manufacturer](https://www.cuav.net) for hardware support or compliance issues.

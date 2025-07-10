@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/dev_setup/dev_env_windows_bash_on_win
+---
+
 # Bash on Windows 工具链
 
 :::warning

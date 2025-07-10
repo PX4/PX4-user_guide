@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/flight_controller/autopilot_pixhawk_standard
+---
+
 # Pixhawk Standard Autopilots
 
 [Pixhawk series](../flight_controller/pixhawk_series.md) boards that fully comply with the [Pixhawk Standard](https://pixhawk.org/) (including use of the Pixhawk trademark), and that are still being manufactured, are supported by the PX4 project.

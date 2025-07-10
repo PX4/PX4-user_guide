@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/SUMMARY
+---
+
 # 요약
 
 * [소개](README.md)

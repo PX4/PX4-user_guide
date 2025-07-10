@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/flight_controller/cuav_x7
+---
+
 # CUAV X7 Flight Controller
 
 :::warning

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/flight_controller/autopilot_manufacturer_supported
+---
+
 # 제조사 지원 자동조종장치
 
 제조업체가 지원하는 자동조종장치는 제조업체에서 유지관리하고 지원합니다. 제조업체는 공식 발표후 4 개월 이내에 현재의 안정적인 PX4 릴리스와의 호환성을 제공을 약속합니다.

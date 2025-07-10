@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/de/frames_autogyro/ThunderFly_AutoG2
+---
+
 # ThunderFly Auto-G2 Autogyro
 
 > Auto-G2 autogyro’s airframe is developed and maintained by ThuderFly s.r.o. company.

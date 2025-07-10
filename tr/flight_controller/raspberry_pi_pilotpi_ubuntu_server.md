@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/tr/flight_controller/raspberry_pi_pilotpi_ubuntu_server
+---
+
 # PilotPi with Ubuntu Server
 
 :::warning

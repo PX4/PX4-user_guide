@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/dev_log/ulog_file_format
+---
+
 # ULog 文件格式
 
 ULog is the file format used for logging system data. The format is self-describing, i.e. it contains the format and message types that are logged.

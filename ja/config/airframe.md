@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/config/airframe
+---
+
 # Airframe Setup
 
 After installing firmware you need to configure the firmware parameters for your [specific airframe](../airframes/airframe_reference.md).

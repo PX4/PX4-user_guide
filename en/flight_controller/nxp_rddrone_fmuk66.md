@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/flight_controller/nxp_rddrone_fmuk66
+---
+
 # NXP RDDRONE-FMUK66 FMU
 
 :::warning

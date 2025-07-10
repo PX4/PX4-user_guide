@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/modules/module_template
+---
+
 # Module Template for Full Applications
 
 An application can be written to run as either a *task* (a module with its own stack and process priority) or as a *work queue task* (a module that runs on a work queue thread, sharing the stack and thread priorit with other tasks on the work queue). In most cases a work queue task can be used, as this minimizes resource usage.

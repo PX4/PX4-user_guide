@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/frames_vtol/vtol_tiltrotor_eflite_convergence_pixfalcon
+---
+
 # E-Flite Convergence 倾转旋翼 （Pixfalcon）
 
 E-Flite Convergence 这种机架可以通过PX4轻松变成具有完全自主飞行能力的垂直起降固定翼机型， 虽然空间受限，但是留给 Pixfalcon、GPS、接收机的空间也足够了

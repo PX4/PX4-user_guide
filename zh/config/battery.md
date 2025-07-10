@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/config/battery
+---
+
 # 电池电源模块设置
 
 该主题解释了如何进行电源设置

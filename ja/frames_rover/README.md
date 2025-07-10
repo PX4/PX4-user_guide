@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/frames_rover/README
+---
+
 # Rover Frames (UGVs)
 
 PX4 provides basic support for Unmanned Ground Vehicles (UGVs). The set of validated configurations can be seen in [Airframes Reference > Rover](../airframes/airframe_reference.md#rover).

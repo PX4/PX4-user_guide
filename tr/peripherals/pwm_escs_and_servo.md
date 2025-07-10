@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/tr/peripherals/pwm_escs_and_servo
+---
+
 # PWM Servos and ESCs (Motor Controllers)
 
 This section describes how to connect and power PWM-based brushless motor controllers and servos.

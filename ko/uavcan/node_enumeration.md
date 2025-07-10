@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/uavcan/node_enumeration
+---
+
 # UAVCAN 기수 부여 및 설정
 
 :::note

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/tr/advanced_features/README
+---
+
 # Advanced Features
 
 This section contains topics related to some of the more advanced features of the PX4 autopilot:

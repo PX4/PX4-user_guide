@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/modules/README
+---
+
 # Modules
 
 This is a placholder to create the modules.

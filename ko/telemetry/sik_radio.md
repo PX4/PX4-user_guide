@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/telemetry/sik_radio
+---
+
 # SiK 라디오
 
 [SiK 라디오](https://github.com/LorenzMeier/SiK)는 텔레메트리 라디오를 위한 펌웨어와 도구들입니다.

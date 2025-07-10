@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/gps_compass/rtk_gps_fem_mini2
+---
+
 # Femtones MINI2 수신기
 
 [MINI2 수신기](http://www.femtomes.com)는 센티미터 레벨 포지셔닝을 위하여 빠르고 안정적인 RTK 초기화를 제공하는 RTK GPS 수신기입니다. 고정밀 위치 지정(예 : 내비게이션 및 매핑 등)이 필요한 애플리케이션을 위하여 개발되었습니다.

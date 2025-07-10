@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/uavcan/escs
+---
+
 # UAVCAN ESC (모터 컨트롤러)
 
 PX4는 [UAVCAN](../uavcan/README.md) ESC를 지원합니다. [PWM ESC](../peripherals/pwm_escs_and_servo.md)와 비교하여 다음과 같은 장점들이 있습니다.

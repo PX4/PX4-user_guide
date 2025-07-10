@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/complete_vehicles/holybro_kopis2
+---
+
 # Holybro Kopis 2
 
 [Holybro Kopis 2](https://shop.holybro.com/c/kopis_0480l)는 FPV 또는 가시선 비행을 위한 즉시 비행 가능한 레이서 쿼드입니다.

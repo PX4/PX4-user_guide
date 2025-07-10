@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/tr/uavcan/escs
+---
+
 # UAVCAN ESCs (Motor Controllers)
 
 PX4 supports [UAVCAN](../uavcan/README.md) ESCs. These have a number of advantages over [PWM ESCs](../peripherals/pwm_escs_and_servo.md):

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/frames_multicopter/lumenier_qav250_pixhawk_auav_x2
+---
+
 # Lumenier QAV250 Pixhawk & AUAV-X2 조립
 
 [Lumenier QAV250 Mini FPV Quadcopter](https://www.lumenier.com/products/legacy/qav250)는 크기는 소형이지만, 모든 기능이 제공되는 FPV 멀티 콥터 프레임입니다. *Pixhawk* 및 AUAV-X2 비행 컨트롤러와 함께 프레임을 사용하기위한 조립 방법을 제공합니다.

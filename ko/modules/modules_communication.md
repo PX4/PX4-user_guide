@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/modules/modules_communication
+---
+
 # Modules Reference: Communication
 
 ## frsky_telemetry

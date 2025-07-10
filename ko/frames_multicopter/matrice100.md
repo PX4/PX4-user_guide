@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/frames_multicopter/matrice100
+---
+
 # DJI Matrice 100 (Pixhawk 1)
 
 DJI <sup>&reg;</sup> Matrice 쿼드콥터는 커스터마이징과 프로그래밍이 가능한 비행 플랫폼입니다. *3DR Pixhawk* 비행 컨트롤러를 이용한 기체의 조립 방법과 설정 방법을 설명합니다. 

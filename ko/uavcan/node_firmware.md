@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/uavcan/node_firmware
+---
+
 # UAVCAN 펌웨어 업그레이드
 
 전동 변속기 코드를 다운로드하십시오:

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/companion_computer/pixhawk_companion
+---
+
 # 픽스호크 시리즈용 보조 컴퓨터
 
 픽스호크 계열 보드에 보조 컴퓨터(라즈베리 파이, 오드로이드, 테그라 K1)를 붙이는 작업의 방식은 동일합니다. 보조 컴퓨터를 연결하려는 용도의 포트 `TELEM 2`에 직렬 포트로 연결하면 됩니다. 이 연결의 메시지 형식은 [MAVLink](https://mavlink.io/en/) 입니다.

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/de/config/safety
+---
+
 # Safety Configuration (Failsafes)
 
 PX4 has a number of safety features to protect and recover your vehicle if something goes wrong:

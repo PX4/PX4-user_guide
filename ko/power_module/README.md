@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/power_module/README
+---
+
 # 전원 모듈
 
 전원 모듈은 비행 콘트롤러에 조정된 전원공급장치이며, 배터리 전압과 전류에 대한 정보를 제공합니다. 전압/전류 정보는 소비 전력을 확인하고 남은 배터리 용량을 추정합니다. 비행 콘트롤러의 전력 부족시 안전 경고 및 기타 조치를 제공합니다: [안전 &gt; 배터리 부족 안전장치](../config/safety.md#low-battery-failsafe).

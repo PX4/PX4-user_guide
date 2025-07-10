@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/test_and_ci/test_flights
+---
+
 # 시험 비행
 
 <div v-if="$themeConfig.px4_version != 'master'">

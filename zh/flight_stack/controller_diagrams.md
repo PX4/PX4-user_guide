@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/flight_stack/controller_diagrams
+---
+
 # 控制器图解
 
 本节包括PX4主要控制器的图解。

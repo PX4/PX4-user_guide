@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/airframes/airframe_reference
+---
+
 # 에어프레임 참조
 
 > **Note** **This list is [auto-generated](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/px4airframes/markdownout.py) from the source code**.

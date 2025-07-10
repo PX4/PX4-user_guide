@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/frames_multicopter/qav_r_5_kiss_esc_racer
+---
+
 # QAV-R 5" KISS ESC Racer (Pixracer)
 
 The Lumenier QAV-R 5" FPV Racing Quadcopter is a rigid, light, and fast FPV racer with removable arms. This topic provides full build and configuration instructions for using the frame with the *Pixracer* flight controller and *KISS 24A Race Edition* ESCs. It also provides information on the (optional) FPV setup.

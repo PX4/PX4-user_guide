@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/advanced/computer_vision
+---
+
 # コンピュータビジョン (光学フロー, MoCap, VIO, 回避)
 
 [コンピュータビジョン](https://en.wikipedia.org/wiki/Computer_vision) コンピュータが映像データを使用して環境を把握できる技術です。

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/power_module/holybro_pm06_pixhawk4mini_power_module
+---
+
 # Holybro Micro 전원 모듈 (PM06)
 
 이 전원 모듈은 비행 컨트롤러와 ESC에 조정 전원을 제공하고, 배터리의 전압과 전류  정보를 자동조종장치에 전송합니다. [Pixhawk 4 Mini](../flight_controller/pixhawk4_mini.md)와 함께 제공되며, 별도 구매도 가능합니다.

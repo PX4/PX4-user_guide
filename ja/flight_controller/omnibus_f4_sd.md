@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/flight_controller/omnibus_f4_sd
+---
+
 # Omnibus F4 SD
 
 :::warning PX4 does not manufacture this (or any) autopilot. Contact the manufacturer for support or compliance issues.

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/getting_started/flight_modes
+---
+
 # PX4のフライトモードについて
 
 フライトモードは，オートパイロットがリモートからの信号についてどのように反応するかや，完全自律飛行中にどのように機体を制御するかを決定します。

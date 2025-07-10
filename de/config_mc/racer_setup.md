@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/de/config_mc/racer_setup
+---
+
 # Racer Setup
 
 This page describes how to setup and configure a racer for optimal performance (in particular for [Acro mode](../flight_modes/acro_mc.md)).

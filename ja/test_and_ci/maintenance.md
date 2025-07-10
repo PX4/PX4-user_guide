@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/test_and_ci/maintenance
+---
+
 # Maintenance notes
 
 This picks and describes some tools to help analyze the state of the codebase and support its maintenance.

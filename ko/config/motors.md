@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/config/motors
+---
+
 # 모터/서보 점검
 
 기체를 설정후에는 모터 할당과 회전 방향, 서보 응답을 확인해야합니다. 이 작업은 * QGroundControl </ 0>의 [차량 설정 > 모터](https://docs.qgroundcontrol.com/en/SetupView/Motors.html) 탭에서 수행할 수 있습니다.</p>

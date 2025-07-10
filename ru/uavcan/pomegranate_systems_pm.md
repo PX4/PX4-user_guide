@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/uavcan/pomegranate_systems_pm
+---
+
 # Pomegranate Systems Power Module
 
 ![Module Image](../../assets/hardware/power_module/pomegranate_systems_pm/main_image.jpg)

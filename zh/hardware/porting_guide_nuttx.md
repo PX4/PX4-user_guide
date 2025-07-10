@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/hardware/porting_guide_nuttx
+---
+
 # 机架参考
 
 为了将基于 Nuttx 的 PX4 移植到新的硬件平台上，Nuttx 必须支持该硬件平台。 NuttX 项目中维护着一个出色的 [移植指南](https://cwiki.apache.org/confluence/display/NUTTX/Porting+Guide) 可以帮助你实现将 Nuttx 移植到一个新的计算平台上。

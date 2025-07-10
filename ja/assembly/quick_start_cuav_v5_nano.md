@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/assembly/quick_start_cuav_v5_nano
+---
+
 # CUAV V5 nano Wiring Quick Start
 
 :::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.cuav.net/) for hardware support or compliance issues.

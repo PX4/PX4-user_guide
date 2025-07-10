@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/modules/modules_controller
+---
+
 # Modules Reference: Controller
 
 ## ODULE_NAM

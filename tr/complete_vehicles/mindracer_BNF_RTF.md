@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/tr/complete_vehicles/mindracer_BNF_RTF
+---
+
 # MindRacer BNF & RTF
 
 MindRacer BNF (Bind-n-Fly) & RTF (Ready-to-Fly) includes two models currently:

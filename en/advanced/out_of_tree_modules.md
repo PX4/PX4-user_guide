@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/advanced/out_of_tree_modules
+---
+
 # External Modules (Out-of-Tree)
 
 External modules provide a convenient mechanism for developers to manage/group proprietary modules that they want add to (or update in) PX4 firmware.

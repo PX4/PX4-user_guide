@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/development/development
+---
+
 # PX4 개발
 
 신규 기체 개발, 기체 변경, 비행 알고리즘 수정, 신규 모드 추가, 신규 하드웨어 통합, 그리고 PX4 통신 방법 등을 설명합니다.

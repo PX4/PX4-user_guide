@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/middleware/micrortps_throughput_test
+---
+
 # Micro RTPS 吞吐量测试
 
 This a simple test to measure the throughput of the [PX4-FastRTPS Bridge](../middleware/micrortps.md). It sends and receives 256-byte messages (simultaneously) at maximum rate, and then outputs the result. 最大速率下，同时收发 256 字节的报文，并且输出结果。

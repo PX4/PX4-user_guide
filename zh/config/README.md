@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/config/README
+---
+
 # 基本配置
 
 *QGroundControl* 被用来在飞行控制器硬件上安装 [固件](../config/firmware.md) 、 选择 [机型](../config/airframe.md)，以及配置PX4在飞行器上需要的核心传感器 (罗盘、GPS、陀螺仪等)。

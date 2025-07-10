@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/frames_vtol/README
+---
+
 # VTOL Airframes
 
 PX4 supports virtually all VTOL configurations (the complete set of supported configurations can be seen in [Airframes Reference > VTOL](../airframes/airframe_reference.md#vtol)):

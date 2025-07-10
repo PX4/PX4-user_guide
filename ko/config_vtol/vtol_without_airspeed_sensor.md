@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/config_vtol/vtol_without_airspeed_sensor
+---
+
 # 대기속도 센서 미장착 VTOL 
 
 :::warning

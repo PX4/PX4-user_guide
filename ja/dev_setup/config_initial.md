@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ja/dev_setup/config_initial
+---
+
 # Initial Setup & Configuration
 
 We recommend that developers obtain the basic equipment and software described below (or similar)

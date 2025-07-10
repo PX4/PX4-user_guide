@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/telemetry/README
+---
+
 # Telemetry Radios/Modems
 
 Telemetry Radios can (optionally) be used to provide a wireless MAVLink connection between a ground control station like *QGroundControl* and a vehicle running PX4. This makes it possible to tune parameters while a vehicle is in flight, inspect telemetry in real-time, change a mission on the fly, etc. 

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/tr/complete_vehicles/README
+---
+
 # Complete Vehicles
 
 This section contains information about complete vehicles that run PX4.

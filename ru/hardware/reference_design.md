@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/hardware/reference_design
+---
+
 # PX4 Reference Flight Controller Design
 
 The PX4 reference design is the [Pixhawk series](../flight_controller/pixhawk_series.md) of flight controllers. First released in 2011, this design is now in its 5th [generation](#reference_design_generations) (with the 6th generation board design in progress).

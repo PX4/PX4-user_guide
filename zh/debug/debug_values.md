@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/debug/debug_values
+---
+
 # 发送和接收调试值
 
 在软件开发过程中，输出单个重要数字通常是必要的。 这就是 MAVLink 的通用 `NAMED_VALUE_FLOAT`、`DEBUG` 和 `DEBUG_VECT` 数据包的来源。

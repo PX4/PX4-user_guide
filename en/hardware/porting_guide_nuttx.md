@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/hardware/porting_guide_nuttx
+---
+
 # NuttX Board Porting Guide
 
 In order to port PX4 on NuttX to a new hardware target, that hardware target must be supported by NuttX.

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/de/contribute/README
+---
+
 # Contributing
 
 <div v-if="$themeConfig.px4_version != 'master'">

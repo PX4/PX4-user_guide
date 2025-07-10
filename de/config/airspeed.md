@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/de/config/airspeed
+---
+
 # AirSpeed Calibration
 
 The airspeed calibration needs to read a stable baseline with 0 airspeed in order to determine an offset. Cup your hands over the pitot to block any wind (if calibrating the sensor indoors this is not needed) and then blow into the tube using your mouth (to signal completion of the calibration).

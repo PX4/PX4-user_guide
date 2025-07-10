@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/flight_controller/pixhawk_series
+---
+
 # Pixhawk 시리즈
 
 [Pixhawk<sup>&reg;</sup>](https://pixhawk.org/)는 학업용/취미 및 산업계에서 쉽게 사용할 수 있는 저비용 고급 *자동조종 하드웨어 설계*를 제공하는 독립적인 개방형 하드웨어 프로젝트입니다.

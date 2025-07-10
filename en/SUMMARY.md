@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/SUMMARY
+---
+
 # Summary
 
 * [Introduction](README.md)

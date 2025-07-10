@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/tr/development/development
+---
+
 # PX4 Geliştime
 
 Bu bölümde, yeni araç türlerinin ve varyantlarının nasıl destekleneceği, uçuş algoritmalarının nasıl değiştirileceği, yeni modların nasıl ekleneceği, yeni donanımın nasıl entegre edileceği ve uçuş kontrolcüsünün dışından PX4 ile nasıl iletişim kurulacağı açıklanmaktadır.

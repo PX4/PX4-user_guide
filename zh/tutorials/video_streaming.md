@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/tutorials/video_streaming
+---
+
 # Video streaming in QGroundControl
 
 :::note

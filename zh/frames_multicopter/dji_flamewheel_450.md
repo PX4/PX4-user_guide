@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/frames_multicopter/dji_flamewheel_450
+---
+
 # 带距离传感器和RTK全球定位系统的大疆F450(Pixhawk 3 Pro)
 
 The *DJI<sup>&reg;</sup> Flame Wheel F450* Quadcopter is designed for amateur aerial photography, first person view applications, and general flying entertainment. This topic provides full build and configuration instructions for using the frame with the Pixhawk 3 Pro flight controller. Additionally this build includes an RTK GPS and a distance sensor for precision positioning.

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/debug/gdb_debugging
+---
+
 # 嵌入式调试
 
 运行 PX4 的自动驾驶仪支持通过 GDB 或 LLDB 进行调试。

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/advanced/out_of_tree_modules
+---
+
 # 외부 모듈(별도)
 
 외부 모듈에서는 PX4 펌웨어에 추가(또는 업데이트)할 상용 모듈을 관리/분류하는 편의 매커니즘을 개발자에게 제공합니다. 외부 모듈은 내부 모듈처럼 활용할 수 있으며, 내부 모듈과의 uORB 메시지 교환에 활용할 수 있습니다.

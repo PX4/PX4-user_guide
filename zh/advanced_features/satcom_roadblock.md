@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/zh/advanced_features/satcom_roadblock
+---
+
 # 铱星/RockBlock卫星通讯系统
 
 卫星通信系统可在地面站和车辆之间提供远距离、高延迟的连接。

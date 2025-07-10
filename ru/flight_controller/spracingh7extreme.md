@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/flight_controller/spracingh7extreme
+---
+
 # SPRacingH7EXTREME (PX4 Edition)
 
 :::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://shop.seriouslypro.com) for hardware support or compliance issues.

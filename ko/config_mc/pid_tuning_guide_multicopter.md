@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/config_mc/pid_tuning_guide_multicopter
+---
+
 # 멀티콥터 PID 튜닝 가이드 (고급/상세) 
 
 PX4 컨트롤러의 튜닝 방법에 대한 자세한 정보를 제공합니다.

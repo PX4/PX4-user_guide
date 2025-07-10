@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/advanced_config/esc_calibration
+---
+
 # ESC Calibration
 
 :::note

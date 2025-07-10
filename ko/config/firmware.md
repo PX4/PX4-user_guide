@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/config/firmware
+---
+
 # 펌웨어 설치 및 업데이트
 
 *QGroundControl* **데스크톱** 버전을 사용하여 [Pixhawk 시리즈](../getting_started/flight_controller_selection.md) 비행 컨트롤러에 PX4 펌웨어를 설치할 수 있습니다.

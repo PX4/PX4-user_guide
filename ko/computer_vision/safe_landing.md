@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/computer_vision/safe_landing
+---
+
 # 안전 착륙
 
 *안전 착륙* 기능은 비행기가 평평한 곳에 착륙할 수 있게 합니다.

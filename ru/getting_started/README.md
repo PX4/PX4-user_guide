@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ru/getting_started/README
+---
+
 # Getting Started with PX4 Autopilot
 
 This section provides an overview of the basic concepts you need to understand in order to build and fly an unmanned vehicle using PX4.

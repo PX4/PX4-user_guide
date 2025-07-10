@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/peripherals/camera_t265_vio
+---
+
 # T265 리얼센스 추적 카메라(VIO)
 
 [Intel Realsense 추적 카메라 T265 ](https://www.intelrealsense.com/tracking-camera-t265/)는 [VIO](../computer_vision/visual_inertial_odometry.md)에 사용할 수 있는 주행 거리 측정 정보를 제공하여, PX4의 다른 포지셔닝 시스템을 보강하거나 대체합니다.

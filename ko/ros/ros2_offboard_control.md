@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/ros/ros2_offboard_control
+---
+
 # ROS 2 Offboard Control Example
 
 :::warning

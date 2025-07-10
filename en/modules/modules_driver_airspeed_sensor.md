@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/en/modules/modules_driver_airspeed_sensor
+---
+
 # Modules Reference: Airspeed Sensor (Driver)
 ## ets_airspeed
 Source: [drivers/differential_pressure/ets](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/differential_pressure/ets)

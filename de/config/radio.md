@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/de/config/radio
+---
+
 # Radio (Remote Control) Setup
 
 The *Radio Setup* screen is used to configure the mapping of your remote control unit's main attitude control sticks (roll, pitch, yaw, throttle) to channels, and to calibrate the minimum, maximum, trim and reverse settings for all other transmitter controls/RC channels.

@@ -1,3 +1,7 @@
+---
+canonicalUrl: https://docs.px4.io/main/ko/frames_autogyro/README
+---
+
 # 오토자이로 프레임 빌드
 
 [호토자이로](https://en.wikipedia.org/wiki/Autogyro)는 [회전익](https://en.wikipedia.org/wiki/Rotorcraft)입니다. 다른 유형의 회전익에 비해 다음과 같은 장점이 있습니다.
