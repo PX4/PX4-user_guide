@@ -324,9 +324,6 @@ dshot <command> [arguments...]
    beep5         Send Beep pattern 5
      [-m <val>]  Motor index (1-based, default=all)
 
-   esc_info      Request ESC information
-     -m <val>    Motor index (1-based)
-
    stop
 
    status        print status info
