@@ -32827,7 +32827,7 @@ Automatically calibrate barometer based on the GNSS height
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; |  |  |  | Disabled (0) |  
+&nbsp; |  |  |  | Enabled (1) |  
 
 ### SENS_BOARD_ROT (`INT32`) {#SENS_BOARD_ROT}
 
