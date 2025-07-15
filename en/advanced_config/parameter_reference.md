@@ -16438,18 +16438,20 @@ Reboot | minValue | maxValue | increment | default | unit
 
 RC loss exceptions.
 
-Specify modes in which RC loss is ignored and the failsafe action not triggered.
+Specify modes where manual control loss is ignored and no failsafe is triggered.
+External modes requiring stick input will still failsafe.
 
 **Bitmask:**
 
 - `0`: Mission
 - `1`: Hold
 - `2`: Offboard
+- `3`: External Mode
 
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; | 0 | 7 |  | 0 |  
+&nbsp; | 0 | 15 |  | 0 |  
 
 ### COM_RC_ARM_HYST (`INT32`) {#COM_RC_ARM_HYST}
 
