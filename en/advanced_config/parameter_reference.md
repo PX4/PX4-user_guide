@@ -35643,6 +35643,7 @@ Vehicle type.
 - `2`: Tailsitter
 - `3`: Standard VTOL
 - `4`: Hexacopter
+- `5`: Rover Ackermann
 
 
 Reboot | minValue | maxValue | increment | default | unit
