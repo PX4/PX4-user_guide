@@ -14755,7 +14755,9 @@ Reboot | minValue | maxValue | increment | default | unit
 Battery 1 Voltage ADC Channel.
 
 This parameter specifies the ADC channel used to monitor voltage of main power battery.
-A value of -1 means to use the board default.
+A value of -1 means to use the board default. A value of -2 disables analog monitoring.
+This is useful when the FMU supports both analog and digital voltage monitoring and you want
+to use digital monitoring exclusively.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
@@ -14915,7 +14917,9 @@ Reboot | minValue | maxValue | increment | default | unit
 Battery 2 Voltage ADC Channel.
 
 This parameter specifies the ADC channel used to monitor voltage of main power battery.
-A value of -1 means to use the board default.
+A value of -1 means to use the board default. A value of -2 disables analog monitoring.
+This is useful when the FMU supports both analog and digital voltage monitoring and you want
+to use digital monitoring exclusively.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
