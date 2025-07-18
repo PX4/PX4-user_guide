@@ -23430,7 +23430,7 @@ Enable internal combustion engine.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; |  |  |  | Enabled (1) |  
+&nbsp; |  |  |  | Disabled (0) |  
 
 ### ICE_IGN_DELAY (`FLOAT`) {#ICE_IGN_DELAY}
 
