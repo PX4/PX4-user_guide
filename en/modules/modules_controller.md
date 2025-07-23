@@ -356,6 +356,8 @@ spacecraft <command> [arguments...]
  Commands:
    start
 
+   status
+
    stop
 
    status        print status info

@@ -63,6 +63,10 @@ div.frame_variant td, div.frame_variant th {
  <td>KTH Space Robot</td>
  <td>Maintainer: DISCOWER<p><code>SYS_AUTOSTART</code> = 70000</p></td>
 </tr>
+<tr id="2d_space_robot_space_robot_kth_space_robot">
+ <td>KTH Space Robot</td>
+ <td>Maintainer: DISCOWER<p><code>SYS_AUTOSTART</code> = 70001</p></td>
+</tr>
 </tbody>
 </table>
 </div>
