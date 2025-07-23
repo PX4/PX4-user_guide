@@ -85,7 +85,7 @@ The coordinate system origin is the vehicle position at the time when the EKF2-m
 - [ActuatorServosTrim](ActuatorServosTrim.md) — Servo trims, added as offset to servo outputs
 - [ActuatorTest](ActuatorTest.md)
 - [AdcReport](AdcReport.md)
-- [Airspeed](Airspeed.md)
+- [Airspeed](Airspeed.md) — Airspeed data from sensors
 - [AirspeedWind](AirspeedWind.md)
 - [AutotuneAttitudeControlStatus](AutotuneAttitudeControlStatus.md)
 - [BatteryInfo](BatteryInfo.md) — Battery information
