@@ -626,7 +626,7 @@ div.frame_variant td, div.frame_variant th {
  <td>Maintainer: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 50000</p></td>
 </tr>
 <tr id="rover_rover_aion_robotics_r1_ugv">
- <td><a href="https://www.aionrobotics.com/r1">Aion Robotics R1 UGV</a></td>
+ <td><a href="https://docs.px4.io/main/en/complete_vehicles_rover/aion_r1.html">Aion Robotics R1 UGV</a></td>
  <td>Maintainer: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 50001</p></td>
 </tr>
 <tr id="rover_rover_generic_rover_ackermann">
