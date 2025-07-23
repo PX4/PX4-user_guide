@@ -16114,6 +16114,8 @@ Reboot | minValue | maxValue | increment | default | unit
 
 Timeout value for disarming when kill switch is engaged.
 
+Use RC_MAP_KILL_SW to map a kill switch.
+
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &nbsp; | 0.0 | 30.0 | 0.1 | 5.0 | s 
@@ -29027,6 +29029,10 @@ Reboot | minValue | maxValue | increment | default | unit
 
 Emergency Kill switch channel.
 
+This channel immediately sets all outputs to their disarmed values, parachutes are NOT deployed.
+Unlike termination this can be undone. Quickly flipping the switch back restores control.
+System auto-disarms after COM_KILL_DISARM seconds, preflight checks and re-arming are then required.
+
 **Values:**
 
 - `0`: Unassigned
@@ -29186,6 +29192,42 @@ Reboot | minValue | maxValue | increment | default | unit
 ### RC_MAP_RETURN_SW (`INT32`) {#RC_MAP_RETURN_SW}
 
 Return switch channel.
+
+**Values:**
+
+- `0`: Unassigned
+- `1`: Channel 1
+- `2`: Channel 2
+- `3`: Channel 3
+- `4`: Channel 4
+- `5`: Channel 5
+- `6`: Channel 6
+- `7`: Channel 7
+- `8`: Channel 8
+- `9`: Channel 9
+- `10`: Channel 10
+- `11`: Channel 11
+- `12`: Channel 12
+- `13`: Channel 13
+- `14`: Channel 14
+- `15`: Channel 15
+- `16`: Channel 16
+- `17`: Channel 17
+- `18`: Channel 18
+
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 18 |  | 0 |  
+
+### RC_MAP_TERM_SW (`INT32`) {#RC_MAP_TERM_SW}
+
+Termination switch channel.
+
+This channel triggers irreversible flight termination:
+All outputs are disabled and set to their failsafe values (disarmed by default)
+and MAVLink parachutes are triggered.
+Unlike a kill switch, this cannot be undone until system reboot. Use with caution.
 
 **Values:**
 
