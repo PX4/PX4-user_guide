@@ -39343,51 +39343,37 @@ Reboot | minValue | maxValue | increment | default | unit
 
 ## UUV Attitude Control
 
-### UUV_DIRCT_PITCH (`FLOAT`) {#UUV_DIRCT_PITCH}
+### UUV_MGM_PITCH (`FLOAT`) {#UUV_MGM_PITCH}
 
-Direct pitch input.
-
-Reboot | minValue | maxValue | increment | default | unit
---- | --- | --- | --- | --- | ---
-&nbsp; |  |  |  | 0.0 |  
-
-### UUV_DIRCT_ROLL (`FLOAT`) {#UUV_DIRCT_ROLL}
-
-Direct roll input.
+Pitch gain for manual inputs in manual control mode.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; |  |  |  | 0.0 |  
+&nbsp; | 0.0 |  |  | 0.05 |  
 
-### UUV_DIRCT_THRUST (`FLOAT`) {#UUV_DIRCT_THRUST}
+### UUV_MGM_ROLL (`FLOAT`) {#UUV_MGM_ROLL}
 
-Direct thrust input.
-
-Reboot | minValue | maxValue | increment | default | unit
---- | --- | --- | --- | --- | ---
-&nbsp; |  |  |  | 0.0 |  
-
-### UUV_DIRCT_YAW (`FLOAT`) {#UUV_DIRCT_YAW}
-
-Direct yaw input.
+Roll gain for manual inputs in manual control mode.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; |  |  |  | 0.0 |  
+&nbsp; | 0.0 |  |  | 0.05 |  
 
-### UUV_INPUT_MODE (`INT32`) {#UUV_INPUT_MODE}
+### UUV_MGM_THRTL (`FLOAT`) {#UUV_MGM_THRTL}
 
-Select Input Mode.
-
-**Values:**
-
-- `0`: use Attitude Setpoints
-- `1`: Direct Feedthrough
-
+Throttle gain for manual inputs in manual control mode.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; |  |  |  | 0 |  
+&nbsp; | 0.0 |  |  | 0.1 |  
+
+### UUV_MGM_YAW (`FLOAT`) {#UUV_MGM_YAW}
+
+Yaw gain for manual inputs in manual control mode.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0.0 |  |  | 0.05 |  
 
 ### UUV_PITCH_D (`FLOAT`) {#UUV_PITCH_D}
 
@@ -39405,6 +39391,38 @@ Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &nbsp; |  |  |  | 4.0 |  
 
+### UUV_RGM_PITCH (`FLOAT`) {#UUV_RGM_PITCH}
+
+Pitch gain for manual inputs in rate control mode.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0.0 |  |  | 100.0 |  
+
+### UUV_RGM_ROLL (`FLOAT`) {#UUV_RGM_ROLL}
+
+Roll gain for manual inputs in rate control mode.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0.0 |  |  | 100.0 |  
+
+### UUV_RGM_THRTL (`FLOAT`) {#UUV_RGM_THRTL}
+
+Throttle gain for manual inputs in rate control mode.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0.0 |  |  | 10.0 |  
+
+### UUV_RGM_YAW (`FLOAT`) {#UUV_RGM_YAW}
+
+Yaw gain for manual inputs in rate control mode.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0.0 |  |  | 100.0 |  
+
 ### UUV_ROLL_D (`FLOAT`) {#UUV_ROLL_D}
 
 Roll differential gain.
@@ -39420,6 +39438,62 @@ Roll proportional gain.
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &nbsp; |  |  |  | 4.0 |  
+
+### UUV_SGM_PITCH (`FLOAT`) {#UUV_SGM_PITCH}
+
+Pitch gain for manual inputs in attitude control mode.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0.0 |  |  | 0.5 |  
+
+### UUV_SGM_ROLL (`FLOAT`) {#UUV_SGM_ROLL}
+
+Roll gain for manual inputs in attitude control mode.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0.0 |  |  | 0.5 |  
+
+### UUV_SGM_THRTL (`FLOAT`) {#UUV_SGM_THRTL}
+
+Throttle gain for manual inputs in attitude control mode.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0.0 |  |  | 0.1 |  
+
+### UUV_SGM_YAW (`FLOAT`) {#UUV_SGM_YAW}
+
+Yaw gain for manual inputs in attitude control mode.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0.0 |  |  | 0.5 |  
+
+### UUV_SP_MAX_AGE (`FLOAT`) {#UUV_SP_MAX_AGE}
+
+Maximum time (in seconds) before resetting setpoint.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; |  |  |  | 2.0 |  
+
+### UUV_THRUST_SAT (`FLOAT`) {#UUV_THRUST_SAT}
+
+UUV Thrust setpoint Saturation.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0.0 | 1.0 |  | 0.1 |  
+
+### UUV_TORQUE_SAT (`FLOAT`) {#UUV_TORQUE_SAT}
+
+UUV Torque setpoint Saturation.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0.0 | 1.0 |  | 0.3 |  
 
 ### UUV_YAW_D (`FLOAT`) {#UUV_YAW_D}
 
@@ -39487,14 +39561,44 @@ Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &nbsp; |  |  |  | 1.0 |  
 
+### UUV_PGM_VEL (`FLOAT`) {#UUV_PGM_VEL}
+
+Gain for position control velocity setpoint update.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; |  |  |  | 0.5 |  
+
+### UUV_POS_MODE (`INT32`) {#UUV_POS_MODE}
+
+Stabilization mode(1) or Position Control(0).
+
+**Values:**
+
+- `0`: Moves position setpoint in world frame
+- `1`: Moves position setpoint in body frame
+
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; |  |  |  | 1 |  
+
+### UUV_POS_STICK_DB (`FLOAT`) {#UUV_POS_STICK_DB}
+
+Deadband for changing position setpoint.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; |  |  |  | 0.1 |  
+
 ### UUV_STAB_MODE (`INT32`) {#UUV_STAB_MODE}
 
 Stabilization mode(1) or Position Control(0).
 
 **Values:**
 
-- `0`: Position Control
-- `1`: Stabilization Mode
+- `0`: Tracks previous attitude setpoint
+- `1`: Tracks horizontal attitude (allows yaw change)
 
 
 Reboot | minValue | maxValue | increment | default | unit
@@ -40919,18 +41023,4 @@ SPC_VEHICLE_RESP.
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &nbsp; |  |  |  | 0.5 |  
-
-### UUV_SKIP_CTRL (`INT32`) {#UUV_SKIP_CTRL}
-
-Skip the controller.
-
-**Values:**
-
-- `0`: use the module's controller
-- `1`: skip the controller and feedthrough the setpoints
-
-
-Reboot | minValue | maxValue | increment | default | unit
---- | --- | --- | --- | --- | ---
-&nbsp; |  |  |  | 0 |  
 
