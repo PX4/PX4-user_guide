@@ -78,7 +78,7 @@ The coordinate system origin is the vehicle position at the time when the EKF2-m
 
 ## Unversioned Messages
 
-- [ActionRequest](ActionRequest.md)
+- [ActionRequest](ActionRequest.md) — Action request for the vehicle's main state
 - [ActuatorArmed](ActuatorArmed.md)
 - [ActuatorControlsStatus](ActuatorControlsStatus.md)
 - [ActuatorOutputs](ActuatorOutputs.md)
