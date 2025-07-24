@@ -20217,6 +20217,20 @@ Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &check; | 0 | 6 |  | 1 |  
 
+### GPS_CFG_WIPE (`INT32`) {#GPS_CFG_WIPE}
+
+Wipes the flash config of UBX modules.
+
+Some UBX modules have a FLASH that allows to store persistent configuration that will be loaded on start.
+PX4 does override all configuration parameters it needs in RAM, which takes precedence over the values in FLASH.
+However, configuration parameters that are not overriden by PX4 can still cause unexpected problems during flight.
+To avoid these kind of problems a clean config can be reached by wiping the FLASH on boot.
+Note: Currently only supported on UBX.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&check; |  |  |  | Disabled (0) |  
+
 ### GPS_DUMP_COMM (`INT32`) {#GPS_DUMP_COMM}
 
 Log GPS communication data.
