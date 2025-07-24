@@ -45,32 +45,6 @@ div.frame_variant td, div.frame_variant th {
 }
 </style>
 
-## 2D Space Robot
-
-### Space Robot
-
-<div class="frame_common">
-<img src="../../assets/airframes/types/AirframeUnknown.svg"/>
-</div>
-
-<div class="frame_variant">
-<table>
- <thead>
-   <tr><th>Name</th><th></th></tr>
- </thead>
-<tbody>
-<tr id="2d_space_robot_space_robot_kth_space_robot">
- <td>KTH Space Robot</td>
- <td>Maintainer: DISCOWER<p><code>SYS_AUTOSTART</code> = 70000</p></td>
-</tr>
-<tr id="2d_space_robot_space_robot_kth_space_robot">
- <td>KTH Space Robot</td>
- <td>Maintainer: DISCOWER<p><code>SYS_AUTOSTART</code> = 70001</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-
 ## Airship
 
 ### Airship
@@ -640,6 +614,28 @@ div.frame_variant td, div.frame_variant th {
 <tr id="rover_rover_generic_rover_mecanum">
  <td>Generic Rover Mecanum</td>
  <td>Maintainer: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 52000</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+## Spacecraft
+
+### Free-Flyer
+
+<div class="frame_common">
+<img src="../../assets/airframes/types/AirframeUnknown.svg"/>
+</div>
+
+<div class="frame_variant">
+<table>
+ <thead>
+   <tr><th>Name</th><th></th></tr>
+ </thead>
+<tbody>
+<tr id="spacecraft_free-flyer_kth-atmos">
+ <td>KTH-ATMOS</td>
+ <td>Maintainer: DISCOWER<p><code>SYS_AUTOSTART</code> = 70000</p></td>
 </tr>
 </tbody>
 </table>
