@@ -32435,6 +32435,23 @@ Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &nbsp; |  |  |  | 63 |  
 
+### ILABS_MODE (`INT32`) {#ILABS_MODE}
+
+InertialLabs INS sensor mode configuration.
+
+Configures whether the driver outputs only raw sensor output (the default),
+or additionally supplies INS data such as position and velocity estimates.
+
+**Values:**
+
+- `0`: Sensors Only (default)
+- `1`: INS
+
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; |  |  |  | 0 |  
+
 ### IMU_ACCEL_CUTOFF (`FLOAT`) {#IMU_ACCEL_CUTOFF}
 
 Low pass filter cutoff frequency for accel.
@@ -33632,6 +33649,32 @@ Sets the longest time constant that will be applied to the calculation of GPS po
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &nbsp; | 1.0 | 100.0 |  | 10.0 | s 
+
+### SENS_ILABS_CFG (`INT32`) {#SENS_ILABS_CFG}
+
+Serial Configuration for InertialLabs.
+
+Configure on which serial port to run InertialLabs.
+
+**Values:**
+
+- `0`: Disabled
+- `6`: UART 6
+- `101`: TELEM 1
+- `102`: TELEM 2
+- `103`: TELEM 3
+- `104`: TELEM/SERIAL 4
+- `201`: GPS 1
+- `202`: GPS 2
+- `203`: GPS 3
+- `300`: Radio Controller
+- `301`: Wifi Port
+- `401`: EXT2
+
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&check; |  |  |  | 0 |  
 
 ### SENS_IMU_AUTOCAL (`INT32`) {#SENS_IMU_AUTOCAL}
 
