@@ -26850,6 +26850,48 @@ Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &nbsp; | 0.0 |  | 0.01 | 0.30 |  
 
+## Neural Control
+
+### MC_NN_EN (`INT32`) {#MC_NN_EN}
+
+If true the neural network control is automatically started on boot.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; |  |  |  | Enabled (1) |  
+
+### MC_NN_MANL_CTRL (`INT32`) {#MC_NN_MANL_CTRL}
+
+Enable or disable setting the trajectory setpoint with manual control.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&check; |  |  |  | Enabled (1) |  
+
+### MC_NN_MAX_RPM (`INT32`) {#MC_NN_MAX_RPM}
+
+The maximum RPM of the motors. Used to normalize the output of the neural network.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 80000 |  | 22000 |  
+
+### MC_NN_MIN_RPM (`INT32`) {#MC_NN_MIN_RPM}
+
+The minimum RPM of the motors. Used to normalize the output of the neural network.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 80000 |  | 1000 |  
+
+### MC_NN_THRST_COEF (`FLOAT`) {#MC_NN_THRST_COEF}
+
+Thrust coefficient of the motors. Used to normalize the output of the neural network. Divided by 100 000.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0.0 | 5.0 |  | 1.2 |  
+
 ## OSD
 
 ### MSP_OSD_CONFIG (`INT32`) {#MSP_OSD_CONFIG}

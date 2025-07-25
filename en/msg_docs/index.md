@@ -188,6 +188,7 @@ These are the externally visible LED's, not the board LED's
 - [NavigatorMissionItem](NavigatorMissionItem.md)
 - [NavigatorStatus](NavigatorStatus.md) — Current status of a Navigator mode
 The possible values of nav_state are defined in the VehicleStatus msg.
+- [NeuralControl](NeuralControl.md) — Neural control
 - [NormalizedUnsignedSetpoint](NormalizedUnsignedSetpoint.md)
 - [ObstacleDistance](ObstacleDistance.md) — Obstacle distances in front of the sensor.
 - [OffboardControlMode](OffboardControlMode.md) — Off-board control mode
