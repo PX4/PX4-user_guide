@@ -15160,6 +15160,7 @@ Specify USB MAVLink mode.
 - `10`: gimbal
 - `11`: onboard_low_bandwidth
 - `12`: uavionix
+- `13`: Low Bandwidth
 
 
 Reboot | minValue | maxValue | increment | default | unit
