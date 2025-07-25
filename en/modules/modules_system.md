@@ -154,7 +154,7 @@ commander <command> [arguments...]
 
    pair
 
-   lockdown
+   termination
      on|off      Turn lockdown on or off
 
    set_ekf_origin
