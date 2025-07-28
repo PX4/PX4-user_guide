@@ -27057,14 +27057,6 @@ Reboot | minValue | maxValue | increment | default | unit
 
 ## Payload Deliverer
 
-### PD_GRIPPER_EN (`INT32`) {#PD_GRIPPER_EN}
-
-Enable Gripper actuation in Payload Deliverer.
-
-Reboot | minValue | maxValue | increment | default | unit
---- | --- | --- | --- | --- | ---
-&check; |  |  |  | Disabled (0) |  
-
 ### PD_GRIPPER_TO (`FLOAT`) {#PD_GRIPPER_TO}
 
 Timeout for successful gripper actuation acknowledgement.
@@ -27076,7 +27068,7 @@ this time before considering gripper actuation successful and publish a
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; | 0 |  |  | 3 | s 
+&nbsp; | 0 |  |  | 1 | s 
 
 ### PD_GRIPPER_TYPE (`INT32`) {#PD_GRIPPER_TYPE}
 
