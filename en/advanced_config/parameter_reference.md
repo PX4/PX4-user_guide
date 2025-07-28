@@ -25130,11 +25130,13 @@ Reboot | minValue | maxValue | increment | default | unit
 
 Loiter radius (FW only).
 
-Default value of loiter radius in FW mode (e.g. for Loiter mode).
+Default value of loiter radius in fixed-wing mode (e.g. for Loiter mode).
+The direction of the loiter can be set via the sign: A positive value for
+clockwise, negative for counter-clockwise.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; | 25 | 1000 | 0.5 | 80.0 | m 
+&nbsp; | -10000 | 10000 | 0.5 | 80.0 | m 
 
 ### NAV_MC_ALT_RAD (`FLOAT`) {#NAV_MC_ALT_RAD}
 
