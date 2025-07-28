@@ -15998,7 +15998,7 @@ the estimated time it takes to reach the RTL destination.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; |  |  | 1 | 3 |  
+&nbsp; |  |  | 1 | 0 |  
 
 ### COM_FLT_PROFILE (`INT32`) {#COM_FLT_PROFILE}
 
