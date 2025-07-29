@@ -74,6 +74,7 @@ The coordinate system origin is the vehicle position at the time when the EKF2-m
 - [VehicleRatesSetpoint](VehicleRatesSetpoint.md)
 - [VehicleStatus](VehicleStatus.md) — Encodes the system state of the vehicle published by commander
 - [VtolVehicleStatus](VtolVehicleStatus.md) — VEHICLE_VTOL_STATE, should match 1:1 MAVLinks's MAV_VTOL_STATE
+- [Wind](Wind.md)
 
 
 ## Unversioned Messages
@@ -298,7 +299,6 @@ NaN means the state was not controlled
 - [VehicleTorqueSetpoint](VehicleTorqueSetpoint.md)
 - [VelocityLimits](VelocityLimits.md) — Velocity and yaw rate limits for a multicopter position slow mode only
 - [WheelEncoders](WheelEncoders.md)
-- [Wind](Wind.md)
 - [YawEstimatorStatus](YawEstimatorStatus.md)
 - [AirspeedValidatedV0](AirspeedValidatedV0.md)
 - [ArmingCheckReplyV0](ArmingCheckReplyV0.md)

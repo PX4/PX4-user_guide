@@ -2,9 +2,11 @@
 
 
 
-[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/Wind.msg)
+[source file](https://github.com/PX4/PX4-Autopilot/blob/main/msg/versioned/Wind.msg)
 
 ```c
+uint32 MESSAGE_VERSION = 0
+
 uint64 timestamp		# time since system start (microseconds)
 uint64 timestamp_sample         # the timestamp of the raw data (microseconds)
 
