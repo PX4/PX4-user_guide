@@ -307,6 +307,8 @@ NaN means the state was not controlled
 Events interface
 - [HomePositionV0](HomePositionV0.md) — GPS home position in WGS84 coordinates.
 - [VehicleAttitudeSetpointV0](VehicleAttitudeSetpointV0.md)
+- [VehicleLocalPositionV0](VehicleLocalPositionV0.md) — Fused local position in NED.
+The coordinate system origin is the vehicle position at the time when the EKF2-module was started.
 - [VehicleStatusV0](VehicleStatusV0.md) — Encodes the system state of the vehicle published by commander
 
     
