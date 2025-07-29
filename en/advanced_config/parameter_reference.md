@@ -17099,6 +17099,22 @@ Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &nbsp; | 1.0 |  |  | 3.0 | SD 
 
+### EKF2_AGP_MODE (`INT32`) {#EKF2_AGP_MODE}
+
+Fusion reset mode.
+
+Automatic: reset on fusion timeout if no other source of position is available Dead-reckoning: reset on fusion timeout if no source of velocity is available
+
+**Values:**
+
+- `0`: Automatic
+- `1`: Dead-reckoning
+
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; |  |  |  | 0 |  
+
 ### EKF2_AGP_NOISE (`FLOAT`) {#EKF2_AGP_NOISE}
 
 Measurement noise for aux global position measurements.
