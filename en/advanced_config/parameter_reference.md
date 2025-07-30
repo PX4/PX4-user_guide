@@ -35110,7 +35110,7 @@ SBUS RC driver.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&check; |  |  |  | 300 |  
+&check; |  |  |  | 0 |  
 
 ### SER_EXT2_BAUD (`INT32`) {#SER_EXT2_BAUD}
 
