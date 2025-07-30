@@ -17523,6 +17523,22 @@ Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &check; | 0 | 300 |  | 110 | ms 
 
+### EKF2_GPS_MODE (`INT32`) {#EKF2_GPS_MODE}
+
+Fusion reset mode.
+
+Automatic: reset on fusion timeout if no other source of position is available Dead-reckoning: reset on fusion timeout if no source of velocity is available
+
+**Values:**
+
+- `0`: Automatic
+- `1`: Dead-reckoning
+
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; |  |  |  | 0 |  
+
 ### EKF2_GPS_POS_X (`FLOAT`) {#EKF2_GPS_POS_X}
 
 X position of GPS antenna in body frame.
