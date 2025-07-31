@@ -16479,6 +16479,8 @@ A value of 1 allows joystick control only. RC input handling and the associated 
 A value of 2 allows either RC Transmitter or Joystick input. The first valid input is used, will fallback to other sources if the input stream becomes invalid.
 A value of 3 allows either input from RC or joystick. The first available source is selected and used until reboot.
 A value of 4 ignores any stick input.
+A value of 5 allows either RC Transmitter or Joystick input. But RC has priority and whenever avaiable is immedietely used.
+A value of 6 allows either RC Transmitter or Joystick input. But Joystick has priority and whenever avaiable is immedietely used.
 
 **Values:**
 
@@ -16487,6 +16489,8 @@ A value of 4 ignores any stick input.
 - `2`: RC and Joystick with fallback
 - `3`: RC or Joystick keep first
 - `4`: Stick input disabled
+- `5`: RC priority, Joystick fallback
+- `6`: Joystick priority, RC fallback
 
 
 Reboot | minValue | maxValue | increment | default | unit
