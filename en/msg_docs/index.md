@@ -74,7 +74,7 @@ The coordinate system origin is the vehicle position at the time when the EKF2-m
 - [VehicleRatesSetpoint](VehicleRatesSetpoint.md)
 - [VehicleStatus](VehicleStatus.md) — Encodes the system state of the vehicle published by commander
 - [VtolVehicleStatus](VtolVehicleStatus.md) — VEHICLE_VTOL_STATE, should match 1:1 MAVLinks's MAV_VTOL_STATE
-- [Wind](Wind.md)
+- [Wind](Wind.md) — Wind estimate (from EKF2)
 
 
 ## Unversioned Messages
@@ -87,7 +87,7 @@ The coordinate system origin is the vehicle position at the time when the EKF2-m
 - [ActuatorTest](ActuatorTest.md)
 - [AdcReport](AdcReport.md)
 - [Airspeed](Airspeed.md) — Airspeed data from sensors
-- [AirspeedWind](AirspeedWind.md)
+- [AirspeedWind](AirspeedWind.md) — Wind estimate (from airspeed_selector)
 - [AutotuneAttitudeControlStatus](AutotuneAttitudeControlStatus.md)
 - [BatteryInfo](BatteryInfo.md) — Battery information
 - [ButtonEvent](ButtonEvent.md)
