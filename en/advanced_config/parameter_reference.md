@@ -14314,14 +14314,14 @@ Reboot | minValue | maxValue | increment | default | unit
 
 ### ASPD_WERR_THR (`FLOAT`) {#ASPD_WERR_THR}
 
-Horizontal wind uncertainty threshold for synthetic airspeed.
+Horizontal wind uncertainty threshold for valid ground-minus-wind.
 
-The synthetic airspeed estimate (from groundspeed and heading) will be declared valid
+The airspeed alternative derived from groundspeed and heading will be declared valid
 as soon and as long the horizontal wind uncertainty is below this value.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; | 0.001 | 5 |  | 0.55 | m/s 
+&nbsp; | 0.01 | 5 |  | 2. | m/s 
 
 ### ASPD_WIND_NSD (`FLOAT`) {#ASPD_WIND_NSD}
 
