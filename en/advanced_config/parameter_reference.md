@@ -17496,11 +17496,12 @@ Each threshold value is defined by the parameter indicated next to the check. Dr
 - `7`: Horizontal speed offset (EKF2_REQ_HDRIFT)
 - `8`: Vertical speed offset (EKF2_REQ_VDRIFT)
 - `9`: Spoofing
+- `10`: GPS fix type (EKF2_REQ_FIX)
 
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; | 0 | 1023 |  | 1023 |  
+&nbsp; | 0 | 2047 |  | 2047 |  
 
 ### EKF2_GPS_CTRL (`INT32`) {#EKF2_GPS_CTRL}
 
@@ -18115,6 +18116,27 @@ Required EPV to use GPS.
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &nbsp; | 2 | 100 |  | 5.0 | m 
+
+### EKF2_REQ_FIX (`INT32`) {#EKF2_REQ_FIX}
+
+Required GPS fix.
+
+Minimum GPS fix type required for GPS usage.
+
+**Values:**
+
+- `0`: No fix required
+- `2`: 2D fix
+- `3`: 3D fix
+- `4`: RTCM code differential
+- `5`: RTK float
+- `6`: RTK fixed
+- `8`: Extrapolated
+
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; |  |  |  | 3 |  
 
 ### EKF2_REQ_GPS_H (`FLOAT`) {#EKF2_REQ_GPS_H}
 
