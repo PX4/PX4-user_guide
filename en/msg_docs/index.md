@@ -282,7 +282,7 @@ mavlink message
 - [UlogStreamAck](UlogStreamAck.md) — Ack a previously sent ulog_stream message that had
 the NEED_ACK flag set
 - [VehicleAcceleration](VehicleAcceleration.md)
-- [VehicleAirData](VehicleAirData.md)
+- [VehicleAirData](VehicleAirData.md) — Vehicle air data
 - [VehicleAngularAccelerationSetpoint](VehicleAngularAccelerationSetpoint.md)
 - [VehicleConstraints](VehicleConstraints.md) — Local setpoint constraints in NED frame
 setting something to NaN means that no limit is provided
