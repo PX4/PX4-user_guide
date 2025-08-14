@@ -29793,6 +29793,16 @@ Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &nbsp; | 0 | 100 | 0.001 | 0 | m 
 
+### RD_YAW_STK_GAIN (`FLOAT`) {#RD_YAW_STK_GAIN}
+
+Yaw stick gain for Manual mode.
+
+Assign value <1.0 to decrease stick response for yaw control.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0.1 | 1 | 0.01 | 1 |  
+
 ## Rover Mecanum
 
 ### RM_COURSE_CTL_TH (`FLOAT`) {#RM_COURSE_CTL_TH}
@@ -29818,6 +29828,16 @@ Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &nbsp; | 0 | 100 | 0.001 | 0 | m 
 
+### RM_YAW_STK_GAIN (`FLOAT`) {#RM_YAW_STK_GAIN}
+
+Yaw stick gain for Manual mode.
+
+Assign value <1.0 to decrease stick response for yaw control.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0.1 | 1 | 0.01 | 1 |  
+
 ## Rover Rate Control
 
 ### RO_YAW_ACCEL_LIM (`FLOAT`) {#RO_YAW_ACCEL_LIM}
@@ -29841,6 +29861,18 @@ Set to -1 to disable.
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &nbsp; | -1 | 10000 | 0.01 | -1. | deg/s^2 
+
+### RO_YAW_EXPO (`FLOAT`) {#RO_YAW_EXPO}
+
+Yaw rate expo factor.
+
+Exponential factor for tuning the input curve shape.
+0 Purely linear input curve
+1 Purely cubic input curve
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 1 |  | 0. |  
 
 ### RO_YAW_RATE_CORR (`FLOAT`) {#RO_YAW_RATE_CORR}
 
@@ -29901,6 +29933,19 @@ Percentage of stick input range that will be interpreted as zero around the stic
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &nbsp; | 0 | 1 | 0.01 | 0.1 |  
+
+### RO_YAW_SUPEXPO (`FLOAT`) {#RO_YAW_SUPEXPO}
+
+Yaw rate super expo factor.
+
+"Superexponential" factor for refining the input curve shape tuned using RO_YAW_EXPO.
+0 Pure Expo function
+0.7 reasonable shape enhancement for intuitive stick feel
+0.95 very strong bent input curve only near maxima have effect
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 0.95 |  | 0. |  
 
 ## Rover Velocity Control
 
