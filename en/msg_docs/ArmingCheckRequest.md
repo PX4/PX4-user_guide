@@ -23,8 +23,8 @@ The reply will also include the registration_id for each external component, pro
 
 uint32 MESSAGE_VERSION = 0
 
-uint64 timestamp # [us] Time since system start.
+uint64 timestamp  # [us] Time since system start.
 
-uint8 request_id # Id of this request. Allows correlation with associated ArmingCheckReply messages.
+uint8 request_id  # Id of this request. Allows correlation with associated ArmingCheckReply messages.
 
 ```
