@@ -14478,9 +14478,9 @@ Reboot | minValue | maxValue | increment | default | unit
 
 ### FW_AT_MAN_AUX (`INT32`) {#FW_AT_MAN_AUX}
 
-Enable/disable auto tuning using an RC AUX input.
+Enable/disable auto tuning using a manual control AUX input.
 
-Defines which RC_MAP_AUXn parameter maps the RC channel used to enable/disable auto tuning.
+Defines which RC_MAP_AUXn parameter maps the manual control channel used to enable/disable auto tuning.
 
 **Values:**
 
@@ -16444,7 +16444,7 @@ Reboot | minValue | maxValue | increment | default | unit
 
 ### COM_RCL_EXCEPT (`INT32`) {#COM_RCL_EXCEPT}
 
-RC loss exceptions.
+Manual control loss exceptions.
 
 Specify modes where manual control loss is ignored and no failsafe is triggered.
 External modes requiring stick input will still failsafe.
@@ -16463,7 +16463,7 @@ Reboot | minValue | maxValue | increment | default | unit
 
 ### COM_RC_ARM_HYST (`INT32`) {#COM_RC_ARM_HYST}
 
-RC input arm/disarm command duration.
+Manual control input arm/disarm command duration.
 
 The default value of 1000 requires the stick to be held in the arm or disarm position for 1 second.
 
@@ -16512,9 +16512,9 @@ Reboot | minValue | maxValue | increment | default | unit
 
 ### COM_RC_OVERRIDE (`INT32`) {#COM_RC_OVERRIDE}
 
-Enable RC stick override of auto and/or offboard modes.
+Enable manual control stick override.
 
-When RC stick override is enabled, moving the RC sticks more than COM_RC_STICK_OV
+When enabled, moving the sticks more than COM_RC_STICK_OV
 immediately gives control back to the pilot by switching to Position mode and
 if position is unavailable Altitude mode.
 Note: Only has an effect on multicopters, and VTOLs in multicopter mode.
@@ -16531,7 +16531,7 @@ Reboot | minValue | maxValue | increment | default | unit
 
 ### COM_RC_STICK_OV (`FLOAT`) {#COM_RC_STICK_OV}
 
-RC stick override threshold.
+Stick override threshold.
 
 If COM_RC_OVERRIDE is enabled and the joystick input is moved more than this threshold
 the autopilot the pilot takes over control.
@@ -16677,11 +16677,10 @@ Reboot | minValue | maxValue | increment | default | unit
 
 ### NAV_RCL_ACT (`INT32`) {#NAV_RCL_ACT}
 
-Set RC loss failsafe mode.
+Set manual control loss failsafe mode.
 
-The RC loss failsafe will only be entered after a timeout,
-set by COM_RC_LOSS_T in seconds. If RC input checks have been disabled
-by setting the COM_RC_IN_MODE param it will not be triggered.
+The manual control loss failsafe will only be entered after a timeout,
+set by COM_RC_LOSS_T in seconds.
 
 **Values:**
 
@@ -20035,7 +20034,7 @@ Yaw behaviour during orbit flight.
 - `1`: Hold Initial Heading
 - `2`: Uncontrolled
 - `3`: Hold Front Tangent to Circle
-- `4`: RC Controlled
+- `4`: Manually (yaw stick) Controlled
 
 
 Reboot | minValue | maxValue | increment | default | unit
