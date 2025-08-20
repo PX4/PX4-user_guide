@@ -230,10 +230,10 @@ This are the three next waypoints (or just the next two or one).
 - [RoverPositionSetpoint](RoverPositionSetpoint.md) — Rover Position Setpoint
 - [RoverRateSetpoint](RoverRateSetpoint.md) — Rover Rate setpoint
 - [RoverRateStatus](RoverRateStatus.md) — Rover Rate Status
+- [RoverSpeedSetpoint](RoverSpeedSetpoint.md) — Rover Speed Setpoint
+- [RoverSpeedStatus](RoverSpeedStatus.md) — Rover Velocity Status
 - [RoverSteeringSetpoint](RoverSteeringSetpoint.md) — Rover Steering setpoint
 - [RoverThrottleSetpoint](RoverThrottleSetpoint.md) — Rover Throttle setpoint
-- [RoverVelocitySetpoint](RoverVelocitySetpoint.md) — Rover Velocity Setpoint
-- [RoverVelocityStatus](RoverVelocityStatus.md) — Rover Velocity Status
 - [Rpm](Rpm.md)
 - [RtlStatus](RtlStatus.md)
 - [RtlTimeEstimate](RtlTimeEstimate.md)
