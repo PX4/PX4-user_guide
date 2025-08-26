@@ -302,6 +302,7 @@ NaN means the state was not controlled
 - [YawEstimatorStatus](YawEstimatorStatus.md)
 - [AirspeedValidatedV0](AirspeedValidatedV0.md)
 - [ArmingCheckReplyV0](ArmingCheckReplyV0.md)
+- [ArmingCheckRequestV0](ArmingCheckRequestV0.md) — Arming check request.
 - [BatteryStatusV0](BatteryStatusV0.md) — Battery status
 - [EventV0](EventV0.md) — this message is required here in the msg_old folder because other msg are depending on it
 Events interface
