@@ -35989,6 +35989,92 @@ Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &check; |  |  |  | 1 |  
 
+## Simulation
+
+### SIM_GZ_EN_ASPD (`INT32`) {#SIM_GZ_EN_ASPD}
+
+Enable airspeed sensor in Gazebo bridge.
+
+**Values:**
+
+- `0`: Disabled
+- `1`: Enabled
+
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&check; |  |  |  | Enabled (1) |  
+
+### SIM_GZ_EN_BARO (`INT32`) {#SIM_GZ_EN_BARO}
+
+Enable barometer/air pressure sensor in Gazebo bridge.
+
+**Values:**
+
+- `0`: Disabled
+- `1`: Enabled
+
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&check; |  |  |  | Enabled (1) |  
+
+### SIM_GZ_EN_FLOW (`INT32`) {#SIM_GZ_EN_FLOW}
+
+Enable optical flow sensor in Gazebo bridge.
+
+**Values:**
+
+- `0`: Disabled
+- `1`: Enabled
+
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&check; |  |  |  | Enabled (1) |  
+
+### SIM_GZ_EN_GPS (`INT32`) {#SIM_GZ_EN_GPS}
+
+Enable GPS/NavSat sensor in Gazebo bridge.
+
+**Values:**
+
+- `0`: Disabled
+- `1`: Enabled
+
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&check; |  |  |  | Enabled (1) |  
+
+### SIM_GZ_EN_LIDAR (`INT32`) {#SIM_GZ_EN_LIDAR}
+
+Enable laser/lidar sensors in Gazebo bridge.
+
+**Values:**
+
+- `0`: Disabled
+- `1`: Enabled
+
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&check; |  |  |  | Enabled (1) |  
+
+### SIM_GZ_EN_ODOM (`INT32`) {#SIM_GZ_EN_ODOM}
+
+Enable odometry in Gazebo bridge.
+
+**Values:**
+
+- `0`: Disabled
+- `1`: Enabled
+
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&check; |  |  |  | Enabled (1) |  
+
 ## Simulation In Hardware
 
 ### SIH_DISTSNSR_MAX (`FLOAT`) {#SIH_DISTSNSR_MAX}
