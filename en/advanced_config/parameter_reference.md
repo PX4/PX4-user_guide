@@ -16962,7 +16962,7 @@ armed.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; | 0 | 1 | 0.01 | 0.055 | % 
+&nbsp; | 0 | 1 | 0.01 | 0.055 | norm 
 
 ### DSHOT_TEL_CFG (`INT32`) {#DSHOT_TEL_CFG}
 
@@ -30136,6 +30136,25 @@ Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &nbsp; |  |  |  | 2 |  
 
+### SDLOG_BACKEND (`INT32`) {#SDLOG_BACKEND}
+
+Logging Backend (integer bitmask).
+
+If no logging is set the logger will not be started.
+Set bits true to enable:
+0: SD card logging
+1: Mavlink logging
+
+**Bitmask:**
+
+- `0`: SD card logging
+- `1`: Mavlink logging
+
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&check; | 0 | 3 |  | 3 |  
+
 ### SDLOG_BOOT_BAT (`INT32`) {#SDLOG_BOOT_BAT}
 
 Battery-only Logging.
@@ -30223,10 +30242,12 @@ Logging Mode.
 
 Determines when to start and stop logging. By default, logging is started
 when arming the system, and stopped when disarming.
+Note: The logging start/end points that can be configured here only apply to
+SD logging. The mavlink backend is started/stopped independently
+of these points.
 
 **Values:**
 
-- `-1`: disabled
 - `0`: when armed until disarm (default)
 - `1`: from boot until disarm
 - `2`: from boot until shutdown
