@@ -707,6 +707,16 @@ Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &nbsp; | 0 | 65535 |  | 0 |  
 
+### PCA9685_EN_BUS (`INT32`) {#PCA9685_EN_BUS}
+
+Enable the PCA9685 output driver.
+
+The integer refers to the I2C bus number where PCA9685 is connected.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 10 |  | 0 |  
+
 ### PCA9685_FAIL1 (`INT32`) {#PCA9685_FAIL1}
 
 PCA9685 Output Channel 1 Failsafe Value.
