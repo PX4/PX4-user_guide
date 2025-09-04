@@ -33388,6 +33388,32 @@ Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &nbsp; | 1 | 50 |  | 4 | m 
 
+### SENS_BAHRS_CFG (`INT32`) {#SENS_BAHRS_CFG}
+
+Serial Configuration for EULER-NAV BAHRS.
+
+Configure on which serial port to run EULER-NAV BAHRS.
+
+**Values:**
+
+- `0`: Disabled
+- `6`: UART 6
+- `101`: TELEM 1
+- `102`: TELEM 2
+- `103`: TELEM 3
+- `104`: TELEM/SERIAL 4
+- `201`: GPS 1
+- `202`: GPS 2
+- `203`: GPS 3
+- `300`: Radio Controller
+- `301`: Wifi Port
+- `401`: EXT2
+
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&check; |  |  |  | 0 |  
+
 ### SENS_BARO_QNH (`FLOAT`) {#SENS_BARO_QNH}
 
 QNH for barometer.
