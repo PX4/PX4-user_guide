@@ -16329,22 +16329,6 @@ Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &nbsp; |  |  |  | Disabled (0) |  
 
-### COM_POSCTL_NAVL (`INT32`) {#COM_POSCTL_NAVL}
-
-Position mode navigation loss response.
-
-This sets the flight mode that will be used if navigation accuracy is no longer adequate for position control in manual Position mode.
-
-**Values:**
-
-- `0`: Altitude mode
-- `1`: Land mode (descend)
-
-
-Reboot | minValue | maxValue | increment | default | unit
---- | --- | --- | --- | --- | ---
-&nbsp; |  |  |  | 0 |  
-
 ### COM_POS_FS_EPH (`FLOAT`) {#COM_POS_FS_EPH}
 
 Horizontal position error threshold for hovering systems.
