@@ -33312,6 +33312,50 @@ Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &check; |  |  |  | 500000 |  
 
+### SBG_BAUDRATE (`INT32`) {#SBG_BAUDRATE}
+
+sbgECom driver baudrate.
+
+Baudrate used by default for serial communication between PX4
+and SBG Systems INS through sbgECom driver.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&check; | 9600 | 921600 |  | 921600 |  
+
+### SBG_CONFIGURE_EN (`INT32`) {#SBG_CONFIGURE_EN}
+
+sbgECom driver INS configuration enable.
+
+Enable SBG Systems INS configuration through sbgECom driver
+on start.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; |  |  |  | Disabled (0) |  
+
+### SBG_MODE (`INT32`) {#SBG_MODE}
+
+sbgECom driver mode.
+
+Modes available for sbgECom driver.
+In Sensors Only mode, use external IMU and magnetometer.
+In GNSS mode, use external GNSS in addition to sensors only mode.
+In INS mode, use external Kalman Filter in addition to GNSS mode.
+In INS mode, requires EKF2_EN 0. Keeping both enabled
+can lead to an unexpected behavior and vehicle instability.
+
+**Values:**
+
+- `0`: Sensors Only
+- `1`: GNSS
+- `2`: INS (default)
+
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; |  |  |  | 2 |  
+
 ### SENS_AFBR_HYSTER (`INT32`) {#SENS_AFBR_HYSTER}
 
 AFBR Rangefinder Short/Long Range Threshold Hysteresis.
@@ -34901,6 +34945,32 @@ Analog Devices ADIS16448 IMU Orientation(external SPI).
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &check; | 0 | 101 |  | 0 |  
+
+### SENS_SBG_CFG (`INT32`) {#SENS_SBG_CFG}
+
+Serial Configuration for sbgECom.
+
+Configure on which serial port to run sbgECom.
+
+**Values:**
+
+- `0`: Disabled
+- `6`: UART 6
+- `101`: TELEM 1
+- `102`: TELEM 2
+- `103`: TELEM 3
+- `104`: TELEM/SERIAL 4
+- `201`: GPS 1
+- `202`: GPS 2
+- `203`: GPS 3
+- `300`: Radio Controller
+- `301`: Wifi Port
+- `401`: EXT2
+
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&check; |  |  |  | 0 |  
 
 ### SENS_SF0X_CFG (`INT32`) {#SENS_SF0X_CFG}
 
