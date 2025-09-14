@@ -21,8 +21,8 @@ The "base" macOS setup installs the tools needed for building firmware, and incl
 
 ### Environment Setup
 
-:::details Apple Silicon Macbook users!
-If you have an Apple M1, M2 etc. Macbook, make sure to run the terminal as x86 by setting up an x86 terminal:
+:::details Apple Silicon users!
+If you have an Apple M1, M2 etc. Make sure to run the terminal as x86 by setting up an x86 terminal:
 
 1. Locate the Terminal application within the Utilities folder (**Finder > Go menu > Utilities**)
 2. Select _Terminal.app_ and right-click on it, then choose **Duplicate**.
@@ -55,7 +55,9 @@ First set up the environment
 
 To setup the environment to be able to build for Pixhawk/NuttX hardware (and install the common tools for using simulators):
 
-1. Install Homebrew by following these [installation instructions](https://brew.sh).
+1. Install Homebrew by following these [installation instructions](https://brew.sh) for Intel Based macs.
+2. Install Homebrew on Apple Silicon computers (Apple M1, M2 etc) by opening the Rosetta terminal application you made above or by switching the Terminal architectype to intel by typing intel (after folllowing the instructions for macOS Ventura and later operating systems and typing /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" and hit enter. This installs homebrew in the /usr/local folder which is now required (for non Intel Macs).
+
 1. Run these commands in your shell to install the common tools:
 
    ```sh
