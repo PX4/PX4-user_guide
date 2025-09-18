@@ -162,6 +162,9 @@ commander <command> [arguments...]
 
    lat|lon|alt   Origin latitude longitude altitude
 
+   set_heading   Set current heading
+     heading     degrees from True North [0 360]
+
    poweroff      Power off board (if supported)
 
    stop
