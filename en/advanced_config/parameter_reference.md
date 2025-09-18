@@ -15523,6 +15523,7 @@ selected flight mode will be applied.
 - `11`: Land
 - `12`: Follow Me
 - `13`: Precision Land
+- `16`: Altitude Cruise
 - `100`: External Mode 1
 - `101`: External Mode 2
 - `102`: External Mode 3
@@ -15561,6 +15562,7 @@ selected flight mode will be applied.
 - `11`: Land
 - `12`: Follow Me
 - `13`: Precision Land
+- `16`: Altitude Cruise
 - `100`: External Mode 1
 - `101`: External Mode 2
 - `102`: External Mode 3
@@ -15599,6 +15601,7 @@ selected flight mode will be applied.
 - `11`: Land
 - `12`: Follow Me
 - `13`: Precision Land
+- `16`: Altitude Cruise
 - `100`: External Mode 1
 - `101`: External Mode 2
 - `102`: External Mode 3
@@ -15637,6 +15640,7 @@ selected flight mode will be applied.
 - `11`: Land
 - `12`: Follow Me
 - `13`: Precision Land
+- `16`: Altitude Cruise
 - `100`: External Mode 1
 - `101`: External Mode 2
 - `102`: External Mode 3
@@ -15675,6 +15679,7 @@ selected flight mode will be applied.
 - `11`: Land
 - `12`: Follow Me
 - `13`: Precision Land
+- `16`: Altitude Cruise
 - `100`: External Mode 1
 - `101`: External Mode 2
 - `102`: External Mode 3
@@ -15713,6 +15718,7 @@ selected flight mode will be applied.
 - `11`: Land
 - `12`: Follow Me
 - `13`: Precision Land
+- `16`: Altitude Cruise
 - `100`: External Mode 1
 - `101`: External Mode 2
 - `102`: External Mode 3
@@ -16183,11 +16189,12 @@ External modes requiring stick input will still failsafe.
 - `1`: Hold
 - `2`: Offboard
 - `3`: External Mode
+- `4`: Altitude Cruise
 
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; | 0 | 15 |  | 0 |  
+&nbsp; | 0 | 31 |  | 0 |  
 
 ### COM_RC_ARM_HYST (`INT32`) {#COM_RC_ARM_HYST}
 
@@ -24731,6 +24738,19 @@ Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &nbsp; |  |  |  | Enabled (1) |  
 
+### MAN_DEADZONE (`FLOAT`) {#MAN_DEADZONE}
+
+Deadzone for sticks (only specific use cases).
+
+Range around stick center ignored to prevent
+vehicle drift from stick hardware inaccuracy.
+Does not apply to any precise constant input like
+throttle and attitude or rate piloting.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 1 | 0.01 | 0.1 |  
+
 ### MAN_KILL_GEST_T (`FLOAT`) {#MAN_KILL_GEST_T}
 
 Trigger time for kill stick gesture.
@@ -25595,16 +25615,6 @@ Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &nbsp; | 0 | 2 |  | 2 |  
 
-### MPC_HOLD_DZ (`FLOAT`) {#MPC_HOLD_DZ}
-
-Deadzone for sticks in manual piloted modes.
-
-Does not apply to manual throttle and direct attitude piloting by stick.
-
-Reboot | minValue | maxValue | increment | default | unit
---- | --- | --- | --- | --- | ---
-&nbsp; | 0 | 1 | 0.01 | 0.1 |  
-
 ### MPC_HOLD_MAX_XY (`FLOAT`) {#MPC_HOLD_MAX_XY}
 
 Maximum horizontal velocity for which position hold is enabled (use 0 to disable check).
@@ -25748,7 +25758,7 @@ Reboot | minValue | maxValue | increment | default | unit
 
 ### MPC_MAN_TILT_MAX (`FLOAT`) {#MPC_MAN_TILT_MAX}
 
-Maximal tilt angle in Stabilized or Altitude mode.
+Maximal tilt angle in Stabilized, Altitude and Altitude Cruise mode.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
@@ -26018,19 +26028,6 @@ Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &nbsp; | 0.1 | 10 | 1 | 2. |  
 
-### MPC_XY_MAN_EXPO (`FLOAT`) {#MPC_XY_MAN_EXPO}
-
-Manual position control stick exponential curve sensitivity.
-
-The higher the value the less sensitivity the stick has around zero
-while still reaching the maximum value with full stick deflection.
-0 Purely linear input curve
-1 Purely cubic input curve
-
-Reboot | minValue | maxValue | increment | default | unit
---- | --- | --- | --- | --- | ---
-&nbsp; | 0 | 1 | 0.01 | 0.6 |  
-
 ### MPC_XY_P (`FLOAT`) {#MPC_XY_P}
 
 Proportional gain for horizontal position error.
@@ -26102,32 +26099,6 @@ Defined as corrective acceleration in m/s^2 per m/s velocity error
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &nbsp; | 1.2 | 5 | 0.1 | 1.8 |  
-
-### MPC_YAW_EXPO (`FLOAT`) {#MPC_YAW_EXPO}
-
-Manual control stick yaw rotation exponential curve.
-
-The higher the value the less sensitivity the stick has around zero
-while still reaching the maximum value with full stick deflection.
-0 Purely linear input curve
-1 Purely cubic input curve
-
-Reboot | minValue | maxValue | increment | default | unit
---- | --- | --- | --- | --- | ---
-&nbsp; | 0 | 1 | 0.01 | 0.6 |  
-
-### MPC_Z_MAN_EXPO (`FLOAT`) {#MPC_Z_MAN_EXPO}
-
-Manual control stick vertical exponential curve.
-
-The higher the value the less sensitivity the stick has around zero
-while still reaching the maximum value with full stick deflection.
-0 Purely linear input curve
-1 Purely cubic input curve
-
-Reboot | minValue | maxValue | increment | default | unit
---- | --- | --- | --- | --- | ---
-&nbsp; | 0 | 1 | 0.01 | 0.6 |  
 
 ### MPC_Z_P (`FLOAT`) {#MPC_Z_P}
 
