@@ -1088,7 +1088,9 @@ uxrce_dds_client <command> [arguments...]
                  values: <IP>
      [-p <val>]  Agent listening port. If not provided, defaults to
                  UXRCE_DDS_PRT
-     [-n <val>]  Client DDS namespace
+     [-n <val>]  Client DDS namespace. If not provided but UXRCE_DDS_NS_IDX is
+                 between 0 and 9999 inclusive, then uav_ + UXRCE_DDS_NS_IDX will
+                 be used
 
    stop
 
