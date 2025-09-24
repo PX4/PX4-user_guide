@@ -247,6 +247,7 @@ These fields are scaled and offset-compensated where possible and do not
 change with board revisions and sensor updates.
 - [SensorCorrection](SensorCorrection.md) — Sensor corrections in SI-unit form for the voted sensor
 - [SensorGnssRelative](SensorGnssRelative.md) — GNSS relative positioning information in NED frame. The NED frame is defined as the local topological system at the reference station.
+- [SensorGnssStatus](SensorGnssStatus.md) — Gnss quality indicators
 - [SensorGps](SensorGps.md) — GPS position in WGS84 coordinates.
 the field 'timestamp' is for the position & velocity (microseconds)
 - [SensorGyro](SensorGyro.md)
