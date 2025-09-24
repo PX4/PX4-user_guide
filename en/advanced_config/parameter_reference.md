@@ -33669,7 +33669,7 @@ Lightware SF1xx/SF20/LW20 laser rangefinder (i2c).
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&check; | 0 | 6 |  | 0 |  
+&check; | 0 | 7 |  | 0 |  
 
 ### SENS_EN_SF45_CFG (`INT32`) {#SENS_EN_SF45_CFG}
 
