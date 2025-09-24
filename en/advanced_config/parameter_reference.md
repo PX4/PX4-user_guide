@@ -17619,7 +17619,7 @@ If the vehicle is on ground, is not moving as determined by the motion test and 
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; | 0.01 |  |  | 0.1 | m 
+&nbsp; | 0.01 |  |  | 0.01 | m 
 
 ### EKF2_MULTI_IMU (`INT32`) {#EKF2_MULTI_IMU}
 
