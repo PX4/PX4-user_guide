@@ -22,7 +22,9 @@ The "base" macOS setup installs the tools needed for building firmware, and incl
 ### Environment Setup
 
 :::details Apple Silicon Macbook users!
-If you have an Apple M1, M2 etc. Macbook, make sure to run the terminal as x86 by setting up an x86 terminal:
+If you have an Apple M1, M2 etc. Macbook, make sure to run the terminal as x86 by setting up an x86 terminal. Note, Apple no longer allows duplication of the terminal application in macOS Ventura and later so two sets of instructions are provided.
+
+Pre macOS Ventura:
 
 1. Locate the Terminal application within the Utilities folder (**Finder > Go menu > Utilities**)
 2. Select _Terminal.app_ and right-click on it, then choose **Duplicate**.
@@ -31,6 +33,21 @@ If you have an Apple M1, M2 etc. Macbook, make sure to run the terminal as x86 b
 5. Check the box for **Open using Rosetta**, then close the window
 6. Run the _x86 Terminal_ as usual, which will fully support the current PX4 toolchain
    :::
+
+macOS Ventura and Later:
+
+1. Locate and open the Terminal application within the Utilities folder
+2. Type sudo nano ~/.zshrc
+3. Add:
+       alias arm="env /usr/bin/arch -arm64 /bin/zsh --login"
+       alias intel="env /usr/bin/arch -x86_64 /bin/zsh --login"
+4. Save and clode the .zshrc (this adds aliases to switch between ARM and Intel architectures within a single Terminal instance).
+5. Type source ~/.zshrc in the Terminal window.
+6. Now you can switch between Intel and Arm architectures by simply typing arm or intel in the Terminal window. You will need to type intel when building PX4.
+
+  Note: You can also force the Terminal application to always open using Rosetta (aka Intel architecture) by right-clicking on the Terminal application and  and choosing \*_Get Info_ and selecting the check the box for **Open using Rosetta** but this is not recomended.
+   
+
 
 First set up the environment
 
