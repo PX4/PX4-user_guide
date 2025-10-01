@@ -70,7 +70,7 @@ e.g. control inputs of the vehicle in a Kalman-filter implementation.
 - [VehicleLandDetected](VehicleLandDetected.md)
 - [VehicleLocalPosition](VehicleLocalPosition.md) — Fused local position in NED.
 The coordinate system origin is the vehicle position at the time when the EKF2-module was started.
-- [VehicleOdometry](VehicleOdometry.md) — Vehicle odometry data. Fits ROS REP 147 for aerial vehicles
+- [VehicleOdometry](VehicleOdometry.md) — Vehicle odometry data
 - [VehicleRatesSetpoint](VehicleRatesSetpoint.md)
 - [VehicleStatus](VehicleStatus.md) — Encodes the system state of the vehicle published by commander
 - [VtolVehicleStatus](VtolVehicleStatus.md) — VEHICLE_VTOL_STATE, should match 1:1 MAVLinks's MAV_VTOL_STATE
