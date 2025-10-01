@@ -16208,30 +16208,37 @@ Reboot | minValue | maxValue | increment | default | unit
 
 ### COM_RC_IN_MODE (`INT32`) {#COM_RC_IN_MODE}
 
-RC control input mode.
+Manual control input source configuration.
 
-A value of 0 enables RC transmitter control (only). A valid RC transmitter calibration is required.
-A value of 1 allows joystick control only. RC input handling and the associated checks are disabled.
-A value of 2 allows either RC Transmitter or Joystick input. The first valid input is used, will fallback to other sources if the input stream becomes invalid.
-A value of 3 allows either input from RC or joystick. The first available source is selected and used until reboot.
-A value of 4 ignores any stick input.
-A value of 5 allows either RC Transmitter or Joystick input. But RC has priority and whenever avaiable is immedietely used.
-A value of 6 allows either RC Transmitter or Joystick input. But Joystick has priority and whenever avaiable is immedietely used.
+Selects stick input selection behavior:
+either a traditional remote control receiver (RC) or a MAVLink joystick (MANUAL_CONTROL message)
+Priority sources are immediately switched to whenever they get valid.
+0 RC only. Requires valid RC calibration.
+1 MAVLink only. RC and related checks are disabled.
+2 Switches only if current source becomes invalid.
+3 Locks to the first valid source until reboot.
+4 Ignores all sources.
+5 RC priority, then MAVLink (lower instance before higher)
+6 MAVLink priority (lower instance before higher), then RC
+7 RC priority, then MAVLink (higher instance before lower)
+8 MAVLink priority (higher instance before lower), then RC
 
 **Values:**
 
-- `0`: RC Transmitter only
-- `1`: Joystick only
-- `2`: RC and Joystick with fallback
-- `3`: RC or Joystick keep first
-- `4`: Stick input disabled
-- `5`: RC priority, Joystick fallback
-- `6`: Joystick priority, RC fallback
+- `0`: RC only
+- `1`: MAVLink only
+- `2`: RC or MAVLink with fallback
+- `3`: RC or MAVLink keep first
+- `4`: Disable manual control
+- `5`: Prio: RC > MAVL 1 > MAVL 2
+- `6`: Prio: MAVL 1 > MAVL 2 > RC
+- `7`: Prio: RC > MAVL 2 > MAVL 1
+- `8`: Prio: MAVL 2 > MAVL 1 > RC
 
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; | 0 | 4 |  | 3 |  
+&nbsp; | 0 | 8 |  | 3 |  
 
 ### COM_RC_LOSS_T (`FLOAT`) {#COM_RC_LOSS_T}
 
