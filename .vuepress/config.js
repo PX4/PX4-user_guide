@@ -176,14 +176,9 @@ module.exports = {
                 ariaLabel: "Support information",
               },
               {
-                text: "Autopilot Source Code",
+                text: "Source Code",
                 link: "https://github.com/PX4/PX4-Autopilot",
                 ariaLabel: "Source code for PX4 autopilot",
-              },
-              {
-                text: "Docs Source Code",
-                link: "https://github.com/PX4/PX4-user_guide",
-                ariaLabel: "Source code for PX4 user guide documentation",
               },
             ],
           },
@@ -207,12 +202,8 @@ module.exports = {
             ariaLabel: "Documentation Menu",
             items: [
               {
-                text: "QGroundControl User Guide",
-                link: "https://docs.qgroundcontrol.com/en/",
-              },
-              {
-                text: "QGroundControl Developer Guide",
-                link: "https://dev.qgroundcontrol.com/en/",
+                text: "QGroundControl Guide",
+                link: "https://docs.qgroundcontrol.com",
               },
               { text: "MAVLink Guide", link: "https://mavlink.io/en/" },
               { text: "MAVSDK", link: "https://mavsdk.mavlink.io/" },
@@ -295,14 +286,9 @@ module.exports = {
                 ariaLabel: "Support information",
               },
               {
-                text: "Autopilot Source Code",
+                text: "Source Code",
                 link: "https://github.com/PX4/PX4-Autopilot",
                 ariaLabel: "Source code for PX4 autopilot",
-              },
-              {
-                text: "Docs Source Code",
-                link: "https://github.com/PX4/PX4-user_guide",
-                ariaLabel: "Source code for PX4 user guide documentation",
               },
             ],
           },
@@ -326,12 +312,8 @@ module.exports = {
             ariaLabel: "Documentation Menu",
             items: [
               {
-                text: "QGroundControl User Guide",
-                link: "https://docs.qgroundcontrol.com/en/",
-              },
-              {
-                text: "QGroundControl Developer Guide",
-                link: "https://dev.qgroundcontrol.com/en/",
+                text: "QGroundControl Guide",
+                link: "https://docs.qgroundcontrol.com",
               },
               { text: "MAVLink Guide", link: "https://mavlink.io/en/" },
               { text: "MAVSDK", link: "https://mavsdk.mavlink.io/" },
@@ -352,6 +334,7 @@ module.exports = {
             ariaLabel: "Versions Menu",
             items: [
               { text: "main", link: "https://docs.px4.io/main/ko/" },
+              { text: "v1.16", link: "https://docs.px4.io/v1.16/ko/" },
               { text: "v1.15", link: "https://docs.px4.io/v1.15/ko/" },
               { text: "v1.14", link: "https://docs.px4.io/v1.14/ko/" },
               { text: "v1.13", link: "https://docs.px4.io/v1.13/ko/" },
@@ -404,14 +387,9 @@ module.exports = {
                 ariaLabel: "Support information",
               },
               {
-                text: "Autopilot Source Code",
+                text: "Source Code",
                 link: "https://github.com/PX4/PX4-Autopilot",
                 ariaLabel: "Source code for PX4 autopilot",
-              },
-              {
-                text: "Docs Source Code",
-                link: "https://github.com/PX4/PX4-user_guide",
-                ariaLabel: "Source code for PX4 user guide documentation",
               },
             ],
           },
@@ -435,12 +413,8 @@ module.exports = {
             ariaLabel: "Documentation Menu",
             items: [
               {
-                text: "QGroundControl User Guide",
-                link: "https://docs.qgroundcontrol.com/en/",
-              },
-              {
-                text: "QGroundControl Developer Guide",
-                link: "https://dev.qgroundcontrol.com/en/",
+                text: "QGroundControl Guide",
+                link: "https://docs.qgroundcontrol.com",
               },
               { text: "MAVLink Guide", link: "https://mavlink.io/en/" },
               { text: "MAVSDK", link: "https://mavsdk.mavlink.io/" },
@@ -460,6 +434,7 @@ module.exports = {
             ariaLabel: "Versions Menu",
             items: [
               { text: "main", link: "https://docs.px4.io/main/zh/" },
+              { text: "v1.16", link: "https://docs.px4.io/v1.16/zh/" },
               { text: "v1.15", link: "https://docs.px4.io/v1.15/zh/" },
               { text: "v1.14", link: "https://docs.px4.io/v1.14/zh/" },
               { text: "v1.13", link: "https://docs.px4.io/v1.13/zh/" },
