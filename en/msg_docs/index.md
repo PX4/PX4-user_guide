@@ -88,7 +88,7 @@ The coordinate system origin is the vehicle position at the time when the EKF2-m
 - [AdcReport](AdcReport.md)
 - [Airspeed](Airspeed.md) — Airspeed data from sensors
 - [AirspeedWind](AirspeedWind.md) — Wind estimate (from airspeed_selector)
-- [AutotuneAttitudeControlStatus](AutotuneAttitudeControlStatus.md)
+- [AutotuneAttitudeControlStatus](AutotuneAttitudeControlStatus.md) — Autotune attitude control status
 - [BatteryInfo](BatteryInfo.md) — Battery information
 - [ButtonEvent](ButtonEvent.md)
 - [CameraCapture](CameraCapture.md)

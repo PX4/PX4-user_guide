@@ -14252,23 +14252,10 @@ Any motion of the remote stick will abort the signal
 injection and reset this parameter
 Best is to perform the identification in position or
 hold mode.
-Increase the amplitude of the injected signal using
-FW_AT_SYSID_AMP for more signal/noise ratio
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &nbsp; |  |  |  | Disabled (0) |  
-
-### FW_AT_SYSID_AMP (`FLOAT`) {#FW_AT_SYSID_AMP}
-
-Amplitude of the injected signal.
-
-This parameter scales the signal sent to the
-rate controller during system identification.
-
-Reboot | minValue | maxValue | increment | default | unit
---- | --- | --- | --- | --- | ---
-&nbsp; | 0.1 | 6.0 |  | 1.0 |  
 
 ### FW_AT_SYSID_F0 (`FLOAT`) {#FW_AT_SYSID_F0}
 
@@ -14288,7 +14275,7 @@ Can be set lower or higher than the start frequency
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; | 0.1 | 30.0 |  | 20. | Hz 
+&nbsp; | 0.1 | 30.0 |  | 10. | Hz 
 
 ### FW_AT_SYSID_TIME (`FLOAT`) {#FW_AT_SYSID_TIME}
 
@@ -14315,7 +14302,7 @@ Type of signal used during system identification to excite the system.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; |  |  |  | 0 |  
+&nbsp; |  |  |  | 1 |  
 
 ### MC_AT_APPLY (`INT32`) {#MC_AT_APPLY}
 
