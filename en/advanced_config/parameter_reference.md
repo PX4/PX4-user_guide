@@ -32601,331 +32601,432 @@ Reboot | minValue | maxValue | increment | default | unit
 
 ### MS_ACCEL_RANGE (`INT32`) {#MS_ACCEL_RANGE}
 
-Sets the range of the accelerometer.
+MicroStrain accelerometer range.
 
--1 = Will not be configured, and will use the device default range,
-Each adjustable range has a corresponding integer setting. Refer to the device's User Manual to check the available adjustment ranges.
-https://www.hbkworld.com/en/products/transducers/inertial-sensors#!ref_microstrain.com
-Restart required
-This parameter is specific to the MicroStrain driver.
+-1 = Will not be configured, and will use the device default range.
+Ranges vary by device and map to integer codes. Check the device's [User Manual](https://www.hbkworld.com/en/products/transducers/inertial-sensors#!ref_microstrain.com) for supported ranges and set the corresponding integer.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; |  |  |  | -1 |  
+&check; |  |  |  | -1 |  
 
 ### MS_ALIGNMENT (`INT32`) {#MS_ALIGNMENT}
 
-Alignment type.
+MicroStrain heading alignment type.
 
-Select the source of heading alignment
-This is a bitfield, you can use more than 1 source
-Bit 0 - Dual-antenna GNSS
-Bit 1 - GNSS kinematic (requires motion, e.g. a GNSS velocity)
-Bit 2 - Magnetometer
-Bit 3 - External Heading (first valid external heading will be used to initialize the filter)
-Restart required
-This parameter is specific to the MicroStrain driver.
+Select the source of heading alignment.
+
+**Bitmask:**
+
+- `0`: Dual-antenna GNSS
+- `1`: GNSS kinematic (requires motion, e.g. a GNSS velocity)
+- `2`: Magnetometer
+- `3`: External Heading (first valid external heading will be used to initialize the filter)
+
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; |  |  |  | 2 |  
+&check; | 1 | 15 |  | 2 |  
 
 ### MS_BARO_RATE_HZ (`INT32`) {#MS_BARO_RATE_HZ}
 
-Barometer data rate.
+MicroStrain barometer data rate.
 
-Barometer data rate
-Max Limit: 1000
-0 - Disable barometer datastream
-The max limit should be divisible by the rate
-eg: 1000 % MS_BARO_RATE_HZ = 0
-Restart required
-This parameter is specific to the MicroStrain driver.
+Barometer data rate (Hz).
+Valid rates: 0 or any factor of 1000.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; |  |  |  | 50 |  
+&check; | 0 | 1000 |  | 50 |  
+
+### MS_EHEAD_YAW (`FLOAT`) {#MS_EHEAD_YAW}
+
+MicroStrain External Heading Orientation (Yaw).
+
+The orientation of the device (Radians) with respect to the vehicle frame around the z axis.
+Requires MS_EXT_HEAD_EN to be enabled to be used.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&check; |  |  |  | 0.0 |  
+
+### MS_EMAG_PTCH (`FLOAT`) {#MS_EMAG_PTCH}
+
+MicroStrain External Magnetometer Orientation (Pitch).
+
+The orientation of the device (Radians) with respect to the vehicle frame around the y axis.
+Requires MS_EXT_MAG_EN to be enabled to be used.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&check; |  |  |  | 0.0 |  
+
+### MS_EMAG_ROLL (`FLOAT`) {#MS_EMAG_ROLL}
+
+MicroStrain External Magnetometer Orientation (Roll).
+
+The orientation of the device (Radians) with respect to the vehicle frame around the x axis.
+Requires MS_EXT_MAG_EN to be enabled to be used.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&check; |  |  |  | 0.0 |  
+
+### MS_EMAG_UNCERT (`FLOAT`) {#MS_EMAG_UNCERT}
+
+MicroStrain external magnetometer uncertainty.
+
+The 1-sigma uncertainty (in Gauss) for all axes, which will remain constant across all aiding measurements.
+Requires MS_EXT_MAG_EN to be enabled to be used.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&check; |  |  |  | 0.1 |  
+
+### MS_EMAG_YAW (`FLOAT`) {#MS_EMAG_YAW}
+
+MicroStrain External Magnetometer Orientation (Yaw).
+
+The orientation of the device (Radians) with respect to the vehicle frame around the z axis.
+Requires MS_EXT_MAG_EN to be enabled to be used.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&check; |  |  |  | 0.0 |  
 
 ### MS_EXT_HEAD_EN (`INT32`) {#MS_EXT_HEAD_EN}
 
-Toggles external heading as an aiding measurement.
+Enable MicroStrain external heading aiding.
 
-0 = Disabled,
-1 = Enabled
+Toggles external heading as an aiding measurement.
 If enabled, the filter will be configured to accept external heading as an aiding meaurement.
-Restart required
-This parameter is specific to the MicroStrain driver.
+
+**Values:**
+
+- `0`: Disabled
+- `1`: Enabled
+
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; |  |  |  | 0 |  
+&check; |  |  |  | 0 |  
+
+### MS_EXT_MAG_EN (`INT32`) {#MS_EXT_MAG_EN}
+
+Enable MicroStrain external magnetometer aiding.
+
+Toggles external magnetometer aiding in the device filter.
+
+**Values:**
+
+- `0`: Disabled
+- `1`: Enabled
+
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&check; |  |  |  | 0 |  
 
 ### MS_FILT_RATE_HZ (`INT32`) {#MS_FILT_RATE_HZ}
 
-EKF data Rate.
+MicroStrain EKF data rate.
 
-EKF data rate
-Max Limit: 1000
-0 - Disable EKF datastream
-The max limit should be divisible by the rate
-eg: 1000 % MS_FILT_RATE_HZ = 0
-Restart required
-This parameter is specific to the MicroStrain driver.
+The rate at which the INS data is published (Hz).
+Valid rates: 0 or any factor of 1000.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; |  |  |  | 250 |  
+&check; | 0 | 1000 |  | 250 |  
 
 ### MS_GNSS_AID_SRC (`INT32`) {#MS_GNSS_AID_SRC}
 
-GNSS aiding source control.
+MicroStrain GNSS aiding source control.
 
-Select the source of gnss aiding (GNSS/INS)
-1 = All internal receivers,
-2 = External GNSS messages,
-3 = GNSS receiver 1 only
-4 = GNSS receiver 2 only
-Restart required
-This parameter is specific to the MicroStrain driver.
+Select the source of gnss aiding (GNSS/INS).
+
+**Values:**
+
+- `1`: All internal receivers
+- `2`: External GNSS messages
+- `3`: GNSS receiver 1 only
+- `4`: GNSS receiver 2 only
+
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; |  |  |  | 1 |  
+&check; |  |  |  | 1 |  
 
 ### MS_GNSS_OFF1_X (`FLOAT`) {#MS_GNSS_OFF1_X}
 
-GNSS lever arm offset 1 (X).
+MicroStrain GNSS lever arm offset 1 (X).
 
-Lever arm offset (m) in the X direction for the external GNSS receiver
-In the case of a dual antenna setup, this is antenna 1
-Restart required
-This parameter is specific to the MicroStrain driver.
+Lever arm offset (m) in the X direction for the external GNSS receiver.
+In the case of a dual antenna setup, this is antenna 1.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; |  |  |  | 0.0 |  
+&check; |  |  |  | 0.0 |  
 
 ### MS_GNSS_OFF1_Y (`FLOAT`) {#MS_GNSS_OFF1_Y}
 
-GNSS lever arm offset 1 (Y).
+MicroStrain GNSS lever arm offset 1 (Y).
 
-Lever arm offset (m) in the Y direction for the external GNSS receiver
-In the case of a dual antenna setup, this is antenna 1
-Restart required
-This parameter is specific to the MicroStrain driver.
+Lever arm offset (m) in the Y direction for the external GNSS receiver.
+In the case of a dual antenna setup, this is antenna 1.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; |  |  |  | 0.0 |  
+&check; |  |  |  | 0.0 |  
 
 ### MS_GNSS_OFF1_Z (`FLOAT`) {#MS_GNSS_OFF1_Z}
 
-GNSS lever arm offset 1 (Z).
+MicroStrain GNSS lever arm offset 1 (Z).
 
-Lever arm offset (m) in the Z direction for the external GNSS receiver
-In the case of a dual antenna setup, this is antenna 1
-Restart required
-This parameter is specific to the MicroStrain driver.
+Lever arm offset (m) in the Z direction for the external GNSS receiver.
+In the case of a dual antenna setup, this is antenna 1.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; |  |  |  | 0.0 |  
+&check; |  |  |  | 0.0 |  
 
 ### MS_GNSS_OFF2_X (`FLOAT`) {#MS_GNSS_OFF2_X}
 
-GNSS lever arm offset 2 (X).
+MicroStrain GNSS lever arm offset 2 (X).
 
 Lever arm offset (m) in the X direction for antenna 2
-This will only be used if the device supports a dual antenna setup
-Restart required
-This parameter is specific to the MicroStrain driver.
+This will only be used if the device supports a dual antenna setup.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; |  |  |  | 0.0 |  
+&check; |  |  |  | 0.0 |  
 
 ### MS_GNSS_OFF2_Y (`FLOAT`) {#MS_GNSS_OFF2_Y}
 
-GNSS lever arm offset 2 (Y).
+MicroStrain GNSS lever arm offset 2 (Y).
 
-Lever arm offset (m) in the Y direction for antenna 2
-This will only be used if the device supports a dual antenna setup
-Restart required
-This parameter is specific to the MicroStrain driver.
+Lever arm offset (m) in the Y direction for antenna 2.
+This will only be used if the device supports a dual antenna setup.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; |  |  |  | 0.0 |  
+&check; |  |  |  | 0.0 |  
 
 ### MS_GNSS_OFF2_Z (`FLOAT`) {#MS_GNSS_OFF2_Z}
 
-GNSS lever arm offset 2 (Z).
+MicroStrain GNSS lever arm offset 2 (Z).
 
-Lever arm offset (m) in the X direction for antenna 2
-This will only be used if the device supports a dual antenna setup
-Restart required
-This parameter is specific to the MicroStrain driver.
+Lever arm offset (m) in the X direction for antenna 2.
+This will only be used if the device supports a dual antenna setup.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; |  |  |  | 0.0 |  
+&check; |  |  |  | 0.0 |  
 
 ### MS_GNSS_RATE_HZ (`INT32`) {#MS_GNSS_RATE_HZ}
 
-GNSS data Rate.
+MicroStrain GNSS data rate.
 
-GNSS receiver 1 and 2 data rate
-Max Limit: 5
-The max limit should be divisible by the rate
-0 - Disable GNSS datastream
-eg: 5 % MS_GNSS_RATE_HZ = 0
-Restart required
-This parameter is specific to the MicroStrain driver.
+GNSS receiver 1 and 2 data rate (Hz).
+Valid rates: 0, 1 or 5.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; |  |  |  | 5 |  
+&check; | 0 | 5 |  | 5 |  
 
 ### MS_GYRO_RANGE (`INT32`) {#MS_GYRO_RANGE}
 
-Sets the range of the gyro.
+MicroStrain gyroscope range.
 
--1 = Will not be configured, and will use the device default range,
-Each adjustable range has a corresponding integer setting. Refer to the device's User Manual to check the available adjustment ranges.
-https://www.hbkworld.com/en/products/transducers/inertial-sensors#!ref_microstrain.com
-Restart required
-This parameter is specific to the MicroStrain driver.
+-1 = Will not be configured, and will use the device default range.
+Ranges vary by device and map to integer codes. Check the device's [User Manual](https://www.hbkworld.com/en/products/transducers/inertial-sensors#!ref_microstrain.com) for supported ranges and set the corresponding integer.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; |  |  |  | -1 |  
+&check; |  |  |  | -1 |  
 
 ### MS_IMU_RATE_HZ (`INT32`) {#MS_IMU_RATE_HZ}
 
-IMU Data Rate.
+MicroStrain IMU data rate.
 
-IMU (Accelerometer and Gyroscope) data rate
-The INS driver will be scheduled at a rate 2*MS_IMU_RATE_HZ
-Max Limit: 1000
-0 - Disable IMU datastream
-The max limit should be divisible by the rate
-eg: 1000 % MS_IMU_RATE_HZ = 0
-Restart required
-This parameter is specific to the MicroStrain driver.
+Accelerometer and Gyroscope data rate (Hz).
+Valid rates: 0 or any factor of 1000.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; |  |  |  | 500 |  
+&check; | 0 | 1000 |  | 500 |  
 
 ### MS_INT_HEAD_EN (`INT32`) {#MS_INT_HEAD_EN}
 
-Toggles internal heading as an aiding measurement.
+Enable MicroStrain internal heading aiding.
 
-0 = Disabled,
-1 = Enabled
+Toggles internal heading as an aiding measurement.
 If dual antennas are supported (CV7-GNSS/INS). The filter will be configured to use dual antenna heading as an aiding measurement.
-Restart required
-This parameter is specific to the MicroStrain driver.
+
+**Values:**
+
+- `0`: Disabled
+- `1`: Enabled
+
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; |  |  |  | 0 |  
+&check; |  |  |  | 0 |  
 
 ### MS_INT_MAG_EN (`INT32`) {#MS_INT_MAG_EN}
 
+Enable MicroStrain internal magnetometer.
+
 Toggles internal magnetometer aiding in the device filter.
 
-0 = Disabled,
-1 = Enabled
-Restart required
-This parameter is specific to the MicroStrain driver.
+**Values:**
+
+- `0`: Disabled
+- `1`: Enabled
+
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; |  |  |  | 0 |  
+&check; |  |  |  | 0 |  
 
 ### MS_MAG_RATE_HZ (`INT32`) {#MS_MAG_RATE_HZ}
 
-Magnetometer Data Rate.
+MicroStrain magnetometer data rate.
 
-Magnetometer data rate
-Max Limit: 1000
-0 - Disable magnetometer datastream
-The max limit should be divisible by the rate
-eg: 1000 % MS_MAG_RATE_HZ = 0
-Restart required
-This parameter is specific to the MicroStrain driver.
+Magnetometer data rate (Hz).
+Valid rates: 0 or any factor of 1000.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; |  |  |  | 50 |  
+&check; | 0 | 1000 |  | 50 |  
 
 ### MS_MODE (`INT32`) {#MS_MODE}
 
-Toggles using the device as the primary EKF.
+MicroStrain device mode.
 
-Setting to 1 will publish data from the device to the vehicle topics (global_position, attitude, local_position, odometry), estimator_status and sensor_selection
-Setting to 0 will publish data from the device to the external_ins topics (global position, attitude, local position)
-Restart Required
-This parameter is specific to the MicroStrain driver.
+Sensor mode publishes raw IMU data to be used by EKF2. INS data from the device is published to the external INS topics.
+INS mode publishes the INS data to the vehicle topics to be used for navigation.
+
+**Values:**
+
+- `0`: Sensor Mode
+- `1`: INS Mode
+
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; |  |  |  | 1 |  
+&check; |  |  |  | 0 |  
+
+### MS_OFLW_OFF_X (`FLOAT`) {#MS_OFLW_OFF_X}
+
+MicroStrain optical flow offset (X).
+
+Offset (m) in the X direction if an Optical Flow sensor is connected.
+Requires MS_OPT_FLOW_EN to be enabled to be used.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&check; |  |  |  | 0.0 |  
+
+### MS_OFLW_OFF_Y (`FLOAT`) {#MS_OFLW_OFF_Y}
+
+MicroStrain optical flow offset (Y).
+
+Offset (m) in the Y direction if an Optical Flow sensor is connected.
+Requires MS_OPT_FLOW_EN to be enabled to be used.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&check; |  |  |  | 0.0 |  
+
+### MS_OFLW_OFF_Z (`FLOAT`) {#MS_OFLW_OFF_Z}
+
+MicroStrain optical flow offset (Z).
+
+Offset (m) in the Z direction if an Optical Flow sensor is connected.
+Requires MS_OPT_FLOW_EN to be enabled to be used.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&check; |  |  |  | 0.0 |  
+
+### MS_OFLW_UNCERT (`FLOAT`) {#MS_OFLW_UNCERT}
+
+MicroStrain optical flow uncertainty.
+
+The 1-sigma uncertainty (in m/s) for the X and Y axes, which will remain constant across all aiding measurements.
+The Z axis is not used for aiding.
+Requires MS_OPT_FLOW_EN to be enabled to be used.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&check; |  |  |  | 0.1 |  
+
+### MS_OPT_FLOW_EN (`INT32`) {#MS_OPT_FLOW_EN}
+
+Enable MicroStrain optical flow aiding.
+
+Toggles body frame velocity as an aiding measurement.
+The driver uses the body frame velocity from the optical flow sensor as the aiding measurements.
+
+**Values:**
+
+- `0`: Disabled
+- `1`: Enabled
+
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&check; |  |  |  | 0 |  
 
 ### MS_SENSOR_PTCH (`FLOAT`) {#MS_SENSOR_PTCH}
 
-Sensor to Vehicle Transform (Pitch).
+MicroStrain Sensor to Vehicle Transform (Pitch).
 
-The orientation of the device (Radians) with respect to the vehicle frame around the y axis
-Requires MS_SVT_EN to be enabled to be used
-Restart required
-This parameter is specific to the MicroStrain driver.
+The orientation of the device (Radians) with respect to the vehicle frame around the y axis.
+Requires MS_SVT_EN to be enabled to be used.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; |  |  |  | 0.0 |  
+&check; |  |  |  | 0.0 |  
 
 ### MS_SENSOR_ROLL (`FLOAT`) {#MS_SENSOR_ROLL}
 
-Sensor to Vehicle Transform (Roll).
+MicroStrain Sensor to vehicle transform (Roll).
 
-The orientation of the device (Radians) with respect to the vehicle frame around the x axis
-Requires MS_SVT_EN to be enabled to be used
-Restart required
-This parameter is specific to the MicroStrain driver.
+The orientation of the device (Radians) with respect to the vehicle frame around the x axis.
+Requires MS_SVT_EN to be enabled to be used.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; |  |  |  | 0.0 |  
+&check; |  |  |  | 0.0 |  
 
 ### MS_SENSOR_YAW (`FLOAT`) {#MS_SENSOR_YAW}
 
-Sensor to Vehicle Transform (Yaw).
+MicroStrain Sensor to Vehicle Transform (Yaw).
 
-The orientation of the device (Radians) with respect to the vehicle frame around the z axis
-Requires MS_SVT_EN to be enabled to be used
-Restart required
-This parameter is specific to the MicroStrain driver.
+The orientation of the device (Radians) with respect to the vehicle frame around the z axis.
+Requires MS_SVT_EN to be enabled to be used.
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; |  |  |  | 0.0 |  
+&check; |  |  |  | 0.0 |  
 
 ### MS_SVT_EN (`INT32`) {#MS_SVT_EN}
 
-Enables sensor to vehicle transform.
+Enables Microstrain sensor to vehicle transform.
 
-0 = Disabled,
-1 = Enabled
 If the sensor has a different orientation with respect to the vehicle. This will enable a transform to correct itself.
-The transform is described by MS_SENSOR_ROLL, MS_SENSOR_PITCH, MS_SENSOR_YAW
-Restart required
-This parameter is specific to the MicroStrain driver.
+The transform is described by MS_SENSOR_ROLL, MS_SENSOR_PITCH, MS_SENSOR_YAW.
+
+**Values:**
+
+- `0`: Disabled
+- `1`: Enabled
+
 
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
-&nbsp; |  |  |  | 0 |  
+&check; |  |  |  | 0 |  
 
 ### PCF8583_MAGNET (`INT32`) {#PCF8583_MAGNET}
 
@@ -34579,6 +34680,32 @@ This parameter defines the rotation of the Mappydot sensor relative to the platf
 Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &check; | 0 | 7 |  | 0 |  
+
+### SENS_MS_CFG (`INT32`) {#SENS_MS_CFG}
+
+Serial Configuration for MICROSTRAIN.
+
+Configure on which serial port to run MICROSTRAIN.
+
+**Values:**
+
+- `0`: Disabled
+- `6`: UART 6
+- `101`: TELEM 1
+- `102`: TELEM 2
+- `103`: TELEM 3
+- `104`: TELEM/SERIAL 4
+- `201`: GPS 1
+- `202`: GPS 2
+- `203`: GPS 3
+- `300`: Radio Controller
+- `301`: Wifi Port
+- `401`: EXT2
+
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&check; |  |  |  | 0 |  
 
 ### SENS_OR_ADIS164X (`INT32`) {#SENS_OR_ADIS164X}
 
