@@ -18,6 +18,8 @@ crsf_rc <command> [arguments...]
      [-d <val>]  RC device
                  values: <file:dev>, default: /dev/ttyS3
 
+   inject        Inject frame data bytes (for testing)
+
    stop
 
    status        print status info
