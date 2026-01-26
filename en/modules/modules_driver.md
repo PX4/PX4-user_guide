@@ -1642,6 +1642,77 @@ voxlpm [arguments...]
    status        print status info
 ```
 
+## vtx
+
+Source: [drivers/vtx](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/vtx)
+
+
+### Description
+This module communicates with a VTX camera via serial port. It can be used to
+configure the camera settings and to control the camera's video transmission.
+Supported protocols are:
+- SmartAudio v1, v2.0, v2.1
+- Tramp
+
+
+### Usage {#vtx_usage}
+
+```
+vtx <command> [arguments...]
+ Commands:
+   start
+     -d <val>    VTX device
+                 values: <file:dev>
+
+   <int>         Sets an entry in the mapping table: <index> <aux channel>
+                 <band> <channel> <power level> <start range> <end range>
+
+   stop
+
+   status        print status info
+```
+
+## vtxtable
+
+Source: [drivers/vtxtable](https://github.com/PX4/PX4-Autopilot/tree/main/src/drivers/vtxtable)
+
+
+### Description
+Manages the VTX frequency, power level and RC mapping table for VTX configuration.
+
+
+### Usage {#vtxtable_usage}
+
+```
+vtxtable <command> [arguments...]
+ Commands:
+   status        Shows the current VTX table configuration.
+
+   name          Sets the VTX table name: <string>
+
+   bands         Sets the number of bands: <int>
+
+   band          Sets the band frequencies: <1-index> <name> <letter>
+                 <attribute> <frequencies...>
+
+   channels      Sets the number of channels: <int>
+
+   powerlevels   Sets number of power levels: <int>
+
+   powervalues   Sets the power level values: <int...>
+
+   powerlabels   Sets the power level labels: <3 chars...>
+
+   <int>         Sets an entry in the mapping table: <0-index> <aux channel>
+                 <band> <channel> <power level> <start range> <end range>
+
+   clear         Clears the VTX table configuration.
+
+   save          Saves the VTX config to a file: <file>
+
+   load          Loads the VTX config from a file: <file>
+```
+
 ## zenoh
 
 Source: [modules/zenoh](https://github.com/PX4/PX4-Autopilot/tree/main/src/modules/zenoh)

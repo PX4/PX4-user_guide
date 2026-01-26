@@ -42205,6 +42205,193 @@ Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &nbsp; | 20 | 300 | 1 | 80 | m 
 
+## VTX
+
+### VTX_BAND (`INT32`) {#VTX_BAND}
+
+VTX band.
+
+VTX table band 1-24
+
+**Values:**
+
+- `0`: Band 1
+- `1`: Band 2
+- `2`: Band 3
+- `3`: Band 4
+- `4`: Band 5
+- `5`: Band 6
+- `6`: Band 7
+- `7`: Band 8
+- `8`: Band 9
+- `9`: Band 10
+- `10`: Band 11
+- `11`: Band 12
+- `12`: Band 13
+- `13`: Band 14
+- `14`: Band 15
+- `15`: Band 16
+- `16`: Band 17
+- `17`: Band 18
+- `18`: Band 19
+- `19`: Band 20
+- `20`: Band 21
+- `21`: Band 22
+- `22`: Band 23
+- `23`: Band 24
+
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; |  |  |  | 0 |  
+
+### VTX_CHANNEL (`INT32`) {#VTX_CHANNEL}
+
+VTX channel.
+
+VTX table channel 1-16
+
+**Values:**
+
+- `0`: Channel 1
+- `1`: Channel 2
+- `2`: Channel 3
+- `3`: Channel 4
+- `4`: Channel 5
+- `5`: Channel 6
+- `6`: Channel 7
+- `7`: Channel 8
+- `8`: Channel 9
+- `9`: Channel 10
+- `10`: Channel 11
+- `11`: Channel 12
+- `12`: Channel 13
+- `13`: Channel 14
+- `14`: Channel 15
+- `15`: Channel 16
+
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; |  |  |  | 0 |  
+
+### VTX_DEVICE (`INT32`) {#VTX_DEVICE}
+
+VTX device.
+
+Specific VTX device useful for workarounds and optimizations
+
+**Values:**
+
+- `0`: SmartAudio v1, v2, v2.1 Protocol
+- `100`: Tramp Protocol
+- `5120`: Peak THOR T67
+- `10240`: Rush MAX SOLO
+
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&check; |  |  |  | 0 |  
+
+### VTX_FREQUENCY (`INT32`) {#VTX_FREQUENCY}
+
+VTX frequency in MHz.
+
+If the VTX frequency is set, it will overwrite the band and channel
+settings. Set to 0 to use band and channel settings.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0 | 32000 |  | 0 |  
+
+### VTX_MAP_CONFIG (`INT32`) {#VTX_MAP_CONFIG}
+
+VTX mapping configuration.
+
+Configure how VTX settings are controlled. Options include using
+MSP commands, AUX channels or a combination of both. To use MSP
+commands, you must use a CRSF receiver with MSP support enabled in
+the PX4 build.
+
+**Values:**
+
+- `0`: Disabled
+- `1`: MSP for Power, Band and Channel
+- `2`: MSP for Band and Channel, AUX for Power
+- `3`: MSP for Power, AUX for Band and Channel
+- `4`: AUX for Power, Band and Channel
+
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; |  |  |  | 0 |  
+
+### VTX_PIT_MODE (`INT32`) {#VTX_PIT_MODE}
+
+VTX pit mode.
+
+VTX pit mode reduces power to the minimum
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; |  |  |  | Disabled (0) |  
+
+### VTX_POWER (`INT32`) {#VTX_POWER}
+
+VTX power level.
+
+VTX transmission power level 1-16
+
+**Values:**
+
+- `0`: Level 1
+- `1`: Level 2
+- `2`: Level 3
+- `3`: Level 4
+- `4`: Level 5
+- `5`: Level 6
+- `6`: Level 7
+- `7`: Level 8
+- `8`: Level 9
+- `9`: Level 10
+- `10`: Level 11
+- `11`: Level 12
+- `12`: Level 13
+- `13`: Level 14
+- `14`: Level 15
+- `15`: Level 16
+
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; |  |  |  | 0 |  
+
+### VTX_SER_CFG (`INT32`) {#VTX_SER_CFG}
+
+Serial Configuration for VTX Serial Port.
+
+Configure on which serial port to run VTX Serial Port.
+
+**Values:**
+
+- `0`: Disabled
+- `6`: UART 6
+- `101`: TELEM 1
+- `102`: TELEM 2
+- `103`: TELEM 3
+- `104`: TELEM/SERIAL 4
+- `201`: GPS 1
+- `202`: GPS 2
+- `203`: GPS 3
+- `300`: Radio Controller
+- `301`: Wifi Port
+- `401`: EXT2
+
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&check; |  |  |  | 0 |  
+
 ## Vertiq IO
 
 ### VERTIQ_IO_CFG (`INT32`) {#VERTIQ_IO_CFG}
