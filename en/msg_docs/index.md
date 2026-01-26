@@ -305,8 +305,6 @@ NaN means the state was not controlled
 - [VehicleTorqueSetpoint](VehicleTorqueSetpoint.md)
 - [VelocityLimits](VelocityLimits.md) — Velocity and yaw rate limits for a multicopter position slow mode only
 - [Vtx](Vtx.md)
-- [VtxAuxMap](VtxAuxMap.md)
-- [VtxTable](VtxTable.md)
 - [WheelEncoders](WheelEncoders.md)
 - [YawEstimatorStatus](YawEstimatorStatus.md)
 - [AirspeedValidatedV0](AirspeedValidatedV0.md)
