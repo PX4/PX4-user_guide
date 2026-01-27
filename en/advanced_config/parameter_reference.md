@@ -21592,6 +21592,20 @@ Reboot | minValue | maxValue | increment | default | unit
 --- | --- | --- | --- | --- | ---
 &nbsp; | -2 | 2 | 0.1 | 0.0 |  
 
+### CA_ICE_PERIOD (`FLOAT`) {#CA_ICE_PERIOD}
+
+Ice shedding cycle period.
+
+Ice shedding prevents ice buildup in VTOL aircraft motors by
+periodically spinning inactive rotors. When enabled (period
+> 0), every cycle lasts for the defined period and includes
+a 2‑second spin at 0.01 motor output. If period <= 0, the
+feature is disabled.
+
+Reboot | minValue | maxValue | increment | default | unit
+--- | --- | --- | --- | --- | ---
+&nbsp; | 0.0 |  | 0.1 | 0.0 | s 
+
 ### CA_MAX_SVO_THROW (`FLOAT`) {#CA_MAX_SVO_THROW}
 
 Throw angle of swashplate servo at maximum commands for linearization.
